@@ -1,2 +1,1 @@
-# notes
-CME212 Notes
+# CME212 Course Readme
