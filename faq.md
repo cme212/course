@@ -1,3 +1,3 @@
 # CME 212 Course FAQ
 
-No questions yet.
+Please see the discussion section of the course Canvas page.
