@@ -118,6 +118,19 @@ The course grade breakdown will be:
 - 20% conceptual exercises (3 exercise sets throughout quarter)
 - 30% final exam
 
+## Homework policies
+
+- Each student is allowed 2 homework late days over the quarter. Homeworks are
+  due before class on Friday. Students may use their late days on the subsequent
+  Saturday and Sunday. No late work will be accepted after 11:59pm on the Sunday
+  following the due date. This rule does not apply to the exercise assignments
+  (EX0, etc). Late exercises are not accepted.
+
+- Each student is granted 3 regrade requests. Unused regrade requests will be
+  translated to bonus points at the end of the quarter. Regrade requests are
+  made by submitting a GitHub issue in the homework submission repository and
+  assigning the TA who graded the homework.
+
 ## Books
 
 Required readings will be assigned from:
