@@ -92,7 +92,7 @@ set of tools and a motivating project. Students will complete a series of 5
 programming assignments. On alternating weeks, students will tackle a series 
 of 5 short-answer assignments. There will be a final exam.
 
-### C/C++
+### C++
 
 - Pointers, arrays, strings
 - Memory management
