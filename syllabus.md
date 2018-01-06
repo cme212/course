@@ -37,28 +37,29 @@ their summer internships.
 
 Upon completion of this course, students should:
 
-- Possess mastery of writing performant C++ programs;
-  an accurate understanding of data representation,
-  the lifetime of objects, and complex use of memory and pointers.
-  Apply design principles to the decomposition of software
-  into reusable components, and to the production of those components.  
+- Possess mastery of
+  - writing performant C++ programs;
+  - understanding of data representation, the lifetime of objects, 
+    and complex use of memory and pointers.
+  - applying design principles to the decomposition of software
+    into reusable components.
 
 - Achieve competency in 
-  - Writing programs that respect the limitations
+  - writing programs that respect the limitations
     of computer arithmetic;
-  - Identify bottlenecks and improve runtime performance; 
-  - Writing portable programs.
+  - identifying bottlenecks and improve runtime performance; 
+  - writing portable programs.
 
 - Have exposure to 
   - basic software development tool-chains, including source-code
   control, testing frameworks, and documentation tools.
   - the process of designing and implementing large software systems;
   - how to approach an existing piece of software for maintenance,
-  extension, and modification;
+  extension, and modification.
 
-In a nutshell, we want to help you learn to 
-design, develop, and deploy a set of software components to produce
-a scalable, reliable, and reproducible experimental system for
+In summary, we want to help you learn to 
+*design, develop, and deploy* a set of software components to produce
+a *scalable, reliable, and reproducible* experimental system for
 scientific investigation.
 
 ## Prerequisites
