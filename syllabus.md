@@ -1,4 +1,7 @@
 # CME 212 - Winter 2018
+### Advanced Software Development for Scientists and Engineers
+
+---
 
 ## Description
 This course emphasizes the design of robust, performant, portable, 
