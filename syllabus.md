@@ -1,70 +1,94 @@
-# CME 212 - Winter 2017
+# CME 212 - Winter 2018
 
 ## Description
+This course emphasizes the design of robust, performant, portable, 
+and extensible code.
+The course will work from the C++ programming language.
+Students will work on a variety of programming projects, from small
+data transformation utilities to more complex and scalable systems.
+Along the way, students will learn to use a variety of practicable tools useful
+for software design. Perhaps most importantly, students will get a clearer 
+picture of how to piece together the right tools and approaches to solve
+a given problem. Complexity will be managed through abstraction;
+analytical tools will evaluate the efficiency of different design choices.
 
-This is a course emphasizing designing, building, testing, maintaining, and
-modifying software for scientific computing. Students will work on a variety of
-projects, from small data transformation utilities to large-scale systems.
-Students will learn to use a variety of tools approaches for software design, as
-well as various techniques for organizing teams. Most important, students will
-learn to fit tools and approaches to the problem being solved.
+The class has several lectures each week, in addition to weekly assignments.
+The assignments alternate between short-answer Q/A and more involved
+programming projects. You can expect to work hard and be challenged by this
+course, but your effort can really pay off. Students anecdotally report
+that CME 212 often greatly impacts what they are able to accomplish during 
+their summer internships.
 
 ## Communication
 
-- Please check the [FAQ document][cme212-faq] for answers to common questions.
-  This is the best place to look for information regarding course capacity and
-  waitlist.
+- The [CME 212 Canvas page][cme212-canvas] has been made available to all 
+  Stanford students.
+  Please ask questions related to course material in the Canvas discussion 
+  forum. We also use Canvas to post homework assignments and announcements.
 
-- The [CME 212 Canvas page][cme212-canvas] is available to all Stanford students.
-  Please ask questions related to course material in the Canvas discussion forum.
-  We also use Canvas to post homework assignments and announcements.
+- Send a message to the staff mailing list: 
+  <cme212-staff-2018@lists.stanford.edu> 
+  (this e-mail address should go live within the first week of class; 
+  in the meantime, please post any questions on Canvas)
 
-- Send a message to the staff mailing list: <cme212-staff@lists.stanford.edu>
-
-[cme212-canvas]: https://canvas.stanford.edu/courses/55831
-[cme212-faq]: https://github.com/cme212/course/blob/master/faq.md
+[cme212-canvas]: https://canvas.stanford.edu/courses/74508
 
 ## Learning Objectives
 
-Upon completion of this course, students should be able to:
+Upon completion of this course, students should:
 
-- Apply basic software development tool-chains, including source-code
-  control, testing frameworks, and documentation tools, to the
-  process of designing and implementing large software systems;
+- Possess mastery of writing performant C++ programs;
+  an accurate understanding of data representation,
+  the lifetime of objects, and complex use of memory and pointers.
+  Apply design principles to the decomposition of software
+  into reusable components, and to the production of those components.  
 
-- Use a variety of approaches to software development team
-  organization, and select techniques that are appropriate in
-  different circumstances;
+- Achieve competency in 
+  - Writing programs that respect the limitations
+    of computer arithmetic;
+  - Identify bottlenecks and improve runtime performance; 
+  - Writing portable programs.
 
-- Apply design principles to the decomposition of software into
-  reusable components, and to the production of those components;
-
-- Know how to approach an existing piece of software for maintenance,
+- Have exposure to 
+  - basic software development tool-chains, including source-code
+  control, testing frameworks, and documentation tools.
+  - the process of designing and implementing large software systems;
+  - how to approach an existing piece of software for maintenance,
   extension, and modification;
 
-- Design, develop, and deploy a set of software components to produce
-  a scalable, reliable, and reproducible experimental system for
-  scientific investigation.
+In a nutshell, we want to help you learn to 
+design, develop, and deploy a set of software components to produce
+a scalable, reliable, and reproducible experimental system for
+scientific investigation.
 
 ## Prerequisites
 
 Students are expected to have programming and computing systems experience at
-the level of CME 211. This course will primarily use C/C++.
+the level of CME 211 or CS 106B. E.g. students should have understanding of
+programming constructs such as loops, functions, 
+standard data types, basic data structures, and classes; more colloquially,
+students should already "know how to write code". You should have an 
+appreciation for the intrinsic value of good engineering and design.
+We expect you to produce well-decomposed, readable code.
+All graded coursework is focused on C++.
 
 ## Intended Audience
 
-The course is aimed at students with a background in a scientific discipline who
-will not typically have a traditional computer science background (though basic
-programming knowledge is assumed as a prerequisite). We hope to attract students
-from the life sciences, physical sciences, economics, social sciences, medicine,
-and the humanities. Computer science and engineering students are also welcome
-to take this class.
+The course is aimed at students with a background in a scientific 
+discipline who
+will not typically have a traditional computer science background 
+(though basic
+programming knowledge is assumed as a prerequisite). 
+We hope to attract students from social sciences, medicine, and humanities.
+Of course, computer science and engineering students alike are still welcome
+and encouraged to take the course if it fits their needs.
 
 ## Course Content
 
 The class will be organized as a series of topic areas, each centered around a
 set of tools and a motivating project. Students will complete a series of 5
-programming assignments.
+programming assignments. On alternating weeks, students will tackle a series 
+of 5 short-answer assignments. There will be a final exam.
 
 ### C/C++
 
@@ -76,7 +100,7 @@ programming assignments.
 - Operator overloading
 - Encapsulation, classes, namespaces
 - Constructors and destructors
-- Tools: Introduction to UNIX, Git, Make, C/C++, IDE
+- Tools: UNIX, Git, Make, C++
 
 ### Theory
 
@@ -85,38 +109,32 @@ programming assignments.
 - Program, loop, and representation invariants
 - Type systems
 - Abstract data types and abstract program values
-- Imperative vs Object-Oriented Programming
-- State machines and design, event-based programming
 - Consistency and replication
 - Tools: Introduction to analysis and documentation, unit
   testing/verification
 
 ### Development
 
-- IDEs
 - Documentation and design
 - Source code control
-- Iterative development and code reviews
-- Documentation (DOxygen)
-- Tools: Introduction to build management and collaborative
-  development
+- Iterative development and code reviews (in the form of homework feedback)
+- Documentation
+- Tools: DOxygen
 
 ### Refinement and Topics
 
 - Performance and optimization
 - Parallelism, multithreaded applications and concurrency
-- Distributed data
-- Scripting test suites
-- Tools: Introduction to refactoring, debugging, profiling,
-  optimization
+- Regular expressions
+- Tools: Introduction to GDB, valgrind, cachegrind (profiling optimization).
 
 ## Assessment
 
 The course grade breakdown will be:
 
 - 50% programming assignments (5 homeworks on 2 week intervals)
-- 20% conceptual exercises (3 exercise sets throughout quarter)
-- 30% final exam
+- 25% conceptual exercises (5 exercise sets throughout quarter)
+- 25% final exam
 
 ## Homework policies
 
@@ -124,7 +142,9 @@ The course grade breakdown will be:
   due before class on Friday. Students may use their late days on the subsequent
   Saturday and Sunday. No late work will be accepted after 11:59pm on the Sunday
   following the due date. This rule does not apply to the exercise assignments
-  (EX0, etc). Late exercises are not accepted.
+  (EX0, etc). Late exercises are not accepted. These policies are in place to ensure
+  the TAs a chance to grade your homeworks in an efficient manner and to keep
+  students from falling behind.
 
 - Each student is granted 3 regrade requests. Unused regrade requests will be
   translated to bonus points at the end of the quarter. Regrade requests are
@@ -133,23 +153,23 @@ The course grade breakdown will be:
 
 ## Books
 
-Required readings will be assigned from:
-
+A great primer on C++ is available on the Stanford e-library, and would serve as a great
+complement to course lecture notes.
 - Lippman, Lajoie, Moo. *C++ Primer, 5th edition*
-
 - [*http://proquest.safaribooksonline.com/9780133053043*](http://proquest.safaribooksonline.com/9780133053043)
 
-Recommended resources:
+The lecture notes themselves will be largely based off Bjarne Stroustrup's fantastic text, 
+["The C++ Programming Language", 4th edition](https://www.amazon.com/C-Programming-Language-Bjarne-Stroustrup-ebook/dp/B00DUW4BMS/ref=sr_1_2?ie=UTF8&qid=1515211070&sr=8-2&keywords=c%2B%2B+programming).
 
-- Gamma, Johnson, Vlissides, Booch. *Design Patterns: Elements of Reusable
-  Object-Oriented Software.*
-- Cormen, Leiserson, Rivest, Stein. *Introduction to Algorithms.*
-- Stroustrup. *The C++ Programming Language.*
-- Hunt, Thomas. *The Pragmatic Programmer.*
-- Parnas. *Software Fundamentals.*
-- Brooks. *The Mythical Man Month and The Design of Design.*
-- Waldo. *On System Design.*
-- Lampson. *Hints on System Design.*
+There are a myriad of resources that will become (more) accessible to you as you progress
+through the course. Some additional references you may enjoy:
+- Algorithms: Cormen, Leiserson, Rivest, Stein. *Introduction to Algorithms*
+- Design: Gamma, et. al. *Design Patterns: Elements of Reusable Object-Oriented Software*
+- Pragmatic advice: Thomas Hunt. *The Pragmatic Programmer*
+- Software engineering advice: Parnas. *Software Fundamentals*
+- Human elements of software engineering: Broos. *The Mythical Man Month and The Design of Design.*
+- Systems architecture: Bryant and O'Hallaron. *Computer Systems: A Programmer's Perspective*
+- Systems design: Waldo. *On System Design.*, and Lampson. *Hints on System Design.*
 
 ## Honor Code
 
