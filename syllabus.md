@@ -40,7 +40,7 @@ Upon completion of this course, students should:
 - Possess mastery of
   - writing performant C++ programs;
   - understanding of data representation, the lifetime of objects, 
-    and complex use of memory and pointers.
+    and complex use of memory and pointers;
   - applying design principles to the decomposition of software
     into reusable components.
 
@@ -51,8 +51,7 @@ Upon completion of this course, students should:
   - writing portable programs.
 
 - Have exposure to 
-  - basic software development tool-chains, including source-code
-  control, testing frameworks, and documentation tools.
+  - basic software development tool-chains, including revision control, testing frameworks, and documentation tools;
   - the process of designing and implementing large software systems;
   - how to approach an existing piece of software for maintenance,
   extension, and modification.
@@ -68,7 +67,9 @@ Students are expected to have programming and computing systems experience at
 the level of CME 211 or CS 106B. E.g. students should have understanding of
 programming constructs such as loops, functions, 
 standard data types, basic data structures, and classes; more colloquially,
-students should already "know how to write code". You should have an 
+students should already "know how to write code". 
+
+You should have an 
 appreciation for the intrinsic value of good engineering and design.
 We expect you to produce well-decomposed, readable code.
 All graded coursework is focused on C++.
@@ -155,9 +156,7 @@ The course grade breakdown will be:
 ## Books
 
 A great primer on C++ is available on the Stanford e-library, and would serve as a great
-complement to course lecture notes.
-- Lippman, Lajoie, Moo. *C++ Primer, 5th edition*
-- [*http://proquest.safaribooksonline.com/9780133053043*](http://proquest.safaribooksonline.com/9780133053043)
+complement to course lecture notes: Lippman, Lajoie, Moo. ["C++ Primer, 5th edition"](http://proquest.safaribooksonline.com/9780133053043)
 
 The lecture notes themselves will be largely based off Bjarne Stroustrup's fantastic text, 
 ["The C++ Programming Language", 4th edition](https://www.amazon.com/C-Programming-Language-Bjarne-Stroustrup-ebook/dp/B00DUW4BMS/ref=sr_1_2?ie=UTF8&qid=1515211070&sr=8-2&keywords=c%2B%2B+programming).
