@@ -45,8 +45,8 @@ their summer internships.
 ## Teaching Staff
 
 Lecturers:
- - Slaven Peles (peles at stanford)
- - Andreas Santucci (santucci at stanford)
+ - [Slaven Peles](https://icme.stanford.edu/people/slaven-peles) (peles at stanford)
+ - [Andreas Santucci](http://web.stanford.edu/~santucci/) (santucci at stanford)
 
 Teaching Assistants:
  - Alex Tsaptsinos (alextsap at stanford)
