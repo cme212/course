@@ -16,7 +16,7 @@ picture of how to piece together the right tools and approaches to solve
 a given problem. 
 
 Complexity will be managed through abstraction;
-analytical tools will evaluate the efficiency of different design choices.
+analytical tools will evaluate the efficiency of design choices.
 
 ### Format
 The class has several lectures each week, in addition to weekly assignments.
@@ -44,7 +44,7 @@ their summer internships.
 
 ## Teaching Staff
 
-Instructors:
+Lecturers:
  - Slaven Peles (peles at stanford)
  - Andreas Santucci (santucci at stanford)
 
@@ -92,12 +92,14 @@ Students are expected to have programming and computing systems experience at
 the level of CME 211 or CS 106B. E.g. students should have understanding of
 programming constructs such as loops, functions, 
 standard data types, basic data structures, and classes; more colloquially,
-students should already "know how to write code". 
+students should already "know how to code". 
 
+### A note on style
 You should have an 
 appreciation for the intrinsic value of good engineering and design.
 We expect you to produce well-decomposed, readable code.
-All graded coursework is focused on C++.
+All graded coursework is focused on C++. You may find numerous examples
+online of style guidelines, e.g. [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html#Formatting)
 
 ## Intended Audience
 
