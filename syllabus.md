@@ -70,12 +70,12 @@ Upon completion of this course, students should:
     into reusable components.
 
 - Achieve competency in 
-  - writing programs that respect the limitations
-    of computer arithmetic;
   - identifying bottlenecks and improving runtime performance; 
   - writing portable programs.
 
 - Have exposure to 
+  - writing programs that respect the limitations
+    of computer arithmetic;
   - basic software development tool-chains, including revision control, testing frameworks, and documentation tools;
   - the process of designing and implementing larger software systems;
   - how to approach an existing piece of software for maintenance,
