@@ -6,18 +6,24 @@
 ## Description
 This course emphasizes the design of robust, performant, portable, 
 and extensible code.
+
 The course will work from the C++ programming language.
 Students will work on a variety of programming projects, from small
 data transformation utilities to more complex and scalable systems.
 Along the way, students will learn to use a variety of practicable tools useful
 for software design. Perhaps most importantly, students will get a clearer 
 picture of how to piece together the right tools and approaches to solve
-a given problem. Complexity will be managed through abstraction;
+a given problem. 
+
+Complexity will be managed through abstraction;
 analytical tools will evaluate the efficiency of different design choices.
 
+### Format
 The class has several lectures each week, in addition to weekly assignments.
 The assignments alternate between short-answer Q/A and more involved
-programming projects. You can expect to work hard and be challenged by this
+programming projects. 
+
+You can expect to work hard and be challenged by this
 course, but your effort can really pay off. Students anecdotally report
 that CME 212 often greatly impacts what they are able to accomplish during 
 their summer internships.
@@ -35,6 +41,22 @@ their summer internships.
   in the meantime, please post any questions on Canvas)
 
 [cme212-canvas]: https://canvas.stanford.edu/courses/74508
+
+## Teaching Staff
+
+Instructors:
+ - Slaven Peles (peles at stanford)
+ - Andreas Santucci (santucci at stanford)
+
+Teaching Assistants:
+ - Alex Tsaptsinos (alextsap at stanford)
+ - Vishal Subbiah (svishal at stanford)
+
+## Office Hours
+Office hours will be held in Huang basement, outside of ICME.
+TAs will announce office hours during the first week of the course, and
+we expect to begin hosting formal office hours starting the second week
+of the quarter.
 
 ## Learning Objectives
 
@@ -181,12 +203,12 @@ order to better understand it, but **the work you turn in must be your own
 unless collaboration is explicitly allowed**. You may not submit the same or
 similar work to this course that you have submitted or will submit to another.
 You must acknowledge any source code that was not written by you by mentioning
-the original author(s) directly in your source code (comment or header). You can
-also acknowledge sources in a README.txt file if you used whole classes or
-libraries. Do not remove any original copyright notices and headers. Making your
-work available for copy by other students is also prohibited (unless the
-assignment explicitly allows collaboration). Violations of
-the
+the original author(s) directly in your source code (comment or header). 
+You can also acknowledge sources in a README.txt file if you used whole 
+classes or libraries. Do not remove any original copyright notices 
+and headers. Making your work available for copy by other students is 
+also prohibited (unless the assignment explicitly allows collaboration). 
+Violations of the
 [*Stanford Honor Code and Fundamental Standard*](https://communitystandards.stanford.edu/student-conduct-process/honor-code-and-fundamental-standard) will
 be forwarded to the Stanford University Office of Community Standards.
 
@@ -203,6 +225,22 @@ plagiarism:
 If you are having difficulty completing an assignment please contact a TA or the
 instructor so that we may help you. We would much rather spend time helping you
 than dealing with honor code violations.
+
+### Examples of "reasonable" actions
+ - Speaking with peers about problem sets in English (or any spoken language
+ of your choice).
+ - Whiteboarding solutions to problem sets with others using diagrams or pseudocode, but not actual code.
+
+Since this is an advanced course in programming, we expect that you 
+should be able to (learn to) debug programs on your own. 
+E.g. asking another student
+to directly look at your code and give suggestions for improvement starts
+to get into murky waters.
+
+### An inexhaustive list of "unreasonable" actions
+ - Accessing a solution to a problem prior to submitting your own. This includes solutions from prior years (staff/student) as well as this year (e.g. a fellow students finished program)
+ - Failing to cite code that you borrow outside the course notes.
+ - Showing your code to a student who is struggling with theirs.
 
 ## Students with Documented Disabilities
 
