@@ -72,12 +72,12 @@ Upon completion of this course, students should:
 - Achieve competency in 
   - writing programs that respect the limitations
     of computer arithmetic;
-  - identifying bottlenecks and improve runtime performance; 
+  - identifying bottlenecks and improving runtime performance; 
   - writing portable programs.
 
 - Have exposure to 
   - basic software development tool-chains, including revision control, testing frameworks, and documentation tools;
-  - the process of designing and implementing large software systems;
+  - the process of designing and implementing larger software systems;
   - how to approach an existing piece of software for maintenance,
   extension, and modification.
 
@@ -239,7 +239,7 @@ E.g. asking another student
 to directly look at your code and give suggestions for improvement starts
 to get into murky waters.
 
-### An inexhaustive list of "unreasonable" actions
+### Examples of "unreasonable" actions
  - Accessing a solution to a problem prior to submitting your own. This includes solutions from prior years (staff/student) as well as this year (e.g. a fellow students finished program)
  - Failing to cite code that you borrow outside the course notes.
  - Showing your code to a student who is struggling with theirs.
