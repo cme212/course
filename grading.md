@@ -41,18 +41,25 @@ In each category, overall feedback will be summarized with:
 * Correct files present
 * Clean repo (according to hw specs)
 
-## Code quality
+## Design
 
-* Cleanliness/readability
+* Modular code, decomposed into appropriate logical units (functions/classes)
+* Use of proper data structures
+* Efficient algorithm implementation
+
+## Style
+
+* Cleanliness and readability
 * Language conventions
-* Design (decomposition into logical units/functions/classes)
-* Use if proper and efficient Data structures
+
 
 ## Write up
 
+* The problem to be solved is stated clearly
+* Produced results are described in sufficient detail
 * Formatting of text or PDF file is clean and easy to read
 * Language is mostly correct and easy to follow
-* correct answers to questions asked in assignment specification
+* Correct answers to questions asked in assignment specification
 
 ## Code quality notes
 
