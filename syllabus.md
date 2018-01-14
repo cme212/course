@@ -6,18 +6,24 @@
 ## Description
 This course emphasizes the design of robust, performant, portable, 
 and extensible code.
+
 The course will work from the C++ programming language.
 Students will work on a variety of programming projects, from small
 data transformation utilities to more complex and scalable systems.
 Along the way, students will learn to use a variety of practicable tools useful
 for software design. Perhaps most importantly, students will get a clearer 
 picture of how to piece together the right tools and approaches to solve
-a given problem. Complexity will be managed through abstraction;
-analytical tools will evaluate the efficiency of different design choices.
+a given problem. 
 
+Complexity will be managed through abstraction;
+analytical tools will evaluate the efficiency of design choices.
+
+### Format
 The class has several lectures each week, in addition to weekly assignments.
 The assignments alternate between short-answer Q/A and more involved
-programming projects. You can expect to work hard and be challenged by this
+programming projects. 
+
+You can expect to work hard and be challenged by this
 course, but your effort can really pay off. Students anecdotally report
 that CME 212 often greatly impacts what they are able to accomplish during 
 their summer internships.
@@ -36,6 +42,22 @@ their summer internships.
 
 [cme212-canvas]: https://canvas.stanford.edu/courses/74508
 
+## Teaching Staff
+
+Lecturers:
+ - [Slaven Peles](https://icme.stanford.edu/people/slaven-peles) (peles at stanford)
+ - [Andreas Santucci](http://web.stanford.edu/~santucci/) (santucci at stanford)
+
+Teaching Assistants:
+ - Alex Tsaptsinos (alextsap at stanford)
+ - Vishal Subbiah (svishal at stanford)
+
+## Office Hours
+Office hours will be held in Huang basement, outside of ICME.
+TAs will announce office hours during the first week of the course, and
+we expect to begin hosting formal office hours starting the second week
+of the quarter.
+
 ## Learning Objectives
 
 Upon completion of this course, students should:
@@ -48,14 +70,14 @@ Upon completion of this course, students should:
     into reusable components.
 
 - Achieve competency in 
-  - writing programs that respect the limitations
-    of computer arithmetic;
-  - identifying bottlenecks and improve runtime performance; 
+  - identifying bottlenecks and improving runtime performance; 
   - writing portable programs.
 
 - Have exposure to 
-  - basic software development tool-chains, including revision control, testing frameworks, and documentation tools;
-  - the process of designing and implementing large software systems;
+  - writing programs that respect the limitations
+    of computer arithmetic;
+  - basic software development tools, including revision control, testing frameworks, and documentation tools;
+  - the process of designing and implementing larger software systems;
   - how to approach an existing piece of software for maintenance,
   extension, and modification.
 
@@ -70,12 +92,14 @@ Students are expected to have programming and computing systems experience at
 the level of CME 211 or CS 106B. E.g. students should have understanding of
 programming constructs such as loops, functions, 
 standard data types, basic data structures, and classes; more colloquially,
-students should already "know how to write code". 
+students should already "know how to code". 
 
+### A note on style
 You should have an 
 appreciation for the intrinsic value of good engineering and design.
 We expect you to produce well-decomposed, readable code.
-All graded coursework is focused on C++.
+All graded coursework is focused on C++. You may find numerous examples
+online of style guidelines, e.g. [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html#Formatting)
 
 ## Intended Audience
 
@@ -181,12 +205,12 @@ order to better understand it, but **the work you turn in must be your own
 unless collaboration is explicitly allowed**. You may not submit the same or
 similar work to this course that you have submitted or will submit to another.
 You must acknowledge any source code that was not written by you by mentioning
-the original author(s) directly in your source code (comment or header). You can
-also acknowledge sources in a README.txt file if you used whole classes or
-libraries. Do not remove any original copyright notices and headers. Making your
-work available for copy by other students is also prohibited (unless the
-assignment explicitly allows collaboration). Violations of
-the
+the original author(s) directly in your source code (comment or header). 
+You can also acknowledge sources in a README.txt file if you used whole 
+classes or libraries. Do not remove any original copyright notices 
+and headers. Making your work available for copy by other students is 
+also prohibited (unless the assignment explicitly allows collaboration). 
+Violations of the
 [*Stanford Honor Code and Fundamental Standard*](https://communitystandards.stanford.edu/student-conduct-process/honor-code-and-fundamental-standard) will
 be forwarded to the Stanford University Office of Community Standards.
 
@@ -203,6 +227,22 @@ plagiarism:
 If you are having difficulty completing an assignment please contact a TA or the
 instructor so that we may help you. We would much rather spend time helping you
 than dealing with honor code violations.
+
+### Examples of "reasonable" actions
+ - Speaking with peers about problem sets in English (or any spoken language
+ of your choice).
+ - Whiteboarding solutions to problem sets with others using diagrams or pseudocode, but not actual code.
+
+Since this is an advanced course in programming, we expect that you 
+should be able to (learn to) debug programs on your own. 
+E.g. asking another student
+to directly look at your code and give suggestions for improvement starts
+to get into murky waters.
+
+### Examples of "unreasonable" actions
+ - Accessing a solution to a problem prior to submitting your own. This includes solutions from prior years (staff/student) as well as this year (e.g. a fellow students finished program)
+ - Failing to cite code that you borrow outside the course notes.
+ - Showing your code to a student who is struggling with theirs.
 
 ## Students with Documented Disabilities
 
