@@ -51,12 +51,15 @@ Lecturers:
 Teaching Assistants:
  - Alex Tsaptsinos (alextsap at stanford)
  - Vishal Subbiah (svishal at stanford)
+ - Christopher Lazarus (clazarus at stanford)
+ - Noam Habot (nhabot at stanford)
 
 ## Office Hours
-Office hours will be held in Huang basement, outside of ICME.
-TAs will announce office hours during the first week of the course, and
-we expect to begin hosting formal office hours starting the second week
-of the quarter.
+Office hours will be held in Huang basement (except Slaven's), outside of ICME. The hours are:
+Monday: 5.30pm-7.30pm (Vishal)
+Tuesday: 12.45pm - 2.45pm (Alex), 2.45pm - 4.45pm (Noam)
+Wednesday: 9am - 11am (Chris), 4.30pm - 5.30pm (Slaven, ICME Suite M05), 5.30pm-7.30pm (Vishal)
+Thursday: 9am - 11am (Chris, 12.45pm - 2.45pm (Alex)
 
 ## Learning Objectives
 
