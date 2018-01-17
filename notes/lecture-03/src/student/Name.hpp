@@ -1,6 +1,5 @@
 ///
-/// Composition is "has-a" relationship between classes.
-/// Helps create a more modular code.
+/// @file Name.hpp contains declaration of class Name
 ///
 
 #include <string>
