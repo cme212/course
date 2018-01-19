@@ -57,13 +57,21 @@ Teaching Assistants:
 ## Office Hours
 Office hours will be held in Huang basement (except Slaven's), outside of ICME. The hours are:
 
-Monday: 5.30pm-7.30pm (Vishal)
+Monday: 
+  - 5.30pm-7.30pm (Vishal)
 
-Tuesday: 12.45pm - 2.45pm (Alex), 2.45pm - 4.45pm (Noam)
+Tuesday: 
+  - 12.45pm - 2.45pm (Alex), 
+  - 2.45pm - 4.45pm (Noam)
 
-Wednesday: 9am - 11am (Chris), 4.30pm - 5.30pm (Slaven, ICME Suite M05), 5.30pm-7.30pm (Vishal)
+Wednesday: 
+  - 9am - 11am (Chris), 
+  - 4.30pm - 5.30pm (Slaven, ICME Suite M05), 
+  - 5.30pm-7.30pm (Vishal)
 
-Thursday: 9am - 11am (Chris, 12.45pm - 2.45pm (Alex)
+Thursday: 
+  - 9am - 11am (Chris),
+  - 12.45pm - 2.45pm (Alex)
 
 ## Learning Objectives
 
