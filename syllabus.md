@@ -112,7 +112,7 @@ students should already "know how to code".
 In addition, we will be focused on Linux based tools, and to that 
 end expect that you already possess some computing systems knowledge, 
 e.g. basic underpinnings of the compilation process of a C++ program. 
-This material is covered, for example, in [https://github.com/CME211/notes\#contents](lectures 18 and 22) of CME 211.
+This material is covered, for example, in [https://github.com/CME211/notes](lectures 18 and 22) of CME 211.
 
 
 ### A note on style
