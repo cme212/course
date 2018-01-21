@@ -72,6 +72,7 @@ Wednesday:
 Thursday: 
   - 9am - 11am (Chris),
   - 12.45pm - 2.45pm (Alex)
+  - 2.45pm - 4.45pm (Noam)
 
 ## Learning Objectives
 
