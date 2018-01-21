@@ -103,11 +103,16 @@ scientific investigation.
 
 ## Prerequisites
 
-Students are expected to have programming and computing systems experience at
+Students are expected to have programming experience at
 the level of CME 211 or CS 106B. E.g. students should have understanding of
 programming constructs such as loops, functions, 
 standard data types, basic data structures, and classes; more colloquially,
 students should already "know how to code". 
+In addition, we will be focused on Linux based tools, and to that 
+end expect that you already possess some computing systems knowledge, 
+e.g. basic underpinnings of the compilation process of a C++ program. 
+This material is covered, for example, in [https://github.com/CME211/notes#contents](lectures 18 and 22) of CME 211.
+
 
 ### A note on style
 You should have an 
