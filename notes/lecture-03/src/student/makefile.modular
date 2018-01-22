@@ -12,13 +12,16 @@
 # next rule down. 
 #
 
+# Target clean is not a file. Don't check its modification time, always execute
+.PHONY : clean
+
 student_service : Main.o Name.o Student.o
 	g++ -Wall -Wconversion -Wextra -o student_service Main.o Student.o Name.o
 
-Main.o : Main.cpp
+Main.o : Main.cpp Student.hpp
 	g++ -Wall -Wconversion -Wextra -c Main.cpp
 
-Student.o : Student.cpp Student.hpp
+Student.o : Student.cpp Student.hpp Name.hpp
 	g++ -Wall -Wconversion -Wextra -c Student.cpp
 
 Name.o : Name.cpp Name.hpp

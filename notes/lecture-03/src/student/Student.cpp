@@ -2,8 +2,8 @@
 /// @file Student.cpp contains definition of class Student
 ///
 
-#include <Name.hpp>
-//#include "Name.hpp"
+//#include <Name.hpp>
+#include "Name.hpp"
 #include "Student.hpp"
 
 // Definition of the class Student
@@ -18,6 +18,8 @@ Student::Student(std::string givenName, std::string familyName, int studentID)
 /// Destructor
 Student::~Student()
 {
+  if(name_ == nullptr)
+    delete name_;
 }
 
 /// Return a copy of the student's ID number

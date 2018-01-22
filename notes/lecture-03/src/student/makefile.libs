@@ -1,4 +1,3 @@
-# Simplest possible makefile
 #
 # Basic component of each makefile looks like this
 # <target> : <dependencies>
@@ -18,7 +17,7 @@
 #
 # To write makefile in a more compact form use special macros
 #
-# $@ - nameo of the target
+# $@ - name of the target
 # $< - name of the first dependency
 # $? - names of all dependencies newer than the target
 # $^ - names of all dependencies with duplicates removed
@@ -38,44 +37,50 @@
 
 CXX = g++
 CXXFLAGS = -Wall -Wconversion -Wextra -fPIC # -g -O0
-OBJS = Main.o Name.o Student.o
+OBJS = Main.o Student.o
+LIBOBJS = Name.o
 RM = rm
 MV = mv
-LIB_DIR = ./lib
-INCLUDE_DIR = ./include
-LIB = Name
+LIB_DIR = -L./lib
+INCLUDE_DIR = -I./include
+LIB = -lName
 INSTALL_DIR = ./bin
+LIB_INSTALL_DIR = ./lib
+
+.PHONY: install clean
 
 student_service : $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) -L$(LIB_DIR) -l$(LIB)
-
-## This would typically be built elsewhere
-install_lib: namelib
-	-$(MV) libName.so $(LIB_DIR)
-	-$(MV) libName.a $(LIB_DIR)
-
-namelib: libName.so libName.a
-
-libName.so : Name.o   # Shared library is built using flag -sgared
-	$(CXX) $(CXXFLAGS) -shared -o $@ Name.o
-
-libName.a : Name.o    # Static library is an archive of object files
-	ar rvs $@ $<
-
-clean_lib: 
-	-$(RM) $(LIB_DIR)/*.a $(LIB_DIR)/*.so
-## End of library builds
-
-%.o : %.cpp
-	$(CXX) $(CXXFLAGS) -I$(INCLUDE_DIR) -c $<
-
-# Specify dependencies
-Main.o    : Student.hpp
-Student.o : Student.hpp Name.hpp
-Name.o    : Name.hpp
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LIB_DIR) $(LIB)
 
 install : student_service
 	-$(MV) student_service  $(INSTALL_DIR)
 
 clean:  # "-" in front of $(RM) ensures no error returned if files don't exist
 	-$(RM) *.o $(INSTALL_DIR)/student_service
+
+## This would typically be built elsewhere
+.PHONY: install_lib namelib clean_lib
+
+namelib: libName.so libName.a
+
+libName.so : $(LIBOBJS)   # Shared library is built using flag -shared
+	$(CXX) $(CXXFLAGS) -shared -o $@ $^
+
+libName.a : Name.o    # Static library is an archive of object files
+	ar rvs $@ $^
+
+install_lib: namelib
+	-$(MV) libName.so $(LIB_INSTALL_DIR)
+	-$(MV) libName.a  $(LIB_INSTALL_DIR)
+
+clean_lib: 
+	-$(RM) $(LIB_INSTALL_DIR)/*.a $(LIB_INSTALL_DIR)/*.so
+## End of library builds
+
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE_DIR) -c $<
+
+# Specify dependencies
+Main.o    : Student.hpp
+Student.o : Student.hpp Name.hpp
+Name.o    : Name.hpp

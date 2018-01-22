@@ -18,7 +18,7 @@
 #
 # To write makefile in a more compact form use special macros
 #
-# $@ - nameo of the target
+# $@ - name of the target
 # $< - name of the first dependency
 # $? - names of all dependencies newer than the target
 # $^ - names of all dependencies with duplicates removed
@@ -30,7 +30,7 @@ OBJS = Main.o Name.o Student.o
 RM = rm
 
 student_service : $(OBJS)
-	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $@ $(OBJS)
+	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $@ $^
 
 %.o : %.cpp
 	$(CXX) $(CXXFLAGS) -c $<

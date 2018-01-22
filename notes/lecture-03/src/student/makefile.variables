@@ -22,6 +22,9 @@ CXXFLAGS = -Wall -Wconversion -Wextra # -g -O0
 OBJS = Main.o Name.o Student.o
 RM = rm
 
+# Phony describes targets that are not files; interprets them always out of date
+.PHONY: clean
+
 student_service : $(OBJS)
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o student_service $(OBJS)
 
