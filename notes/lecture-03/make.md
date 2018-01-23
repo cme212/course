@@ -27,15 +27,16 @@ then use `make` tool to execute it. The make tool will look for
 files named `Makefile` or `makefile` in the same directory where
 the make comand is invoked. If you store your build instructions
 in a different file, you can use flag `-f` to tell make where
-to look
+to look, for example:
 ```
 make -f myMakeFile.mk
 ```
-The build instructions in the makefile are written in following
+The build instructions in the makefile are written in the following
 format:
-```
-target : dependencies
+```make
+target ... : dependencies ...
        rule
+       ...
 ```
 The target is the object to be created or action to
 be taken. The dependencies are the list of targets that
@@ -64,17 +65,16 @@ will be recompiled.
 
 ### Step-by-step builds ###
 
-One notices that the 2-line `Makefile` is not a
+It is obvious that our 2-line `Makefile` is not a
 practical for building large codes with of hundreds of files.
 If any of the files is modified, the entire source code will have
 to be recompiled. Long build times can add significant overhead to
-the software development time. To avoid this, we can compile
-each source file into a binary object and then link those
-objects into an executable. The flag `-c` will tell compiler
-to generate the binary object, but not link it. That way,
-if we change a single file, we will need to recompile only
-that file. We rewrite our `Makefile` in a more modular
-fashion:
+the software development. To avoid this, we can compile
+each source file into a binary object first, and then link all
+objects into an executable. That way, if we change a single file,
+we will need to recompile only that file, and then link all objects again.
+The flag `-c` will tell compiler to generate the binary object, but not
+link it. We rewrite our `Makefile` in a more modular fashion:
 
 ```make
 student_service : Main.o Name.o Student.o
@@ -96,13 +96,13 @@ Here we build main body of the code and classes `Student` and `Name`
 as separate binary objects, and then link them into a single
 executable `student_service`. The make utility will read
 entries from top to bottom. It will execute the rule, if all
-dependencies exist. Otherwise, it will look down the list for
+the dependencies exist. Otherwise, it will look down the list for
 the rules to build dependencies.
 Individual targets will be rebuilt only if their dependencies change.
 The make utility will check if the target date stamp is older
 than the date stamps of its dependencies. If so, the target will
 be deemed out-of-date and rebuilt. Otherwise, it will be reused.
-```
+```sh
 $ make -f modular.mk 
 g++ -Wall -Wconversion -Wextra -c Main.cpp
 g++ -Wall -Wconversion -Wextra -c Name.cpp
@@ -122,9 +122,9 @@ for all object and executable file targets.
 
 ### Defining variables for `make` ###
 
-Thankfully, we can define variables in makefile, so we can
-rewrite our example like this:
-```
+Using variables helps create makefiles that are easier to
+modify and maintan. We can rewrite our example like this:
+```make
 CXX = g++
 CXXFLAGS = -Wall -Wconversion -Wextra # -g -O0
 OBJS = Main.o Name.o Student.o
@@ -158,10 +158,10 @@ Note that the target `clean` is different from other targets
 in our example. Making `clean` will not create a new file, but
 will instead invoke shell command to remove all binary files.
 Targets like this are called phony targets. The dependency
-```
+```make
 .PHONY : clean
 ```
-will ensure that the make utility recognizes `clean` is not
+will tell the make utility that `clean` is not
 a file. Otherwise, if there is a file named `clean` in the
 build directory, the make utility would consider `clean`
 to be up-to-date and would not execute the shell command
@@ -175,7 +175,7 @@ There are quite a few tricks you can use to make your
 makefiles more compact and easier to edit. For example,
 building object files in the previous example seems a bit
 repetitive. We can rewrite those lines like
-```
+```make
 %.o : %.cpp
 	$(CXX) $(CXXFLAGS) -c $<
 ```
@@ -183,9 +183,9 @@ This stanza says for any source file with extension `.cpp` build
 an object file with the same name and extension `.o`. Special
 macro `$<` returns the first dependency from the list (in this
 case there is only one dependency). 
-We can specify all additional dependencies separately, elsewhere
+We can specify all additional dependencies separately elsewhere
 in the makefile:
-```
+```make
 Main.o    : Student.hpp
 Student.o : Student.hpp Name.hpp
 Name.o    : Name.hpp
@@ -193,12 +193,12 @@ Name.o    : Name.hpp
 The output file name in the linking stanza can be replaced
 with the special macro `$@`, which will insert the target
 name. The special macro `$^` inserts all the target dependencies
-in the rule. The modified linking stanza looks like this:
-```
+in the rule. The modified linking stanza then looks like this:
+```make
 student_service : $(OBJS)
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $@ $^
 ```
-This way, all the repetitive code has been eliminated from the
+This way, almost all the repetitive code has been eliminated from the
 makefile (see file [`macros.mk`](src/student/macros.mk)). Here
 is a short list of helpful special macros:
 
@@ -212,9 +212,9 @@ is a short list of helpful special macros:
 
 When you have code that is used by multiple applications,
 it is good idea to compile it as a library. That way,
-you will build the shared code once, and only link to it
-when building your applications. There are two ways to link
-to a library:
+you build the shared code once, and then link to it 
+when building different applications. There are two ways to
+link to a library:
 
 * Static linking will link the library together with other
 object files into a single binary executable.
@@ -222,10 +222,10 @@ object files into a single binary executable.
 library. The executable will (try to) load the library and
 link to it at runtime.
 
-Let us assume we want to build class Name as a library
+Let us assume we want to build class `Name` as a library.
 To build a static library one simply needs to make an archive
 of all object files that make up the library:
-```
+```make
 libName.a : Name.o
 	ar rvs $@ $^
 ```
@@ -234,20 +234,20 @@ file libName.a. Flag `r` tells `ar` utilities to add (or replace)
 files to the archive, `v` enables verbose mode, and `s`
 ensures the object file index is written into the archive.
 By convention, static libraries have file extension `.a`
-(stands for archive).
+(stands for "archive").
 
-Shared libraries are built in the same way as executables with
-additional flag `-shared`:
-```
+Shared libraries are built in a similar way as executables, but with
+an additional flag `-shared`:
+```make
 libName.so : Name.o
 	$(CXX) $(CXXFLAGS) -shared -o $@ $^
 ```
-In addition to that, when using shared libraries, all object files
-must be built with `-fPIC` flag (PIC stands for position
+When building shared libraries, all object files
+must be compiled with `-fPIC` flag (PIC stands for position
 independent code). This will ensure the executable will work correctly
 regardless of the order in which shared libraries are loaded.
 By convention, shared libraries have file extension `.so`
-(stands for shared object). Also by convention, both static
+(stands for "shared object"). Also by convention, both static
 and shared library names start with `lib`.
 
 
@@ -255,16 +255,16 @@ and shared library names start with `lib`.
 
 Now that we built and installed our library Name,
 we can link to it during the compilation. On the link
-line we have to provide path to the directory where
+line, we have to provide path to the directory where
 the library is stored and the name of the library. The
 linking stanza for the executable in our example
-should look like this:
-```
+looks like this:
+```make
 student_service : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^ -L/opt/lib -lName
 ```
 Flag `-L` tells linker where to look for the library, and
-the flag `-l` tells the linker to which library to link.
+the flag `-l` tells the linker which library to link.
 Note that the library name following the `-l` flag is used
 without prefix `lib` and without the file extension (`.so` or `.a`).
 By default, linker will try to link to a shared library.
@@ -278,7 +278,7 @@ on the compiler flags, for example: `-I/opt/include`.
 
 Take a look at the example in file [`libs.mk`](src/student/libs.mk).
 We can first create and install static and shared libraries Name:
-```
+```sh
 $ make -f libs.mk install_lib
 g++ -Wall -Wconversion -Wextra -fPIC  -shared -o libName.so Name.o
 ar rvs libName.a Name.o
@@ -289,10 +289,13 @@ mv libName.a  ./lib
 ```
 Then, we can build the executable `student_service`, which links
 to the library Name.
-```
+```sh
 $ make -f makefile.libs
 g++ -Wall -Wconversion -Wextra -fPIC  -I./include -c Main.cpp
 g++ -Wall -Wconversion -Wextra -fPIC  -I./include -c Student.cpp
 g++ -Wall -Wconversion -Wextra -fPIC  -o student_service Main.o Student.o -L./lib -lName
-$
 ```
+
+### Further reading ###
+
+[GNU make Manual](https://www.gnu.org/software/make/manual/html_node/index.html)
