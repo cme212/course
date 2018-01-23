@@ -24,7 +24,7 @@ Defensive programming means that you try to anticipate mistakes that can
 accidentaly get in your code, and structure your code in the way that it fails
 to compile or stops execution if that happens. Take a look, for example,
 at the following code:
-```
+```c++
 #include <iostream>
 
 double add(double& a, double& b)
@@ -54,7 +54,7 @@ $
 ```
 By stating our design intention explicitly, using constant data
 types, we can have compiler catch our mistake.
-```
+```c++
 double add(const double& a, const double& b)
 {
   a += b; // does not compile                                                                             
@@ -173,21 +173,21 @@ return string representation of the expression to which it is applied.
 **IMPORTANT NOTE** The macro argument `x` does not behave in the same way as an
 argument of a function. Remember -- macro is just a text replacement pattern
 applied to your code before compilation. If you, for example, have macro
-```
+```c++
 #define F(x) x*2
 ```
 then using it like this
-```
+```c++
 c = F(a+b);
 ```
 will result in the following code being compiled:
-```
+```c++
 c = a+b*2;
 ```
 Because of operator precedence in C++, the result will be *a* + 2*b* instaed of
 2(*a* + *b*). To avoid mistakes like this, the argument of the macro should always
 be put within brackets, even when it may appear redundant:
-```
+```c++
 #define F(x) (x)*2
 ```
 This will ensure that the expression `x` is always evaluated first.
@@ -694,7 +694,7 @@ you will mess up your pointers and your code will crash
 with segmentation fault. One such example is given in
 `student2.cpp` file. This code crashes with a segmentation
 fault:
-```
+```sh
 $ ./student2
 Segmentation fault: 11
 ```
