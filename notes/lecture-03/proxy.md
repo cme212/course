@@ -12,7 +12,7 @@ students and perform some operations on it.
 
 To create a classroom, we can use vector from Standard
 Template Library and do something like this (see [`direct.cpp`](src/proxy/direct.cpp)):
-```
+```c++
   // Create vector of Students
   std::vector<Student> classroom;
 
@@ -25,7 +25,7 @@ Template Library and do something like this (see [`direct.cpp`](src/proxy/direct
   for (unsigned i=0; i<classroom.size(); ++i)
     std::cout << classroom[i].getName() << "\n";
 ```
-Note that each vector element stores an instance of the Student class.
+Note that each vector element stores an instance of the `Student` class.
 Assuming that a student record will eventually hold a lot of data
 (much more than in this particular example), this implementation of
 the classroom object may not be the most efficient. For example,
@@ -39,7 +39,7 @@ say by student names, this will cause a lot of data copying.
 We can implement this in a more efficient way by using a vector
 of _pointers_ to `Student`, rather than vector of `Student`s.
 Here is a snippet from the implementation in [`pointer.cpp`](src/proxy/pointer.cpp):
-```
+```c++
   // Create vector of pointers to Student
   std::vector<Student*> classroom;
 
@@ -69,7 +69,7 @@ accidentally accessing data they don't need to use as nothing
 good can come out of it.
 To create better data encapsulation we create a proxy
 for the `Student` class (see [`proxy.cpp`](src/proxy/proxy.cpp)):
-```
+```c++
 class StudentProxy
 {
 public:
@@ -103,7 +103,7 @@ to `Student` as its only member variable. The proxy class
 methods provide access to the select public methods of the `Student`
 class. If we implement our classroom object as a vector of
 `StudentProxy`s, our example code will look something like this
-```
+```c++
   // Create vector of proxy Students
   std::vector<StudentProxy> classroom(3);
 
@@ -119,7 +119,7 @@ class. If we implement our classroom object as a vector of
 Vector push backs and sorting is slightly more expensive than in the
 previous example where we used pointers to `Student`, however
 these operations are still much cheaper than in the case of the vector
-of `Students`. The new value this implementation adds is better data
+of `Student`s. The new value this implementation adds is better data
 encapsulation. Developers now can access only `Student` methods they
 need, but not the other methods, such as the one retrieving student
 credit card info. This may prevent introducing some bugs and may even
