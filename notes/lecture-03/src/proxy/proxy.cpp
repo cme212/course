@@ -13,13 +13,17 @@ public:
 
   ~StudentProxy()
   {
-    if(student_ != nullptr)
-      delete student_;
   }
 
   void create(std::string name, int studentID, long creditCardNo)
   {
     student_ = new Student(name, studentID, creditCardNo);
+  }
+
+  void destroy()
+  {
+    if (student_ != nullptr)
+      delete student_;
   }
 
   std::string getName()
@@ -44,6 +48,10 @@ int main()
   // Do something with Students
   for (unsigned i=0; i<ss.size(); ++i)
     std::cout << ss[i].getName() << "\n";
+
+  // Delete students
+  for (unsigned i=0; i<ss.size(); ++i)
+    ss[i].destroy();
 
   return 0;
 }

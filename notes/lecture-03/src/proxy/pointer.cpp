@@ -19,6 +19,9 @@ int main()
   for (unsigned i=0; i<ss.size(); ++i)
     std::cout << ss[i]->getName() << "\n";
 
+  std::cout << "Hey, everybody, " << ss[1]->getName()
+            << "'s credit card number is " << ss[1]->getCreditCardNo() << "!\n";
+
   // Delete Students ...
   for (unsigned i=0; i<ss.size(); ++i)
     delete ss[i];
