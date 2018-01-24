@@ -6,8 +6,9 @@
  * @param[in] a         Sorted array to search.
  * @param[in] low,high  Search in the index range [ low,  high).
  * @param[in] v         Value to search for.
- * @return    An index into array  a or -1.
+ * @return    An index into array _a_ or -1.
  *
+ * @tparam T Type of the array elements
  * @tparam T Comparison operator defined: bool operator<(T,T)
  * @tparam T Comparison operator defined: bool operator>(T,T)
  * @tparam T Substraction operator defined: T operator-(T,T)

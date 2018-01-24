@@ -8,11 +8,12 @@
  * @param[in] a         Sorted array to search.
  * @param[in] low,high  Search in the index range [@a low, @a high).
  * @param[in] v         Value to search for.
- * @return    An index into array @a a or -1.
+ * @return    An index into array _a_ or -1.
  * 
+ * @tparam T Type of the array elements
  * @tparam T Comparison operator defined: bool operator<(T,T)
  * @tparam T Comparison operator defined: bool operator>(T,T)
- * @tparam T Not appropriate for floating point type
+ * @tparam T Not appropriate for floating point types
  *
  * @pre 0 <=  low <=  high <= Size of the array _a_.
  * @pre For all i,j with  low <= i < j <  high,  a[i] <= a[j].
