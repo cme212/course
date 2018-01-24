@@ -8,8 +8,8 @@
  * @param[in] v         Value to search for.
  * @return    An index into array @a a or -1.
  *
- * @tparam Comparison operators defined: bool operator>(T,T)
- * @tparam Substraction operators defined: bool operator-(T,T)
+ * @tparam T Comparison operators defined: bool operator>(T,T)
+ * @tparam T Substraction operators defined: bool operator-(T,T)
  * 
  * @pre 0 <= @a low <= @a high <= Size of the array @a a.
  * @pre For all i,j with @a low <= i < j < @a high, @a a[i] <= @a a[j].

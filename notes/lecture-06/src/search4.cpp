@@ -10,9 +10,9 @@
  * @param[in] v         Value to search for.
  * @return    An index into array @a a or -1.
  * 
- * @tparam Comparison operator defined: bool operator<(T,T)
- * @tparam Comparison operator defined: bool operator>(T,T)
- * @tparam Not appropriate for floating point type search.
+ * @tparam T Comparison operator defined: bool operator<(T,T)
+ * @tparam T Comparison operator defined: bool operator>(T,T)
+ * @tparam T Not appropriate for floating point type
  *
  * @pre 0 <= @a low <= @a high <= Size of the array @a a.
  * @pre For all i,j with @a low <= i < j < @a high, @a a[i] <= @a a[j].
