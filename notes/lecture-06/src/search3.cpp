@@ -18,7 +18,7 @@
  * @post ( low <= result <  high and  a[result] ==  v) 
  *    or (result == -1 and there is no _i_ s.t. low <= i < high, and a[i] == v).
  *
- * Complexity O(log(@a high - @a low))
+ * Complexity O(log(high - low))
  */
 template <class T>
 int binary_search(const T* a, int low, int high, const T& v, const T& eps)
