@@ -11,7 +11,7 @@
  * @pre 0 <= low <= n < high <= Size of the array  _a_.
  * @pre For all i,j with low <= i < j <  high,  a[i] <=  a[j].
  * @post (low <= result <  high and  a[result] ==  v) 
- *    or (result == -1 and there is no i, low <= i < high, s.t.  a[i] ==  v).
+ *    or (result == -1 and there is no _i_ s.t. low <= i < high, and  a[i] == v).
  *
  * Complexity O(log(high - low))
  */

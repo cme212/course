@@ -4,21 +4,21 @@
  * Search a sorted array for a value using binary search.
  * 
  * @param[in] a         Sorted array to search.
- * @param[in] low,high  Search in the index range [@a low, @a high).
+ * @param[in] low,high  Search in the index range [ low,  high).
  * @param[in] v         Value to search for.
- * @return    An index into array @a a or -1.
+ * @return    An index into array  a or -1.
  *
  * @tparam T Comparison operator defined: bool operator<(T,T)
  * @tparam T Comparison operator defined: bool operator>(T,T)
  * @tparam T Substraction operator defined: T operator-(T,T)
  * @tparam T Negation operator defined: T operator-(T)
  * 
- * @pre 0 <= @a low <= @a high <= Size of the array @a a.
- * @pre For all i,j with @a low <= i < j < @a high, @a a[i] <= @a a[j].
- * @post (@a low <= result < @a high and @a a[result] == @a v) 
- *    or (result == -1 and there is no i, @a low <= i < @a high, s.t. @a a[i] == @a v).
+ * @pre 0 <=  low <=  high <= Size of the array _a_.
+ * @pre For all i,j with  low <= i < j <  high,  a[i] <= a[j].
+ * @post ( low <= result <  high and  a[result] ==  v) 
+ *    or (result == -1 and there is no _i_ s.t. low <= i < high, and a[i] == v).
  *
- * Performs at most O(log(@a high - @a low)) operations.
+ * Complexity O(log(@a high - @a low))
  */
 template <class T>
 int binary_search(const T* a, int low, int high, const T& v, const T& eps)

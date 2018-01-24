@@ -11,7 +11,7 @@
  * @pre 0 <= n <= Size of the array  _a_.
  * @pre For all i,j with 0 <= i < j < n,  a[i] <= a[j].
  * @post (0 <= result < n and  a[result] == v) 
- *    or (result == -1 and there is no i, 0 <= i <  n, s.t.  a[i] ==  v).
+ *    or (result == -1 and there is no _i_ s.t  0 <= i <  n, and  a[i] ==  v).
  *
  * Complexity O(log(n))
  */

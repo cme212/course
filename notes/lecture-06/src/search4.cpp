@@ -14,10 +14,10 @@
  * @tparam T Comparison operator defined: bool operator>(T,T)
  * @tparam T Not appropriate for floating point type
  *
- * @pre 0 <= @a low <= @a high <= Size of the array @a a.
- * @pre For all i,j with @a low <= i < j < @a high, @a a[i] <= @a a[j].
- * @post (@a low <= result < @a high and @a a[result] == @a v) 
- *    or (result == -1 and there is no i, @a low <= i < @a high, s.t. @a a[i] == @a v).
+ * @pre 0 <=  low <=  high <= Size of the array _a_.
+ * @pre For all i,j with  low <= i < j <  high,  a[i] <= a[j].
+ * @post ( low <= result <  high and  a[result] ==  v) 
+ *    or (result == -1 and there is no _i_ s.t. low <= i < high, and a[i] == v).
  *
  * Complexity O(log(@a high - @a low))
  */
