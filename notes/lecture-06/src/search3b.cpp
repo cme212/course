@@ -6,6 +6,7 @@
  * @param[in] a         Sorted array to search.
  * @param[in] low,high  Search in the index range [@a low, @a high).
  * @param[in] v         Value to search for.
+ * @param[in] eps       Equality tolerance
  * @return    An index into array _a_ or -1.
  *
  * @tparam T Type of the array elements
@@ -14,7 +15,7 @@
  * 
  * @pre 0 <=  low <=  high <= Size of the array _a_.
  * @pre For all i,j with  low <= i < j <  high,  a[i] <= a[j].
- * @post ( low <= result <  high and  a[result] ==  v) 
+ * @post ( low <= result <  high and  a[result] ==  v within tolerance eps) 
  *    or (result == -1 and there is no _i_ s.t. low <= i < high, and a[i] == v).
  *
  * Complexity O(log(high - low))

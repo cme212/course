@@ -3,12 +3,12 @@
 /** 
  * @brief Search a sorted array for a value using binary search.
  *
- * @param[in] a  Sorted array of floats.
- * @param[in] n  Number of elements of _a_ to search.
- * @param[in] v  Value to search for.
+ * @param[in] a        Sorted array of floats.
+ * @param[in] low,high Search in the index range [ low,  high).
+ * @param[in] v        Value to search for.
  * @return    An index into array _a_ or -1.
  * 
- * @pre 0 <= low <= n < high <= Size of the array  _a_.
+ * @pre 0 <= low < high <= Size of the array  _a_.
  * @pre For all i,j with low <= i < j <  high,  a[i] <=  a[j].
  * @post (low <= result <  high and  a[result] ==  v) 
  *    or (result == -1 and there is no _i_ s.t. low <= i < high, and  a[i] == v).
@@ -41,12 +41,6 @@ int main()
   std::cout << binary_search(a, 0, 10, 74.) << "\n";
   std::cout << binary_search(a, 0, 10, 73.) << "\n";
   std::cout << binary_search(a, 0, 10,  2.) << "\n";
-  std::cout << binary_search(a, 0, 10,200.) << "\n";
-  std::cout << binary_search(a, 0, 10, 1.) << "\n";
-  std::cout << binary_search(a, 0, 10,250.) << "\n";
-  std::cout << binary_search(a, 0, 10, 89.) << "\n";
-  std::cout << binary_search(a, 0, 10, 90.) << "\n";
-  std::cout << binary_search(a, 0, 10, 91.) << "\n";
   
   return 0;
 }

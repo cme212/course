@@ -49,6 +49,10 @@ private:
   int studentID_;     ///< Student's ID number
 };
 
+
+// Overloaded operators
+// Rely here on std::string comparison
+
 bool operator<(const Student& x, const Student& y)
 {
   return (x.getName() < y.getName());

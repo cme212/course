@@ -12,7 +12,6 @@
  * 
  * @tparam T Type of the array elements
  * @tparam T Comparison operator defined: bool operator<(T,T)
- * @tparam T Comparison operator defined: bool operator>(T,T)
  * @tparam T Not appropriate for floating point types
  *
  * @pre 0 <=  low <=  high <= Size of the array _a_.
@@ -31,7 +30,7 @@ int binary_search(const T* a, int low, int high, const T& v)
     int mid = (low + high) / 2;
     if (a[mid] < v)
       low = mid + 1;
-    else if (a[mid] > v)
+    else if (v < a[mid])
       high = mid - 1;
     else
       return mid;   // Value found (return position)
@@ -52,7 +51,7 @@ int main()
   std::cout << "\n";
   
   int b[10] = {2, 12, 15, 72, 73, 77, 90, 91, 100, 200};
-  int tol2 = 0;
+
   std::cout << binary_search<int>(b, 5, 7, 90) << "\n";
   std::cout << binary_search<int>(b, 5, 6, 90) << "\n";
 
@@ -60,14 +59,14 @@ int main()
   Student* s1 = new Student("Idle, Eric", 100100);
   Student* s2 = new Student("Jones, Terry", 100200);
   Student* s3 = new Student("Palin, Michael", 100300);
-  Student* s4 = new Student("Chleese, John", 100300);
+  Student* s4 = new Student("Cleese, John", 100400);
   classroom[0] = *s1; classroom[1] = *s2; classroom[2] = *s3;
   
   std::cout << "\n";
   
-  std::cout << binary_search<Student>(classroom, 0, 3, *s3) << "\n";
-  std::cout << binary_search<Student>(classroom, 0, 3, *s1) << "\n";
-  std::cout << binary_search<Student>(classroom, 0, 3, *s4) << "\n";
+  std::cout << binary_search<Student>(classroom, 0, 3, *s3) << "\n"; // Palin ~> 2
+  std::cout << binary_search<Student>(classroom, 0, 3, *s1) << "\n"; // Idle  ~> 0
+  std::cout << binary_search<Student>(classroom, 0, 3, *s4) << "\n"; // Cleese X
   
   return 0;
 }

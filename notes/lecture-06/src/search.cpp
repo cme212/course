@@ -13,11 +13,11 @@
  * @post (0 <= result < n and  a[result] == v) 
  *    or (result == -1 and there is no _i_ s.t  0 <= i <  n, and  a[i] ==  v).
  *
- * Complexity O(log(n))
+ * The complexity of the serach algorithm is O(log(n))
  */
 int binary_search(const float* a, int n, float v)
 {
-  const float eps = 1e-10;
+  const float eps = 1e-10f;
   int low = 0;
   int high = n-1;
   while (low <= high) {
@@ -42,7 +42,7 @@ int main()
   std::cout << binary_search(a, 10, 73.) << "\n";
   std::cout << binary_search(a, 10,  2.) << "\n";
   std::cout << binary_search(a, 10,200.) << "\n";
-  std::cout << binary_search(a, 10, 1.) << "\n";
+  std::cout << binary_search(a, 10,  1.) << "\n";
   std::cout << binary_search(a, 10,250.) << "\n";
   std::cout << binary_search(a, 10, 89.) << "\n";
   std::cout << binary_search(a, 10, 90.) << "\n";
