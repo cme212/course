@@ -26,13 +26,15 @@ Let us take a look at the Doxygen formatted comments before a C++ function:
  *
  * LONGER DESCRIPTION, RUNTIME, EXAMPLES, ETC 
  */
-the signature(of& my_method)
+bool signature(of& my_method)
 ```
-In this example
+In this example:
+* `@brief` marks the text that will be displayed in summaries and index lists. Typically you would put here a few words description
+of your function.
 * `@param` describes a function parameter and takes an optional direction: `@param[in]` means the parameter's value is only read and not modified within the function, `@param[out]` means the parameter is not read and is only modified, and `@param[in,out]` means the parameter is both read and modified.
 * `@param`, `@pre`, and `@post` sections should be repeated as many time as required.
 * `@pre` and `@post` define the pre- and postconditions, which should be precise but brief. When in doubt, attempt rigorous conditions but keep in mind that some concepts such as ``validity" may be difficult or impossible to define precisely. Specifications are primarily for human consumption.
-* In any section, a parameter can be referred to by name with `@a` `paramname`. This helps disambiguate short parameter names by identifying them in the text and highlighting them in the Doxygen output. For instance, 
+* In any section, a parameter can be referred to by name with underscores, e.g. `_paramname_`. This helps disambiguate short parameter names by identifying them in the text and highlighting them in the Doxygen output. For instance, 
 ```c++
  * @return The size of _a_
 ``` 
@@ -40,7 +42,7 @@ is clearer than
 ```c++
  * @return The size of a
 ```
-when read in plain text and highlights ` a} when formatted and viewed.
+when read in plain text and highlights `a` in formatted documentation.
 
 To refer to values that change during the operation of the method we use `old X` and `new X`. Here, `old X` (where `X` may be a parameter, global variable, member variable, etc) refers to the value of `X` at the point of call, before the function executes, while `new X` refers to the value of `X` at the point of return, immediately after the function executes. For instance, postconditions will often define `new X` in terms of `old X`. 
 
@@ -71,7 +73,9 @@ int mid = low + (high - low) / 2;
 ```
 We want our friends to use our method without having to understand every detail of our implementation. In order for this to be feasible, we should write out specifications for `binary_search` that give more information about the inputs and the return value:
 ```c++
-/** Search a sorted array for a value using binary search.
+/** 
+ * @brief Search a sorted array for a value using binary search.
+ *
  * @param a  Sorted array of floats.
  * @param n  Number of elements of _a_ to search.
  * @param v  Value to find in _a_.
@@ -112,7 +116,9 @@ We use `result` here to denote the return value of the function. This avoids hav
 
 The postcondition above is not sufficient though... Consider the following implementation of `binary_search`:
 ```c++
-/** Search a sorted array for a value using binary search.
+/** 
+ * @brief Search a sorted array for a value using binary search.
+ *
  * @param a  Sorted array of floats.
  * @param n  Number of elements of _a_ to search.
  * @param v  Value to search for.
@@ -154,7 +160,9 @@ int binary_search(float* a, int n, float v) {
 ```
 Geez. This can be repaired: we need to insure that the array is immutable. By changing the signature of the function and, in our specifications, noting that each parameter is read-only, we can promise to the user (and the compiler!) that we will not change the values within the array. A final, solid version of `binary_search` might look like this:
 ```c++
-/** Search a sorted array for a value using binary search.
+/** 
+ * @brief Search a sorted array for a value using binary search.
+ *
  * @param[in] a  Sorted array of floats.
  * @param[in] n  Number of elements of _a_ to search.
  * @param[in] v  Value to search for.
@@ -185,19 +193,19 @@ int binary_search(const float* a, int n, float v) {
 
 ### Invariants ###
 
-An *invariant* is a statement that is always true at a particular point in the code. Stating and enforcing invariants within code are useful for catching bugs and generally reasoning about code behavior.
+An **invariant** is a statement that is always true at a particular point in the code. Stating and enforcing invariants within code are useful for catching bugs and generally reasoning about code behavior.
 
-A *precondition* is an invariant that must be true when a some line of code is called. A function's precondition is a part of the contract with the users and constrains its caller: if the caller does not obey the precondition, then all bets are off and the function can do whatever it likes.
+A **precondition** is an invariant that must be true when a some line of code is called. A function's precondition is a part of the contract with the users and constrains its caller: if the caller does not obey the precondition, then all bets are off and the function can do whatever it likes.
 
-A *postcondition* is an invariant that must be true once a function returns, provided all preconditions were met. A function's postcondition is the other part of the contract with the users but constrains the function itself: assuming the caller obeyed the precondition, the function must ensure that the postcondition holds.
+A **postcondition** is an invariant that must be true once a function returns, provided all preconditions were met. A function's postcondition is the other part of the contract with the users but constrains the function itself: assuming the caller obeyed the precondition, the function must ensure that the postcondition holds.
 
 Implicit preconditions and postconditions don't need to be stated. All functions have the implicit precondition that memory has not been corrupted. All functions have the implicit postcondition that they don't modify seemingly-unrelated state; for instance, if a function modifies a global variable, this should be listed explicitly in the specification.
 
-An *assertion* is a checked invariant. The command 
+An **assertion** is a checked invariant. The command 
 ```c++
 assert(X);
 ```
-checks that `X` is true, and aborts the program if `X` is false. Not all invariants can or should be checked with assertions; for instance in binary search, the precondition that the input array is sorted would require O(n) operations to check, while our specification promises O(log(n)) operations. Assertions should generally be side-effect free -- they should not modify program state. This is so they can be turned off for production code.
+checks that `X` is true, and aborts the program if `X` is false. Not all invariants can or should be checked with assertions. For instance, verifying that the input array is sorted has O(n) complexity, while our specification promises O(log(n)) complexity for our function. Assertions should generally be side-effect free -- they should not modify program state. This is so they can be turned off for production code.
 
 
 
@@ -205,7 +213,9 @@ checks that `X` is true, and aborts the program if `X` is false. Not all invaria
 
 Let's start with the binary search function we defined in the previous post.
 ```c++
-/** Search a sorted array for a value using binary search.
+/** 
+ * @brief Search a sorted array for a value using binary search.
+ *
  * @param[in] a  Sorted array of floats.
  * @param[in] n  Number of elements of _a_ to search.
  * @param[in] v  Value to search for.
@@ -235,14 +245,16 @@ int binary_search(const float* a, int n, float v) {
 ```
 In class, we pointed out limitations of the above implementation. Namely,
 
-* `binary_search` is only called on full arrays, or at least on ranges [0,n) of an array.
+* `binary_search` is only called on full arrays, or at least on ranges `0,...,n-1` of an array.
 * `binary_search` only applies to a specific type, namely `float`. Writing one function for each type is undesirable.
 * `binary_search` only applies to arrays that are sorted in ascending order. What about descending order, lexicographical order, etc?
 * `binary_search` only applies to data stored in an array.
 
 A simple modification addresses the first point. I've included the complete specification
 ```c++
-/** Search a sorted array for a value using binary search.
+/** 
+ * @brief Search a sorted array for a value using binary search.
+ *
  * @param[in] a         Sorted array of floats.
  * @param[in] low,high  Search in the index range [low, high).
  * @param[in] v         Value to search for.
@@ -259,7 +271,9 @@ int binary_search(const float* a, int low, int high, float v)
 ```
 To address the second point, we note that the body of the function (and the complete specification) applies equally well to numeric types: `int`, `unsigned`, `float`, `double`. Using C++ templates (parametric polymorphism), we lift this function from being implemented for a specific type to being a family of functions that can be used for (nearly) any type:
 ```c++
-/** Search a sorted array for a value using binary search.
+/** 
+ * @brief Search a sorted array for a value using binary search.
+ *
  * @param[in] a         Sorted array to search.
  * @param[in] low,high  Search in the index range [low, high).
  * @param[in] v         Value to search for.
@@ -331,7 +345,9 @@ Good. But the specifications... actually use other operators like `operator<=` a
 
 Let's rewrite the full specifications and implementation using only `operator<`:
 ```c++
-/** Search a sorted array for a value using binary search.
+/** 
+ * @brief Search a sorted array for a value using binary search.
+ *
  * @param[in] a         Sorted array to search.
  * @param[in] low,high  Search in the index range [low, high).
  * @param[in] v         Value to search for.
