@@ -173,7 +173,7 @@ Geez. This can be repaired: we need to insure that the array is immutable. By ch
  * @post (0 <= result < _n_ and _a_[result] == _v_) 
  *    or (result == -1 and there is no i, 0 <= i < _n_, s.t. _a_[i] == _v_).
  *
- * Performs at most O(log(_n_)) operations.
+ * The algorithm complexity is O(log(_n_)).
  */
 int binary_search(const float* a, int n, float v) {
   int low = 0;
@@ -195,9 +195,9 @@ int binary_search(const float* a, int n, float v) {
 
 An **invariant** is a statement that is always true at a particular point in the code. Stating and enforcing invariants within code are useful for catching bugs and generally reasoning about code behavior.
 
-A **precondition** is an invariant that must be true when a some line of code is called. A function's precondition is a part of the contract with the users and constrains its caller: if the caller does not obey the precondition, then all bets are off and the function can do whatever it likes.
+A **precondition** is an invariant that holds when a function is called. A function's precondition is a part of the contract with the users and constrains its caller: if the caller does not obey the precondition, then all bets are off and the function can do whatever it likes.
 
-A **postcondition** is an invariant that must be true once a function returns, provided all preconditions were met. A function's postcondition is the other part of the contract with the users but constrains the function itself: assuming the caller obeyed the precondition, the function must ensure that the postcondition holds.
+A **postcondition** is an invariant that holds when a function returns, provided all preconditions were met. A function's postcondition is the other part of the contract with the users but constrains the function itself: assuming the caller obeyed the precondition, the function must ensure that the postcondition holds.
 
 Implicit preconditions and postconditions don't need to be stated. All functions have the implicit precondition that memory has not been corrupted. All functions have the implicit postcondition that they don't modify seemingly-unrelated state; for instance, if a function modifies a global variable, this should be listed explicitly in the specification.
 
@@ -226,7 +226,7 @@ Let's start with the binary search function we defined in the previous post.
  * @post (0 <= result < _n_ and _a_[result] == _v_) 
  *    or (result == -1 and there is no i, 0 <= i < _n_, s.t. _a_[i] == _v_).
  *
- * Performs at most O(log(_n_)) operations.
+ * The algorithm complexity is O(log(_n_)).
  */
 int binary_search(const float* a, int n, float v) {
   int low = 0;
@@ -265,7 +265,7 @@ A simple modification addresses the first point. I've included the complete spec
  * @post (low <= result < high and _a_[result] == _v_) 
  *    or (result == -1 and there is no i, low <= i < high, s.t. _a_[i] == _v_).
  *
- * Performs at most O(log(high - low)) operations.
+ * The algorithm complexity is O(high - low).
  */
 int binary_search(const float* a, int low, int high, float v)
 ```
@@ -284,7 +284,7 @@ To address the second point, we note that the body of the function (and the comp
  * @post (low <= result < high and _a_[result] == _v_) 
  *    or (result == -1 and there is no i, low <= i < high, s.t. _a_[i] == _v_).
  *
- * Performs at most O(log(high - low)) operations.
+ * The algorithm complexity is O(high - low).
  */
 template <typename T>
 int binary_search(const T* a, int low, int high, const T& v) {
@@ -361,7 +361,7 @@ Let's rewrite the full specifications and implementation using only `operator<`:
  *    or (result == -1 and there is no i, low <= i < high, 
  *                                        s.t. !(_a_[result] < _v_) and !(_v_ < _a_[result])).
  *
- * Performs at most O(log(high - low)) operations.
+ * The algorithm complexity is O(high - low).
  */
 template <typename T>
 int binary_search(const T* a, int low, int high, const T& v) {
