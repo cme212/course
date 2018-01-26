@@ -6,9 +6,17 @@ Specifications inform a user about a class or function, but do not refer
 to its internal workings. That is, a specification will refer to abstract
 behavior and not private implementation properties.
 
-In this class, we will use Doxygen comment style specifications:
+In this class, we will use Doxygen comment style specifications.
+Doxygen is a tool for generating HTML or PDF documentation from comments
+in the source code. To get a quick start with Doxygen, take a look at
+[Documenting the Code](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html)
+section of the Doxygen manual.
+
+Let us take a look at the Doxygen formatted comments before a C++ function:
 ```c++
-/** <BRIEF DESCRIPTION>
+/**
+ * @brief <BRIEF DESCRIPTION>
+ *
  * @param <NAME> <DESCRIPTION>
  * @tparam <NAME> <DESCRIPTION>
  * @return <DESCRIPTION OF RETURN VALUE>
@@ -20,7 +28,7 @@ In this class, we will use Doxygen comment style specifications:
  */
 the signature(of& my_method)
 ```
-where
+In this example
 * `@param` describes a function parameter and takes an optional direction: `@param[in]` means the parameter's value is only read and not modified within the function, `@param[out]` means the parameter is not read and is only modified, and `@param[in,out]` means the parameter is both read and modified.
 * `@param`, `@pre`, and `@post` sections should be repeated as many time as required.
 * `@pre` and `@post` define the pre- and postconditions, which should be precise but brief. When in doubt, attempt rigorous conditions but keep in mind that some concepts such as ``validity" may be difficult or impossible to define precisely. Specifications are primarily for human consumption.
@@ -70,7 +78,7 @@ We want our friends to use our method without having to understand every detail 
  * @return   An index into array _a_ or -1.
  */
 ```
-In the above specification, we've used `@a` in our Doxygen-style comments to emphasize the parameters within each statement.
+In the above specification, we've used `_a_` in our Doxygen-style comments to emphasize the parameters within each statement.
 
 But this isn't complete! `binary_search` assumes a number of things about it's inputs. These are preconditions -- statements about the inputs that must be true before the function is even called. An obvious precondition restricts the values of `n` that are allowed:
 ```c++
@@ -111,7 +119,7 @@ The postcondition above is not sufficient though... Consider the following imple
  * @return   An index into array _a_ or -1.
  * 
  * @pre 0 <= n <= Size of _a_.
- * @pre For all i,j with 0 <= i < j < @a n, _a_[i] <= _a_[j].
+ * @pre For all i,j with 0 <= i < j < _n_, _a_[i] <= _a_[j].
  * @post Either _a_[result] == _v_ or result == -1.
  */
 int binary_search(float* a, int n, float v) {
@@ -130,12 +138,12 @@ function. Ok, a better postcondition:
 or even more formally,
 ```c++
  * @post _a_[result] == _v_ 
- *    or (result == -1 and there is no i, 0 <= i < @a n, s.t. _a_[i] == _v_).
+ *    or (result == -1 and there is no i, 0 <= i < _n_, s.t. _a_[i] == _v_).
 ```
 In class, we also mentioned the weird possibility of `result` being chosen outside of the bounds of the array. To fully cover our bases, we found the following post-condition to be the strongest and most descriptive:
 ```c++
- * @post (0 <= result < @a n and _a_[result] == _v_) 
- *    or (result == -1 and there is no i, 0 <= i < @a n, s.t. _a_[i] == _v_).
+ * @post (0 <= result < _n_ and _a_[result] == _v_) 
+ *    or (result == -1 and there is no i, 0 <= i < _n_, s.t. _a_[i] == _v_).
 ```
 Does this finally sufficiently constrain our function? Well... how about this implementation:
 ```c++
@@ -152,12 +160,12 @@ Geez. This can be repaired: we need to insure that the array is immutable. By ch
  * @param[in] v  Value to search for.
  * @return    An index into array _a_ or -1.
  * 
- * @pre 0 <= @a n <= Size of the array _a_.
- * @pre For all i,j with 0 <= i < j < @a n, _a_[i] <= _a_[j].
- * @post (0 <= result < @a n and _a_[result] == _v_) 
- *    or (result == -1 and there is no i, 0 <= i < @a n, s.t. _a_[i] == _v_).
+ * @pre 0 <= _n_ <= Size of the array _a_.
+ * @pre For all i,j with 0 <= i < j < _n_, _a_[i] <= _a_[j].
+ * @post (0 <= result < _n_ and _a_[result] == _v_) 
+ *    or (result == -1 and there is no i, 0 <= i < _n_, s.t. _a_[i] == _v_).
  *
- * Performs at most O(log(@a n)) operations.
+ * Performs at most O(log(_n_)) operations.
  */
 int binary_search(const float* a, int n, float v) {
   int low = 0;
@@ -204,11 +212,11 @@ Let's start with the binary search function we defined in the previous post.
  * @return    An index into array _a_ or -1.
  * 
  * @pre 0 <= n <= Size of the array _a_.
- * @pre For all i,j with 0 <= i < j < n, _a_[i] <= _a_[j].
- * @post (0 <= result < @a n and _a_[result] == _v_) 
- *    or (result == -1 and there is no i, 0 <= i < @a n, s.t. _a_[i] == _v_).
+ * @pre For all i,j with 0 <= i < j < _n_, _a_[i] <= _a_[j].
+ * @post (0 <= result < _n_ and _a_[result] == _v_) 
+ *    or (result == -1 and there is no i, 0 <= i < _n_, s.t. _a_[i] == _v_).
  *
- * Performs at most O(log(@a n)) operations.
+ * Performs at most O(log(_n_)) operations.
  */
 int binary_search(const float* a, int n, float v) {
   int low = 0;
@@ -227,7 +235,7 @@ int binary_search(const float* a, int n, float v) {
 ```
 In class, we pointed out limitations of the above implementation. Namely,
 
-* `binary_search` is only called on full arrays, or at least on ranges $[0,`n})$ of an array.
+* `binary_search` is only called on full arrays, or at least on ranges [0,n) of an array.
 * `binary_search` only applies to a specific type, namely `float`. Writing one function for each type is undesirable.
 * `binary_search` only applies to arrays that are sorted in ascending order. What about descending order, lexicographical order, etc?
 * `binary_search` only applies to data stored in an array.
@@ -236,16 +244,16 @@ A simple modification addresses the first point. I've included the complete spec
 ```c++
 /** Search a sorted array for a value using binary search.
  * @param[in] a         Sorted array of floats.
- * @param[in] low,high  Search in the index range [@a low, @a high).
+ * @param[in] low,high  Search in the index range [low, high).
  * @param[in] v         Value to search for.
  * @return    An index into array _a_ or -1.
  * 
- * @pre 0 <= @a low <= @a high <= Size of the array _a_.
- * @pre For all i,j with @a low <= i < j < @a high, _a_[i] <= _a_[j].
- * @post (@a low <= result < @a high and _a_[result] == _v_) 
- *    or (result == -1 and there is no i, @a low <= i < @a high, s.t. _a_[i] == _v_).
+ * @pre 0 <= low <= high <= Size of the array _a_.
+ * @pre For all i,j with low <= i < j < high, _a_[i] <= _a_[j].
+ * @post (low <= result < high and _a_[result] == _v_) 
+ *    or (result == -1 and there is no i, low <= i < high, s.t. _a_[i] == _v_).
  *
- * Performs at most O(log(@a high - @a low)) operations.
+ * Performs at most O(log(high - low)) operations.
  */
 int binary_search(const float* a, int low, int high, float v)
 ```
@@ -253,16 +261,16 @@ To address the second point, we note that the body of the function (and the comp
 ```c++
 /** Search a sorted array for a value using binary search.
  * @param[in] a         Sorted array to search.
- * @param[in] low,high  Search in the index range [@a low, @a high).
+ * @param[in] low,high  Search in the index range [low, high).
  * @param[in] v         Value to search for.
  * @return    An index into array _a_ or -1.
  * 
- * @pre 0 <= @a low <= @a high <= Size of the array _a_.
- * @pre For all i,j with @a low <= i < j < @a high, _a_[i] <= _a_[j].
- * @post (@a low <= result < @a high and _a_[result] == _v_) 
- *    or (result == -1 and there is no i, @a low <= i < @a high, s.t. _a_[i] == _v_).
+ * @pre 0 <= low <= high <= Size of the array _a_.
+ * @pre For all i,j with low <= i < j < high, _a_[i] <= _a_[j].
+ * @post (low <= result < high and _a_[result] == _v_) 
+ *    or (result == -1 and there is no i, low <= i < high, s.t. _a_[i] == _v_).
  *
- * Performs at most O(log(@a high - @a low)) operations.
+ * Performs at most O(log(high - low)) operations.
  */
 template <typename T>
 int binary_search(const T* a, int low, int high, const T& v) {
@@ -325,19 +333,19 @@ Let's rewrite the full specifications and implementation using only `operator<`:
 ```c++
 /** Search a sorted array for a value using binary search.
  * @param[in] a         Sorted array to search.
- * @param[in] low,high  Search in the index range [@a low, @a high).
+ * @param[in] low,high  Search in the index range [low, high).
  * @param[in] v         Value to search for.
  * @return    An index into array _a_ or -1.
  *
  * @tparam T  Type of the array elements. Is comparable: bool operator<(T,T).
  *
- * @pre 0 <= @a low <= @a high <= Size of the array _a_.
- * @pre For all i,j with @a low <= i < j < @a high, !(_a_[j] < _a_[i]).
- * @post (@a low <= result < @a high and !(_a_[result] < _v_) and !(_v_ < _a_[result])) 
- *    or (result == -1 and there is no i, @a low <= i < @a high, 
+ * @pre 0 <= low <= high <= Size of the array _a_.
+ * @pre For all i,j with low <= i < j < high, !(_a_[j] < _a_[i]).
+ * @post (low <= result < high and !(_a_[result] < _v_) and !(_v_ < _a_[result])) 
+ *    or (result == -1 and there is no i, low <= i < high, 
  *                                        s.t. !(_a_[result] < _v_) and !(_v_ < _a_[result])).
  *
- * Performs at most O(log(@a high - @a low)) operations.
+ * Performs at most O(log(high - low)) operations.
  */
 template <typename T>
 int binary_search(const T* a, int low, int high, const T& v) {
