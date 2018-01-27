@@ -12,7 +12,7 @@ in the source code. To get a quick start with Doxygen, take a look at
 [Documenting the Code](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html)
 section of the Doxygen manual.
 
-Let us take a look at the Doxygen formatted comments before a C++ function:
+Let us take a look at the Doxygen formatted comments in front of a C++ function:
 ```c++
 /**
  * @brief <BRIEF DESCRIPTION>
@@ -37,12 +37,12 @@ of your function.
 * In any section, a parameter can be referred to by name with underscores, e.g. `_paramname_`. This helps disambiguate short parameter names by identifying them in the text and highlighting them in the Doxygen output. For instance, 
 ```c++
  * @return The size of _a_
-``` 
+```
 is clearer than 
 ```c++
  * @return The size of a
 ```
-when read in plain text and highlights `a` in formatted documentation.
+when read in plain text and in formatted documentation.
 
 To refer to values that change during the operation of the method we use `old X` and `new X`. Here, `old X` (where `X` may be a parameter, global variable, member variable, etc) refers to the value of `X` at the point of call, before the function executes, while `new X` refers to the value of `X` at the point of return, immediately after the function executes. For instance, postconditions will often define `new X` in terms of `old X`. 
 
@@ -50,7 +50,7 @@ To refer to a function's return value we use `result`.
 
 ### Specifications and Binary Search ###
 
-We started this class developing these concepts in the context of a particular example: binary search. Let's start with the first implementation provided in class:
+We started this class developing these concepts in the context of a particular example: binary search. Let's start with the first implementation provided in function:
 ```c++
 int binary_search(float* a, int n, float v) {
   int low = 0;
@@ -98,10 +98,6 @@ But this isn't good enough either! The array has to be in a specific order. For 
 ```c++
  * @pre Array _a_ is sorted in ascending order.
 ```
-Is this good enough? Well... what is ascending order? This could refer to ascending numeric order (1,2,3,4,5), ascending dictionary (string) order (1,10,13,2,34), or something even more exotic. Ok, fine:
-```c++
- * @pre Array _a_ is sorted in ascending numeric order.
-```
 or, more formally and equally as valid:
 ```c++
  * @pre For all i,j with 0 <= i < j < n, _a_[i] <= _a_[j].
@@ -112,7 +108,7 @@ Alright, what about postconditions for `binary_search`? Postconditions are state
 ```c++
  * @post Either _a_[result] == _v_ or result == -1.
 ```
-We use `result` here to denote the return value of the function. This avoids having to refer to the internal implementation of `binary_search` -- a specification should never refer to `mid`, for example. The specification of a function should be completely independent of its implementation.
+We use `result` here to denote the return value of the function. This avoids having to refer to the internal implementation of `binary_search` -- a specification should never refer to `mid`, for example. The specification of a function should be independent of its implementation.
 
 The postcondition above is not sufficient though... Consider the following implementation of `binary_search`:
 ```c++
@@ -144,12 +140,12 @@ function. Ok, a better postcondition:
 or even more formally,
 ```c++
  * @post _a_[result] == _v_ 
- *    or (result == -1 and there is no i, 0 <= i < _n_, s.t. _a_[i] == _v_).
+ *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
 ```
 In class, we also mentioned the weird possibility of `result` being chosen outside of the bounds of the array. To fully cover our bases, we found the following post-condition to be the strongest and most descriptive:
 ```c++
  * @post (0 <= result < _n_ and _a_[result] == _v_) 
- *    or (result == -1 and there is no i, 0 <= i < _n_, s.t. _a_[i] == _v_).
+ *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
 ```
 Does this finally sufficiently constrain our function? Well... how about this implementation:
 ```c++
@@ -171,7 +167,7 @@ Geez. This can be repaired: we need to insure that the array is immutable. By ch
  * @pre 0 <= _n_ <= Size of the array _a_.
  * @pre For all i,j with 0 <= i < j < _n_, _a_[i] <= _a_[j].
  * @post (0 <= result < _n_ and _a_[result] == _v_) 
- *    or (result == -1 and there is no i, 0 <= i < _n_, s.t. _a_[i] == _v_).
+ *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
  *
  * The algorithm complexity is O(log(_n_)).
  */
@@ -224,7 +220,7 @@ Let's start with the binary search function we defined in the previous post.
  * @pre 0 <= n <= Size of the array _a_.
  * @pre For all i,j with 0 <= i < j < _n_, _a_[i] <= _a_[j].
  * @post (0 <= result < _n_ and _a_[result] == _v_) 
- *    or (result == -1 and there is no i, 0 <= i < _n_, s.t. _a_[i] == _v_).
+ *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
  *
  * The algorithm complexity is O(log(_n_)).
  */
@@ -263,7 +259,7 @@ A simple modification addresses the first point. I've included the complete spec
  * @pre 0 <= low <= high <= Size of the array _a_.
  * @pre For all i,j with low <= i < j < high, _a_[i] <= _a_[j].
  * @post (low <= result < high and _a_[result] == _v_) 
- *    or (result == -1 and there is no i, low <= i < high, s.t. _a_[i] == _v_).
+ *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
  *
  * The algorithm complexity is O(high - low).
  */
@@ -282,7 +278,7 @@ To address the second point, we note that the body of the function (and the comp
  * @pre 0 <= low <= high <= Size of the array _a_.
  * @pre For all i,j with low <= i < j < high, _a_[i] <= _a_[j].
  * @post (low <= result < high and _a_[result] == _v_) 
- *    or (result == -1 and there is no i, low <= i < high, s.t. _a_[i] == _v_).
+ *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
  *
  * The algorithm complexity is O(high - low).
  */
