@@ -19,7 +19,7 @@
  * @post ( low <= result <  high and  a[result] ==  v) 
  *    or (result == -1 and there is no _i_ s.t. low <= i < high, and a[i] == v).
  *
- * Complexity O(log(high - low))
+ * The complexity of the serach algorithm is O(log(n))
  */
 template <class T>
 int binary_search(const T* a, int low, int high, const T& v)
@@ -41,32 +41,27 @@ int binary_search(const T* a, int low, int high, const T& v)
 
 int main()
 {
-  //             0    1     2     3     4     5     6     7     8      9 
-  float a[10] = {2.f, 12.f, 15.f, 72.f, 73.f, 77.f, 90.f, 91.f, 100.f, 200.f};
-  
-  std::cout << binary_search<float>(a, 0, 10, 74.) << "\n";
-  std::cout << binary_search<float>(a, 0, 10, 73.) << "\n";
-  std::cout << binary_search<float>(a, 0, 10,  2.) << "\n";
-
-  std::cout << "\n";
-  
+  //           0  1   2   3   4   5   6   7   8    9
   int b[10] = {2, 12, 15, 72, 73, 77, 90, 91, 100, 200};
 
   std::cout << binary_search<int>(b, 5, 7, 90) << "\n";
   std::cout << binary_search<int>(b, 5, 6, 90) << "\n";
 
+  std::cout << "\n";
+  
   Student classroom[3];
-  Student* s1 = new Student("Idle, Eric", 100100);
-  Student* s2 = new Student("Jones, Terry", 100200);
-  Student* s3 = new Student("Palin, Michael", 100300);
-  Student* s4 = new Student("Cleese, John", 100400);
-  classroom[0] = *s1; classroom[1] = *s2; classroom[2] = *s3;
+  Student* idle   = new Student("Idle, Eric", 100100);
+  Student* jones  = new Student("Jones, Terry", 100200);
+  Student* palin  = new Student("Palin, Michael", 100300);
+  Student* cleese = new Student("Cleese, John", 100400);
+  // Create a classroom ordered alphabetically by student name
+  classroom[0] = *idle; classroom[1] = *jones; classroom[2] = *palin;
   
   std::cout << "\n";
   
-  std::cout << binary_search<Student>(classroom, 0, 3, *s3) << "\n"; // Palin ~> 2
-  std::cout << binary_search<Student>(classroom, 0, 3, *s1) << "\n"; // Idle  ~> 0
-  std::cout << binary_search<Student>(classroom, 0, 3, *s4) << "\n"; // Cleese X
+  std::cout << binary_search(classroom, 0, 3, *palin)  << "\n"; // Palin ~> 2
+  std::cout << binary_search(classroom, 0, 3, *idle)   << "\n"; // Idle  ~> 0
+  std::cout << binary_search(classroom, 0, 3, *cleese) << "\n"; // Cleese X
   
   return 0;
 }

@@ -1,23 +1,21 @@
 #include <iostream>
-
+#include "student.hpp"
 /** 
  * Search a sorted array for a value using binary search.
  * 
  * @param[in] a         Sorted array to search.
- * @param[in] low,high  Search in the index range [ low,  high).
+ * @param[in] low,high  Search in the index range [low,  high).
  * @param[in] v         Value to search for.
  * @param[in] eps       Equality tolerance
  * @return    An index into array _a_ or -1.
  *
  * @tparam T Type of the array elements
  * @tparam T Comparison operator defined: bool operator<(T,T)
- * @tparam T Comparison operator defined: bool operator>(T,T)
- * @tparam T Substraction operator defined: T operator-(T,T)
  * @tparam T Addition operator defined: T operator+(T,T)
  * 
  * @pre 0 <= low <= high <= Size of the array _a_.
  * @pre For all i,j with  low <= i < j < high,  a[i] <= a[j].
- * @post ( low <= result <  high and  a[result] ==  v within tolerance eps) 
+ * @post ( low <= result < high  and  a[result] == v within tolerance eps) 
  *    or (result == -1 and there is no _i_ s.t. low <= i < high, and a[i] == v).
  *
  * The complexity of the serach algorithm is O(high - low)
@@ -29,9 +27,9 @@ int binary_search(const T* a, int low, int high, const T& v, const T& eps)
 
   while (low <= high) {
     int mid = (low + high) / 2;
-    if (a[mid] < v - eps)
+    if (a[mid] + eps < v)
       low = mid + 1;
-    else if (a[mid] > v + eps)
+    else if (v + eps < a[mid])
       high = mid - 1;
     else
       return mid; // Value found (return position)
@@ -59,7 +57,26 @@ int main()
   int tol2 = 0; // should be zero for integers
   std::cout << binary_search<int>(b, 5, 7, 90, tol2) << "\n";
   std::cout << binary_search<int>(b, 5, 6, 90, tol2) << "\n";
+  
+  std::cout << "\n";
+  
+  Student classroom[3];
+  Student* s1 = new Student("Idle, Eric", 100100);
+  Student* s2 = new Student("Jones, Terry", 100200);
+  Student* s3 = new Student("Palin, Michael", 100300);
+  Student* s4 = new Student("Cleese, John", 100400);
+  Student* tol3 = new Student("", 0); // Fake tolerance for Student class
+  classroom[0] = *s1; classroom[1] = *s2; classroom[2] = *s3;
+  
+  std::cout << binary_search<Student>(classroom, 0, 3, *s3, *tol3) << "\n"; // Palin ~> 2
+  std::cout << binary_search<Student>(classroom, 0, 3, *s1, *tol3) << "\n"; // Idle  ~> 0
+  std::cout << binary_search<Student>(classroom, 0, 3, *s4, *tol3) << "\n"; // Cleese ~> -1
 
+  delete s1;
+  delete s2;
+  delete s3;
+  delete s4;
+  delete tol3;
   
   return 0;
 }

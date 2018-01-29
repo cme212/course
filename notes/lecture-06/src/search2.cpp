@@ -13,18 +13,17 @@
  * @post (low <= result <  high and  a[result] ==  v) 
  *    or (result == -1 and there is no _i_ s.t. low <= i < high, and  a[i] == v).
  *
- * Complexity O(log(high - low))
+ * The complexity of the serach algorithm is O(log(n))
  */
-int binary_search(const float* a, int low, int high, float v)
+int binary_search(const float* a, int low, int high, float v, float eps)
 {
   --high;
-  const float eps = 1e-10f;
 
   while (low <= high) {
     int mid = (low + high) / 2;
-    if ((a[mid] - v) < -eps)
+    if (a[mid] < v - eps)
       low = mid + 1;
-    else if ((a[mid] - v) > eps)
+    else if (a[mid] > v + eps)
       high = mid - 1;
     else
       return mid;   // Value found (return position)
@@ -38,9 +37,10 @@ int main()
   //             0    1     2     3     4     5     6     7     8      9 
   float a[10] = {2.f, 12.f, 15.f, 72.f, 73.f, 77.f, 90.f, 91.f, 100.f, 200.f};
 
-  std::cout << binary_search(a, 0, 10, 74.) << "\n";
-  std::cout << binary_search(a, 0, 10, 73.) << "\n";
-  std::cout << binary_search(a, 0, 10,  2.) << "\n";
+  std::cout << binary_search(a, 0, 10, 74., 1e-10f) << "\n";
+  std::cout << binary_search(a, 1,  5, 73., 1e-10f) << "\n";
+  std::cout << binary_search(a, 0, 10, 89., 1e-10f) << "\n";
+  std::cout << binary_search(a, 6,  7, 90., 1e-10f) << "\n";
   
   return 0;
 }

@@ -5,6 +5,7 @@
 class Student
 {
 public:
+  // Default constructor
   Student()
   {
   }
@@ -21,6 +22,7 @@ public:
   {
   }
 
+  // Assignment operator
   Student& operator=(const Student& rhs)
   {
     if (this == &rhs)
@@ -51,7 +53,7 @@ private:
 
 
 // Overloaded operators
-// Rely here on std::string comparison
+// Here, we rely on std::string comparison
 
 bool operator<(const Student& x, const Student& y)
 {
@@ -63,3 +65,10 @@ bool operator>(const Student& x, const Student& y)
   return (x.getName() > y.getName());
 }
 
+/// Addition operator
+/// Adding students really does not make sense. Furthermore, this addition
+/// is not commutative. Legal, but quite unintuitive. Bad design choice!
+Student operator+(const Student& lhs, const Student& rhs)
+{
+  return Student(lhs.getName() + rhs.getName(), lhs.getStudentID());
+}
