@@ -331,100 +331,131 @@ idx = binary_search<float>(a_f, 0, n, 3.2, 1e-9) // Generates binary_search(floa
 ```
 The `const T\&` change in the above function is to prevent a copy in the case that `T` is a heavy object that would be expensive to copy. For example, `binary_search` now works with `std::string` objects because ` bool operator<(const std::string\&, const std::string\&)` is implemented in the standard library to perform lexicographical comparison!
 
-In fact, the family of functions we defined can take on an infinite number of instantiations. The code will compile and function properly so long as the type `T` is comparable to itself. That is, in `binary_search`, we used two comparison operators that take two values of `T` as parameters:
+In fact, the family of functions we defined can take on an infinite number of instantiations. 
+The code will compile and function properly so long as the type `T` can be added, substracted,
+and compared. That is, in `binary_search`, we used two comparison operators, as well as
+addition and substraction operators that take two values of `T` as parameters:
 ```c++
 bool operator<(const T& a, const T& b);
 bool operator>(const T& a, const T& b);
+T operator+(const T& a, const T& b);
+T operator-(const T& a, const T& b);
 ```
-If we want `binary_search` to work for a custom type, we could write something like
-```c++
-struct MyType {
-  float v;
-};
-bool operator<(const MyType& a, const MyType& b) {
-  return a.v < b.v;
-}
-bool operator>(const MyType& a, const MyType& b) {
-  return a.v > b.v;
-}
-...
-// The above allows us to write:
-MyType t1{2.72}, t2{3.14};   // Construct and initialize two MyType variables.
-assert(t1 < t2);             // Calls operator<(MyType, MyType) above.
-```
-This is very very cool. We've written a `binary_search` that can operate on any type, so long as `operator<` and `operator>` are defined for that type! In fact... this could even solve our third bullet point at the same time because we can define `op<` and `op>` to mean whatever we want.
-
-Very very cool.
-
-First, let's be nice to users and simplify. We don't actually need both `op<` and `op>` since there is a well-defined mathematical relationship between the two. Only requiring a single operator rather than two operators would make it easier and less error-prone to define user-defined types that our `binary_search` can use.
-
-First, let's document the requirement of type `T`.
-```c++
- * @tparam T  Type of the array elements. Is comparable: bool operator<(T,T).
-```
-Good. But the specifications... actually use other operators like `operator<=` and `operator!=` These operators aren't actually required by the function, and may not even be defined for some types at all... Can we make the specifications more consistent? 
-
-Let's rewrite the full specifications and implementation using only `operator<`:
+If we want `binary_search` to work for a custom type, we need to make sure these
+operators are implemented for that type. Let's document the requirement of type
+`T`. See full implementation in [search3.cpp](src/search3.cpp).
 ```c++
 /** 
- * @brief Search a sorted array for a value using binary search.
- *
+ * Search a sorted array for a value using binary search.
+ * 
  * @param[in] a         Sorted array to search.
- * @param[in] low,high  Search in the index range [low, high).
+ * @param[in] low,high  Search in the index range [ low,  high).
  * @param[in] v         Value to search for.
+ * @param[in] eps       Equality tolerance
  * @return    An index into array _a_ or -1.
  *
- * @tparam T  Type of the array elements. Is comparable: bool operator<(T,T).
- *
+ * @tparam T Type of the array elements
+ * @tparam T Comparison operator defined: bool operator<(T,T)
+ * @tparam T Comparison operator defined: bool operator>(T,T)
+ * @tparam T Substraction operator defined: T operator-(T,T)
+ * @tparam T Addition operator defined: T operator+(T,T)
+ * 
  * @pre 0 <= low <= high <= Size of the array _a_.
- * @pre For all i,j with low <= i < j < high, !(_a_[j] < _a_[i]).
- * @post (low <= result < high and !(_a_[result] < _v_) and !(_v_ < _a_[result])) 
- *    or (result == -1 and there is no i, low <= i < high, 
- *                                        s.t. !(_a_[result] < _v_) and !(_v_ < _a_[result])).
+ * @pre For all i,j with  low <= i < j < high,  a[i] <= a[j].
+ * @post ( low <= result <  high and  a[result] ==  v within tolerance eps) 
+ *    or (result == -1 and there is no _i_ s.t. low <= i < high, and a[i] == v).
  *
- * The algorithm complexity is O(high - low).
+ * The complexity of the serach algorithm is O(high - low)
  */
-template <typename T>
-int binary_search(const T* a, int low, int high, const T& v) {
-  --high;
-  while (low <= high) {
-    int mid = low + (high - low) / 2;
-    if (a[mid] < v)
+template <class T>
+int binary_search(const T* a, int low, int high, const T& v, const T& eps)
+```
+First, we see that if we slightly modify function `binary_search`, we can
+reduce the requirements on the type `T`. Let us rewrite the conditional
+statements as:
+```c++
+    if (a[mid] + eps < v)      // a[mid] < v
       low = mid + 1;
-    else if (v < a[mid])
+    else if (v + eps < a[mid]) // a[mid] > v
       high = mid - 1;
     else
-      return mid;   // Value found
-  }
-  return -1;        // Value not found
-}
+      return mid;
 ```
-Yikes, that's getting really unreadable and, in practice, we should be ok with less formal and more readable specifications. Actually, there is a really interesting way to simplify both the implementation and specification, which we will continue with soon!
+Now, type `T` needs to implement only addition and "less than" operator.
+The `binary_search` function can operate on _any_ data type that implements
+these two operators. Fewer requirements make it easier and less error-prone
+implement user-defined types that our `binary_search` can use.
 
-For now though, there's still a problem. Because ` operator<` is user-defined, it could do any number of really crazy things. Just requiring the array to be sorted by ` operator<` is no longer enough. For example,
+Let us use `binary_search` with `Student` class defined in
+[student.hpp](src/student.hpp), and let us try to find a student
+in a classroom by their name. The `Student` class does not have
+default comparison and addition operators, so we have to define them:
 ```c++
-class MyType {
-  int v1;
-  int v2;
-};
-bool operator<(const MyType& a, const MyType& b) {
-  return (a.v1 != b.v1) && (a.v2 < b.v2);
+bool operator<(const Student& x, const Student& y)
+{
+  return (x.getName() < y.getName());
 }
-...
-MyType a[5] = {{0,4}, {0,3}, {0,2}, {0,1}, {0,0}};
-MyType v = {1,3};
-int idx = binary_search(a, 0, 5, v);
+
+Student operator+(const Student& lhs, const Student& rhs)
+{
+  return Student(lhs.getName() + rhs.getName(), lhs.getStudentID());
+}
 ```
-will cause ` binary_search` to fail: The preconditions are satisfied, ` a` is sorted according to ` operator<`. The function returns ` -1`, but we can see that ` !(a[1] < v)` and ` !(v < a[1])`, so the postcondition is not satisfied!
+Here we rely on `std::string` comparison and addition. With these
+definitions, we can find a student in the classroom, provided the
+classroom meets our preconditions:
+```c++
+  Student classroom[10];
+  ...
+  Student* john = new Student("Cleese, John", 100400);
+  Student* tol = new Student("", 0); // Fake student with name ""
+  ...
+  int seat = binary_search(classroom, 0, 3, *john, *tol);
+```
+The full code is in [search4a.cpp](src/search4a.cpp). This is really
+powerful. With minor coding effort we were able to deploy our `binary_search`
+code for a quite different use case.
 
-We need to constrain the behavior of ` operator<` to avoid this type of thing. When we were working with just primitive types, this wasn't an issue. Primitive types admit a ``strict weak ordering'' under their comparison operator. A comparison that imposes a strict weak ordering has the following properties:
+While comparing students, as we defined it, is quite intuitive, it does not
+make much sense to "add" students. Furthermore, the addition we implemented
+is not commutative. This is legal in C++, but it is a poor design choice.
+It is so easy to introduce a hard to find bug by simply rewriting `v + eps`
+as `eps + v`.
 
-* (Irreflexive) For all ` x`, ` !(x < x)`.
-* (Asymmetric) For all ` x` and ` y`, ` (x < y) => !(y < x)`.
-* (Transitive) For all ` x` and ` y` and ` z`, ` (x < y) && (y < z) => (x < z)`.
-
-The ` operator<(MyType,MyType)` above fails to be transitive because 
-` {0,0} < {1,3}` and `{1,3} < {0,4}`, but we don't have ` {0,0} < {0,4}`.
+An alternative solution would be to have separate solution for floating point
+types and types where a reliable comparison operator is defined without a
+tolerance. The floating point types could use the code in 
+[search4a.cpp](src/search4a.cpp) as before, while for the other types we could
+overload `binary_search` like this (see [search4b.cpp](src/search4b.cpp)):
+```c++
+/** 
+ * Search a sorted array for a value using binary search.
+ * 
+ * @param[in] a         Sorted array to search.
+ * @param[in] low,high  Search in the index range [@a low, @a high).
+ * @param[in] v         Value to search for.
+ * @return    An index into array _a_ or -1.
+ * 
+ * @tparam T Type of the array elements
+ * @tparam T Comparison operator defined: bool operator<(T,T)
+ * @tparam T Not appropriate for floating point types
+ *
+ * @pre 0 <=  low <=  high <= Size of the array _a_.
+ * @pre For all i,j with  low <= i < j <  high,  a[i] <= a[j].
+ * @post ( low <= result <  high and  a[result] ==  v) 
+ *    or (result == -1 and there is no _i_ s.t. low <= i < high, and a[i] == v).
+ *
+ * The complexity of the serach algorithm is O(log(n))
+ */
+template <class T>
+int binary_search(const T* a, int low, int high, const T& v)
+```
+In the type specification, we require that the overloaded method
+should not be used with floating point data types. At the same
+time, we drop the requirement to have the addition operator implemented.
+The downside of this solution is it introduces some code duplication.
+It is developers responsibility to weigh pros and cons and
+make the design decision accordingly.
 
 The take home message is that we make assumptions in our code all the time.
 When making code generic, even simple abstractions can have profound
