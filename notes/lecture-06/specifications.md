@@ -48,9 +48,9 @@ To refer to values that change during the operation of the method we use `old X`
 
 To refer to a function's return value we use `result`.
 
-### Specifications and Binary Search ###
+### Specifications and Binary Search Example ###
 
-We started this class developing these concepts in the context of a particular example: binary search. Let's start with the first implementation provided in function:
+We started this class developing these concepts in the context of a particular example: binary search. Let's start with the first implementation provided in [search0.cpp](src/search0.cpp):
 ```c++
 int binary_search(float* a, int n, float v) {
   int low = 0;
@@ -67,11 +67,27 @@ int binary_search(float* a, int n, float v) {
   return -1;        // Value not found
 }
 ```
-This actually has a bug that often goes undetected! In the computation of `mid`, if the sum of low and high is greater than `2^{31}-1`, then the `int` type will overflow without warning! To fix this common mistake, we can replace that line with
+There are a couple of bugs in this code that often go undetected. In the computation of `mid`, if the sum of low and high is greater than `2^{31}-1`, then the `int` type will overflow without warning! To fix this common mistake, we can replace that line with
 ```c++
 int mid = low + (high - low) / 2;
 ```
-We want our friends to use our method without having to understand every detail of our implementation. In order for this to be feasible, we should write out specifications for `binary_search` that give more information about the inputs and the return value:
+The other, more serious bug is that the floating point numbers are compared directly. Due to round-off
+error, two floating point numbers may be computed to slightly different values even when
+mathematically they should be the same. Because of that, checking if the two floating point
+numbers are equal, will often produce misleading results. To account for the truncation error,
+we assume the two floating pint numbers are equal if they agree to within some tolerance.
+To ensure comparisons in our function are meaningful, we rewrite the conditionals as
+```
+    if (a[mid] < v - eps)
+      low = mid + 1;
+    else if (a[mid] > v + eps)
+      high = mid - 1;
+    else
+      return mid;   // Value found
+```
+Here `eps` is a small positive number, chosen based on typical values for array `a`.
+
+We want our coworkers to use our method without having to understand every detail of our implementation. In order for this to be feasible, we should write out specifications for `binary_search` that give more information about the inputs and the return value:
 ```c++
 /** 
  * @brief Search a sorted array for a value using binary search.
@@ -154,7 +170,7 @@ int binary_search(float* a, int n, float v) {
   return 0;
 }
 ```
-Geez. This can be repaired: we need to insure that the array is immutable. By changing the signature of the function and, in our specifications, noting that each parameter is read-only, we can promise to the user (and the compiler!) that we will not change the values within the array. A final, solid version of `binary_search` might look like this:
+This can be repaired: we need to insure that the array is immutable. By changing the signature of the function and, in our specifications, noting that each parameter is read-only, we can promise to the user (and the compiler!) that we will not change the values within the array. A final, solid version of `binary_search` might look like this (see also [search1.cpp](src/search1.cpp)):
 ```c++
 /** 
  * @brief Search a sorted array for a value using binary search.
@@ -162,6 +178,7 @@ Geez. This can be repaired: we need to insure that the array is immutable. By ch
  * @param[in] a  Sorted array of floats.
  * @param[in] n  Number of elements of _a_ to search.
  * @param[in] v  Value to search for.
+ * @param[in] eps       Equality tolerance
  * @return    An index into array _a_ or -1.
  * 
  * @pre 0 <= _n_ <= Size of the array _a_.
@@ -169,16 +186,16 @@ Geez. This can be repaired: we need to insure that the array is immutable. By ch
  * @post (0 <= result < _n_ and _a_[result] == _v_) 
  *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
  *
- * The algorithm complexity is O(log(_n_)).
+ * The complexity of the serach algorithm is O(log(n))
  */
-int binary_search(const float* a, int n, float v) {
+int binary_search(const float* a, int n, float v, float eps) {
   int low = 0;
   int high = n-1;
   while (low <= high) {
     int mid = low + (high - low) / 2;
-    if (a[mid] < v)
+    if (a[mid] < v - eps)
       low = mid + 1;
-    else if (a[mid] > v)
+    else if (a[mid] > v + eps)
       high = mid - 1;
     else
       return mid;   // Value found
@@ -215,6 +232,7 @@ Let's start with the binary search function we defined in the previous post.
  * @param[in] a  Sorted array of floats.
  * @param[in] n  Number of elements of _a_ to search.
  * @param[in] v  Value to search for.
+ * @param[in] eps       Equality tolerance
  * @return    An index into array _a_ or -1.
  * 
  * @pre 0 <= n <= Size of the array _a_.
@@ -222,16 +240,17 @@ Let's start with the binary search function we defined in the previous post.
  * @post (0 <= result < _n_ and _a_[result] == _v_) 
  *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
  *
- * The algorithm complexity is O(log(_n_)).
+ * The complexity of the serach algorithm is O(log(n))
  */
-int binary_search(const float* a, int n, float v) {
+int binary_search(const float* a, int n, float v, float eps) 
+{
   int low = 0;
   int high = n-1;
   while (low <= high) {
     int mid = low + (high - low) / 2;
-    if (a[mid] < v)
+    if (a[mid] < v - eps)
       low = mid + 1;
-    else if (a[mid] > v)
+    else if (a[mid] > v + eps)
       high = mid - 1;
     else
       return mid;   // Value found
@@ -246,7 +265,8 @@ In class, we pointed out limitations of the above implementation. Namely,
 * `binary_search` only applies to arrays that are sorted in ascending order. What about descending order, lexicographical order, etc?
 * `binary_search` only applies to data stored in an array.
 
-A simple modification addresses the first point. I've included the complete specification
+A simple modification addresses the first point (see [search2.cpp](src/search2.cpp)). 
+The complete specification for the modified code is:
 ```c++
 /** 
  * @brief Search a sorted array for a value using binary search.
@@ -254,16 +274,17 @@ A simple modification addresses the first point. I've included the complete spec
  * @param[in] a         Sorted array of floats.
  * @param[in] low,high  Search in the index range [low, high).
  * @param[in] v         Value to search for.
+ * @param[in] eps       Equality tolerance
  * @return    An index into array _a_ or -1.
  * 
- * @pre 0 <= low <= high <= Size of the array _a_.
+ * @pre 0 <= low < high <= Size of the array _a_.
  * @pre For all i,j with low <= i < j < high, _a_[i] <= _a_[j].
  * @post (low <= result < high and _a_[result] == _v_) 
  *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
  *
- * The algorithm complexity is O(high - low).
+ * The complexity of the serach algorithm is O(log(high - low))
  */
-int binary_search(const float* a, int low, int high, float v)
+int binary_search(const float* a, int low, int high, float v, float eps)
 ```
 To address the second point, we note that the body of the function (and the complete specification) applies equally well to numeric types: `int`, `unsigned`, `float`, `double`. Using C++ templates (parametric polymorphism), we lift this function from being implemented for a specific type to being a family of functions that can be used for (nearly) any type:
 ```c++
@@ -273,23 +294,25 @@ To address the second point, we note that the body of the function (and the comp
  * @param[in] a         Sorted array to search.
  * @param[in] low,high  Search in the index range [low, high).
  * @param[in] v         Value to search for.
+ * @param[in] eps       Equality tolerance
  * @return    An index into array _a_ or -1.
  * 
- * @pre 0 <= low <= high <= Size of the array _a_.
+ * @pre 0 <= low < high <= Size of the array _a_.
  * @pre For all i,j with low <= i < j < high, _a_[i] <= _a_[j].
  * @post (low <= result < high and _a_[result] == _v_) 
  *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
  *
- * The algorithm complexity is O(high - low).
+ * The complexity of the serach algorithm is O(log(high - low))
  */
 template <typename T>
-int binary_search(const T* a, int low, int high, const T& v) {
+int binary_search(const T* a, int low, int high, const T& v, const T& eps)
+{
   --high;
   while (low <= high) {
     int mid = low + (high - low) / 2;
-    if (a[mid] < v)
+    if (a[mid] < v - eps)
       low = mid + 1;
-    else if (a[mid] > v)
+    else if (a[mid] > v + eps)
       high = mid - 1;
     else
       return mid;   // Value found
@@ -300,9 +323,11 @@ int binary_search(const T* a, int low, int high, const T& v) {
 The parameter `T` takes over the roll of the previously constant `float` type. The compiler detects which type `T` we need and stamps out the appropriate function for us! We have not changed the body of the function because it applies equally well when `T` is an `int`, `unsigned`, `float`, `double`, etc.
 ```c++
 int* a_i = …;
-int idx = binary_search(a_i, 0, n, 5);     // Generates binary_search(int*, int, int, int)
+int idx = binary_search(a_i, 0, n, 5, 0);        // Generates binary_search(int*, int, int, int)
 float* a_f = …;
-int idx = binary_search(a_f, 0, n, 3.2f);  // Generates binary_search(float*, int, int, float)
+idx = binary_search(a_f, 0, n, 3.2f, 1e-10f);    // Generates binary_search(float*, int, int, float)
+idx = binary_search(a_f, 0, n, 3.2, 1e-10f);     // Error: conflicting types for parameter 'T'
+idx = binary_search<float>(a_f, 0, n, 3.2, 1e-9) // Generates binary_search(float*, int, int, float)
 ```
 The `const T\&` change in the above function is to prevent a copy in the case that `T` is a heavy object that would be expensive to copy. For example, `binary_search` now works with `std::string` objects because ` bool operator<(const std::string\&, const std::string\&)` is implemented in the standard library to perform lexicographical comparison!
 
