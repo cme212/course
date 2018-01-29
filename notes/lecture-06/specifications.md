@@ -33,7 +33,7 @@ In this example:
 of your function.
 * `@param` describes a function parameter and takes an optional direction: `@param[in]` means the parameter's value is only read and not modified within the function, `@param[out]` means the parameter is not read and is only modified, and `@param[in,out]` means the parameter is both read and modified.
 * `@param`, `@pre`, and `@post` sections should be repeated as many time as required.
-* `@pre` and `@post` define the pre- and postconditions, which should be precise but brief. When in doubt, attempt rigorous conditions but keep in mind that some concepts such as ``validity" may be difficult or impossible to define precisely. Specifications are primarily for human consumption.
+* `@pre` and `@post` define the pre- and postconditions, which should be precise but brief. When in doubt, attempt rigorous conditions but keep in mind that some concepts such as "validity" may be difficult or impossible to define precisely. Specifications are primarily for human consumption.
 * In any section, a parameter can be referred to by name with underscores, e.g. `_paramname_`. This helps disambiguate short parameter names by identifying them in the text and highlighting them in the Doxygen output. For instance, 
 ```c++
  * @return The size of _a_
@@ -73,7 +73,8 @@ int mid = low + (high - low) / 2;
 ```
 The other, more serious bug is that the floating point numbers are compared directly. Due to round-off
 error, two floating point numbers may be computed to slightly different values even when
-mathematically they should be the same. Because of that, checking if the two floating point
+mathematically they should be the same. See the example in [roundoff.cpp](src/roundoff.cpp)
+Because of that, checking if the two floating point
 numbers are equal, will often produce misleading results. To account for the truncation error,
 we assume the two floating pint numbers are equal if they agree to within some tolerance.
 To ensure comparisons in our function are meaningful, we rewrite the conditionals as
@@ -175,10 +176,10 @@ This can be repaired: we need to insure that the array is immutable. By changing
 /** 
  * @brief Search a sorted array for a value using binary search.
  *
- * @param[in] a  Sorted array of floats.
- * @param[in] n  Number of elements of _a_ to search.
- * @param[in] v  Value to search for.
- * @param[in] eps       Equality tolerance
+ * @param[in] a   Sorted array of floats.
+ * @param[in] n   Number of elements of _a_ to search.
+ * @param[in] v   Value to search for.
+ * @param[in] eps Equality tolerance
  * @return    An index into array _a_ or -1.
  * 
  * @pre 0 <= _n_ <= Size of the array _a_.
@@ -229,10 +230,10 @@ Let's start with the binary search function we defined in the previous post.
 /** 
  * @brief Search a sorted array for a value using binary search.
  *
- * @param[in] a  Sorted array of floats.
- * @param[in] n  Number of elements of _a_ to search.
- * @param[in] v  Value to search for.
- * @param[in] eps       Equality tolerance
+ * @param[in] a   Sorted array of floats.
+ * @param[in] n   Number of elements of _a_ to search.
+ * @param[in] v   Value to search for.
+ * @param[in] eps Equality tolerance
  * @return    An index into array _a_ or -1.
  * 
  * @pre 0 <= n <= Size of the array _a_.
@@ -322,9 +323,9 @@ int binary_search(const T* a, int low, int high, const T& v, const T& eps)
 ```
 The parameter `T` takes over the roll of the previously constant `float` type. The compiler detects which type `T` we need and stamps out the appropriate function for us! We have not changed the body of the function because it applies equally well when `T` is an `int`, `unsigned`, `float`, `double`, etc.
 ```c++
-int* a_i = …;
+int* a_i = ...;
 int idx = binary_search(a_i, 0, n, 5, 0);        // Generates binary_search(int*, int, int, int)
-float* a_f = …;
+float* a_f = ...;
 idx = binary_search(a_f, 0, n, 3.2f, 1e-10f);    // Generates binary_search(float*, int, int, float)
 idx = binary_search(a_f, 0, n, 3.2, 1e-10f);     // Error: conflicting types for parameter 'T'
 idx = binary_search<float>(a_f, 0, n, 3.2, 1e-9) // Generates binary_search(float*, int, int, float)
