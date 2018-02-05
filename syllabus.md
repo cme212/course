@@ -66,7 +66,7 @@ Tuesday:
 
 Wednesday: 
   - 9am - 11am (Chris), 
-  - 4.30pm - 5.30pm (Slaven, ICME Suite M05), 
+  - 4.30pm - 5.30pm (Slaven, ICME Suite M09), 
   - 5.30pm-7.30pm (Vishal)
 
 Thursday: 
