@@ -2,7 +2,7 @@
 
 ## Abstraction Functions and Representation Invariants
 
-Lecture notes available on [Canvas](https://canvas.stanford.edu/courses/74508/files/folder/Notes?preview=2583288).
+Lecture notes available on [Canvas](https://canvas.stanford.edu/courses/74508/files/folder/Notes?preview=2604872).
 
 Loop invariants example is in file [loop.cpp](src/loop.cpp).
 
