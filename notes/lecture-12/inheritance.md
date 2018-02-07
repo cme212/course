@@ -3,9 +3,9 @@
 ## Inheritance and Polymorphism ##
 
 Inheritance is a fundamental motif in object oriented programming.
-It allows a class to inherit member variables and methods from another
-class.
-The inheritance can be described as *is-a* relationship. For
+It allows a class to reuse code of another class and in that way
+inherit member variables and methods from that class.
+The inheritance can be described as an *is-a* relationship. For
 example, a triangle is a shape, or a student is a scholar. Let us explain
 basics of inheritance in a simple example. Consider the class `Rectangle`
 ```c++
@@ -63,7 +63,7 @@ private:
 Each class represents a shape, has a member variable `area_`,
 and has a method `getArea()`. If we want to add more shapes (like triangles, pentagons, etc.),
 we would need to replicate the same variable and the same method
-for those shapes, too, because all shapes have an area. If we
+for those shapes, too, since all shapes have an area. If we
 want to add another general shape property (e.g. color), we would
 have to add it to all classes representing shapes that we created.
 This will cause our code to grow quickly as we add more features,
