@@ -277,5 +277,29 @@ Invoking Rectangle destructor ...
 Invoking Shape destructor ...
 $
 ```
+This is particularly helpful when we want to specify default
+behavior in the base class, but still be able to override the
+default in some derived classes.
+
+
+### Pure Virtual Methods ###
+
+Sometimes we want to force developers to follow certain standards.
+For example, we may want every shape to provide method `getArea()`.
+One way to accomplish that is to define base class method `getArea()`
+as a pure virtual method. The declaration would look like this:
+```c++
+virtual double getArea() = 0;
+```
+Assigning zero to the declaration of a virtual method is C++ way
+of saying this is *pure virtual* method. We do not need to implement
+a pure virtual method in the base class. On the other hand, if we
+do not implement pure virtual method in any of the derived classes,
+the compiler will return an error. An example of using a pure
+virtual method is given in [inheritance_pure_virtual.cpp](src/inheritance_pure_virtual.cpp).
+A class that has no data and only pure virtual methods is called
+an abstract class or an interface class. An example of abstract
+`Shape` class and its use is provided in
+[inheritance_interface.cpp](src/inheritance_interface.cpp).
 
 
