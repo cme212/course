@@ -76,7 +76,7 @@ of our objects in a *base* class. When we derive a class from the base class,
 the *derived* class will inherit the common features implemented in the base,
 so we will need to implement only the features specific to the *derived* class.
 This approach leads to a leaner and easier to maintain code. 
-For example, we cav create class `Shape` like this:
+For example, we can create class `Shape` like this:
 ```c++
 class Shape
 {
@@ -254,7 +254,7 @@ leak. Furthermore, we are able to override any other
 virtual function in the derived class, and
 access it through the pointer to the base class. This is
 called *runtime polymorphism*. Take a look at the code in
-[inheritance_polymorphysm.cpp](src/inheritance_polymorphysm.cpp).
+[inheritance_public_polymorphysm.cpp](src/inheritance_public_polymorphysm.cpp).
 There, both, the base class destructor and the `getArea()` method
 are virtual. That allows us to override `getArea()` in `Rectangle`
 class, for example. The output this code produces looks like:
