@@ -254,7 +254,7 @@ leak. Furthermore, we are able to override any other
 virtual function in the derived class, and
 access it through the pointer to the base class. This is
 called *runtime polymorphism*. Take a look at the code in
-[inheritance_public_polymorphysm.cpp](src/inheritance_public_polymorphysm.cpp).
+[inheritance_public_polymorphism.cpp](src/inheritance_public_polymorphism.cpp).
 There, both, the base class destructor and the `getArea()` method
 are virtual. That allows us to override `getArea()` in `Rectangle`
 class, for example. The output this code produces looks like:
