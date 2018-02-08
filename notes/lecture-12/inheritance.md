@@ -134,9 +134,9 @@ The class `Circle` will inherit member variables and functions from
 be public in `Circle`. We defined variable `area_` as *protected* so
 it is accessible by `Circle` and other classes that inherit from `Shape`.
 If `area_` was private, `Circle` would inherit it, but it would not
-be able to access it.
+be able to access it. 
 Note that accessibility in C++ is based on classes and not objects.
-Therefore instances of the same class can access each other private
+Therefore instances of the same class can access each other's private
 members.
 We can implement class `Rectangle` to inherit from `Shape` in a similar
 manner. The complete code is provided in
@@ -200,7 +200,7 @@ int main()
   //std::cout << "Circle radius = " << pc->getRadius() << "\n"; // Compiler error
   std::cout << "\n";
 
-  delete pc; ///< Circle not destoryed, memory leak!
+  delete pc; ///< Shape is destroyed, but Circle is not, memory leak!
   
   return 0;
 }
@@ -292,7 +292,7 @@ as a pure virtual method. The declaration would look like this:
 virtual double getArea() = 0;
 ```
 Assigning zero to the declaration of a virtual method is C++ way
-of saying this is *pure virtual* method. We do not need to implement
+of saying this is a *pure virtual* method. We do not need to implement
 a pure virtual method in the base class. On the other hand, if we
 do not implement pure virtual method in any of the derived classes,
 the compiler will return an error. An example of using a pure
@@ -302,4 +302,10 @@ an abstract class or an interface class. An example of abstract
 `Shape` class and its use is provided in
 [inheritance_interface.cpp](src/inheritance_interface.cpp).
 
+
+### Reading ###
+
+* [Public, protected and private inheritance](https://stackoverflow.com/questions/860339/difference-between-private-public-and-protected-inheritance)
+* [Virtual functions](https://stackoverflow.com/questions/2391679/why-do-we-need-virtual-functions-in-c)
+* [Interfaces in C++](https://stackoverflow.com/questions/1216750/how-can-i-simulate-interfaces-in-c)
 
