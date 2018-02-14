@@ -1,11 +1,10 @@
 
 CXX = g++
 CXXFLAGS = -Wall -Wconversion -Wextra -pedantic -std=c++11
-SRC = myfunction.cpp mymain.cpp
-HEADERS = myheader.hpp
-EXE = inline
+SRC = usings.cpp
+EXE = usings
 
-$(EXE): $(SRC) $(HEADERS)
+$(EXE): $(SRC)
 	$(CXX) $(CXXFLAGS) -o $@ $(SRC)
 
 .PHONY: clean
