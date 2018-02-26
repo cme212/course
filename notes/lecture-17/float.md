@@ -8,6 +8,7 @@ point data types:
 * `float` - single precision floating point type
 * `double` - double precision floating point type
 * `long double` - extended precision floating point type
+
 The C++ standard does not specify the representation or even
 the precision of these three types. The C++ standard only says that:
 > "The type double provides at least as much precision as float, and the 
