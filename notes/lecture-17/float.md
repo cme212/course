@@ -68,7 +68,7 @@ the mantisa of `b`.
 
 The results for `a` and `b` have the same number of significant digits and
 they agree to within truncation error, but they provide different
-representation of the number 1.001 x 10^-5. This example illustrates that
+representation of the number 1.001 x 10<sup>-5</sup>. This example illustrates that
 associativity of addition and multiplication is not a representation invariant
 of the floating point number.
 
@@ -104,8 +104,8 @@ Let us modify our look like this:
     std::cout << i << "\n";
   }
 ```
-Now, we are checking if 1 - 10^-14 < i < 1 + 10^-14. The value of
-10^-14 is too small to affect our computation, but big enough to
+Now, we are checking if 1 - 10<sup>-14</sup> < i < 1 + 10<sup>-14</sup>. The value of
+10<sup>-14</sup> is too small to affect our computation, but big enough to
 account for the truncation error. Unfortunately, there are no simple
 rules how to set comparison tolerances. The truncation error may accumulate
 or cancel out depending on the computation, so the comparison tolerance will
