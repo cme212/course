@@ -8,6 +8,7 @@ point data types:
 * `float` - single precision floating point type
 * `double` - double precision floating point type
 * `long double` - extended precision floating point type
+
 The C++ standard does not specify the representation or even
 the precision of these three types. The C++ standard only says that:
 > "The type double provides at least as much precision as float, and the 
@@ -15,6 +16,7 @@ the precision of these three types. The C++ standard only says that:
 > of values of the type float is a subset of the set of values of the type
 > double; the set of values of the type double is a subset of the set of
 > values of the type long double.
+
 Floating point type representation may vary from compiler to compiler.
 Many compilers follow [IEEE-754](http://grouper.ieee.org/groups/754/index.html)
 standard in their floating point types implementation. In most cases
@@ -67,7 +69,7 @@ the mantisa of `b`.
 
 The results for `a` and `b` have the same number of significant digits and
 they agree to within truncation error, but they provide different
-representation of the number 1.001 x 10^-5^. This example illustrates that
+representation of the number 1.001 x 10<sup>-5</sup>. This example illustrates that
 associativity of addition and multiplication is not a representation invariant
 of the floating point number.
 
@@ -103,8 +105,8 @@ Let us modify our look like this:
     std::cout << i << "\n";
   }
 ```
-Now, we are checking if 1 - 10^-14^ < i < 1 + 10^-14^. The value of
-10^-14^ is too small to affect our computation, but big enough to
+Now, we are checking if 1 - 10<sup>-14</sup> < i < 1 + 10<sup>-14</sup>. The value of
+10<sup>-14</sup> is too small to affect our computation, but big enough to
 account for the truncation error. Unfortunately, there are no simple
 rules how to set comparison tolerances. The truncation error may accumulate
 or cancel out depending on the computation, so the comparison tolerance will
@@ -133,4 +135,5 @@ More information about `numeric_limits` class can be found at
 ### Reading ###
 
 
-* [Wikipedia article on C data types](https://en.wikipedia.org/wiki/C_data_types).
+* What Every Computer Scientist Should Know About [Floating-Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html)
+* Wikipedia article on [C data types](https://en.wikipedia.org/wiki/C_data_types).
