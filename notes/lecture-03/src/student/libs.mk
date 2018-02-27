@@ -41,8 +41,9 @@ OBJS = Main.o Student.o
 LIBOBJS = Name.o
 RM = rm
 MV = mv
+CP = cp
 LIB_DIR = -L./lib
-INCLUDE_DIR = -I./include
+INCLUDE_DIR = ./include
 LIB = -lName
 INSTALL_DIR = ./bin
 LIB_INSTALL_DIR = ./lib
@@ -52,13 +53,21 @@ LIB_INSTALL_DIR = ./lib
 student_service : $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LIB_DIR) $(LIB)
 
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) -I$(INCLUDE_DIR) -c $<
+
 install : student_service
 	-$(MV) student_service  $(INSTALL_DIR)
 
 clean:  # "-" in front of $(RM) ensures no error returned if files don't exist
 	-$(RM) *.o $(INSTALL_DIR)/student_service
 
+# Specify dependencies
+Main.o    : Student.hpp
+Student.o : Student.hpp Name.hpp
+
 ## This would typically be built elsewhere
+
 .PHONY: install_lib namelib clean_lib
 
 namelib: libName.so libName.a
@@ -72,15 +81,13 @@ libName.a : Name.o    # Static library is an archive of object files
 install_lib: namelib
 	-$(MV) libName.so $(LIB_INSTALL_DIR)
 	-$(MV) libName.a  $(LIB_INSTALL_DIR)
+	-$(CP) Name.hpp $(INCLUDE_DIR)
 
 clean_lib: 
-	-$(RM) $(LIB_INSTALL_DIR)/*.a $(LIB_INSTALL_DIR)/*.so
-## End of library builds
-
-%.o : %.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE_DIR) -c $<
+	-$(RM) $(LIB_INSTALL_DIR)/*.a $(LIB_INSTALL_DIR)/*.so $(INCLUDE_DIR)/*
 
 # Specify dependencies
-Main.o    : Student.hpp
-Student.o : Student.hpp Name.hpp
 Name.o    : Name.hpp
+
+## End of library builds
+
