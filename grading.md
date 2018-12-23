@@ -28,7 +28,7 @@ we will map categories to scalar values, e.g.
 
 E.g. your feedback from an assignment might be something like, `"Functionality" : "+", "code-quality" : "ok", "documentation" : "-"}` then if you were really eager to squash this multidimensional, rich feedback into a single scalar value you could compute `0.65 * 0.95 + 0.25 * 0.85 + 0.10 * 0.75 = 0.905`.
 
-#### Functionality
+### Functionality
 
 High priority
  - Correct functionality on test cases
@@ -43,14 +43,14 @@ Low priority
 - Correct files present
 - Clean repo (according to hw specs)
 
-#### Write up
+### Write up
 - The problem is stated clearly
 - The results are explained in sufficient detail
 - The format is easy to read
 - Answers to questions asked in assignment specification are correct
 - Language is mostly correct and easy to follow
 
-#### Design/Style
+### Design/Style
  - Modular code, decomposed into appropriate logical units (functions/classes)
  - Use of proper data structures
  - Efficient algorithm implementation
