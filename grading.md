@@ -36,33 +36,26 @@ High priority
 
 Medium priority
  - Output conforms to spec
- - Clean compile
-  - C++: program compiles, no warnings under strict compiler flags 
-  - Python: no syntax errors
- - Clean run
-  - C++: no segfaults under any cases
-  - C++: valgrind is clean under all cases
-  - Python: no fails on exception tracebacks in any cases unless allowed by hw spec
+ - Clean compile: no warnings under strict compiler flags 
+ - Clean run: no segfaults under any cases, and valgrind runs cleanly.
 
 Low priority
 - Correct files present
 - Clean repo (according to hw specs)
 
-Design
+Design/Style
  - Modular code, decomposed into appropriate logical units (functions/classes)
  - Use of proper data structures
  - Efficient algorithm implementation
-
-Style
-- Cleanliness and readability
-- Language conventions
+ - Cleanliness and readability
+ - Language conventions
 
 Write up
-- The problem to be solved is stated clearly
-- Produced results are described in sufficient detail
-- Formatting of text or PDF file is clean and easy to read
+- The problem is stated clearly
+- The results are explained in sufficient detail
+- The format is easy to read
+- Answers to questions asked in assignment specification are correct
 - Language is mostly correct and easy to follow
-- Correct answers to questions asked in assignment specification
 
 ## Code quality notes
 
@@ -86,18 +79,16 @@ Language conventions
 
 * choose the most clean, direct, conventional syntax available to you
 * avoid unnecessary use of obscure constructs
-* use standard language features appropriately, e.g.
-  * `bool` instead of `int` for true-false scenarios
+* use standard language features appropriately, e.g. `bool` instead of `int` for true-false scenarios
 
 Program design
 
 * program flow decomposed into manageable, logical pieces
 * function interfaces are clean and well-encapsulated
 * appropriate algorithms used, coded cleanly
-* common code is unified, not duplicated
-  * when you need same lines more the once, don't copy and paste -- unify!
-* use standard library functions rather than re-implement that functionality, e.g.
-  * string manipulation, formatted I/O, sort/search, type conversion, etc.
+* common code is unified, not duplicated. (don't copy paste -- unify!)
+* use standard library functions rather than re-implement that functionality, e.g. 
+  string manipulation, formatted I/O, sort/search, type conversion, etc.
 
 Data structures
 
