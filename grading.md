@@ -28,7 +28,7 @@ we will map categories to scalar values, e.g.
 
 E.g. your feedback from an assignment might be something like, `"Functionality" : "+", "code-quality" : "ok", "documentation" : "-"}` then if you were really eager to squash this multidimensional, rich feedback into a single scalar value you could compute `0.65 * 0.95 + 0.25 * 0.85 + 0.10 * 0.75 = 0.905`.
 
-## Functionality
+#### Functionality
 
 High priority
  - Correct functionality on test cases
@@ -43,24 +43,21 @@ Low priority
 - Correct files present
 - Clean repo (according to hw specs)
 
-Design/Style
- - Modular code, decomposed into appropriate logical units (functions/classes)
- - Use of proper data structures
- - Efficient algorithm implementation
- - Cleanliness and readability
- - Language conventions
-
-Write up
+#### Write up
 - The problem is stated clearly
 - The results are explained in sufficient detail
 - The format is easy to read
 - Answers to questions asked in assignment specification are correct
 - Language is mostly correct and easy to follow
 
-## Code quality notes
+#### Design/Style
+ - Modular code, decomposed into appropriate logical units (functions/classes)
+ - Use of proper data structures
+ - Efficient algorithm implementation
+ - Cleanliness and readability
+ - Language conventions
 
 Cleanliness/readability
-
 * code is free of clutter: remove all dead code and unused vars/fns
 * use of whitespace/indentation is tidy and consistent
   * split long lines if necessary (screenwidth ~80 chars)
@@ -76,13 +73,11 @@ Cleanliness/readability
   * no excess verbiage that reiterates what code itself already says
 
 Language conventions
-
 * choose the most clean, direct, conventional syntax available to you
 * avoid unnecessary use of obscure constructs
 * use standard language features appropriately, e.g. `bool` instead of `int` for true-false scenarios
 
 Program design
-
 * program flow decomposed into manageable, logical pieces
 * function interfaces are clean and well-encapsulated
 * appropriate algorithms used, coded cleanly
@@ -91,7 +86,6 @@ Program design
   string manipulation, formatted I/O, sort/search, type conversion, etc.
 
 Data structures
-
 * data structures are well-chosen and appropriate
 * no redundant storage/copying of data
 * no global variables
