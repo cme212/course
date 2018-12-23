@@ -5,61 +5,64 @@ designed, well-decomposed, and commented appropriately.
 
 ## Broad categories
  
-* [60%] Functionality
-* [20%] Design
-* [10%] Style
+* [65%] Functionality
+* [25%] Design
 * [10%] Documentation / Write-up
 
 In each category, overall feedback will be summarized with:
 
-* `+`: exceptional work, rarely granted
-* `ok`: work meets specification and reasonable quality standards
-* `-`: work is lacking in at least one area
-* `--`: work is lacking in two or more areas
-* `0`: assignment missing or highly problematic
+* `++`: truly exceptional work, rarely granted,
+* `+`: work meets all expectations, without flaw(s),
+* `ok`: major functionality present, small details missed or
+  an anticipated error was made,
+* `-`: functionality impeded by a fundamental correctness error,
+  which requires multiple modifications to rectified,
+* `--`: multiple key components impeded by fundamental correctness errors,
+  *each of which* requires *multiple* modifications to be rectified.
+
+Students who do not submit their assignment at all will earn an
+entirely separate category of points, called "0". At the end of the quarter, 
+we will map categories to scalar values, e.g.
+
+`{"++" : 1.05, "+" : 0.95", "ok" : 0.85, "-" : 0.75, "--" : 0.6}`.
+
+E.g. your feedback from an assignment might be something like, `"Functionality" : "+", "code-quality" : "ok", "documentation" : "-"}` then if you were really eager to squash this multidimensional, rich feedback into a single scalar value you could compute `0.65 * 0.95 + 0.25 * 0.85 + 0.10 * 0.75 = 0.905`.
 
 ## Functionality
 
-### High priority
+High priority
+ - Correct functionality on test cases
+ - Performance is in reasonable bounds on all test cases
 
-* Correct functionality on test cases
-* Performance is in reasonable bounds on all test cases
+Medium priority
+ - Output conforms to spec
+ - Clean compile
+  - C++: program compiles, no warnings under strict compiler flags 
+  - Python: no syntax errors
+ - Clean run
+  - C++: no segfaults under any cases
+  - C++: valgrind is clean under all cases
+  - Python: no fails on exception tracebacks in any cases unless allowed by hw spec
 
-### Medium priority
+Low priority
+- Correct files present
+- Clean repo (according to hw specs)
 
-* Output conforms to spec
-* Clean compile
-  * C++: program compiles, no warnings under strict compiler flags 
-  * Python: no syntax errors
-* Clean run
-  * C++: no segfaults under any cases
-  * C++: valgrind is clean under all cases
-  * Python: no fails on exception tracebacks in any cases unless allowed by hw spec
+Design
+ - Modular code, decomposed into appropriate logical units (functions/classes)
+ - Use of proper data structures
+ - Efficient algorithm implementation
 
-### Low priority
+Style
+- Cleanliness and readability
+- Language conventions
 
-* Correct files present
-* Clean repo (according to hw specs)
-
-## Design
-
-* Modular code, decomposed into appropriate logical units (functions/classes)
-* Use of proper data structures
-* Efficient algorithm implementation
-
-## Style
-
-* Cleanliness and readability
-* Language conventions
-
-
-## Write up
-
-* The problem to be solved is stated clearly
-* Produced results are described in sufficient detail
-* Formatting of text or PDF file is clean and easy to read
-* Language is mostly correct and easy to follow
-* Correct answers to questions asked in assignment specification
+Write up
+- The problem to be solved is stated clearly
+- Produced results are described in sufficient detail
+- Formatting of text or PDF file is clean and easy to read
+- Language is mostly correct and easy to follow
+- Correct answers to questions asked in assignment specification
 
 ## Code quality notes
 
