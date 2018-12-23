@@ -87,6 +87,7 @@ the level of CME 211 or CS 106B. E.g. students should have understanding of
 programming constructs such as loops, functions, 
 standard data types, basic data structures, and classes; more colloquially,
 students should already "know how to code".
+
 In addition, we will be focused on Linux based tools, and to that 
 end expect that you already possess some computing systems knowledge, 
 e.g. basic underpinnings of the compilation and linking process of a C++ program.
