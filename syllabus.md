@@ -1,4 +1,4 @@
-# CME 212 - Winter 2018
+# CME 212 - Winter 2019
 ### Advanced Software Development for Scientists and Engineers
 
 ---
@@ -19,7 +19,7 @@ Complexity will be managed through abstraction;
 analytical tools will evaluate the efficiency of design choices.
 
 ### Format
-The class has several lectures each week, in addition to weekly assignments.
+The class has two lectures each week, in addition to weekly assignments.
 The assignments alternate between short-answer Q/A and more involved
 programming projects. 
 
@@ -30,77 +30,55 @@ their summer internships.
 
 ## Communication
 
-- The [CME 212 Canvas page][cme212-canvas] has been made available to all 
-  Stanford students.
+- The [CME 212 Canvas page](https://canvas.stanford.edu/courses/94167)
+  has been made available to all Stanford students.
   Please ask questions related to course material in the Canvas discussion 
-  forum. We also use Canvas to post homework assignments and announcements.
-
+  forum. We will also use Canvas to post homework assignments and announcements.
 - Send a message to the staff mailing list: 
-  <cme212-staff-2018@lists.stanford.edu> 
+  <cme212-staff-19@lists.stanford.edu> 
   (this e-mail address should go live within the first week of class; 
   in the meantime, please post any questions on Canvas)
-
-[cme212-canvas]: https://canvas.stanford.edu/courses/74508
 
 ## Teaching Staff
 
 Lecturers:
  - [Slaven Peles](https://icme.stanford.edu/people/slaven-peles) (peles at stanford)
- - [Andreas Santucci](http://web.stanford.edu/~santucci/) (santucci at stanford)
+ - [Andreas Santucci](https://asantucci.github.io/) (santucci at stanford)
 
 Teaching Assistants:
- - Alex Tsaptsinos (alextsap at stanford)
- - Vishal Subbiah (svishal at stanford)
- - Christopher Lazarus (clazarus at stanford)
- - Noam Habot (nhabot at stanford)
+ - Remmelt Ammerlaan (remmelt at stanford)
+ - Brett Harvey (rbharvey at stanford)
+ - Youkow Homma (youkow.homma at stanford)
+ - Jessica Wetstone (wetstone at stanford)
 
 ## Office Hours
-Office hours will be held in Huang basement (except Slaven's), outside of ICME. The hours are:
-
-Monday: 
-  - 5.30pm-7.30pm (Vishal)
-
-Tuesday: 
-  - 12.45pm - 2.45pm (Alex), 
-  - 2.45pm - 4.45pm (Noam)
-
-Wednesday: 
-  - 9am - 11am (Chris), 
-  - 4.30pm - 5.30pm (Slaven, ICME Suite M09), 
-  - 5.30pm-7.30pm (Vishal)
-
-Thursday: 
-  - 9am - 11am (Chris),
-  - 12.45pm - 2.45pm (Alex)
-  - 2.45pm - 4.45pm (Noam)
+Office hours will be held in Huang basement (except Slaven's), outside of ICME.
+The hours will be announced after the first week of instruction. Andreas will hold
+office hours by appointment.
 
 ## Learning Objectives
 
 Upon completion of this course, students should:
 
-- Possess mastery of
+- Possess *mastery* of
   - writing performant C++ programs;
   - understanding of data representation, the lifetime of objects, 
     and complex use of memory and pointers;
   - applying design principles to the decomposition of software
     into reusable components.
 
-- Achieve competency in 
+- Achieve *competency* in 
   - identifying bottlenecks and improving runtime performance; 
   - writing portable programs.
 
-- Have exposure to 
-  - writing programs that respect the limitations
-    of computer arithmetic;
-  - basic software development tools, including revision control, testing frameworks, and documentation tools;
+- Have *exposure* to 
+  - writing programs that respect the limitations of computer arithmetic;
   - the process of designing and implementing larger software systems;
-  - how to approach an existing piece of software for maintenance,
-  extension, and modification.
+  - how to approach an existing piece of software for maintenance, extension, and modification.
+  - basic software development tools, including revision control, testing frameworks, and documentation tools;
 
-In summary, we want to help you learn to 
-*design, develop, and deploy* a set of software components to produce
-a *scalable, reliable, and reproducible* experimental system for
-scientific investigation.
+In summary, we want to help you learn to *design scalable software to support
+scientific experimentation*.
 
 ## Prerequisites
 
@@ -108,16 +86,15 @@ Students are expected to have programming experience at
 the level of CME 211 or CS 106B. E.g. students should have understanding of
 programming constructs such as loops, functions, 
 standard data types, basic data structures, and classes; more colloquially,
-students should already "know how to code". 
+students should already "know how to code".
 In addition, we will be focused on Linux based tools, and to that 
 end expect that you already possess some computing systems knowledge, 
-e.g. basic underpinnings of the compilation process of a C++ program. 
-This material is covered, for example, in [Lectures 18 and 22](https://github.com/CME211/notes#contents) of CME 211.
-
+e.g. basic underpinnings of the compilation and linking process of a C++ program.
+This material is covered, for example, in
+[Lectures 18 and 22](https://github.com/CME211/notes#contents) of CME 211.
 
 ### A note on style
-You should have an 
-appreciation for the intrinsic value of good engineering and design.
+You should have, or we hope to help you develop, an appreciation for the intrinsic value of good engineering and design.
 We expect you to produce well-decomposed, readable code.
 All graded coursework is focused on C++. You may find numerous examples
 online of style guidelines, e.g. [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html#Formatting)
@@ -127,8 +104,7 @@ online of style guidelines, e.g. [Google C++ Style Guide](https://google.github.
 The course is aimed at students with a background in a scientific 
 discipline who
 will not typically have a traditional computer science background 
-(though basic
-programming knowledge is assumed as a prerequisite). 
+(though basic programming knowledge is assumed as a prerequisite). 
 We hope to attract students from social sciences, medicine, and humanities.
 Of course, computer science and engineering students alike are still welcome
 and encouraged to take the course if it fits their needs.
@@ -160,8 +136,7 @@ of 5 short-answer assignments. There will be a final exam.
 - Type systems
 - Abstract data types and abstract program values
 - Consistency and replication
-- Tools: Introduction to analysis and documentation, unit
-  testing/verification
+- Tools: Introduction to analysis and documentation, unit testing/verification
 
 ### Development
 
@@ -250,8 +225,7 @@ instructor so that we may help you. We would much rather spend time helping you
 than dealing with honor code violations.
 
 ### Examples of "reasonable" actions
- - Speaking with peers about problem sets in English (or any spoken language
- of your choice).
+ - Speaking with peers about problem sets in English (or any spoken language  of your choice).
  - Whiteboarding solutions to problem sets with others using diagrams or pseudocode, but not actual code.
 
 Since this is an advanced course in programming, we expect that you 
