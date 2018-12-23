@@ -92,7 +92,7 @@ In addition, we will be focused on Linux based tools, and to that
 end expect that you already possess some computing systems knowledge, 
 e.g. basic underpinnings of the compilation and linking process of a C++ program.
 This material is covered, for example, in
-[Lectures 18 and 22](https://github.com/CME211/notes#contents) of CME 211.
+[Lecture 14](https://github.com/CME211/notes#contents) of CME 211.
 
 ### A note on style
 You should have, or we hope to help you develop, an appreciation for the intrinsic value of good engineering and design.
