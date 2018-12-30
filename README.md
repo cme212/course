@@ -7,7 +7,7 @@
 ## Week 0
  - Lecture 0 (2019-01-08)
    - [Object size, alignment, declarations, scope, narrowing, lifetime of an object](https://canvas.stanford.edu/files/3907320/download?download_frd=1).
-   - Pointers, arrays, pointer arithmetic, and const.
+   - [Pointers, arrays, pointer arithmetic, and `const`](https://canvas.stanford.edu/files/3908083/download?download_frd=1).
  - Lecture 1 (2019-01-10)
    - Debugging in C++ with gdb
    - Proxy design patterns, 
@@ -15,13 +15,13 @@
  - [Exercise 0](https://canvas.stanford.edu/files/3907321/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
 ## Week 1
  - Lecture 2 (2019-01-15)
-   - Pointers and ownership, references, l/rvalue references; 
-   - Examples with templates,
+   - Pointers and ownership, references, l/rvalue references. 
+   - Examples with templates.
    - Lambda expressions and function objects.
  - Lecture 3 (2019-01-17)
    - Pre/post conditions, consistent/minimal specifications, 
    - Introduction to templates.
- - HW0 due Friday at 4:30 P.M. P.S.T.
+ - [HW0](https://canvas.stanford.edu/files/3908090/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
 ## Week 2
  - Lecture 4 (2019-01-22): Iterators, functors, layout of structs, (bit) fields, unions, examples of
    operator overloading via `Array` class.
