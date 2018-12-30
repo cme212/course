@@ -52,9 +52,11 @@ Teaching Assistants:
  - Jessica Wetstone (wetstone at stanford)
 
 ## Office Hours
-Office hours will be held in Huang basement (except Slaven's), outside of ICME.
-The hours will be announced after the first week of instruction. Andreas will hold
-office hours by appointment.
+Office hours will be held in [Huang
+basement](https://campus-map.stanford.edu/) 
+outside of ICME (with exception to Slaven's).
+The hours will be announced after the first week of instruction. 
+Andreas will hold office hours by appointment.
 
 ## Learning Objectives
 
@@ -112,7 +114,7 @@ and encouraged to take the course if it fits their needs.
 
 ## Course Content
 
-The class will be organized as a series of topic areas, each centered around a
+The class will be organized as a sequence of topic areas, each centered around a
 set of tools and a motivating project. Students will complete a series of 5
 programming assignments. On alternating weeks, students will tackle a series 
 of 5 short-answer assignments. There will be a final exam.
@@ -164,8 +166,9 @@ The course grade breakdown will be:
 
 ## Homework policies
 
-- Each student is allowed 2 homework late days over the quarter. Homeworks are
-  due before class on Friday. Students may use their late days on the subsequent
+- Each student is allowed 2 homework late days over the quarter.
+  Homework assignments are typically due Friday at 4:30 P.M. P.S.T.
+  Students may use their late days on the subsequent
   Saturday and Sunday. No late work will be accepted after 11:59pm on the Sunday
   following the due date. This rule does not apply to the exercise assignments
   (EX0, etc). Late exercises are not accepted. These policies are in place to ensure
