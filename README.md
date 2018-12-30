@@ -6,13 +6,13 @@
 # Schedule (WIP)
 ## Week 0
  - Lecture 0 (2019-01-08)
-   - \href{https://canvas.stanford.edu/files/3907320/download?download_frd=1}{Object size, alignment, declarations, scope, narrowing, lifetime of an object}.
+   - [Object size, alignment, declarations, scope, narrowing, lifetime of an object](https://canvas.stanford.edu/files/3907320/download?download_frd=1).
    - Pointers, arrays, pointer arithmetic, and const.
  - Lecture 1 (2019-01-10)
    - Debugging in C++ with gdb
    - Proxy design patterns, 
    - Doxygen and development tools.
- - \href{https://canvas.stanford.edu/files/3907321/download?download_frd=1}{Exercise 0} due Friday at 4:30 P.M. P.S.T.
+ - [Exercise 0](https://canvas.stanford.edu/files/3907321/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
 ## Week 1
  - Lecture 2 (2019-01-15)
    - Pointers and ownership, references, l/rvalue references; 
