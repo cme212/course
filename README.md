@@ -1,18 +1,26 @@
 # CME212
 [Syllabus](https://github.com/cme212/course/blob/master/syllabus.md#cme-212---winter-2019)
 
-BS : [Bjarne Stroustrup's Programming in C++](https://g.co/kgs/jQjpRv).
+<!-- BS : [Bjarne Stroustrup's Programming in C++](https://g.co/kgs/jQjpRv). -->
 
 # Schedule (WIP)
 ## Week 0
- - Lecture 0 (2019-01-08): object size, alignment, declarations, scope, narrowing, lifetime of an object.
-   Pointers, arrays, pointer arithmetic, and const. (BS 6)
- - Lecture 1 (2019-01-10): debugging in C++ with gdb, proxy design patterns, doxygen, development tools.
+ - Lecture 0 (2019-01-08)
+   - Object size, alignment, declarations, scope, narrowing, lifetime of an object.
+   - Pointers, arrays, pointer arithmetic, and const.
+ - Lecture 1 (2019-01-10)
+   - Debugging in C++ with gdb
+   - Proxy design patterns, 
+   - Doxygen and development tools.
  - Exercise 0 due Friday at 4:30 P.M. P.S.T.
 ## Week 1
- - Lecture 2 (2019-01-15): pointers and ownership, references, l/rvalue references; examples with templates,
-   lambda expressions and function objects.
- - Lecture 3 (2019-01-17): pre/post conditions, consistent/minimal specifications, introduction to templates.
+ - Lecture 2 (2019-01-15)
+   - Pointers and ownership, references, l/rvalue references; 
+   - Examples with templates,
+   - Lambda expressions and function objects.
+ - Lecture 3 (2019-01-17)
+   - Pre/post conditions, consistent/minimal specifications, 
+   - Introduction to templates.
  - HW0 due Friday at 4:30 P.M. P.S.T.
 ## Week 2
  - Lecture 4 (2019-01-22): Iterators, functors, layout of structs, (bit) fields, unions, examples of
