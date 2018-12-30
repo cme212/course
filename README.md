@@ -9,19 +9,19 @@
    - [Object size, alignment, declarations, scope, narrowing, lifetime of an object](https://canvas.stanford.edu/files/3907320/download?download_frd=1).
    - [Pointers, arrays, pointer arithmetic, and `const`](https://canvas.stanford.edu/files/3908083/download?download_frd=1).
  - Lecture 1 (2019-01-10)
-   - Debugging in C++ with gdb
-   - Proxy design patterns, 
-   - Doxygen and development tools.
+   - [Debugging in C++](https://github.com/cme212/course/blob/master/notes/lecture-02/debugging.md).
+   - [Proxy design patterns](https://github.com/cme212/course/blob/master/notes/lecture-03/proxy.md). 
+   - [Development tools (Make)](https://github.com/cme212/course/blob/master/notes/lecture-03/make.md) (and possibly doxygen).
  - [Exercise 0](https://canvas.stanford.edu/files/3907321/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
 ## Week 1
  - Lecture 2 (2019-01-15)
-   - Pointers and ownership, references, l/rvalue references. 
-   - Examples with templates.
-   - Lambda expressions and function objects.
+   - [Pointers and ownership, references, l/rvalue references, and
+     examples with templates](https://canvas.stanford.edu/files/3908100/download?download_frd=1). 
+   - [Lambda expressions and function objects](https://canvas.stanford.edu/files/3908103/download?download_frd=1).
  - Lecture 3 (2019-01-17)
-   - Pre/post conditions, consistent/minimal specifications, 
-   - Introduction to templates.
- - [HW0](https://canvas.stanford.edu/files/3908090/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
+   - [Pre/post conditions, consistent/minimal specifications,
+     templates](https://github.com/cme212/course/blob/master/notes/lecture-06/specifications.md). 
+   - [HW0](https://canvas.stanford.edu/files/3908090/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
 ## Week 2
  - Lecture 4 (2019-01-22): Iterators, functors, layout of structs, (bit) fields, unions, examples of
    operator overloading via `Array` class.
