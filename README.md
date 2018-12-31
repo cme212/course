@@ -68,7 +68,7 @@
    - Metaprogramming
  - Lecture 17
    - Compiler Optimizations
- - EX2 due Friday at 4:30 P.M. P.S.T.
+ - EX4 due Friday at 4:30 P.M. P.S.T.
 ### Week 9
  - Lecture 18
    - Regular Expressions
