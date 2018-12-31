@@ -53,7 +53,8 @@
  - HW2 due Friday at 4:30 P.M. P.S.T.
 ### Week 6
  - Lecture 12 (2019-02-19) 
-   - Template Programming part 2 (non-type template parameters, variadic template parameters, template template parameters);
+   - Template Programming part 2
+     (non-type template parameters, variadic template parameters, template template parameters);
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
  - Lecture 13 
    - Loop invariants, `thrust::transform_iterator`, Cachegrind, optimization
