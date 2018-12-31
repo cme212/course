@@ -56,17 +56,21 @@
    - Template Programming part 2 (non-type template parameters, variadic template parameters, template template parameters);
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
  - Lecture 13 
-   - Cachegrind, optimization
+   - Loop invariants, `thrust::transform_iterator`, Cachegrind, optimization
  - EX3 due Friday at 4:30 P.M. P.S.T.
 ### Week 7
  - Lecture 14
+   - Generic programming
  - Lecture 15
  - HW3 due Friday at 4:30 P.M. P.S.T.
 ### Week 8
  - Lecture 16
+   - Metaprogramming
  - Lecture 17
+   - Compiler Optimizations
  - EX2 due Friday at 4:30 P.M. P.S.T.
 ### Week 9
  - Lecture 18
+   - Regular Expressions
  - Lecture 19
  - HW4 due Friday at 4:30 P.M. P.S.T.
