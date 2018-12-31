@@ -62,6 +62,7 @@
  - Lecture 14
    - Generic programming
  - Lecture 15
+   - ???
  - HW3 due Friday at 4:30 P.M. P.S.T.
 ### Week 8
  - Lecture 16
@@ -73,4 +74,5 @@
  - Lecture 18
    - Regular Expressions
  - Lecture 19
+   - Review
  - HW4 due Friday at 4:30 P.M. P.S.T.
