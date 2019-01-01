@@ -32,12 +32,13 @@ their summer internships.
 
 - The [CME 212 Canvas page](https://canvas.stanford.edu/courses/94167)
   has been made available to all Stanford students.
-  Please ask questions related to course material in the Canvas discussion 
-  forum. We will also use Canvas to post homework assignments and announcements.
+  Please ask questions related to course material in the [Canvas discussion 
+  forum](https://canvas.stanford.edu/courses/94167/discussion_topics).
+  We will also use Canvas to post homework assignments and announcements.
 - Send a message to the staff mailing list: 
-  <cme212-staff-19@lists.stanford.edu> 
-  (this e-mail address should go live within the first week of class; 
-  in the meantime, please post any questions on Canvas)
+  <cme212-staff-19@lists.stanford.edu>. You should reserve use of e-mail
+  *only* when your question is personal in nature; else it should be asked
+  on Canvas such that other students may benefit from the QA.
 
 ## Teaching Staff
 
@@ -214,13 +215,15 @@ You are welcome to discuss the course's material and homework with others in
 order to better understand it, but **the work you turn in must be your own
 unless collaboration is explicitly allowed**. You may not submit the same or
 similar work to this course that you have submitted or will submit to another.
+
 You must acknowledge any source code that was not written by you by mentioning
 the original author(s) directly in your source code (comment or header). 
 You can also acknowledge sources in a README.txt file if you used whole 
 classes or libraries. Do not remove any original copyright notices 
-and headers. Making your work available for copy by other students is 
-also prohibited (unless the assignment explicitly allows collaboration). 
-Violations of the
+and headers.
+
+Making your work available for copy by other students is 
+also prohibited (unless the assignment explicitly allows collaboration).  Violations of the
 [*Stanford Honor Code and Fundamental Standard*](https://communitystandards.stanford.edu/student-conduct-process/honor-code-and-fundamental-standard) will
 be forwarded to the Stanford University Office of Community Standards.
 
