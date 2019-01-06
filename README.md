@@ -4,6 +4,8 @@
 <!-- BS : [Bjarne Stroustrup's Programming in C++](https://g.co/kgs/jQjpRv). -->
 
 ## Schedule (WIP)
+(If the links are dead, they are intended to simply point to files on Canvas.)
+
 ### Week 0
  - Lecture 0 (2019-01-08)
    - [Object size, alignment, declarations, scope, narrowing, lifetime of an object](https://canvas.stanford.edu/files/3907320/download?download_frd=1).
