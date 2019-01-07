@@ -196,6 +196,10 @@ accessed.
 A great primer on C++ is available on the Stanford e-library, and would serve as a great
 complement to course lecture notes: Lippman, Lajoie, Moo. ["C++ Primer, 5th edition"](http://proquest.safaribooksonline.com/9780133053043)
 
+Another reference we will use in this course is an excellent book by Sutter and Alexandrescu
+["C++ Coding Standards: 101 Rules, Guidelines, and Best Practices"](https://proquest-safaribooksonline-com.stanford.idm.oclc.org/0321113586),
+also available on the Stanford e-library.
+
 The lecture notes themselves will be largely based off Bjarne Stroustrup's fantastic text, 
 ["The C++ Programming Language", 4th edition](https://www.amazon.com/C-Programming-Language-Bjarne-Stroustrup-ebook/dp/B00DUW4BMS/ref=sr_1_2?ie=UTF8&qid=1515211070&sr=8-2&keywords=c%2B%2B+programming).
 
