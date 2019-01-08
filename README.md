@@ -7,9 +7,9 @@
 (If the links are dead, they are intended to simply point to files on Canvas.)
 
 ### Week 0
- - Lecture 0 (2019-01-08)
-   - [Object size, alignment, declarations, scope, narrowing, lifetime of an object](https://canvas.stanford.edu/files/3907320/download?download_frd=1).
-   - [Pointers, arrays, pointer arithmetic, and `const`](https://canvas.stanford.edu/files/3908083/download?download_frd=1).
+     - Lecture 0 (2019-01-08)
+   -     [Object size, alignment, declarations, scope, narrowing, lifetime of an object](https://canvas.stanford.edu/files/3928214/download?download_frd=1).
+-     [Pointers, arrays, pointer arithmetic, and `const`](https://canvas.stanford.edu/files/3928884/download?download_frd=1).
  - Lecture 1 (2019-01-10)
    - [Debugging in C++](https://github.com/cme212/course/blob/master/notes/lecture-02/debugging.md).
    - [Proxy design patterns](https://github.com/cme212/course/blob/master/notes/lecture-03/proxy.md). 
