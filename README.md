@@ -5,7 +5,6 @@
 
 ## Schedule (WIP)
 (If the links are dead, they are intended to simply point to files on Canvas.)
-
 ### Week 0
   - Lecture 0 (2019-01-08)
     - [Object size, alignment, declarations, scope, narrowing, lifetime of an object](https://canvas.stanford.edu/files/3928214/download?download_frd=1).
@@ -18,8 +17,8 @@
 ### Week 1
  - Lecture 2 (2019-01-15)
    - [Pointers and ownership, references, l/rvalue references, and
-     examples with templates](https://canvas.stanford.edu/files/3908100/download?download_frd=1). 
-   - [Lambda expressions and function objects](https://canvas.stanford.edu/files/3908103/download?download_frd=1).
+     examples with templates](https://canvas.stanford.edu/files/3973718/download?download_frd=1). 
+   - [Lambda expressions and function objects](https://canvas.stanford.edu/files/3973719/download?download_frd=1).
  - Lecture 3 (2019-01-17)
    - [Pre/post conditions, consistent/minimal specifications,
      templates](https://github.com/cme212/course/blob/master/notes/lecture-06/specifications.md). 
