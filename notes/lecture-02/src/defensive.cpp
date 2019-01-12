@@ -1,19 +1,19 @@
 #include <iostream>
 
-double add(double& a, double& b)
+// b <~ b + a
+void add(int& a, int& b)
 {
-  a += b; // does not compile
-  return a;
+  a += b;
 }
-
 
 int main()
 {
-  double x = 2.0;
-  double y = 3.0;
-  double z = add(x, y);
+  int x = 2;
+  int y = 3;
 
-  std::cout << x << " + " << y << " = " << z << "\n";
+  std::cout << x << " + " << y << " = ";
+  add(x, y)
+  std::cout << y << "\n";
 
   return 0;
 }

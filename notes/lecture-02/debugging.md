@@ -27,19 +27,20 @@ at the following code:
 ```c++
 #include <iostream>
 
-double add(double& a, double& b)
+// b <~ b + a
+void add(int& a, int& b)
 {
   a += b;
-  return a;
 }
 
 int main()
 {
-  double x = 2.0;
-  double y = 3.0;
-  double z = add(x, y);
+  int x = 2;
+  int y = 3;
 
-  std::cout << x << " + " << y << " = " << z << "\n";
+  std::cout << x << " + " << y << " = ";
+  add(x, y)
+  std::cout << y << "\n";
 
   return 0;
 }
@@ -49,16 +50,16 @@ in the process variable `a` is changed, what was not our intention.
 The output of the code is:
 ```
 $ ./a.out 
-5 + 3 = 5
+2 + 3 = 3
 $
 ```
 By stating our design intention explicitly, using constant data
 types, we can have compiler catch our mistake.
 ```c++
-double add(const double& a, const double& b)
+// b <~ b + a
+void add(const int& a, int& b)
 {
-  a += b; // does not compile                                                                             
-  return a;
+  a += b; // does not compile
 }
 ```
 Trying to compile the modified code will result in the compile error:
