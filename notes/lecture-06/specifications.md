@@ -9,7 +9,7 @@ behavior and not private implementation properties.
 In this class, we will use Doxygen comment style specifications.
 Doxygen is a tool for generating HTML or PDF documentation from comments
 in the source code. To get a quick start with Doxygen, take a look at
-[Documenting the Code](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html)
+[Documenting the Code](http://www.doxygen.nl/manual/docblocks.html)
 section of the Doxygen manual.
 
 Let us take a look at the Doxygen formatted comments in front of a C++ function:
