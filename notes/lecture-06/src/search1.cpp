@@ -21,9 +21,9 @@ int binary_search(const float* a, int n, float v, float eps)
   int high = n-1;
   while (low <= high) {
     int mid = (low + high) / 2;
-    if (a[mid] < v - eps)
+    if (a[mid] < v)
       low = mid + 1;
-    else if (a[mid] > v + eps)
+    else if (a[mid] > v)
       high = mid - 1;
     else
       return mid; // Value found

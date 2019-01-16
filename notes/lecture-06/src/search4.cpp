@@ -10,9 +10,8 @@
  * @param[in] v         Value to search for.
  * @return    An index into array _a_ or -1.
  * 
- * @tparam T Type of the array elements
- * @tparam T Comparison operator defined: bool operator<(T,T)
- * @tparam T Not appropriate for floating point types
+ * @tparam T Type of the array elements.
+ *           Operator `bool operator<(T,T)` must be defined.
  *
  * @pre 0 <=  low <=  high <= Size of the array _a_.
  * @pre For all i,j with  low <= i < j <  high,  a[i] <= a[j].
@@ -41,6 +40,18 @@ int binary_search(const T* a, int low, int high, const T& v)
 
 int main()
 {
+  //             0    1     2     3     4     5     6     7     8      9 
+  float a[10] = {2.f, 12.f, 15.f, 72.f, 73.f, 77.f, 90.f, 91.f, 100.f, 200.f};
+
+  // Explicitly specified template parameter
+  std::cout << binary_search<float>(a, 0, 10, 74.f) << "\n";
+  std::cout << binary_search<float>(a, 0, 10, 73.f) << "\n";
+  // Compiler deduces template parameter
+  std::cout << binary_search(a, 0, 10, 89.f) << "\n";
+  std::cout << binary_search(a, 0, 10, 90.f) << "\n";
+
+  std::cout << "\n";
+  
   //           0  1   2   3   4   5   6   7   8    9
   int b[10] = {2, 12, 15, 72, 73, 77, 90, 91, 100, 200};
 

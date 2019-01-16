@@ -71,27 +71,10 @@ int binary_search(float* a, int n, float v) {
   return -1;        // Value not found
 }
 ```
-There are a couple of bugs in this code that often go undetected. In the computation of `mid`, if the sum of low and high is greater than `2^{31}-1`, then the `int` type will overflow without warning! To fix this common mistake, we can replace that line with
+There is a bug in this code that often goes undetected. In the computation of `mid`, if the sum of low and high is greater than `2^{31}-1`, then the `int` type will overflow without warning! To fix this common mistake, we can replace that line with
 ```c++
 int mid = low + (high - low) / 2;
 ```
-The other, more serious bug is that the floating point numbers are compared directly. Due to round-off
-error, two floating point numbers may be computed to slightly different values even when
-mathematically they should be the same. See the example in [roundoff.cpp](src/roundoff.cpp).
-Because of that, checking if the two floating point
-numbers are equal, will often produce misleading results. To account for the truncation error,
-we assume the two floating point numbers are equal if they agree to within some tolerance.
-To ensure comparisons in our function are meaningful, we rewrite the conditionals as
-```
-    if (a[mid] < v - eps)
-      low = mid + 1;
-    else if (a[mid] > v + eps)
-      high = mid - 1;
-    else
-      return mid;   // Value found
-```
-Here `eps` is a small positive number, chosen based on typical round-off error for
-elements of the array `a`.
 
 We want our coworkers to use our method without having to understand every detail of our implementation. In order for this to be feasible, we should write out specifications for `binary_search` that give more information about the inputs and the return value:
 ```c++
@@ -199,9 +182,9 @@ int binary_search(const float* a, int n, float v, float eps) {
   int high = n-1;
   while (low <= high) {
     int mid = low + (high - low) / 2;
-    if (a[mid] < v - eps)
+    if (a[mid] < v)
       low = mid + 1;
-    else if (a[mid] > v + eps)
+    else if (a[mid] > v)
       high = mid - 1;
     else
       return mid;   // Value found
@@ -230,7 +213,7 @@ checks that `X` is true, and aborts the program if `X` is false. Not all invaria
 
 ### Generic Programming ###
 
-Let's start with the binary search function we defined in the previous post.
+Let's start with the binary search function we defined in the previous section.
 ```c++
 /** 
  * @brief Search a sorted array for a value using binary search.
@@ -238,7 +221,6 @@ Let's start with the binary search function we defined in the previous post.
  * @param[in] a   Sorted array of floats.
  * @param[in] n   Number of elements of _a_ to search.
  * @param[in] v   Value to search for.
- * @param[in] eps Equality tolerance
  * @return    An index into array _a_ or -1.
  * 
  * @pre 0 <= n <= Size of the array _a_.
@@ -248,15 +230,15 @@ Let's start with the binary search function we defined in the previous post.
  *
  * The complexity of the serach algorithm is O(log(n))
  */
-int binary_search(const float* a, int n, float v, float eps) 
+int binary_search(const float* a, int n, float v) 
 {
   int low = 0;
   int high = n-1;
   while (low <= high) {
     int mid = low + (high - low) / 2;
-    if (a[mid] < v - eps)
+    if (a[mid] < v)
       low = mid + 1;
-    else if (a[mid] > v + eps)
+    else if (a[mid] > v)
       high = mid - 1;
     else
       return mid;   // Value found
@@ -280,7 +262,6 @@ The complete specification for the modified code is:
  * @param[in] a         Sorted array of floats.
  * @param[in] low,high  Search in the index range [low, high).
  * @param[in] v         Value to search for.
- * @param[in] eps       Equality tolerance
  * @return    An index into array _a_ or -1.
  * 
  * @pre 0 <= low < high <= Size of the array _a_.
@@ -290,7 +271,7 @@ The complete specification for the modified code is:
  *
  * The complexity of the serach algorithm is O(log(high - low))
  */
-int binary_search(const float* a, int low, int high, float v, float eps)
+int binary_search(const float* a, int low, int high, float v)
 ```
 To address the second point, we note that the body of the function (and the complete specification) applies equally well to numeric types: `int`, `unsigned`, `float`, `double`. Using C++ templates (parametric polymorphism), we lift this function from being implemented for a specific type to being a family of functions that can be used for (nearly) any type:
 ```c++
@@ -300,7 +281,6 @@ To address the second point, we note that the body of the function (and the comp
  * @param[in] a         Sorted array to search.
  * @param[in] low,high  Search in the index range [low, high).
  * @param[in] v         Value to search for.
- * @param[in] eps       Equality tolerance
  * @return    An index into array _a_ or -1.
  * 
  * @pre 0 <= low < high <= Size of the array _a_.
@@ -311,14 +291,14 @@ To address the second point, we note that the body of the function (and the comp
  * The complexity of the serach algorithm is O(log(high - low))
  */
 template <typename T>
-int binary_search(const T* a, int low, int high, const T& v, const T& eps)
+int binary_search(const T* a, int low, int high, const T& v)
 {
   --high;
   while (low <= high) {
     int mid = low + (high - low) / 2;
-    if (a[mid] < v - eps)
+    if (a[mid] < v)
       low = mid + 1;
-    else if (a[mid] > v + eps)
+    else if (a[mid] > v)
       high = mid - 1;
     else
       return mid;   // Value found
@@ -338,18 +318,14 @@ idx = binary_search<float>(a_f, 0, n, 3.2, 1e-9) // Generates binary_search(floa
 The `const T&` change in the above function is to prevent a copy in the case that `T` is a heavy object that would be expensive to copy. For example, `binary_search` now works with `std::string` objects because ` bool operator<(const std::string&, const std::string&)` is implemented in the standard library to perform lexicographical comparison!
 
 In fact, the family of functions we defined can take on an infinite number of instantiations. 
-The code will compile and function properly so long as the type `T` can be added, substracted,
-and compared. That is, in `binary_search`, we used two comparison operators, as well as
-addition and substraction operators that take two values of `T` as parameters:
+The code will compile and function properly so long as the type `T` can be compared.
+In other words, operators
 ```c++
 bool operator<(const T& a, const T& b);
 bool operator>(const T& a, const T& b);
-T operator+(const T& a, const T& b);
-T operator-(const T& a, const T& b);
 ```
-If we want `binary_search` to work for a custom type, we need to make sure these
-operators are implemented for that type. Let's document the requirement of type
-`T`. See full implementation in [search3.cpp](src/search3.cpp).
+must be defined for type `T`. Let's document the requirement of type
+`T`. 
 ```c++
 /** 
  * Search a sorted array for a value using binary search.
@@ -357,14 +333,11 @@ operators are implemented for that type. Let's document the requirement of type
  * @param[in] a         Sorted array to search.
  * @param[in] low,high  Search in the index range [ low,  high).
  * @param[in] v         Value to search for.
- * @param[in] eps       Equality tolerance
  * @return    An index into array _a_ or -1.
  *
- * @tparam T Type of the array elements
- * @tparam T Comparison operator defined: bool operator<(T,T)
- * @tparam T Comparison operator defined: bool operator>(T,T)
- * @tparam T Substraction operator defined: T operator-(T,T)
- * @tparam T Addition operator defined: T operator+(T,T)
+ * @tparam T Type of the array elements. Following operators must be defined:
+ *             - Comparison   `bool operator<(T,T)`
+ *             - Comparison   `bool operator>(T,T)`
  * 
  * @pre 0 <= low <= high <= Size of the array _a_.
  * @pre For all i,j with  low <= i < j < high,  a[i] <= a[j].
@@ -374,65 +347,50 @@ operators are implemented for that type. Let's document the requirement of type
  * The complexity of the serach algorithm is O(high - low)
  */
 template <class T>
-int binary_search(const T* a, int low, int high, const T& v, const T& eps)
+int binary_search(const T* a, int low, int high, const T& v)
 ```
-First, we see that if we slightly modify function `binary_search`, we can
+Full implementation in provided in [search3.cpp](src/search3.cpp).
+
+We notice that if we slightly modify function `binary_search`, we can
 reduce the requirements on the type `T`. Let us rewrite the conditional
 statements as:
 ```c++
-    if (a[mid] + eps < v)      // a[mid] < v
+    if (a[mid] < v)      // a[mid] < v
       low = mid + 1;
-    else if (v + eps < a[mid]) // a[mid] > v
+    else if (v < a[mid]) // a[mid] > v
       high = mid - 1;
     else
       return mid;
 ```
-Now, type `T` needs to implement only addition and "less than" operator.
+Now, type `T` needs to implement only "less than" operator.
 The `binary_search` function can operate on _any_ data type that implements
-these two operators. Fewer requirements make it easier and less error-prone
-implement user-defined types that our `binary_search` can use.
+this operator. Fewer requirements makes implementation of user-defined types
+easier and less error-prone.
 
 Let us use `binary_search` with `Student` class defined in
 [student.hpp](src/student.hpp), and let us try to find a student
 in a classroom by their name. The `Student` class does not have
-default comparison and addition operators, so we have to define them:
+default comparison operator, so we have to define them:
 ```c++
 bool operator<(const Student& x, const Student& y)
 {
   return (x.getName() < y.getName());
 }
-
-Student operator+(const Student& lhs, const Student& rhs)
-{
-  return Student(lhs.getName() + rhs.getName(), lhs.getStudentID());
-}
 ```
-Here we rely on `std::string` comparison and addition. With these
+Here we rely on `std::string` comparison. With these
 definitions, we can find a student in the classroom, provided the
 classroom meets our preconditions:
 ```c++
   Student classroom[10];
   ...
   Student* john = new Student("Cleese, John", 100400);
-  Student* tol = new Student("", 0); // Fake student with name ""
   ...
-  int seat = binary_search(classroom, 0, 3, *john, *tol);
+  int seat = binary_search(classroom, 0, 3, *john);
 ```
-The full code is in [search4a.cpp](src/search4a.cpp). This is really
+The full code is in [search4.cpp](src/search4.cpp). This is really
 powerful. With minor coding effort we were able to deploy our `binary_search`
 code for a quite different use case.
 
-While comparing students, as we defined it, is quite intuitive, it does not
-make much sense to "add" students. Furthermore, the addition we implemented
-is not commutative. This is legal in C++, but it is a poor design choice.
-It is so easy to introduce a hard to find bug by simply rewriting `v + eps`
-as `eps + v`.
-
-An alternative solution would be to have separate solution for floating point
-types and types where a reliable comparison operator is defined without a
-tolerance. The floating point types could use the code in 
-[search4a.cpp](src/search4a.cpp) as before, while for the other types we could
-overload `binary_search` like this (see [search4b.cpp](src/search4b.cpp)):
 ```c++
 /** 
  * Search a sorted array for a value using binary search.
@@ -456,15 +414,5 @@ overload `binary_search` like this (see [search4b.cpp](src/search4b.cpp)):
 template <class T>
 int binary_search(const T* a, int low, int high, const T& v)
 ```
-In the type specification, we require that the overloaded method
-should not be used with floating point data types. At the same
-time, we drop the requirement to have the addition operator implemented.
-The downside of this solution is it introduces some code duplication.
-It is developers responsibility to weigh pros and cons and
-make the design decision accordingly.
-
-The take home message is that we make assumptions in our code all the time.
-When making code generic, even simple abstractions can have profound
-consequences and these assumptions can be of critical importance.
 
 
