@@ -32,8 +32,8 @@ In this example:
 * `@brief` marks the text that will be displayed in summaries and index lists. Typically you would put here a few words description
 of your function.
 * `@param` describes a function parameter and takes an optional direction: `@param[in]` means the parameter's value is only read and not modified within the function, `@param[out]` means the parameter is not read and is only modified, and `@param[in,out]` means the parameter is both read and modified.
-* `@param`, `@pre`, and `@post` sections should be repeated as many time as required.
 * `@pre` and `@post` define the pre- and postconditions, which should be precise but brief. When in doubt, attempt rigorous conditions but keep in mind that some concepts such as "validity" may be difficult or impossible to define precisely. Specifications are primarily for human consumption.
+* `@param`, `@pre`, and `@post` sections should be repeated as many time as required.
 * In any section, a parameter can be referred to by name with underscores, e.g. `_paramname_`. This helps disambiguate short parameter names by identifying them in the text and highlighting them in the Doxygen output. For instance, 
 ```c++
  * @return The size of _a_
@@ -43,6 +43,10 @@ is clearer than
  * @return The size of a
 ```
 when read in plain text and in formatted documentation.
+
+*Note*: Older versions of Doxygen used command `@a` to change the font of the following word
+to italics. Since newer versions of Doxygen support markdown syntax, it is recommended to
+use `_ ... _` instead of `@a ...` to italicise text. 
 
 To refer to values that change during the operation of the method we use `old X` and `new X`. Here, `old X` (where `X` may be a parameter, global variable, member variable, etc) refers to the value of `X` at the point of call, before the function executes, while `new X` refers to the value of `X` at the point of return, immediately after the function executes. For instance, postconditions will often define `new X` in terms of `old X`. 
 
@@ -73,10 +77,10 @@ int mid = low + (high - low) / 2;
 ```
 The other, more serious bug is that the floating point numbers are compared directly. Due to round-off
 error, two floating point numbers may be computed to slightly different values even when
-mathematically they should be the same. See the example in [roundoff.cpp](src/roundoff.cpp)
+mathematically they should be the same. See the example in [roundoff.cpp](src/roundoff.cpp).
 Because of that, checking if the two floating point
 numbers are equal, will often produce misleading results. To account for the truncation error,
-we assume the two floating pint numbers are equal if they agree to within some tolerance.
+we assume the two floating point numbers are equal if they agree to within some tolerance.
 To ensure comparisons in our function are meaningful, we rewrite the conditionals as
 ```
     if (a[mid] < v - eps)
@@ -86,7 +90,8 @@ To ensure comparisons in our function are meaningful, we rewrite the conditional
     else
       return mid;   // Value found
 ```
-Here `eps` is a small positive number, chosen based on typical values for array `a`.
+Here `eps` is a small positive number, chosen based on typical round-off error for
+elements of the array `a`.
 
 We want our coworkers to use our method without having to understand every detail of our implementation. In order for this to be feasible, we should write out specifications for `binary_search` that give more information about the inputs and the return value:
 ```c++
@@ -103,7 +108,7 @@ In the above specification, we've used `_a_` in our Doxygen-style comments to em
 
 But this isn't complete! `binary_search` assumes a number of things about it's inputs. These are preconditions -- statements about the inputs that must be true before the function is even called. An obvious precondition restricts the values of `n` that are allowed:
 ```c++
- * @pre 0 <= n <= Size of _a_.
+ * @pre 0 <= n < Size of _a_.
 ```
 Note that even this simple statement is doing something interesting: appealing to abstract information about the array that the function does not have access to! By using a pointer to pass the array of values, the true size of the array is not accessible. Still, the user must guarantee this precondition is satisfied before using our function.
 
@@ -125,7 +130,7 @@ Alright, what about postconditions for `binary_search`? Postconditions are state
 ```c++
  * @post Either _a_[result] == _v_ or result == -1.
 ```
-We use `result` here to denote the return value of the function. This avoids having to refer to the internal implementation of `binary_search` -- a specification should never refer to `mid`, for example. The specification of a function should be independent of its implementation.
+We use `result` here to denote the return value of the function. This avoids having to refer to the internal implementation of `binary_search` -- a specification should never refer to `mid`, for example. The specification of a function should be _independent of its implementation_.
 
 The postcondition above is not sufficient though... Consider the following implementation of `binary_search`:
 ```c++
@@ -219,7 +224,7 @@ An **assertion** is a checked invariant. The command
 ```c++
 assert(X);
 ```
-checks that `X` is true, and aborts the program if `X` is false. Not all invariants can or should be checked with assertions. For instance, verifying that the input array is sorted has O(n) complexity, while our specification promises O(log(n)) complexity for our function. Assertions should generally be side-effect free -- they should not modify program state. This is so they can be turned off for production code.
+checks that `X` is true, and aborts the program if `X` is false. Not all invariants can or should be checked with assertions. For instance, verifying that the input array is sorted has _O_(_n_) complexity, while our specification promises _O_(log(_n_)) complexity for our function. Assertions should generally be side-effect free -- they should not modify program state. This is so they can be turned off for production code.
 
 
 
@@ -330,7 +335,7 @@ idx = binary_search(a_f, 0, n, 3.2f, 1e-10f);    // Generates binary_search(floa
 idx = binary_search(a_f, 0, n, 3.2, 1e-10f);     // Error: conflicting types for parameter 'T'
 idx = binary_search<float>(a_f, 0, n, 3.2, 1e-9) // Generates binary_search(float*, int, int, float)
 ```
-The `const T\&` change in the above function is to prevent a copy in the case that `T` is a heavy object that would be expensive to copy. For example, `binary_search` now works with `std::string` objects because ` bool operator<(const std::string\&, const std::string\&)` is implemented in the standard library to perform lexicographical comparison!
+The `const T&` change in the above function is to prevent a copy in the case that `T` is a heavy object that would be expensive to copy. For example, `binary_search` now works with `std::string` objects because ` bool operator<(const std::string&, const std::string&)` is implemented in the standard library to perform lexicographical comparison!
 
 In fact, the family of functions we defined can take on an infinite number of instantiations. 
 The code will compile and function properly so long as the type `T` can be added, substracted,
