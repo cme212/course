@@ -1,4 +1,4 @@
-# CME 212: Lecture 06
+# CME 212: Lecture 04
 
 ## Code Specification
 
@@ -54,7 +54,7 @@ To refer to a function's return value we use `result`.
 
 ### Specifications and Binary Search Example ###
 
-We started this class developing these concepts in the context of a particular example: binary search. Let's start with the first implementation provided in [search0.cpp](src/search0.cpp):
+We describe these concepts in the context of a particular example: binary search. Let's start with the first implementation provided in [search0.cpp](src/search0.cpp):
 ```c++
 int binary_search(float* a, int n, float v) {
   int low = 0;
