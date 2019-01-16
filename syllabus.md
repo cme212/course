@@ -178,13 +178,13 @@ The course grade breakdown will be:
 
 ## Final Exam
 We anticipate that the final exam will be take-home. Students will be able to access
-the exam through the course-website on Canvas. We will provide a 48-hour window
-for students to take the exam, however it *will be timed*: once a student downloads
-the exam from Canvas we will require a submission within a three hour window.
+the exam through the course-website on Canvas. We will provide a 72-hour window
+for students to take the exam, but we only anticipate the exam to take students
+approximately 3 hours.
 Students will be expected to use revision control (Git) for their project,
 and we will grade the latest commit which is pushed to the master branch
-of a student's repository no later than three hours after the exam was first
-accessed.
+of a student's repository no later than the final exam deadline set by the
+registrar.
 
 ## Books
 
