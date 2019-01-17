@@ -48,10 +48,12 @@ LIB = -lName
 INSTALL_DIR = ./bin
 LIB_INSTALL_DIR = ./lib
 
+ROOT=$(shell pwd)
+
 .PHONY: install clean
 
 student_service : $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LIB_DIR) $(LIB)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) -rpath $(ROOT)/lib $(LIB_DIR) $(LIB)
 
 %.o : %.cpp
 	$(CXX) $(CXXFLAGS) -I$(INCLUDE_DIR) -c $<
@@ -73,7 +75,7 @@ Student.o : Student.hpp Name.hpp
 namelib: libName.so libName.a
 
 libName.so : $(LIBOBJS)   # Shared library is built using flag -shared
-	$(CXX) $(CXXFLAGS) -shared -o $@ $^
+	$(CXX) $(CXXFLAGS) -dynamiclib -install_name $(ROOT)/lib/$@ -o $@ $^
 
 libName.a : Name.o    # Static library is an archive of object files
 	ar rvs $@ $^
