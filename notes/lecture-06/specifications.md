@@ -402,5 +402,5 @@ code for a quite different use case.
 ### Additional reading ###
 
 * Chapter 67 in ["C++ Coding Standards: 101 Rules, Guidelines, and Best Practices"](https://proquest-safaribooksonline-com.stanford.idm.oclc.org/0321113586).
-* [Why templates can be implemented only in header file](https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file?rq=1)?
+* [Why can templates be implemented only in the header file](https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file?rq=1)?
 * Doxygen [command reference](http://www.doxygen.nl/manual/commands.html)
