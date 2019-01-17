@@ -15,12 +15,12 @@
  *
  * The complexity of the serach algorithm is O(log(n))
  */
-int binary_search(const float* a, int n, float v, float eps)
+int binary_search(const float* a, int n, float v)
 {
   int low = 0;
   int high = n-1;
   while (low <= high) {
-    int mid = (low + high) / 2;
+    int mid = low + (high - low) / 2;
     if (a[mid] < v)
       low = mid + 1;
     else if (a[mid] > v)
@@ -37,10 +37,10 @@ int main()
   //             0   1    2    3    4    5    6    7    8     9 
   float a[10] = {2., 12., 15., 72., 73., 77., 90., 91., 100., 200.};
 
-  std::cout << binary_search(a, 10, 74., 1e-10f) << "\n";
-  std::cout << binary_search(a, 10, 73., 1e-10f) << "\n";
-  std::cout << binary_search(a, 10, 89., 1e-10f) << "\n";
-  std::cout << binary_search(a, 10, 90., 1e-10f) << "\n";
+  std::cout << binary_search(a, 10, 74.) << "\n";
+  std::cout << binary_search(a, 10, 73.) << "\n";
+  std::cout << binary_search(a, 10, 89.) << "\n";
+  std::cout << binary_search(a, 10, 90.) << "\n";
   
   return 0;
 }

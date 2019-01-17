@@ -29,6 +29,8 @@ Let us take a look at the Doxygen formatted comments in front of a C++ function:
 bool signature(of& my_method)
 ```
 In this example:
+* Doxygen comment is denoted by opening block comment with `/**`. This tells Doxygen engine
+to parse the block comment.
 * `@brief` marks the text that will be displayed in summaries and index lists. Typically you would put here a few words description
 of your function.
 * `@param` describes a function parameter and takes an optional direction: `@param[in]` means the parameter's value is only read and not modified within the function, `@param[out]` means the parameter is not read and is only modified, and `@param[in,out]` means the parameter is both read and modified.
@@ -91,7 +93,7 @@ In the above specification, we've used `_a_` in our Doxygen-style comments to em
 
 But this isn't complete! `binary_search` assumes a number of things about it's inputs. These are preconditions -- statements about the inputs that must be true before the function is even called. An obvious precondition restricts the values of `n` that are allowed:
 ```c++
- * @pre 0 <= n < Size of _a_.
+ * @pre 0 <= n <= Size of _a_.
 ```
 Note that even this simple statement is doing something interesting: appealing to abstract information about the array that the function does not have access to! By using a pointer to pass the array of values, the true size of the array is not accessible. Still, the user must guarantee this precondition is satisfied before using our function.
 
@@ -164,20 +166,20 @@ This can be repaired: we need to insure that the array is immutable. By changing
 /** 
  * @brief Search a sorted array for a value using binary search.
  *
- * @param[in] a   Sorted array of floats.
- * @param[in] n   Number of elements of _a_ to search.
- * @param[in] v   Value to search for.
- * @param[in] eps Equality tolerance
+ * @param[in] a  Sorted array of floats.
+ * @param[in] n  Number of elements of _a_ to search.
+ * @param[in] v  Value to search for.
  * @return    An index into array _a_ or -1.
  * 
- * @pre 0 <= _n_ <= Size of the array _a_.
- * @pre For all i,j with 0 <= i < j < _n_, _a_[i] <= _a_[j].
- * @post (0 <= result < _n_ and _a_[result] == _v_) 
- *    or (result == -1 and there is no _i_ s.t. 0 <= _i_ < _n_ and _a_[i] == _v_).
+ * @pre 0 <= n <= Size of the array  _a_.
+ * @pre For all i,j with 0 <= i < j < n,  a[i] <= a[j].
+ * @post (0 <= result < n and  a[result] == v) 
+ *    or (result == -1 and there is no _i_ s.t  0 <= i <  n, and  a[i] ==  v).
  *
  * The complexity of the serach algorithm is O(log(n))
  */
-int binary_search(const float* a, int n, float v, float eps) {
+int binary_search(const float* a, int n, float v)
+{
   int low = 0;
   int high = n-1;
   while (low <= high) {
@@ -187,9 +189,9 @@ int binary_search(const float* a, int n, float v, float eps) {
     else if (a[mid] > v)
       high = mid - 1;
     else
-      return mid;   // Value found
+      return mid; // Value found
   }
-  return -1;        // Value not found
+  return -1;      // Value not found
 }
 ```
 
@@ -273,7 +275,8 @@ The complete specification for the modified code is:
  */
 int binary_search(const float* a, int low, int high, float v)
 ```
-To address the second point, we note that the body of the function (and the complete specification) applies equally well to numeric types: `int`, `unsigned`, `float`, `double`. Using C++ templates (parametric polymorphism), we lift this function from being implemented for a specific type to being a family of functions that can be used for (nearly) any type:
+To address the second point, we note that the body of the function (and the complete specification) applies equally well to numeric types: `int`, `unsigned`, `float`, `double`. Using C++ templates (parametric polymorphism), we replace this function with a function template that allows
+compiler to create a `binary_search` function for (nearly) any type:
 ```c++
 /** 
  * @brief Search a sorted array for a value using binary search.
@@ -306,17 +309,17 @@ int binary_search(const T* a, int low, int high, const T& v)
   return -1;        // Value not found
 }
 ```
-The parameter `T` takes over the roll of the previously constant `float` type. The compiler detects which type `T` we need and stamps out the appropriate function for us! We have not changed the body of the function because it applies equally well when `T` is an `int`, `unsigned`, `float`, `double`, etc.
+The parameter `T` takes over the roll of the previously constant `float` type. The compiler detects which type `T` we need and stamps out the appropriate function for us! 
+We have not changed the body of the function because it applies equally well when `T` is an `int`, `unsigned`, `float`, `double`, etc.
 ```c++
 int* a_i = ...;
-int idx = binary_search(a_i, 0, n, 5, 0);        // Generates binary_search(int*, int, int, int)
+int idx = binary_search(a_i, 0, n, 5);     // Generates binary_search(int*, int, int, int)
 float* a_f = ...;
-idx = binary_search(a_f, 0, n, 3.2f, 1e-10f);    // Generates binary_search(float*, int, int, float)
-idx = binary_search(a_f, 0, n, 3.2, 1e-10f);     // Error: conflicting types for parameter 'T'
-idx = binary_search<float>(a_f, 0, n, 3.2, 1e-9) // Generates binary_search(float*, int, int, float)
+idx = binary_search(a_f, 0, n, 3.2f);      // Generates binary_search(float*, int, int, float)
+idx = binary_search(a_f, 0, n, 3.2);       // Error: conflicting types for parameter 'T'
+idx = binary_search<float>(a_f, 0, n, 3.2) // Generates binary_search(float*, int, int, float)
 ```
-The `const T&` change in the above function is to prevent a copy in the case that `T` is a heavy object that would be expensive to copy. For example, `binary_search` now works with `std::string` objects because ` bool operator<(const std::string&, const std::string&)` is implemented in the standard library to perform lexicographical comparison!
-
+The `const T&` change in the above function is to prevent a copy in the case that `T` is a heavy object that would be expensive to copy. For example, `binary_search` now works with `std::string` objects because ` bool operator<(const std::string&, const std::string&)` is implemented in the standard library to perform lexicographical comparison! 
 In fact, the family of functions we defined can take on an infinite number of instantiations. 
 The code will compile and function properly so long as the type `T` can be compared.
 In other words, operators
@@ -350,6 +353,10 @@ template <class T>
 int binary_search(const T* a, int low, int high, const T& v)
 ```
 Full implementation in provided in [search3.cpp](src/search3.cpp).
+
+Note: A function template alone cannot be compiled because it does not contain a
+complete definition of a function. Because of that, templates are typically coded
+in header files.
 
 We notice that if we slightly modify function `binary_search`, we can
 reduce the requirements on the type `T`. Let us rewrite the conditional
@@ -391,28 +398,9 @@ The full code is in [search4.cpp](src/search4.cpp). This is really
 powerful. With minor coding effort we were able to deploy our `binary_search`
 code for a quite different use case.
 
-```c++
-/** 
- * Search a sorted array for a value using binary search.
- * 
- * @param[in] a         Sorted array to search.
- * @param[in] low,high  Search in the index range [@a low, @a high).
- * @param[in] v         Value to search for.
- * @return    An index into array _a_ or -1.
- * 
- * @tparam T Type of the array elements
- * @tparam T Comparison operator defined: bool operator<(T,T)
- * @tparam T Not appropriate for floating point types
- *
- * @pre 0 <=  low <=  high <= Size of the array _a_.
- * @pre For all i,j with  low <= i < j <  high,  a[i] <= a[j].
- * @post ( low <= result <  high and  a[result] ==  v) 
- *    or (result == -1 and there is no _i_ s.t. low <= i < high, and a[i] == v).
- *
- * The complexity of the serach algorithm is O(log(n))
- */
-template <class T>
-int binary_search(const T* a, int low, int high, const T& v)
-```
 
+### Additional reading ###
 
+* Chapter 67 in ["C++ Coding Standards: 101 Rules, Guidelines, and Best Practices"](https://proquest-safaribooksonline-com.stanford.idm.oclc.org/0321113586).
+* [Why templates can be implemented only in header file](https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file?rq=1)?
+* Doxygen [command reference](http://www.doxygen.nl/manual/commands.html)

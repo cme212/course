@@ -6,7 +6,6 @@
  */
 int binary_search(float* a, int n, float v)
 {
-  const float eps = 1e-10f;
   int low = 0;
   int high = n-1;
   while (low <= high) {
