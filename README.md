@@ -12,7 +12,6 @@
   - Lecture 1 (2019-01-10)
     - [Debugging in C++](https://github.com/cme212/course/blob/master/notes/lecture-02/debugging.md).
     - [Proxy design patterns](https://github.com/cme212/course/blob/master/notes/lecture-03/proxy.md). 
-    - [Development tools (Make)](https://github.com/cme212/course/blob/master/notes/lecture-03/make.md)     (and possibly doxygen).
   - [Exercise 0](https://canvas.stanford.edu/files/3926995/download?download_frd=1)                 due Tuesday January 15th at 4:30 P.M. P.S.T.
 ### Week 1
  - Lecture 2 (2019-01-15)
@@ -22,6 +21,7 @@
  - Lecture 3 (2019-01-17)
    - [Pre/post conditions, consistent/minimal specifications,
      templates](https://github.com/cme212/course/blob/master/notes/lecture-06/specifications.md). 
+   - Development tools ([Make](https://github.com/cme212/course/blob/master/notes/lecture-03/make.md) and possibly doxygen).
    - [HW0](https://canvas.stanford.edu/files/3908090/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
 ### Week 2
  - Lecture 4 (2019-01-22)
