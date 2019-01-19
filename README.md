@@ -30,8 +30,8 @@
  - Lecture 5 (2019-01-24)
    - Abstraction functions and Representation Invariants; 
    - Software Testing
- - EX1 due Friday at 4:30 P.M. P.S.T.
 ### Week 3
+ - [EX1](https://canvas.stanford.edu/files/4005588/download?download_frd=1) due Tuesday in class at 4:30 P.M. P.S.T.
  - Lecture 6 (2019-01-29) 
    - Free Store memory allocation, RAII, Allocators, List and Type
    Conversions. 
