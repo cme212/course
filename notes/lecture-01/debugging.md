@@ -1,4 +1,4 @@
-# CME 212: Lecture 02 -- Debugging
+# CME 212: Lecture 01 - Debugging
 
 
 

@@ -20,7 +20,7 @@
    - [Lambda expressions and function objects](https://canvas.stanford.edu/files/3973719/download?download_frd=1).
  - Lecture 3 (2019-01-17)
    - [Pre/post conditions, consistent/minimal specifications,
-     templates](https://github.com/cme212/course/blob/master/notes/lecture-06/specifications.md). 
+     templates](https://github.com/cme212/course/blob/master/notes/lecture-03/specifications.md). 
    - Development tools ([Make](https://github.com/cme212/course/blob/master/notes/lecture-03/make.md) and possibly doxygen).
  - [HW0](https://canvas.stanford.edu/files/3908090/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
 ### Week 2
