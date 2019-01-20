@@ -47,7 +47,8 @@ LIBNAME = libName
 ROOT=$(shell pwd)
 INCLUDE_DIR = $(ROOT)/../../include
 INSTALL_DIR = $(ROOT)/../../lib
-LDFLAGS = -dynamiclib -install_name $(INSTALL_DIR)/$(LIBNAME).so
+LDFLAGS = -dynamiclib -install_name $(INSTALL_DIR)/$(LIBNAME).so # MacOS
+#LDFLAGS = -shared # Linux
 
 
 all: libName.so libName.a

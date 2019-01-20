@@ -26,6 +26,8 @@
 # Link to external libraries using flags -L$(LIB_PATH) -l$(LIB)
 # -L sets path to where is the library, and -l links to the library
 #
+# -rpath specifies location of shared library at runtime
+#
 # -I specifies a path where to look for header files
 #
 # -fPIC stands for Position Independent Code; required for shared libs
@@ -48,15 +50,17 @@ ROOT=$(shell pwd)
 LIB_DIR     = $(ROOT)/../../lib
 INCLUDE_DIR = $(ROOT)/../../include
 INSTALL_DIR = $(ROOT)/../../bin
+LDFLAGS =  -rpath $(LIB_DIR)     # MacOS
+#LDFLAGS = -Wl,-rpath,$(LIB_DIR) # Linux
 
 $(EXE) : $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) -rpath $(LIB_DIR) -L$(LIB_DIR) -l$(LIB)
+	$(CXX) $(CXXFLAGS) -o $@ $(OBJS) $(LDFLAGS) -L$(LIB_DIR) -l$(LIB)
 
 %.o : %.cpp
 	$(CXX) $(CXXFLAGS) -I$(INCLUDE_DIR) -c $<
 
 install : $(EXE)
-	$(MV) $(EXE)  $(INSTALL_DIR)
+	$(MV) $(EXE) $(INSTALL_DIR)
 
 clean:  
 	$(RM) *.o $(EXE)
