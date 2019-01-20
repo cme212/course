@@ -58,8 +58,8 @@
 
      (non-type template parameters, variadic template parameters, template template parameters);
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
- - Lecture 13 
-   - Loop invariants, `thrust::transform_iterator`, Cachegrind, optimization
+ - Lecture 13 (2019-02-19)
+   - [Loop invariants](notes/lecture-13/loop_invariants.md), `thrust::transform_iterator`, Cachegrind, optimization
  - EX3 due Friday at 4:30 P.M. P.S.T.
 ### Week 7
  - Lecture 14
