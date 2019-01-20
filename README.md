@@ -10,8 +10,8 @@
     - [Object size, alignment, declarations, scope, narrowing, lifetime of an object](https://canvas.stanford.edu/files/3928214/download?download_frd=1).
     - [Pointers, arrays, pointer arithmetic, and `const`](https://canvas.stanford.edu/files/3928884/download?download_frd=1).
   - Lecture 1 (2019-01-10)
-    - [Debugging in C++](https://github.com/cme212/course/blob/master/notes/lecture-02/debugging.md).
-    - [Proxy design patterns](https://github.com/cme212/course/blob/master/notes/lecture-03/proxy.md). 
+    - [Debugging in C++](https://github.com/cme212/course/blob/master/notes/lecture-01/debugging.md).
+    - [Proxy design patterns](https://github.com/cme212/course/blob/master/notes/lecture-01/proxy.md). 
 ### Week 1
   - [Exercise 0](https://canvas.stanford.edu/files/3926995/download?download_frd=1)                 due Tuesday January 15th at 4:30 P.M. P.S.T.
  - Lecture 2 (2019-01-15)
