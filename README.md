@@ -12,9 +12,8 @@
   - Lecture 1 (2019-01-10)
     - [Debugging in C++](https://github.com/cme212/course/blob/master/notes/lecture-02/debugging.md).
     - [Proxy design patterns](https://github.com/cme212/course/blob/master/notes/lecture-03/proxy.md). 
-    - [Development tools (Make)](https://github.com/cme212/course/blob/master/notes/lecture-03/make.md)     (and possibly doxygen).
-  - [Exercise 0](https://canvas.stanford.edu/files/3926995/download?download_frd=1)                 due Tuesday January 15th at 4:30 P.M. P.S.T.
 ### Week 1
+  - [Exercise 0](https://canvas.stanford.edu/files/3926995/download?download_frd=1)                 due Tuesday January 15th at 4:30 P.M. P.S.T.
  - Lecture 2 (2019-01-15)
    - [Pointers and ownership, references, l/rvalue references, and
      examples with templates](https://canvas.stanford.edu/files/3973718/download?download_frd=1). 
@@ -22,7 +21,8 @@
  - Lecture 3 (2019-01-17)
    - [Pre/post conditions, consistent/minimal specifications,
      templates](https://github.com/cme212/course/blob/master/notes/lecture-06/specifications.md). 
-   - [HW0](https://canvas.stanford.edu/files/3908090/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
+   - Development tools ([Make](https://github.com/cme212/course/blob/master/notes/lecture-03/make.md) and possibly doxygen).
+ - [HW0](https://canvas.stanford.edu/files/3908090/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
 ### Week 2
  - Lecture 4 (2019-01-22)
    - Iterators, functors, layout of structs, (bit) fields, unions, examples of
@@ -30,14 +30,14 @@
  - Lecture 5 (2019-01-24)
    - Abstraction functions and Representation Invariants; 
    - Software Testing
- - EX1 due Friday at 4:30 P.M. P.S.T.
 ### Week 3
+ - [EX1](https://canvas.stanford.edu/files/4005588/download?download_frd=1) due Tuesday in class at 4:30 P.M. P.S.T.
  - Lecture 6 (2019-01-29) 
    - Free Store memory allocation, RAII, Allocators, List and Type
    Conversions. 
    - Exception Handling part 1 (exceptions as control flow, how to define exceptions)
  - Lecture 7 (2019-01-31): Inheritance and Polymorphism
- - HW1 due Friday at 4:30 P.M. P.S.T.
+ - [HW1](https://canvas.stanford.edu/files/4005665/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
 ### Week 4
  - Lecture 8 (2019-02-05) 
    - Exception Handling part 2 (enforcing invariants); 
