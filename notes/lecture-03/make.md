@@ -1,4 +1,4 @@
-# CME 212: Lecture 03 -- Build Tools
+# CME 212: Lecture 03
 
 ## Make
 
@@ -250,6 +250,9 @@ By convention, shared libraries have file extension `.so`
 (stands for "shared object"). Also by convention, both static
 and shared library names start with `lib`.
 
+Take a look at the example [Makefile](src/make_lib/src/libName/Makefile)
+that builds library `Name`.
+
 
 ### Linking to libraries ###
 
@@ -276,7 +279,7 @@ compiler default search path, so we need to specify explicitly
 the location of header files. We can do that by adding `-I` flag
 on the compiler flags, for example: `-I/opt/include`.
 
-Take a look at the example in file [`libs.mk`](src/student/libs.mk).
+Take a look at the example in file [`make`](src/make_lib/src/appStudent/Makefile).
 We can first create and install static and shared libraries Name:
 ```sh
 $ make -f libs.mk install_lib

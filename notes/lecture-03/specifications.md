@@ -1,6 +1,6 @@
-# CME 212: Lecture 04
+# CME 212: Lecture 03
 
-## Code Specification
+## Specifications and Doxygen
 
 Specifications inform a user about a class or function, but do not refer
 to its internal workings. That is, a specification will refer to abstract
@@ -54,7 +54,7 @@ To refer to values that change during the operation of the method we use `old X`
 
 To refer to a function's return value we use `result`.
 
-### Specifications and Binary Search Example ###
+## Specifications and Binary Search Example ##
 
 We describe these concepts in the context of a particular example: binary search. Let's start with the first implementation provided in [search0.cpp](src/search0.cpp):
 ```c++
@@ -195,7 +195,7 @@ int binary_search(const float* a, int n, float v)
 }
 ```
 
-### Invariants ###
+## Invariants ##
 
 An **invariant** is a statement that is always true at a particular point in the code. Stating and enforcing invariants within code are useful for catching bugs and generally reasoning about code behavior.
 
@@ -213,7 +213,7 @@ checks that `X` is true, and aborts the program if `X` is false. Not all invaria
 
 
 
-### Generic Programming ###
+## Generic Programming ##
 
 Let's start with the binary search function we defined in the previous section.
 ```c++
@@ -399,7 +399,7 @@ powerful. With minor coding effort we were able to deploy our `binary_search`
 code for a quite different use case.
 
 
-### Additional reading ###
+## Additional reading ##
 
 * Chapter 67 in ["C++ Coding Standards: 101 Rules, Guidelines, and Best Practices"](https://proquest-safaribooksonline-com.stanford.idm.oclc.org/0321113586).
 * [Why can templates be implemented only in the header file](https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file?rq=1)?
