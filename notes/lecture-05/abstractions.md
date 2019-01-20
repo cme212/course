@@ -10,9 +10,9 @@ like `Graph`, `Node`, `Edge`, and a variety of iterators.
 
 When we define classes in C/C++, we are really defining a new type. What is a type?
 Earlier in this class, we argued that a type has the following properties:
-- An abstract value – what the type is attempting to represent to the user.
-- A representation – the implementation of the type. The “how” of the abstract value.
-- Behavior – the set of operations and functions that act on the value.
+- **Abstract value** – what the type is attempting to represent to the user.
+- **Representation** – the implementation of the type. The “how” of the abstract value.
+- **Behavior** – the set of operations and functions that act on the value.
 
 We’ve talked about type concepts, which classify the behavior of types. We have
 used these type concepts in our code generalizations in order to specify and
@@ -36,11 +36,10 @@ The abstract value of a type can refer to the type’s public member functions, 
 order to make clear how the type should be thought of.
 
 **Representations**
-The representation is the implementation of the abstract value. It de-
-scribes how we are storing the type in memory.
+The representation is the implementation of the abstract value. It describes how we are storing the type in memory.
 - _R_(`int`): 32 bits, _b_<sub>0</sub> _b_<sub>1</sub> ··· _b_<sub>31</sub>, where _b<sub>i</sub>_ &isin; { 0 , 1 }.
 - _R_(`float`): _b_<sub>0</sub> _b_<sub>1</sub> ··· _b_<sub>31</sub>, where _b<sub>i</sub>_ &isin; { 0 , 1 }.
-- _R_(`std::vector<int>`): `int* a`, `unsigned size` or `int* begin`, `int* end`.
+- _R_(`std::vector<int>`): `int* a_`, `unsigned size_` or `int* begin_`, `int* end_`.
 - _R_(`Point`): `double x, y, z`.
 
 Public functions that use these types perform tasks meaningful for abstract values, but are
@@ -77,8 +76,8 @@ Let’s try this for Graph now.
 This abstract value makes clear that we have a graph of a sequence nodes with data including
 the point, _p<sub>i</sub>_, the node value _v<sub>i</sub>_, the index _i_, and a set of undirected
 edges with no self-edges. We’ve actually defined some implicit abstract values here:
-_AF_(Nodeni):(_p<sub>i</sub>_, _n<sub>i</sub>_, _i_) and
-_AF_(Edgee):{ _n<sub>i</sub>_, _n<sub>j</sub>_ }. This makes no reference to the
+_AF_(`Node n`): (_p<sub>i</sub>_, _n<sub>i</sub>_, _i_) and
+_AF_(`Edge e`): {_n<sub>i</sub>_, _n<sub>j</sub>_}. This makes no reference to the
 representation or all the public
 member functions, but it gives the user a way to think about what she is working with.
 Now let’s consider one possible representation:
@@ -109,23 +108,23 @@ function. Each abstract value that appears in the _AF_ should have a definition 
 representation.
 
 - _AF_(`Graph`) = (_N_, _E_) where
-        - _N_ = {_n<sub>i</sub>_ | 0 &le; _i_ < _m_ = `node_.size()`},
-        - _E_ = {{ _n<sub>i</sub>_, _n<sub>i</sub>_} | 0 &le; i < j < _m_ and _i_ &isin; `adj_[j]`}.
+    - _N_ = {_n<sub>i</sub>_ | 0 &le; _i_ < _m_ = `node_.size()`},
+    - _E_ = {{ _n<sub>i</sub>_, _n<sub>i</sub>_} | 0 &le; i < j < _m_ and _i_ &isin; `adj_[j]`}.
 - _AF_(`Node n`) = _n<sub>i<sub>_ = (_p<sub>i</sub>_, _v<sub>i</sub>_, _i_ = `uid_`) = (`g_->node[uid_].p_`, `g_->node[uid_].v_`, `uid_`).
-- _AF_(`Edge e`) = { _n<sub>i</sub>_, _n<sub>j</sub>_} = {_n_<sub>`uid1_`<sub>, _n_<sub>`uid2_`<sub>} = {`g_->node(uid1_)`, `g_->node(uid2_)`}.
+- _AF_(`Edge e`) = {_n<sub>i</sub>_, _n<sub>j</sub>_} = {_n_<sub>`uid1_`</sub>, _n_<sub>`uid2_`</sub>} = {`g_->node(uid1_)`, `g_->node(uid2_)`}.
 
 Inside the of the abstraction function for `Node` and `Edge`, we can use the `Graph`’s abstract
 concept of the `Node`s, as we did.
 These are nice specifications to define for any class that you write, especially when it gets
 more complicated. The _AF_ can help you verify that your representation is sufficient to
 implement your abstract value. There is one more concept though that is probably the most
-powerful to define, therepresentation invariant.
+powerful to define, the _representation invariant_.
 
 **Representation Invariant**
 A representation invariant defines whether a type representation is valid.
 A data structure’s representation invariant (_RI_) is an invariant that should
 always be true about its representations. Functionally, it maps representations to booleans.
-Any valid representation _R_ has _RI_(_R_)=true. _RI_ is an implicit precondition for every
+Any valid representation _R_ has _RI_(_R_) = True. _RI_ is an implicit precondition for every
 public member function (except constructors), and an implicit postcondition for every public
 member function (except destructors). That is, constructors create valid representations;
 destructors are only passed valid representations; and member functions preserve representation
@@ -139,7 +138,7 @@ We use representation invariants to help prove that data structure operations ar
 every public data structure operation can assume that the data structure is valid on input,
 and must provide a postcondition that the data structure is valid on output. (There’s an
 exception for operations that destroy data structures, whose specifications say that they
-invalidate their input. remove node is an example.)
+invalidate their input. `remove_node` is an example.)
 
 Representation invariants are functions that take representation objects and return boolean
 values (true for valid, false for invalid).
@@ -147,34 +146,38 @@ values (true for valid, false for invalid).
 For `std::vector<int>` and the representation above, the representation invariant might
 look like:
 - _RI_(`std::vector<int>`): Size of `a_` &ge; `size_`,
+
 where `a_` is vector's private member data array.
 That is, simply that the internal array has been allocated with enough elements to
 appropriately represent the abstract vector.
-A representation may contain parts that are n’tused in the abstraction function,
+A representation may contain parts that are not used in the abstraction function,
 the representation invariant, or both. Often the _RI_ and _AF_ compliment each
 other in some way. For example:
 - _RI_(`int`): True.
 - _RI_(`float`): True.
 - _RI_(`Point`): True.
 
-ThePoint class doesn’t care about the values of its member variables, it only exists to
+The `Point` class doesn’t care about the values of its member variables, it only exists to
 group them and provide convenience operators. The _RI_ above is precisely why these member
 variables can be provided publicly – there is no invariant to defend against users. Users cannot
 break a `Point` object.
 Users can break a `Graph`, `Node`, or `Edge` class though. Let’s consider the _RI_s given the
 representation and abstraction functions above.
-- _RI_(`Graph`): `node.size() == adj.size()`
-        &forall; _i_ such that 0 &le; i < `adj_.size()`, if _j_ &isin; `adj_[i]`, then _i_ &isin; `adj_[j]`.
-- _RI_(`Node`): `g_ != nullptr`
-        0 &le; `uid_` < `g->numnodes()`.
-- _RI_(`Edge`): `g != nullptr`
-        `uid1_` &isin; `g->adj_[uid2_]`
+- _RI_(`Graph`): 
+    - `node.size() == adj.size()`
+    - &forall; _i_ such that 0 &le; i < `adj_.size()`, if _j_ &isin; `adj_[i]`, then _i_ &isin; `adj_[j]`.
+- _RI_(`Node`): 
+    - `g_ != nullptr`
+    - 0 &le; `uid_` < `g->numnodes()`.
+- _RI_(`Edge`):
+    - `g_ != nullptr`
+    - `uid1_` &isin; `g->adj_[uid2_]`
 
 We’ve written this rather compactly and could write
 ```
-std::find(g->adj[uid1].begin(), g->adj[uid1].end(), uid2) != g->adj[uid1].end()
+std::find(g->adj_[uid1_].begin(), g->adj_[uid1_].end(), uid2_) != g_->adj_[uid1_].end()
 ```
-instead of `uid1 2 g->adj[uid2]`, but we find the latter smaller and easier to read.
+instead of `uid1_` &isin; `g_->adj_[uid2_]`, but we find the latter smaller and easier to read.
 Additionally, note that the `Graph` uses `std::vector`s, but doesn’t mention anything about
 these objects themselves being valid. This is because `std::vector`s are already classes that
 defend and uphold their representation invariants – we can assume they do this correctly
