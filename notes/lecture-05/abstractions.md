@@ -6,7 +6,7 @@
 Let’s begin to talk about programming with classes/structs. We’ve been using them up to
 this point as function objects including comparators and predicates and a few iterator classes,
 but have also been working with homework that involves writing more complicated objects
-like Graph, Node, Edge, and a variety of iterators.
+like `Graph`, `Node`, `Edge`, and a variety of iterators.
 
 When we define classes in C/C++, we are really defining a new type. What is a type?
 Earlier in this class, we argued that a type has the following properties:
@@ -17,7 +17,6 @@ Earlier in this class, we argued that a type has the following properties:
 We’ve talked about type concepts, which classify the behavior of types. We have
 used these type concepts in our code generalizations in order to specify and
 constrain the types that can be used for certain template parameters.
-
 Now, let’s talk more about abstract values and representations.
 
 **Abstract Values**
@@ -26,7 +25,7 @@ in order to use that type. It is “how to think about this type” and is often
 mathematical or pseudo-mathematical notation. If we define an abstract value and present
 it to the user, we can actually use abstract values in our specifications. Here are a few
 common type and how we might describe their abstract values:
-- AV(`int`): An integer in the range [2<sup>-31</sup> , 231<sup>31</sup> - 1].
+- AV(`int`): An integer in the range [2<sup>-31</sup> , 2<sup>31</sup> - 1].
 - AV(`float`): A floating point value in the range ±3.4 x 10<sup>±38</sup> with approximately 7
 digits of accuracy.
 - AV(`std::vector<int> a`): A sequence of `int`s [_v_<sub>0</sub>, _v_<sub>1</sub>, _v_<sub>2</sub>,..., _v_<sub>_n_-1</sub>], where _n_=`a.size()`
@@ -39,10 +38,10 @@ order to make clear how the type should be thought of.
 **Representations**
 The representation is the implementation of the abstract value. It de-
 scribes how we are storing the type in memory.
-- R(`int`): 32 bits, b 0 b 1 ···b 31 ,where bi 2 { 0 , 1 }.
-- R(`float`): 32 bits,b 0 b 1 ···b 31 ,where bi 2 { 0 , 1 }.
-- R(`std::vector<int>`): int* a, unsigned size or int* begin, int* end.
-- R(`Point`): double x, y, z.
+- R(`int`): 32 bits, _b_<sub>0</sub>_b_<sub>1</sub> ··· _b_<sub>31</sub>, where _b<sub>i</sub>_ is in { 0 , 1 }.
+- R(`float`): _b_<sub>0</sub>_b_<sub>1</sub> ··· _b_<sub>31</sub>, where _b<sub>i</sub>_ is in { 0 , 1 }.
+- R(`std::vector<int>`): `int* a`, `unsigned size` or `int* begin`, `int* end`.
+- R(`Point`): `double x, y, z`.
 
 Public functions that use these types perform tasks meaningful for abstract values, but are
 implemented in terms of representations. Clearly, representations are not unique.
@@ -61,13 +60,13 @@ i (^1).
 P 31
 i=9bi·^2
 (i9)
-- AF(`std::vector<int>`): vi=`a[i]` or vi=`begin[i]`.
-- AF(`Point`): (x, y, z)=(x,y,z).
+- AF(`std::vector<int>`): _v<sub>i</sub>_=`a[i]` or _v<sub>i</sub>_=`begin[i]`.
+- AF(`Point`): (_x_, _y_, _z_)=`(x,y,z)`.
 
 Again, there can be many abstraction functions for any given representation and abstract
-value. For example, the AF(int) above is completely valid, but is not actually the abstraction
-function for typical 32-bitints. In fact, the abstraction function is wrong since there is no
-way to produce an abstract value of 2^-31. Instead, modern architectures, for a variety of
+value. For example, the AF(`int`) above is completely valid, but is not actually the abstraction
+function for typical 32-bit `int`s. In fact, the abstraction function is wrong since there is no
+way to produce an abstract value of 2<sup>-31</sup>. Instead, modern architectures, for a variety of
 reasons, use the “twos compliment” abstraction function:
 
 AF(`int`): b 31 · 2 31+X^30 i=0bi· 2 i
@@ -77,18 +76,14 @@ When we think about `int`s, we almost always think about the abstract value rath
 the representation and the abstraction function.
 Let’s try this for Graph now.
 
-- AV(Graph<V> g): A pair of nodes and edges, (N, E):
-
-N=[n 0 ,n 1 ,...,nm 1 ] with m=g.numnodes()
-
-andni=g.node(i)=(pi,vi,i),
-
-E={{ni,nj}|ni,nj 2 N, i 6 =j}
+- AV(`Graph<V> g`): A pair of nodes and edges, (_N_, _E_):
+    - _N_ = [_n_<sub>0</sub>, _n_<sub>1</sub>,..., _n_<sub>_m_-1</sub>] with _m_ = `g.numnodes()` and _n<sub>i</sub>_ = `g.node(i)` = (_p<sub>i</sub>_, _n<sub>i</sub>_, _i_),
+    - _E_ = {{_n<sub>i</sub>_, _n<sub>j</sub>_} | _n<sub>i</sub>_, _n<sub>j</sub>_ is in _N_, and _i_ != _j_}
 
 This abstract value makes clear that we have a graph of a sequence nodes with data including
 the point, pi,thenodevaluevi,theindexi,andasetofundirectededgeswithnoself-
-edges. We’ve actually defined some implicit abstract values here: AF(Nodeni):(pi,ni,i)
-and AF(Edgee):{ni,nj}. This makes no reference to the representation or all the public
+edges. We’ve actually defined some implicit abstract values here: AF(Nodeni):(_p<sub>i</sub>_, _n<sub>i</sub>_, _i_)
+and AF(Edgee):{_n<sub>i</sub>_, _n<sub>j</sub>_}. This makes no reference to the representation or all the public
 member functions, but it gives the user a way to think about what she is working with.
 Now let’s consider one possible representation:
 
@@ -163,10 +158,11 @@ example:
 - RI(int): True.
 - RI(float): True.
 - RI(Point): True.
+        
 ThePoint class doesn’t care about the values of its member variables, it only exists to
 group them and provide convenience operators. The RI above is precisely why these member
 variables can be provided publicly – there is no invariant to defend against users. Users cannot
-break aPointobject.
+break a `Point` object.
 Users can break a Graph, Node, or Edge class though. Let’s consider the RIs given the
 representation and abstraction functions above.
 - RI(Graph):node.size() == adj.size()
@@ -190,7 +186,7 @@ std::vectors, all of the RIs that the std::vectors are taking care of for us now
 included in the RIs for Graph, complicating our invariants and implementations immensely!
 More succinctly, the Graphis implemented using abstract vectors rather than raw arrays.
 The AF actually gives the RI a lot of freedom here. For example, we could only store edges
-{ni,nj} with i<j in the adjacency list. However, by storing both, the implementation
+{_n<sub>i</sub>_, _n<sub>j</sub>_} with _i_ < _j_ in the adjacency list. However, by storing both, the implementation
 of incident iterator and has edge can be made more easily and more efficiently, so we
 express the “double edge” invariant here. These two invariants mostly serve to simplify the
 implementation of some of the methods. When we write classes like this, we often keep these
