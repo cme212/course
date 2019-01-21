@@ -25,8 +25,9 @@
  - [HW0](https://canvas.stanford.edu/files/3908090/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
 ### Week 2
  - Lecture 4 (2019-01-22)
-   - Iterators, functors, layout of structs, (bit) fields, unions, examples of
-   operator overloading via `Array` class.
+   - [Iterators, Function adaptors](https://canvas.stanford.edu/files/4012840/download?download_frd=1)
+   - [Layout of structs, unions, examples of
+   operator overloading via `Array` class](https://canvas.stanford.edu/files/4012841/download?download_frd=1).
  - Lecture 5 (2019-01-24)
    - Abstraction functions and Representation Invariants; 
    - Software Testing
