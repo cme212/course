@@ -28,4 +28,4 @@ Name.o : Name.cpp Name.hpp
 	g++ -Wall -Wconversion -Wextra -c Name.cpp
 
 clean:
-	rm *.o student_service
+	-rm *.o student_service
