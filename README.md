@@ -27,7 +27,7 @@
  - Lecture 4 (2019-01-22)
    - [Iterators, Function adaptors](https://canvas.stanford.edu/files/4012840/download?download_frd=1)
    - [Layout of structs, unions, examples of
-   operator overloading via `Array` class](https://canvas.stanford.edu/files/4012841/download?download_frd=1).
+   operator overloading via `Array` class](https://canvas.stanford.edu/files/4019655/download?download_frd=1).
  - Lecture 5 (2019-01-24)
    - Abstraction functions and Representation Invariants; 
    - Software Testing
