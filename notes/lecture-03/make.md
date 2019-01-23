@@ -9,11 +9,11 @@ Make can be used with practically any compiler or programming
 language. We will explain basics of Make, using simple C++
 code as the testcase. The test code consists of following files:
 
-* [`Student.cpp`](src/student/Student.cpp)
-* [`Student.hpp`](src/student/Student.hpp)
-* [`Name.cpp`](src/student/Name.cpp)
-* [`Name.hpp`](src/student/Name.hpp)
-* [`Main.cpp`](src/student/Main.cpp)
+* [`Student.cpp`](src/make/Student.cpp)
+* [`Student.hpp`](src/make/Student.hpp)
+* [`Name.cpp`](src/make/Name.cpp)
+* [`Name.hpp`](src/make/Name.hpp)
+* [`Main.cpp`](src/make/Main.cpp)
 
 It creates an instance of the `Student` class, and then prints
 student's name and ID number. We can build this code with a single
@@ -199,7 +199,7 @@ student_service : $(OBJS)
 	$(CXX) $(LDFLAGS) $(CXXFLAGS) -o $@ $^
 ```
 This way, almost all the repetitive code has been eliminated from the
-makefile (see file [`macros.mk`](src/student/macros.mk)). Here
+makefile (see file [`macros.mk`](src/make/macros.mk)). Here
 is a short list of helpful special macros:
 
 * `$@` - name of the target
@@ -279,7 +279,7 @@ compiler default search path, so we need to specify explicitly
 the location of header files. We can do that by adding `-I` flag
 on the compiler flags, for example: `-I/opt/include`.
 
-Take a look at the example in file [`make`](src/make_lib/src/appStudent/Makefile).
+Take a look at the example in file [`Makefile`](src/make_lib/src/appStudent/Makefile).
 We can first create and install static and shared libraries Name:
 ```sh
 $ make -f libs.mk install_lib
