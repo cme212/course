@@ -1,4 +1,6 @@
-## Lecture 13 - Loop Invariants
+# Lecture 5
+
+## Loop Invariants
 
 We can use some of the same tools for reasoning about loops as we have used for classes and
 methods: preconditions, postconditions, and invariants.
@@ -24,7 +26,7 @@ F;
 assert (@pre);
 assert (LI);
 while (P) {
-  S;
+  S; N;
   assert(LI);
 }
 assert (@post);
@@ -53,7 +55,7 @@ Let us apply this reasoning to some code for computing the greatest common divis
    /* LI: a, b both divisible by gcd(orig_a, orig_b) */
    if(a > b)
      a = a - b;
-   else/*b > a */
+   else /*b > a */
      b = b - a;
    /*LI: a, b both divisible by gcd(orig_a, orig_b) */
  }
