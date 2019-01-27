@@ -29,8 +29,8 @@
    - [Layout of structs, unions, examples of
    operator overloading via `Array` class](https://canvas.stanford.edu/files/4019655/download?download_frd=1).
  - Lecture 5 (2019-01-24)
-   - Abstraction functions and Representation Invariants; 
-   - Software Testing
+   - [Abstraction functions and Representation Invariants](notes/lecture-05/abstractions.md); 
+   - [Loop invariants](notes/lecture-05/loop_invariants.md)
 ### Week 3
  - [EX1](https://canvas.stanford.edu/files/4005588/download?download_frd=1) due Tuesday in class at 4:30 P.M. P.S.T.
  - Lecture 6 (2019-01-29) 
@@ -59,7 +59,7 @@
      (non-type template parameters, variadic template parameters, template template parameters);
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
  - Lecture 13 (2019-02-19)
-   - [Loop invariants](notes/lecture-13/loop_invariants.md), `thrust::transform_iterator`, Cachegrind, optimization
+   - Software Testing, `thrust::transform_iterator`, Cachegrind, optimization
  - EX3 due Friday at 4:30 P.M. P.S.T.
 ### Week 7
  - Lecture 14

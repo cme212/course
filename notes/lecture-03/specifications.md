@@ -56,7 +56,7 @@ To refer to a function's return value we use `result`.
 
 ## Specifications and Binary Search Example ##
 
-We describe these concepts in the context of a particular example: binary search. Let's start with the first implementation provided in [search0.cpp](src/search0.cpp):
+We describe these concepts in the context of a particular example: binary search. Let's start with the first implementation provided in [search0.cpp](src/binary_search/search0.cpp):
 ```c++
 int binary_search(float* a, int n, float v) {
   int low = 0;
@@ -161,7 +161,7 @@ int binary_search(float* a, int n, float v) {
   return 0;
 }
 ```
-This can be repaired: we need to insure that the array is immutable. By changing the signature of the function and, in our specifications, noting that each parameter is read-only, we can promise to the user (and the compiler!) that we will not change the values within the array. A final, solid version of `binary_search` might look like this (see also [search1.cpp](src/search1.cpp)):
+This can be repaired: we need to insure that the array is immutable. By changing the signature of the function and, in our specifications, noting that each parameter is read-only, we can promise to the user (and the compiler!) that we will not change the values within the array. A final, solid version of `binary_search` might look like this (see also [search1.cpp](src/binary_search/search1.cpp)):
 ```c++
 /** 
  * @brief Search a sorted array for a value using binary search.
@@ -255,7 +255,7 @@ In class, we pointed out limitations of the above implementation. Namely,
 * `binary_search` only applies to arrays that are sorted in ascending order. What about descending order, lexicographical order, etc?
 * `binary_search` only applies to data stored in an array.
 
-A simple modification addresses the first point (see [search2.cpp](src/search2.cpp)). 
+A simple modification addresses the first point (see [search2.cpp](src/binary_search/search2.cpp)). 
 The complete specification for the modified code is:
 ```c++
 /** 
@@ -352,7 +352,7 @@ must be defined for type `T`. Let's document the requirement of type
 template <class T>
 int binary_search(const T* a, int low, int high, const T& v)
 ```
-Full implementation in provided in [search3.cpp](src/search3.cpp).
+Full implementation in provided in [search3.cpp](src/binary_search/search3.cpp).
 
 Note: A function template alone cannot be compiled because it does not contain a
 complete definition of a function. Because of that, templates are typically coded
@@ -375,7 +375,7 @@ this operator. Fewer requirements makes implementation of user-defined types
 easier and less error-prone.
 
 Let us use `binary_search` with `Student` class defined in
-[student.hpp](src/student.hpp), and let us try to find a student
+[student.hpp](src/binary_search/student.hpp), and let us try to find a student
 in a classroom by their name. The `Student` class does not have
 default comparison operator, so we have to define them:
 ```c++
@@ -394,7 +394,7 @@ classroom meets our preconditions:
   ...
   int seat = binary_search(classroom, 0, 3, *john);
 ```
-The full code is in [search4.cpp](src/search4.cpp). This is really
+The full code is in [search4.cpp](src/binary_search/search4.cpp). This is really
 powerful. With minor coding effort we were able to deploy our `binary_search`
 code for a quite different use case.
 
