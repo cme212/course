@@ -5,9 +5,10 @@ designed, well-decomposed, and commented appropriately.
 
 ## Broad categories
  
-* [65%] Functionality
-* [25%] Design
-* [10%] Documentation / Write-up
+* [65%] Functionality: "Does your code run well"
+* [20%] Design:        "Implementation decisions, data structures, etc."
+* [10%] Style:         "Readability, variable names, compiler warnings"
+* [5%] Documentation / Write-up
 
 In each category, overall feedback will be summarized with:
 
