@@ -69,6 +69,8 @@ have to add it to all classes representing shapes that we created.
 This will cause our code to grow quickly as we add more features,
 and that will in turn make maintenance of our code expensive.
 
+
+
 ### Inheritance ###
 
 The inheritance allows us to implement all the common features
@@ -189,7 +191,89 @@ can access their own and inherited public features alike.
 When the destructor of a derived class is called, it will
 call the destructor of the base class. The base class destructor
 will be executed after the derived class destructor.
+
+## Public, Protected or Private
+
+
+
+## Polymorphism
+
+The concept that a different version of a method can be called based on the inheritance structure of the classes.  This allows us to interact with "Student" objects whose underlying functionality is dictated by their actual type.
+
+```c++
+#include <iostream>
+```
+
+```c++
+std::vector<Student*> students_;
+```
+
+```c++
+students_.push_back(&local);
+```
+
+```c++
+students_.push_back(&remote_student);
+```
+
+```c++
+for (int i = 0; i < students_.size(); i++){
+    std::cout << students_[i]->student_type_ << " " << students_[i]->get_id() << ": " 
+        << students_[i]->get_dorm() << std::endl;
+}
+```
+
+Note that if we hadn't included the `virtual` keyword, then the base class's version of `get_dorm()` would have been called, even for the local student.
+
+The `virtual` keyword signals to the compiler that we don't want **static linkage** for this function (function call determined before the program is executed).
+
+Intead, we want the selection of which version of `get_dorm()` to call to be dictated by the kind of object for which it is called - this is called **dynamic linkage** or late binding.
+
+
+
+Note: We used a vector of pointers to Students in our example above:
+
+`std::vector<Student*> students_;`
+
+Would we still have been able to take advantage of Polymorphism with a vector of Student objects?
+
+```c++
+std::vector<Student> students_2;
+```
+
+```c++
+students_2.push_back(local);
+```
+
+```c++
+students_2.push_back(remote_student);
+```
+
+```c++
+for (int i = 0; i < students_2.size(); i++){
+    std::cout << students_2[i].student_type_ << " " << students_2[i].get_id() << ": " 
+        << students_2[i].get_dorm() << std::endl;
+}
+```
+
+```c++
+students_2[1].get_location()
+```
+
+What happened when instead of creating a vector of pointers to Student objects, we created a vector of Student objects?
+
+- We were still able to add the "local" and "remote_student" objects to the vector, but the copy constructor of the "Student" class was called, creating new Student objects and implicitly casting the derived objects to the base class
+- That's why the type changed to "Student", and get_dorm() follows the Student class behavior
+
+**TL;DR**: In order to make use of polymorphism, use pointers to objects of the Base class type
+
+
+### Virtual Functions and Polymorphism ###
+
 Let us now try something different. Consider following code:
+
+
+
 ```c++
 int main()
 {
@@ -205,8 +289,10 @@ int main()
   return 0;
 }
 ```
+
 We create a `Circle` on the heap, but we access it through
 a pointer to `Shape`. The output of this code looks like this:
+
 ```
 Invoking Shape constructor ...
 Invoking Circle constructor ...
@@ -215,6 +301,7 @@ Circle area = 12.5664
 
 Invoking Shape destructor ...
 ```
+
 With pointer to `Shape` as our handle to `Circle`, we can
 access only methods that `Circle` inherited from `Shape`.
 The compiler will not be aware that the object behind
@@ -223,10 +310,8 @@ the object, only `Shape` destructor will be invoked; the `Circle`
 part of the object will remain on the heap, only now without a
 pointer to access it. We got ourselves a memory leak.
 
-
-### Virtual Functions and Polymorphism ###
-
 Let us now define `Shape` destructor as a virtual function:
+
 ```c++
   virtual ~Shape()
   {
@@ -258,6 +343,7 @@ called *runtime polymorphism*. Take a look at the code in
 There, both, the base class destructor and the `getArea()` method
 are virtual. That allows us to override `getArea()` in `Rectangle`
 class, for example. The output this code produces looks like:
+
 ```
 $ ./a.out 
 Invoking Shape constructor ...
@@ -302,6 +388,107 @@ an abstract class or an interface class. An example of abstract
 `Shape` class and its use is provided in
 [inheritance_interface.cpp](src/inheritance_interface.cpp).
 
+Recap: What did we just observe?
+
+* We declared a function `virtual double GetArea() = 0;` in the Shape class. The =0 syntax told the compiler that this was a **pure virtual** function, meaning that any derived class must override that function.
+* Any class with >= 1 pure virtual function is understood to be an **abstract class** in C++, meaning that it cannot be instantiated.
+
+**Q: Does the concept of polymorphism still apply even with an abstract class, such as "Shape"?**
+**A:** Yes. It is still valid to have a pointer of type Shape.
+
+## Composition
+
+Composition is another type of relationship between objects.  Composition occurs when objects relate in a "has a" relationship.
+
+Here is an example where we create a `Point2D` class to define point-specific methods, and then re-implement our `Circle` class to **have** a `Point2D` to represent its center.
+
+Note: We have already made use of the concept of composition in the `Student` examples, where our `Student_Course` member objects only existed in the context of a particular student, and the `Student_Course` objects didn't "know" about the `Student`.
+
+```c++
+#include <iostream>
+```
+
+
+```c++
+class Point2D
+{
+private:
+    double x_ = 0.0;
+    double y_ = 0.0;
+ 
+public:
+    // A default constructor
+    Point2D(){};
+ 
+    Point2D(double x, double y): x_(x), y_(y){};
+ 
+    // An overloaded output operator
+    friend std::ostream& operator<<(std::ostream& out, const Point2D &point)
+    {
+        out << "(" << point.x_ << ", " << point.y_ << ")";
+        return out;
+    }
+ 
+};
+```
+
+
+```c++
+Point2D p = Point2D(4,5)
+```
+
+
+```c++
+std::cout << p << std::endl;
+```
+
+
+```c++
+class Circle2: public Shape {
+    Point2D center_;
+    double radius_;
+    
+  public:
+    Circle2(double x, double y, double radius):center_(x, y), radius_(radius){};
+    
+    // A default constructor
+    Circle2(){};
+    
+    double GetArea(){
+        return M_PI * radius_ * radius_;
+    };
+    
+    Point2D GetLocation(){
+        return center_;
+    }
+    
+}
+```
+
+
+```c++
+Circle2 circle = Circle2(4,3,2);
+```
+
+
+```c++
+circle.GetArea()
+```
+
+```c++
+std::cout << circle.GetLocation() << std::endl;
+```
+
+
+```c++
+Circle2 circle2 = Circle2();
+```
+
+
+```c++
+// What value will this return?
+std::cout << circle2.GetLocation() << std::endl;
+```
 
 ### Reading ###
 
