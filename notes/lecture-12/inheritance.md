@@ -78,7 +78,11 @@ of our objects in a *base* class. When we derive a class from the base class,
 the *derived* class will inherit the common features implemented in the base,
 so we will need to implement only the features specific to the *derived* class.
 This approach leads to a leaner and easier to maintain code. 
+
+Inheritance is an **is-a** relation between the *Base* and the *Derived* classes.  
+
 For example, we can create class `Shape` like this:
+
 ```c++
 class Shape
 {
@@ -144,6 +148,7 @@ We can implement class `Rectangle` to inherit from `Shape` in a similar
 manner. The complete code is provided in
 [inheritance_public.cpp](src/inheritance_public.cpp). Let us look
 at the execution of the following code calling shape classes:
+
 ```c++
 #include <iostream>
 
@@ -194,85 +199,328 @@ will be executed after the derived class destructor.
 
 ## Public, Protected or Private
 
+Each member of a class has an access specifier that dictates the who can access it. 
+you have seen 2 up to now `private` and `public`. When dealing with derived classes there is a third specifier `protected`. When a variable is `protected` it can be accessed other members *and by the derived classes* but anyone outside the derived class or the base class do not.
+
+```c++
+class Base
+{
+public:
+    int m_public; // can be accessed by anybody
+private:
+    int m_private; // can only be accessed by Base members and friends (but not derived classes)
+protected:
+    int m_protected; // can be accessed by Base members, friends, and derived classes
+};
+ 
+class Derived: public Base
+{
+public:
+    Derived()
+    {
+        m_public = 1; // allowed: can access public base members from derived class
+        m_private = 2; // not allowed: can not access private base members from derived class
+        m_protected = 3; // allowed: can access protected base members from derived class
+    }
+};
+ 
+int main()
+{
+    Base base;
+    base.m_public = 1; // allowed: can access public members from outside class
+    base.m_private = 2; // not allowed: can not access private members from outside class
+    base.m_protected = 3; // not allowed: can not access protected members from outside class
+}
+```
+
+
+
+Besides access specifiers `public`, `private` and `protected ` are also used to describe the type of inheritance of a derived class and can **change the access specifiers in the base!**. 
+
+**Public** inheritance is the default and does not change the specifiers.
+
+```c++
+class Sphere: public Shape
+```
+
+| Base class specifier | After *public* inheritance |
+| -------------------- | -------------------------- |
+| Public               | Public                     |
+| Private              | Inaccessible               |
+| Protected            | Protected                  |
+
+**Private** inheritance will change `public ` attributes of the Base class to `private` attributes of the derived class.
+
+```c++
+class Derived: private Base // note: private inheritance
+{
+    // Private inheritance means:
+    // Public inherited members become private (so m_public is treated as private)
+    // Protected inherited members become private (so m_protected is treated as private)
+    // Private inherited members stay inaccessible (so m_private is inaccessible)
+public:
+    Derived()
+    {
+        m_public = 1; // okay: m_public is now private in Pri
+        m_private = 2; // not okay: derived classes can't access private members in the base class
+        m_protected = 3; // okay: m_protected is now private in Pri
+    }
+};
+ 
+int main()
+{
+    // Outside access uses the access specifiers of the class being accessed.
+    // In this case, the access specifiers of base.
+    Base base;
+    base.m_public = 1; // okay: m_public is public in Base
+    base.m_private = 2; // not okay: m_private is private in Base
+    base.m_protected = 3; // not okay: m_protected is protected in Base
+ 
+    Pri pri;
+    pri.m_public = 1; // not okay: m_public is now private in Pri
+    pri.m_private = 2; // not okay: m_private is inaccessible in Pri
+    pri.m_protected = 3; // not okay: m_protected is now private in Pri
+```
+
+
+
+The `public` and `protected`attributes from the base class are `private` in the derived class.  
+
+
+
+| Base class specifier | After *private* inheritance |
+| -------------------- | --------------------------- |
+| Public               | Private                     |
+| Private              | Inaccessible                |
+| Protected            | Private                     |
+
+**Q: Why is this useful?**
+
+
+
+## Accessing the base class
+
+The `Base` constructor is called before anything else is done in the *Derived* constructor.
+
+```c++
+class Base
+{
+protected:
+    int value_;
+ 
+public:
+    Base(int value)
+        : value_(value)
+    {}
+
+class Derived: public Base
+{
+public:
+    double m_cost;
+    
+    Derived(double cost=0.0, int value=0)
+        : m_cost(cost), value_(value){}
+    double getCost() const { return m_cost; }
+```
+
+**This does not work** as initialization lists can only assign to members of the initialized class.
+
+There are two alternatives
+
+1. Call the `Base` constructor in the initialization list.
+2. Assign the variable in the body of the constructor.
+
+```c++
+Derived(double cost=0.0, int value=0)
+        : Base(value), // Call Base(int) constructor with value id!
+            cost_(cost) {}
+
+Derived(double cost=0.0, int value=0)
+        : cost_(cost)
+        {
+            value_=value // Assign Base::id_ manually.
+        }      
+          
+```
+
+In general it is better to use the first method as it is more efficient and ensures that variables are initialized in the right order.
+
+ If you need a specific value for `value_` in your base constructor the second method would not work. The derived class has access to all the public and protected attributes of `Base`.
+
+```c++
+class Derived: public Base
+{
+public:
+    Derived(int value)
+        :Base(value)
+    {}
+    int getValue() { return value_; }
+};
+```
+
+
+
+We can also directly call methods from the `Base` class. The 
+
+```c++
+int main()
+{
+    Base base(5);
+    base.identify();
+ 
+    Derived derived(7);
+    derived.identify();
+ 
+    return 0;
+}
+```
+
+> ```
+> I am a Base
+> I am a Base
+> ```
+
+
+
+We can also override the `Base` methods
+
+```c++
+class Derived: public Base
+{
+public:
+    Derived(int value)
+        : Base(value)
+    {}
+ 
+    int getValue() { return m_value; }
+ 
+    // Here's our modified function
+    void identify() { std::cout << "I am a Derived\n"; }
+};
+```
+
+Derived classes can **overwrite** the access specifiers of their Base. Since the program will look in the derived scope first we can hide the functionality of the base class in the derived class. This is especially useful if the derived class is needs certain attributes of the base class to be fixed. For attributes we can simply change the access specifier.
+
+We can also call the base function even if it is overwritten. We just have to be very careful with the scope of our call. 
+
+```c++
+void identify() { identify();}
+```
+
+Will result in an infinite loop as the program will first look for the `identify()` function in the *Derived* scope. The correct way is to specify the scope of the function we are calling
+
+```c++
+void identify() { Base::identify();}
+```
+
+This will tell the program to look in the Base scope for the `identity()` function.
+
+Scope also allows us to change the access specifier of our Base methods in the derived classes with the `using ` keyword.  This will move the method to the scope of the derived class and attach the access specifier it is declared with.
+
+```c++
+class Base
+{
+private:
+    int value_;
+ 
+public:
+    Base(int value)
+        : value_(value)
+    {}
+ 
+protected:
+    void printValue() { std::cout << m_value; }
+};
+
+class Derived: public Base
+{
+public:
+    Derived(int value)
+        : Base(value)
+    {}
+ 
+    // Base::printValue was inherited as protected, so the public has no access
+    // But we're changing it to public via a using declaration
+    using Base::printValue; // note: no parenthesis here
+};
+
+int main()
+{
+    Derived derived(7);
+ 
+    // printValue is public in Derived, so this is okay
+    derived.printValue(); // prints 7
+    return 0;
+}
+```
+
 
 
 ## Polymorphism
 
-The concept that a different version of a method can be called based on the inheritance structure of the classes.  This allows us to interact with "Student" objects whose underlying functionality is dictated by their actual type.
+As with anything we can create pointers and references to classes we have created. However with derived classes we can get some interesting behavior if we do the following:
+
+```c++
+int main()
+{
+    Derived derived(5);
+ 
+    // These are both legal!
+    Base &rBase = derived;
+    Base *pBase = &derived;
+ 
+cout << "derived is a " << derived.getName() << " and has value " << derived.getValue() << '\n';
+cout << "rBase is a " << rBase.getName() << " and has value " << rBase.getValue() << '\n';
+cout << "pBase is a " << pBase->getName() << " and has value " << pBase->getValue() << '\n';
+ 
+    return 0;
+}
+```
+
+This prints:
+
+> ```
+> derived is a Derived and has value 5
+> rBase is a Base and has value 5
+> pBase is a Base and has value 5
+> ```
+
+
+
+The `Base ` pointers only see the attributes that belong to the base class and are blind to everything else. This allows us to *mask* our derived class as a base class. This is called **Polymorphism**
+
+One useful application of this involves vectors. 
 
 ```c++
 #include <iostream>
 ```
 
 ```c++
-std::vector<Student*> students_;
+std::vector<Shapes*> shapes_;
 ```
 
 ```c++
-students_.push_back(&local);
+shapes_.push_back(circle);
 ```
 
 ```c++
-students_.push_back(&remote_student);
+shapes_.push_back(rectangle);
 ```
 
-```c++
-for (int i = 0; i < students_.size(); i++){
-    std::cout << students_[i]->student_type_ << " " << students_[i]->get_id() << ": " 
-        << students_[i]->get_dorm() << std::endl;
-}
-```
+The above runs without any errors! Since we have an array of pointers neither `circle` nor `rectangle` will lose any information. If we had assigned them directly they would have lost all attributes that are nor part of the `Shape` class.
 
-Note that if we hadn't included the `virtual` keyword, then the base class's version of `get_dorm()` would have been called, even for the local student.
+Because we are dealing with references and pointers of the `Base` class we are confined to the scope of the `Base` class. This means that we cannot call any of the methods in the Derived classes and any overwritten method will revert back to the Base version. However if we assign the pointer to a reference of the Derived class we get all this functionality back.
 
-The `virtual` keyword signals to the compiler that we don't want **static linkage** for this function (function call determined before the program is executed).
-
-Intead, we want the selection of which version of `get_dorm()` to call to be dictated by the kind of object for which it is called - this is called **dynamic linkage** or late binding.
+**Q: What if you want to mix and match?**
 
 
 
-Note: We used a vector of pointers to Students in our example above:
 
-`std::vector<Student*> students_;`
+### Virtual Functions ###
 
-Would we still have been able to take advantage of Polymorphism with a vector of Student objects?
+A `virtual` function tells the compiler to look for the most derived version of that function that is above the class calling it. All this is done at *runtime*.
 
-```c++
-std::vector<Student> students_2;
-```
-
-```c++
-students_2.push_back(local);
-```
-
-```c++
-students_2.push_back(remote_student);
-```
-
-```c++
-for (int i = 0; i < students_2.size(); i++){
-    std::cout << students_2[i].student_type_ << " " << students_2[i].get_id() << ": " 
-        << students_2[i].get_dorm() << std::endl;
-}
-```
-
-```c++
-students_2[1].get_location()
-```
-
-What happened when instead of creating a vector of pointers to Student objects, we created a vector of Student objects?
-
-- We were still able to add the "local" and "remote_student" objects to the vector, but the copy constructor of the "Student" class was called, creating new Student objects and implicitly casting the derived objects to the base class
-- That's why the type changed to "Student", and get_dorm() follows the Student class behavior
-
-**TL;DR**: In order to make use of polymorphism, use pointers to objects of the Base class type
-
-
-### Virtual Functions and Polymorphism ###
-
-Let us now try something different. Consider following code:
-
-
+ Consider following code:
 
 ```c++
 int main()
@@ -337,31 +585,41 @@ small modification to our code, we can now access any shape
 object using only `Shape` pointer without introducing a memory
 leak. Furthermore, we are able to override any other
 virtual function in the derived class, and
-access it through the pointer to the base class. This is
-called *runtime polymorphism*. Take a look at the code in
-[inheritance_public_polymorphism.cpp](src/inheritance_public_polymorphism.cpp).
-There, both, the base class destructor and the `getArea()` method
-are virtual. That allows us to override `getArea()` in `Rectangle`
-class, for example. The output this code produces looks like:
+access it through the pointer to the base class.
 
-```
-$ ./a.out 
-Invoking Shape constructor ...
-Invoking Shape constructor ...
-Invoking Circle constructor ...
-Invoking Shape constructor ...
-Invoking Rectangle constructor ...
-
-No shape specified; area set to 0
-Circle area = 3.14159
-Rectangle area =  (using overriden getArea) 6
-
-Invoking Shape destructor ...
-Invoking Circle destructor ...
-Invoking Shape destructor ...
-Invoking Rectangle destructor ...
-Invoking Shape destructor ...
-$
+```c++
+class A
+{
+public:
+    virtual const char* getName() { return "A"; }
+};
+ 
+class B: public A
+{
+public:
+    virtual const char* getName() { return "B"; }
+};
+ 
+class C: public B
+{
+public:
+    virtual const char* getName() { return "C"; }
+};
+ 
+class D: public C
+{
+public:
+    virtual const char* getName() { return "D"; }
+};
+ 
+int main()
+{
+    C c;
+    A &rBase = c;
+    std::cout << "rBase is a " << rBase.getName() << '\n';
+ 
+    return 0;
+}
 ```
 This is particularly helpful when we want to specify default
 behavior in the base class, but still be able to override the
@@ -395,6 +653,33 @@ Recap: What did we just observe?
 
 **Q: Does the concept of polymorphism still apply even with an abstract class, such as "Shape"?**
 **A:** Yes. It is still valid to have a pointer of type Shape.
+
+
+
+```c++
+class B {
+public:
+    virtual int f();
+};
+
+class D : public B {
+private:
+    int f(){};
+};
+
+int main
+{
+    D d;
+    B* pb = &d;
+    D* pd = &d;
+
+    pb->f(); //OK:B::f()is public,
+             // D::f() is invoked
+    pd->f(); //error: D::f()is private
+}
+```
+
+
 
 ## Composition
 
@@ -495,4 +780,7 @@ std::cout << circle2.GetLocation() << std::endl;
 * [Public, protected and private inheritance](https://stackoverflow.com/questions/860339/difference-between-private-public-and-protected-inheritance)
 * [Virtual functions](https://stackoverflow.com/questions/2391679/why-do-we-need-virtual-functions-in-c)
 * [Interfaces in C++](https://stackoverflow.com/questions/1216750/how-can-i-simulate-interfaces-in-c)
+* [Inheritance](https://www.learncpp.com/cpp-tutorial/111-introduction-to-inheritance/)
+
+
 
