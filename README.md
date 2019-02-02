@@ -44,14 +44,14 @@
    - construction, cleanup, and copy initialization.
  - Lecture 9 (2019-02-07)
    - Graph Remove_*; inline functions and typedefs.
- - EX2 due Friday at 4:30 P.M. P.S.T.
+ - [EX2](https://canvas.stanford.edu/files/4069737/download?download_frd=1) due Sunday at 4:30 P.M. P.S.T.
 ### Week 5
  - Lecture 10 (2019-02-12) 
    - Defining copy and move semantics, delegating constructors, entanglement, slicing.
    - Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)
  - Lecture 11 (2019-02-14) 
    - Floating point, Under/overflow, relative error, machine tolerance
- - HW2 due Friday at 4:30 P.M. P.S.T.
+ - [HW2](https://canvas.stanford.edu/files/4069760/download?download_frd=1) due Sunday at 4:30 P.M. P.S.T.
 ### Week 6
  - Lecture 12 (2019-02-19) 
    - Template Programming part 2
