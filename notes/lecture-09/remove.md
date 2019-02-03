@@ -1,6 +1,6 @@
-# CME212: Lecture 9
+# CME 212: Lecture 9
 
-## Graphremove* ##
+## Graph `remove*` ##
 
 In lecture, we addressed the case where no outstanding `Node`s or `Edge`s are invalidated by
 the `remove*` methods of `Graph`, though this is not technically required by Homework 2. In Homework 2,
@@ -31,10 +31,11 @@ when looking nodes up by index via `graph.node(i)`.
 ### Abstraction functions ###
 
 The abstraction function, now looks like this:
-    - _AF_(`Graph`) = (_N_, _E_) where
-        - _N_ = {_n<sub>i</sub>_ | 0 &le; _i_ < _m_ = `i2u_.size()`},
-        - _E_ = {{ _n<sub>i</sub>_, _n<sub>i</sub>_} | 0 &le; i < j < _m_ and `i2u_[i]` &isin; `adj_[j]`}.
-        - _n<sub>i</sub>_ = (`nodes_[i2u[i]].p`, `nodes_[i2u[i]].v`, _i_)
+
+- _AF_(`Graph`) = (_N_, _E_) where
+    - _N_ = { _n<sub>i</sub>_ | 0 &le; _i_ < _m_ = `i2u_.size()`},
+    - _E_ = { {_n<sub>i</sub>_, _n<sub>i</sub>_} | 0 &le; i < j < _m_ and `i2u_[i]` &isin; `adj_[j]`}.
+    - _n<sub>i</sub>_ = (`nodes_[i2u[i]].p`, `nodes_[i2u[i]].v`, _i_)
 
 Note that the total number of nodes is now defined by the `i2u_` structure rather than the
 `nodes_` structure. We now convert abstract indices in the _AF_ to `uid`s where required and will
@@ -80,11 +81,11 @@ to improve the data structure, but they have to be correct to help! And here, th
 correctness requirement on nodes is that the `idx_` member is right and that the unique
 identification numbers are, well, unique.
 
-Abstraction functions always work on valid representations, so if _RI_(x) is false it's OK for
-_AF_(x) to break or return weird garbage.
+Abstraction functions always work on valid representations, so if _RI_(_x_) is false it's OK for
+_AF_(_x_) to break or return weird garbage.
 
 
-### Node _AF_ and _RI_ ###
+### Node abstraction function and representation invariants ###
 
 The `Node` subobject has its own abstraction function and representation
 invariant that are useful to write down. The abstract value of a node is a subvalue of that
@@ -112,10 +113,9 @@ class Node
 private:
   bool valid() const
   {
-    return uid_>= 0
-    && uid_< graph_->nodes_.size()
-    && graph_->nodes_[uid_].index_ < graph_->i2u_.size()
-    && graph_->i2u_[graph_->nodes_[uid_].index_] == uid_;
+    return uid_>= 0 && uid_< graph_->nodes_.size()
+           && graph_->nodes_[uid_].index_ < graph_->i2u_.size()
+           && graph_->i2u_[graph_->nodes_[uid_].index_] == uid_;
   }
 public:
   Point& position()
