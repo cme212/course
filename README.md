@@ -43,7 +43,7 @@
    - Exception Handling part 2 (enforcing invariants); 
    - construction, cleanup, and copy initialization.
  - Lecture 9 (2019-02-07)
-   - Graph Remove_*; inline functions and typedefs.
+   - [Graph Remove_*](notes/lecture-09/remove.md); inline functions and typedefs.
  - [EX2](https://canvas.stanford.edu/files/4069737/download?download_frd=1) due Sunday at 4:30 P.M. P.S.T.
 ### Week 5
  - Lecture 10 (2019-02-12) 
