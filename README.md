@@ -36,7 +36,7 @@
  - Lecture 6 (2019-01-29) 
    - [Free Store memory allocation, RAII, Allocators](https://canvas.stanford.edu/files/4054062/download?download_frd=1). 
    - [Exception Handling part 1 (exceptions as control flow, how to define exceptions)](https://canvas.stanford.edu/files/4054064/download?download_frd=1).
- - Lecture 7 (2019-01-31): [Inheritance and Polymorphism](notes/lecture-12/inheritance.md)
+ - Lecture 7 (2019-01-31): [Inheritance and Polymorphism](notes/lecture-07/inheritance.md)
  - [HW1](https://canvas.stanford.edu/files/4005665/download?download_frd=1) due Sunday at 4:30 P.M. P.S.T.
 ### Week 4
  - Lecture 8 (2019-02-05) 
