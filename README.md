@@ -47,35 +47,33 @@
  - [EX2](https://canvas.stanford.edu/files/4069737/download?download_frd=1) due Sunday at 4:30 P.M. P.S.T.
 ### Week 5
  - Lecture 10 (2019-02-12) 
-   - Defining copy and move semantics, delegating constructors, entanglement, slicing.
-   - Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)
+   - [Defining copy and move semantics, delegating constructors, entanglement, slicing](https://canvas.stanford.edu/files/4116729/download?download_frd=1).
  - Lecture 11 (2019-02-14) 
    - Floating point, Under/overflow, relative error, machine tolerance
  - [HW2](https://canvas.stanford.edu/files/4069760/download?download_frd=1) due Sunday at 4:30 P.M. P.S.T.
 ### Week 6
  - Lecture 12 (2019-02-19) 
-   - Template Programming part 2
-
-     (non-type template parameters, variadic template parameters, template template parameters);
-   - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
+   - Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)
  - Lecture 13 (2019-02-19)
    - Software Testing, `thrust::transform_iterator`, Cachegrind, optimization
  - EX3 due Friday at 4:30 P.M. P.S.T.
 ### Week 7
  - Lecture 14
-   - Generic programming
+   - Template Programming part 2
+     (non-type template parameters, variadic template parameters, template template parameters);
+   - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
  - Lecture 15
    - ???
  - HW3 due Friday at 4:30 P.M. P.S.T.
 ### Week 8
  - Lecture 16
-   - Metaprogramming
+   - Generic programming
  - Lecture 17
    - Compiler Optimizations
  - EX4 due Friday at 4:30 P.M. P.S.T.
 ### Week 9
  - Lecture 18
-   - Regular Expressions
+   - Metaprogramming
  - Lecture 19
    - Review
  - HW4 due Friday at 4:30 P.M. P.S.T.
