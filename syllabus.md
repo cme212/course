@@ -171,8 +171,8 @@ The course grade breakdown will be:
   the TAs a chance to grade your homeworks in an efficient manner and to keep
   students from falling behind.
 
-- Each student is granted 3 regrade requests. Unused regrade requests will be
-  translated to bonus points at the end of the quarter. Regrade requests are
+- Each student is granted 3 non-valid regrade requests. Unused regrade requests will be
+  translated to bonus points at the end of the quarter. A regrade request is only counted as used if the points were not awarded to the student. Regrade requests are
   made by submitting a GitHub issue in the homework submission repository and
   assigning the TA who graded the homework.
 

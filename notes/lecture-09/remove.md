@@ -34,7 +34,7 @@ The abstraction function, now looks like this:
 
 - _AF_(`Graph`) = (_N_, _E_) where
     - _N_ = { _n<sub>i</sub>_ | 0 &le; _i_ < _m_ = `i2u_.size()`},
-    - _E_ = { {_n<sub>i</sub>_, _n<sub>i</sub>_} | 0 &le; i < j < _m_ and `i2u_[i]` &isin; `adj_[j]`}.
+    - _E_ = { {_n<sub>i</sub>_, _n<sub>j</sub>_} | 0 &le; i < j < _m_ and `i2u_[i]` &isin; `adj_[i2u_[j]]`}.
     - _n<sub>i</sub>_ = (`nodes_[i2u[i]].p`, `nodes_[i2u[i]].v`, _i_)
 
 Note that the total number of nodes is now defined by the `i2u_` structure rather than the
@@ -57,14 +57,14 @@ For Graph, the representation invariant needs to check that
 the nodes and i2u arrays are synchronized. We translate the specification in Homework 2 that
 `graph.node(i).index() == i` into the Graph _RI_:
 
-_RI_(`Graph`) For every _i_ with 0 &le; i < `i2u_.size()`, the following holds:`nodes_[i2u_[i]].idx == i`.
+_RI_(`Graph`) For every _i_ with 0 &le; i < `i2u_.size()`, the following holds:`nodes_[i2u_[i]].idx_ == i`.
 
 Several other useful consistency requirements are actually implicitly expressed by this invariant:
 
-- For each _i_ with 0 &le; i < `i2u.size()`, it holds 0 &le; < `i2u_[i]` < `nodes.size()`.
+- For each _i_ with 0 &le; _i_ < `i2u.size()`, it holds 0 &le; `i2u_[i]` < `nodes.size()`.
 (This is implied since otherwise the element access `nodes_[i2u[i]]` would fail.)
 
-- The unique identifiers in `i2u_` are disjoint: If 0 ;ge i < j < `i2u.size()`, then `i2u_[i]` &ne; `i2u_[j]`.
+- The unique identifiers in `i2u_` are disjoint: If 0 &le; i < j < `i2u.size()`, then `i2u_[i]` &ne; `i2u_[j]`.
 (This is implied since `nodes[i].idx` can take only one value.)
 
 It's usually good to express the invariant as compactly as possible, since that makes it easier
@@ -81,7 +81,7 @@ to improve the data structure, but they have to be correct to help! And here, th
 correctness requirement on nodes is that the `idx_` member is right and that the unique
 identification numbers are, well, unique.
 
-Abstraction functions always work on valid representations, so if _RI_(_x_) is false it's OK for
+Abstraction functions always work on valid representations, so if _RI_(_x_) is false it is OK for
 _AF_(_x_) to break or return weird garbage.
 
 
@@ -113,15 +113,15 @@ class Node
 private:
   bool valid() const
   {
-    return uid_>= 0 && uid_< graph_->nodes_.size()
-           && graph_->nodes_[uid_].index_ < graph_->i2u_.size()
-           && graph_->i2u_[graph_->nodes_[uid_].index_] == uid_;
+    return uid_>= 0 && uid_< g_->nodes_.size()
+           && g_->nodes_[uid_].idx_ < g_->i2u_.size()
+           && g_->i2u_[graph_->nodes_[uid_].idx_] == uid_;
   }
 public:
   Point& position()
   {
     assert(valid());
-    return graph_->nodes_[uid_].position_;
+    return g_->nodes_[uid_].p_;
   }
   ...
 };
