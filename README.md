@@ -56,16 +56,16 @@
    - Template Programming part 2   
      (non-type template parameters, variadic template parameters, template template parameters);
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
- - Lecture 13 (2019-02-19)
+ - Lecture 13 (2019-02-21)
    - Software Testing, `thrust::transform_iterator`, Cachegrind
  - EX3 due Friday at 4:30 P.M. P.S.T.
 ### Week 7
- - Lecture 14
+ - Lecture 14 (2019-02-26)
    - Template Programming part 2
      (non-type template parameters, variadic template parameters, template template parameters);
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
- - Lecture 15
-   - ???
+ - Lecture 15 (2019-02-26)
+   - [RAJA](https://raja.readthedocs.io/en/master/) and the future of parallel computing.
  - HW3 due Friday at 4:30 P.M. P.S.T.
 ### Week 8
  - Lecture 16
