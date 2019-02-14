@@ -1,4 +1,4 @@
-# CME 212 - Testing
+# CME 212: Lecture 13
 
 ## Software Testing
 

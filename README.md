@@ -55,26 +55,28 @@
  - Lecture 12 (2019-02-19) 
    - Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)
  - Lecture 13 (2019-02-21)
-   - Software Testing, `thrust::transform_iterator`, Cachegrind
+   - [Software Testing](notes/lecture-13/testing.md)
  - EX3 due Friday at 4:30 P.M. P.S.T.
 ### Week 7
  - Lecture 14 (2019-02-26)
    - Template Programming part 2
      (non-type template parameters, variadic template parameters, template template parameters);
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
- - Lecture 15 (2019-02-26)
+ - Lecture 15 (2019-02-28)
+   - Cachegrind
+   - Thrust, `thrust::transform_iterator`
    - [RAJA](https://raja.readthedocs.io/en/master/) and the future of parallel computing.
  - HW3 due Friday at 4:30 P.M. P.S.T.
 ### Week 8
- - Lecture 16
+ - Lecture 16 (2019-03-05)
    - Generic programming
- - Lecture 17
+ - Lecture 17 (2019-03-07)
    - Compiler Optimizations
  - EX4 due Friday at 4:30 P.M. P.S.T.
 ### Week 9
- - Lecture 18
+ - Lecture 18 (2019-03-12)
    - Metaprogramming
- - Lecture 19
+ - Lecture 19 (2019-03-14)
    - Review
  - HW4 due Friday at 4:30 P.M. P.S.T.
 
