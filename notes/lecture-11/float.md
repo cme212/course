@@ -1,4 +1,4 @@
-# CME 212: Lecture 17
+# CME 212: Lecture 11
 
 ## Floating Point Representation ##
 
@@ -18,11 +18,11 @@ the precision of these three types. The C++ standard only says that:
 > values of the type long double.
 
 Floating point type representation may vary from compiler to compiler.
-Many compilers follow [IEEE-754](http://grouper.ieee.org/groups/754/index.html)
+Many compilers follow [IEEE-754](https://ieeexplore.ieee.org/document/4610935?arnumber=4610935)
 standard in their floating point types implementation. In most cases
 * `float` will be 32-bit long and have 7 decimal significant digits in its mantissa,
 * `double` will be 64-bits long with 15 decimal significant digits in its mantissa.
-Most common representations of `long double` type are 80-bit and 128-bit long.
+* Most common representations of `long double` type are 80-bit and 128-bit long.
 
 ### Floating point literals ###
 
@@ -63,7 +63,7 @@ Since the mantissa of `float` has 7 significant digits, the sum of `1e-8F` and
 be an artifact of the truncation.
 
 When computing `b`, the difference between `1.0F` and `0.99999F` will again be
-10^-5^ evaluated with only 3 correct digits due to finite precision truncation.
+10<sup>-5</sup> evaluated with only 3 correct digits due to finite precision truncation.
 Adding the literal `1e-8F` will this time change the result as it falls within
 the mantisa of `b`.
 
