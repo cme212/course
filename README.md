@@ -53,7 +53,7 @@
  - [HW2](https://canvas.stanford.edu/files/4069760/download?download_frd=1) due Sunday at 4:30 P.M. P.S.T.
 ### Week 6
  - Lecture 12 (2019-02-19) 
-   - Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)
+   - [Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)](https://canvas.stanford.edu/files/4150057/download?download_frd=1)
  - Lecture 13 (2019-02-19)
    - Software Testing, `thrust::transform_iterator`, Cachegrind, optimization
  - EX3 due Friday at 4:30 P.M. P.S.T.
