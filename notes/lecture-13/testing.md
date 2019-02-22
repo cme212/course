@@ -8,7 +8,7 @@
 
 ### Some types of testing
 
-* **Unit**: Smal, fundamental aspect of the software (e.g. one method of a class)
+* **Unit**: Small, fundamental aspect of the software (e.g. one method of a class)
 
 * **Integration**: Groups of functions, classes, etc. are tested
 
@@ -40,10 +40,6 @@ Tests are useless if you don’t actually run them and check the results
   major faux pas
 
 * You can even automate the process of blaming the responsible party!
-
-  * See: <https://www.youtube.com/embed/1EGk2rvZe8A>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1EGk2rvZe8A" frameborder="0" allowfullscreen></iframe>
 
 ### Test code
 
@@ -101,24 +97,30 @@ From `bank/bank_account.h`:
 
 ```c++
 class BankAccount {
+
  private:
   int32_t balance;
   uint32_t ndeposits;
   uint32_t nwithdrawals;
+
  public:
+
   BankAccount() {
     balance      = 0;
     ndeposits    = 0;
     nwithdrawals = 0;
   }
+
   void DepositMoney(uint32_t amount) {
     balance += amount;
     ndeposits++;
   }
+
   void WriteCheck(uint32_t amount) {
     balance -= amount;
     nwithdrawals++;
   }
+
   int32_t GetBalance(void) { return balance; }
   uint32_t GetNumberWithdrawals(void) { return nwithdrawals; }
   uint32_t GetNumberDeposits(void) { return ndeposits; }
@@ -595,3 +597,5 @@ Some examples in practice:
 
 * Automate: make it so easy to run your tests that you aren’t tempted to skip
   them
+
+* Practice exercise: <https://github.com/rbharvs/testing-example>
