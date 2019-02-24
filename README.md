@@ -59,8 +59,8 @@
  - EX3 due Friday at 4:30 P.M. P.S.T.
 ### Week 7
  - Lecture 14 (2019-02-26)
-   - Template Programming part 2
-     (non-type template parameters, variadic template parameters, template template parameters);
+   - [Template Programming part 2](https://canvas.stanford.edu/files/4189029/download?download_frd=1)
+     (non-type template parameters, variadic template parameters, template template parameters).
  - Lecture 15 (2019-02-28)
    - Cachegrind
    - Thrust, `thrust::transform_iterator`
