@@ -61,7 +61,6 @@
  - Lecture 14 (2019-02-26)
    - Template Programming part 2
      (non-type template parameters, variadic template parameters, template template parameters);
-   - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
  - Lecture 15 (2019-02-28)
    - Cachegrind
    - Thrust, `thrust::transform_iterator`
@@ -69,13 +68,13 @@
  - HW3 due Friday at 4:30 P.M. P.S.T.
 ### Week 8
  - Lecture 16 (2019-03-05)
-   - Generic programming
+   - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
  - Lecture 17 (2019-03-07)
    - Compiler Optimizations
  - EX4 due Friday at 4:30 P.M. P.S.T.
 ### Week 9
  - Lecture 18 (2019-03-12)
-   - Metaprogramming
+   - Generic programming
  - Lecture 19 (2019-03-14)
    - Review
  - HW4 due Friday at 4:30 P.M. P.S.T.
