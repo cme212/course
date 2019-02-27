@@ -62,15 +62,17 @@
    - [Template Programming part 2](https://canvas.stanford.edu/files/4189029/download?download_frd=1)
      (non-type template parameters, variadic template parameters, template template parameters).
  - Lecture 15 (2019-02-28)
+   - [Compiler Optimizations](notes/lecture-15/optimization.md)
+   - [Memory and Performance](notes/lecture-15/memory.md)
    - Cachegrind
-   - Thrust, `thrust::transform_iterator`
-   - [RAJA](https://raja.readthedocs.io/en/master/) and the future of parallel computing.
  - HW3 due Sunday at 4:30 P.M. P.S.T.
 ### Week 8
  - Lecture 16 (2019-03-05)
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
  - Lecture 17 (2019-03-07)
-   - Compiler Optimizations
+   - [Introduction to Parallel Computing](https://computing.llnl.gov/tutorials/parallel_comp/)
+   - [Thrust](https://docs.nvidia.com/cuda/thrust/index.html), `thrust::transform_iterator`
+   - [RAJA](https://raja.readthedocs.io/en/master/) and the future of parallel computing.
  - EX4 due Friday at 4:30 P.M. P.S.T.
 ### Week 9
  - Lecture 18 (2019-03-12)
