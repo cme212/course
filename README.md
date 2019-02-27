@@ -65,7 +65,7 @@
    - Cachegrind
    - Thrust, `thrust::transform_iterator`
    - [RAJA](https://raja.readthedocs.io/en/master/) and the future of parallel computing.
- - HW3 due Friday at 4:30 P.M. P.S.T.
+ - HW3 due Sunday at 4:30 P.M. P.S.T.
 ### Week 8
  - Lecture 16 (2019-03-05)
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
