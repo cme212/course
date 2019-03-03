@@ -1,6 +1,11 @@
 # CME212
 [Syllabus](https://github.com/cme212/course/blob/master/syllabus.md#cme-212---winter-2019)
 
+The Final Exam will be due on March 22nd at 6:30 P.M. P.S.T.
+It will be released no later than March 19th at 6:30 P.M. P.S.T.
+We anticipate the exam should require several (3) hours to complete,
+but we grant additional time so that you do not feel pressured.
+
 <!-- BS : [Bjarne Stroustrup's Programming in C++](https://g.co/kgs/jQjpRv). -->
 
 ## Schedule (WIP)
@@ -80,8 +85,6 @@
  - Lecture 19 (2019-03-14)
    - Review
  - HW4 due Friday at 4:30 P.M. P.S.T.
-
-
 
 
 
