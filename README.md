@@ -67,7 +67,7 @@
    - Cachegrind
  - HW3 due Sunday at 4:30 P.M. P.S.T.
 ### Week 8
- - Lecture 16 (2019-03-05)
+ - [Lecture 16](https://canvas.stanford.edu/files/4219131/download?download_frd=1) (2019-03-05)
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
  - Lecture 17 (2019-03-07)
    - [Introduction to Parallel Computing](https://computing.llnl.gov/tutorials/parallel_comp/)
