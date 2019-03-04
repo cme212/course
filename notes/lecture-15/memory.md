@@ -302,17 +302,85 @@ parking spot per set
 ![Parking analogy](fig/parking.png)
 
 
+## Caching algorithms
+
+* When you first turn on the computer the caches are empty, but then they very
+quickly fill up
+
+* If we need to bring in a new cache line, how do we decide what to get rid of?
+
+### Caching algorithms
+
+* Least Recently Used (LRU)
+  * Evict least recently used item first
+* Most Recently Used (MRU)
+  * Evict most recently used item first
+* Pseudo LRU (PLRU)
+  * Almost always evict least recently used items
+* Least Frequently Used (LFU)
+  * Evict lines that are used least often
+
+### Cache write policy
+
+* What happens if the data in a cache line gets modified?
+
+* Write-back
+  * Only the data in the cache is updated
+  * Modified cache line is marked dirty
+  * When the dirty cache line is evicted the data is stored back to main memory
+
+* Write-through
+  * Main memory is updated for every write
+
+### Exclusive caching
+
+* L1/L2/L3 caches cannot contain the same data
+
+* If there is a miss in L1 and a hit in L2:
+  * A line is evicted from L1 back to L2
+  * The new line is moved from L2 to L1
+
+* If all caches miss, the data would be copied directly into L1
+
+* Eliminates redundant storage of data in caches
+
+### Inclusive caching
+
+* All of the data in L1 is also in L2, and all of the data in L2 is also in L3
+
+* Or in other words, L2 contains a subset of L3, and L1 contains a subset of L1
+
+* Seems like a poor use of cache space, why would you want to do that?
+
+### Cache coherency
+
+* Cache coherency is the process of maintaining consistency for the data stored in caches
+
+* This is very complicated in multi-core / multichip configurations
+
+* With inclusive caching L3 contains a copy of all the data in the L1 and L2
+caches, allowing the hardware to quickly determine whether data is present
+somewhere in one of the L1/L2 caches
+
+![Multi-core cache](fig/multi-core-cache.png)
+
+## Cachegrind
+
 ### Back to our example
 
+Let us take another look at the example [cachetest.cpp](src/cachetest.cpp).
+There, we compared algorithms for summing elements of a dense matrix with
+a row-major memory layout, and found that the row-major summation performs
+significantly better than the column-major summation of matrix elements.
 If the matrix memory is laid out in a row-major order, then the row-major
 summation algorithm will be able to better utilize CPU cache as the
 executable will be able to pull blocks of data into the cache from
-contiguous blocks in the memory. This is why in this example we see
+contiguous blocks in the main memory. This is why in this example we see
 significant performance advantage over column-major summation.
 
 ### Using Cachegrind
 
-We can verify that this is indeed the reason for performance differenceby
+We can verify that this is indeed the reason for performance difference
 by using Cachegrind, a tool from Valgrind package. First, we need to make sure
 we compile our code with debugging symbols. Adding flag `-g` at the compilation
 line will take care of that:
@@ -375,68 +443,6 @@ L3 cache). You can see that for a matrix with 64,000,000 elements, there were on
 miss at every read when using column-major summation. For more examples
 and details about Cachegrind usage take a look at its
 [documentation](http://valgrind.org/docs/manual/cg-manual.html). 
-
-### Caching algorithms
-
-* When you first turn on the computer the caches are empty, but then they very
-quickly fill up
-
-* If we need to bring in a new cache line, how do we decide what to get rid of?
-
-### Caching algorithms
-
-* Least Recently Used (LRU)
-  * Evict least recently used item first
-* Most Recently Used (MRU)
-  * Evict most recently used item first
-* Pseudo LRU (PLRU)
-  * Almost always evict least recently used items
-* Least Frequently Used (LFU)
-  * Evict lines that are used least often
-
-### Cache write policy
-
-* What happens if the data in a cache line gets modified?
-
-* Write-back
-  * Only the data in the cache is updated
-  * Modified cache line is marked dirty
-  * When the dirty cache line is evicted the data is stored back to main memory
-
-* Write-through
-  * Main memory is updated for every write
-
-### Exclusive caching
-
-* L1/L2/L3 caches cannot contain the same data
-
-* If there is a miss in L1 and a hit in L2:
-  * A line is evicted from L1 back to L2
-  * The new line is moved from L2 to L1
-
-* If all caches miss, the data would be copied directly into L1
-
-* Eliminates redundant storage of data in caches
-
-### Inclusive caching
-
-* All of the data in L1 is also in L2, and all of the data in L2 is also in L3
-
-* Or in other words, L2 contains a subset of L3, and L1 contains a subset of L1
-
-* Seems like a poor use of cache space, why would you want to do that?
-
-### Cache coherency
-
-* Cache coherency is the process of maintaining consistency for the data stored in caches
-
-* This is very complicated in multi-core / multichip configurations
-
-* With inclusive caching L3 contains a copy of all the data in the L1 and L2
-caches, allowing the hardware to quickly determine whether data is present
-somewhere in one of the L1/L2 caches
-
-![Multi-core cache](fig/multi-core-cache.png)
 
 ## Array sum cache demo
 
