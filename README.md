@@ -69,14 +69,14 @@ but we grant additional time so that you do not feel pressured.
  - Lecture 15 (2019-02-28)
    - [Compiler Optimizations](notes/lecture-15/optimization.md)
    - [Memory and Performance](notes/lecture-15/memory.md)
-   - Cachegrind
+   - [Cachegrind](https://github.com/cme212/course/blob/master/notes/lecture-15/memory.md#cachegrind)
  - HW3 due Sunday at 4:30 P.M. P.S.T.
 ### Week 8
  - [Lecture 16](https://canvas.stanford.edu/files/4219131/download?download_frd=1) (2019-03-05)
    - Perfect forwarding, `enable_if`, Concepts and Metafunctions, compile-time programming. 
  - Lecture 17 (2019-03-07)
    - [Introduction to Parallel Computing](https://computing.llnl.gov/tutorials/parallel_comp/)
-   - [Thrust](https://docs.nvidia.com/cuda/thrust/index.html), `thrust::transform_iterator`
+   - [Thrust](https://docs.nvidia.com/cuda/thrust/index.html), [`thrust::transform_iterator`](https://docs.nvidia.com/cuda/thrust/index.html#transform-iterator)
    - [RAJA](https://raja.readthedocs.io/en/master/) and the future of parallel computing.
  - EX4 due Friday at 4:30 P.M. P.S.T.
 ### Week 9
