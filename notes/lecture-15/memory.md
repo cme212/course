@@ -9,10 +9,9 @@
 ## Motivation
 
 Consider `Matrix` class defined in the example
-[cachetest.cpp](src/cachetest.cpp), with elements layed out
-in the memory in row-major order. Now, let us say we want to
-compute the sum of all matrix elements, and let us compare the
-summation in row-major order
+[cachetest.cpp](src/cachetest.cpp), with elements laid out
+in the memory in a row-major order. Now, let us
+compute the sum of all matrix elements in a row-major order
 ```c++
 double sumMatrixRow(Matrix& m)
 {
@@ -24,8 +23,7 @@ double sumMatrixRow(Matrix& m)
   return sum;
 }
 ```
-and the summation in column-major order
-From `perf2.cpp`:
+and the sum in a column-major order
 ```c++
 double sumMatrixColumn(Matrix& m)
 {
@@ -37,13 +35,14 @@ double sumMatrixColumn(Matrix& m)
   return sum;
 }
 ```
-We run the code and compare the performace of the two functions:
+and compare the performance of the two functions. When we run the code,
+we get results that look like this:
 ```
 $ g++ -O2 -Wall -Wconversion -Wextra -o test cachetest.cpp
 $ ./test
 Row-wise matrix sum:    3.20027e+07
 Row-wise sum time:      0.388945
-Column-wise matrix sum: 3.20014e+07
+Column-wise matrix sum: 3.20027e+07
 Column-wise sum time:   1.92557
 ```
 
@@ -340,7 +339,7 @@ output:
 $ cg_annotate --auto=yes cachegrind.out.21806 > out.txt
 ```
 The content of the `out.txt` file will look something like this:
-```
+```c++
 --------------------------------------------------------------------------------
 -- Auto-annotated source: /Users/peles/stanford/2019/cme212/course/notes/lecture-15/src/cachetest.cpp
 --------------------------------------------------------------------------------
