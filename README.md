@@ -8,7 +8,7 @@ but we grant additional time so that you do not feel pressured.
 
 <!-- BS : [Bjarne Stroustrup's Programming in C++](https://g.co/kgs/jQjpRv). -->
 
-## Schedule (WIP)
+## Schedule
 (If the links are dead, they are intended to simply point to files on Canvas.)
 ### Week 0
   - Lecture 0 (2019-01-08)
@@ -83,6 +83,8 @@ but we grant additional time so that you do not feel pressured.
  - Lecture 18 (2019-03-12)
    - [Regular Expressions](https://canvas.stanford.edu/files/4263996/download?download_frd=1)
  - Lecture 19 (2019-03-14)
+   - Parallel reduction
+   - More on [RAJA](https://raja.readthedocs.io/en/master/)
    - Review
  - HW4 due Friday at 4:30 P.M. P.S.T.
 
