@@ -21,7 +21,8 @@ analytical tools will evaluate the efficiency of design choices.
 ### Format
 The class has two lectures each week, in addition to weekly assignments.
 The assignments alternate between short-answer Q/A and more involved
-programming projects. 
+programming projects.  The lectures will be held in
+[420-041](http://campus-map.stanford.edu/?srch=420-041) on Tuesdays and Thursdays from 4:30 P.M. - 6:20 P.M.
 
 You can expect to work hard and be challenged by this
 course, but your effort can really pay off. Students anecdotally report
@@ -30,10 +31,9 @@ their summer internships.
 
 ## Communication
 
-This term we will be using Piazza for class discussion.  The [CME 212 Piazza page](https://piazza.com/stanford/winter2019/cme212/home) has been made available to all Stanford students.  We will also use Piazza for announcements, so please enroll yourself as a student to receive notifications.  
-- Please ask questions related to course material on Piazza, placing your question in the appropriate folder (e.g. 'hw0').
-- Questions should be posted to "Instructors" *only* when the question is personal in nature; else it should be visible to the "Entire Class" such that other students may benefit from the QA.  While we do have a staff mailing list (<cme212-staff-19@lists.stanford.edu>), I encourage you to post your questions on Piazza.
-- We will still use the [CME 212 Canvas page](https://canvas.stanford.edu/courses/111835) to share class-related files.
+This term we will be using Canvas for class discussion. We ask that you pose questions here such that other students may learn from the answers the TAs (or other students) post.
+- Questions should be posted to "Instructors" *only* when the question is personal in nature; else it should be visible to the "Entire Class" such that other students may benefit from the QA.  While we do have a staff mailing list (currently in the processing of being set-up as of this writing) (<cme212-staff-2020@lists.stanford.edu>), I encourage you to post your questions on Canvas.
+- We will use the [CME 212 Canvas page](https://canvas.stanford.edu/courses/111835) to share class-related files.
 
 ## Teaching Staff
 
