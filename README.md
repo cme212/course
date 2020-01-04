@@ -31,16 +31,16 @@ If the there isn't a link for a lecture, you can find the lecture notes on Canva
    - [Loop invariants](https://github.com/cme212/course/blob/master/notes/lecture-05/loop_invariants.md)
 ### Week 3
  - EX1  due Tuesday in class at 4:30 P.M. P.S.T.
- - Lecture 6 (2019-01-29) 
+ - Lecture 6 
    - Free Store memory allocation, RAII, Allocators. 
    - Exception Handling part 1 (exceptions as control flow, how to define exceptions).
  - Lecture 7: [Inheritance and Polymorphism](https://github.com/cme212/course/blob/master/notes/lecture-07/inheritance.md)
  - HW1 due Friday at 4:30 P.M. P.S.T.
 ### Week 4
- - Lecture 8 (2019-02-05) 
+ - Lecture 8 
    - Exception Handling part 2 (enforcing invariants); 
    - construction, cleanup, and copy initialization.
- - Lecture 9 (2019-02-07)
+ - Lecture 9
    - [Graph Remove_*](https://github.com/cme212/course/blob/master/notes/lecture-09/remove.md); inline functions and typedefs.
 ### Week 5
  - EX2 due Tuesday at 4:30 P.M. P.S.T.
@@ -50,16 +50,16 @@ If the there isn't a link for a lecture, you can find the lecture notes on Canva
    - [Floating point, Under/overflow, relative error, machine tolerance](https://github.com/cme212/course/blob/master/notes/lecture-11/float.md)
  - HW2 due Friday at 4:30 P.M. P.S.T.
 ### Week 6
- - Lecture 12 (2019-02-19) 
+ - Lecture 12 
    - Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)
  - Lecture 13 (2019-02-21)
    - [Software Testing](https://github.com/cme212/course/blob/master/notes/lecture-13/testing.md)
- - EX3 due Friday at 4:30 P.M. P.S.T.
 ### Week 7
- - Lecture 14 (2019-02-26)
+ - EX3 due Tuesday at 4:30 P.M. P.S.T.
+ - Lecture 14
    - Template Programming part 2
      (non-type template parameters, variadic template parameters, template template parameters).
- - Lecture 15 (2019-02-28)
+ - Lecture 15
    - [Compiler Optimizations](https://github.com/cme212/course/blob/master/notes/lecture-15/optimization.md)
    - [Memory and Performance](https://github.com/cme212/course/blob/master/notes/lecture-15/memory.md)
    - [Cachegrind](https://github.com/cme212/course/blob/master/notes/lecture-15/memory.md#cachegrind)
@@ -71,8 +71,8 @@ If the there isn't a link for a lecture, you can find the lecture notes on Canva
    - [Introduction to Parallel Computing](https://computing.llnl.gov/tutorials/parallel_comp/)
    - [Thrust](https://docs.nvidia.com/cuda/thrust/index.html), [`thrust::transform_iterator`](https://docs.nvidia.com/cuda/thrust/index.html#transform-iterator)
    - [RAJA](https://raja.readthedocs.io/en/master/) and the future of parallel computing.
- - EX4 due Friday at 4:30 P.M. P.S.T.
 ### Week 9
+ - EX4 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 18
    - Regular Expressions
  - Lecture 19
