@@ -1,78 +1,71 @@
 # CME212
-[Syllabus](https://github.com/cme212/course/blob/master/syllabus.md#cme-212---winter-2019)
-
-The Final Exam will be due on March 22nd at 6:30 P.M. P.S.T.
-It will be released no later than March 19th at 6:30 P.M. P.S.T.
-We anticipate the exam should require several (3) hours to complete,
-but we grant additional time so that you do not feel pressured.
-
-<!-- BS : [Bjarne Stroustrup's Programming in C++](https://g.co/kgs/jQjpRv). -->
+[Syllabus](https://github.com/cme212/course/blob/master/syllabus.md)
 
 ## Schedule
-(If the links are dead, they are intended to simply point to files on Canvas.)
+If the there isn't a link for a lecture, you can find the lecture notes on Canvas.
 ### Week 0
-  - Lecture 0 (2019-01-08)
-    - [Object size, alignment, declarations, scope, narrowing, lifetime of an object](https://canvas.stanford.edu/files/3928214/download?download_frd=1).
-    - [Pointers, arrays, pointer arithmetic, and `const`](https://canvas.stanford.edu/files/3928884/download?download_frd=1).
-  - Lecture 1 (2019-01-10)
+  - Lecture 0
+    - Object size, alignment, declarations, scope, narrowing, lifetime of an object.
+    - Pointers, arrays, pointer arithmetic, and `const`.
+  - Lecture 1
     - [Debugging in C++](https://github.com/cme212/course/blob/master/notes/lecture-01/debugging.md).
     - [Proxy design patterns](https://github.com/cme212/course/blob/master/notes/lecture-01/proxy.md). 
 ### Week 1
-  - [Exercise 0](https://canvas.stanford.edu/files/3926995/download?download_frd=1)                 due Tuesday January 15th at 4:30 P.M. P.S.T.
- - Lecture 2 (2019-01-15)
-   - [Pointers and ownership, references, l/rvalue references, and
-     examples with templates](https://canvas.stanford.edu/files/3973718/download?download_frd=1). 
-   - [Lambda expressions and function objects](https://canvas.stanford.edu/files/3973719/download?download_frd=1).
- - Lecture 3 (2019-01-17)
+  - Exercise 0 due Tuesday at 4:30 P.M. P.S.T.
+ - Lecture 2
+   - Pointers and ownership, references, l/rvalue references, and
+     examples with templates. 
+   - Lambda expressions and function objects.
+ - Lecture 3
    - [Pre/post conditions, consistent/minimal specifications,
      templates](https://github.com/cme212/course/blob/master/notes/lecture-03/specifications.md). 
    - Development tools ([Make](https://github.com/cme212/course/blob/master/notes/lecture-03/make.md) and possibly doxygen).
- - [HW0](https://canvas.stanford.edu/files/3908090/download?download_frd=1) due Friday at 4:30 P.M. P.S.T.
+ - HW0 due Friday at 4:30 P.M. P.S.T.
 ### Week 2
- - Lecture 4 (2019-01-22)
-   - [Iterators, Function adaptors](https://canvas.stanford.edu/files/4012840/download?download_frd=1)
-   - [Layout of structs, unions, examples of
-   operator overloading via `Array` class](https://canvas.stanford.edu/files/4019655/download?download_frd=1).
- - Lecture 5 (2019-01-24)
-   - [Abstraction functions and Representation Invariants](notes/lecture-05/abstractions.md); 
-   - [Loop invariants](notes/lecture-05/loop_invariants.md)
+ - Lecture 4
+   - Iterators, Function adaptors
+   - Layout of structs, unions, examples of
+   operator overloading via `Array` class.
+ - Lecture 5
+   - [Abstraction functions and Representation Invariants](https://github.com/cme212/course/blob/master/notes/lecture-05/abstractions.md); 
+   - [Loop invariants](https://github.com/cme212/course/blob/master/notes/lecture-05/loop_invariants.md)
 ### Week 3
- - [EX1](https://canvas.stanford.edu/files/4005588/download?download_frd=1) due Tuesday in class at 4:30 P.M. P.S.T.
+ - EX1  due Tuesday in class at 4:30 P.M. P.S.T.
  - Lecture 6 (2019-01-29) 
-   - [Free Store memory allocation, RAII, Allocators](https://canvas.stanford.edu/files/4054062/download?download_frd=1). 
-   - [Exception Handling part 1 (exceptions as control flow, how to define exceptions)](https://canvas.stanford.edu/files/4054064/download?download_frd=1).
- - Lecture 7 (2019-01-31): [Inheritance and Polymorphism](notes/lecture-07/inheritance.md)
- - [HW1](https://canvas.stanford.edu/files/4005665/download?download_frd=1) due Sunday at 4:30 P.M. P.S.T.
+   - Free Store memory allocation, RAII, Allocators. 
+   - Exception Handling part 1 (exceptions as control flow, how to define exceptions).
+ - Lecture 7: [Inheritance and Polymorphism](https://github.com/cme212/course/blob/master/notes/lecture-07/inheritance.md)
+ - HW1 due Friday at 4:30 P.M. P.S.T.
 ### Week 4
  - Lecture 8 (2019-02-05) 
-   - [Exception Handling part 2 (enforcing invariants)](https://canvas.stanford.edu/files/4075751/download?download_frd=1); 
-   - [construction, cleanup, and copy initialization](https://canvas.stanford.edu/files/4080961/download?download_frd=1).
+   - Exception Handling part 2 (enforcing invariants); 
+   - construction, cleanup, and copy initialization.
  - Lecture 9 (2019-02-07)
-   - [Graph Remove_*](notes/lecture-09/remove.md); inline functions and typedefs.
- - [EX2](https://canvas.stanford.edu/files/4069737/download?download_frd=1) due Sunday at 4:30 P.M. P.S.T.
+   - [Graph Remove_*](https://github.com/cme212/course/blob/master/notes/lecture-09/remove.md); inline functions and typedefs.
 ### Week 5
+ - EX2 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 10 (2019-02-12) 
-   - [Defining copy and move semantics, delegating constructors, entanglement, slicing](https://canvas.stanford.edu/files/4116729/download?download_frd=1).
+   - Defining copy and move semantics, delegating constructors, entanglement, slicing.
  - Lecture 11 (2019-02-14) 
-   - [Floating point, Under/overflow, relative error, machine tolerance](notes/lecture-11/float.md)
- - [HW2](https://canvas.stanford.edu/files/4069760/download?download_frd=1) due Sunday at 4:30 P.M. P.S.T.
+   - [Floating point, Under/overflow, relative error, machine tolerance](https://github.com/cme212/course/blob/master/notes/lecture-11/float.md)
+ - HW2 due Friday at 4:30 P.M. P.S.T.
 ### Week 6
  - Lecture 12 (2019-02-19) 
-   - [Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)](https://canvas.stanford.edu/files/4150057/download?download_frd=1)
+   - Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)
  - Lecture 13 (2019-02-21)
-   - [Software Testing](notes/lecture-13/testing.md)
+   - [Software Testing](https://github.com/cme212/course/blob/master/notes/lecture-13/testing.md)
  - EX3 due Friday at 4:30 P.M. P.S.T.
 ### Week 7
  - Lecture 14 (2019-02-26)
-   - [Template Programming part 2](https://canvas.stanford.edu/files/4189029/download?download_frd=1)
+   - Template Programming part 2
      (non-type template parameters, variadic template parameters, template template parameters).
  - Lecture 15 (2019-02-28)
-   - [Compiler Optimizations](notes/lecture-15/optimization.md)
-   - [Memory and Performance](notes/lecture-15/memory.md)
+   - [Compiler Optimizations](https://github.com/cme212/course/blob/master/notes/lecture-15/optimization.md)
+   - [Memory and Performance](https://github.com/cme212/course/blob/master/notes/lecture-15/memory.md)
    - [Cachegrind](https://github.com/cme212/course/blob/master/notes/lecture-15/memory.md#cachegrind)
- - HW3 due Sunday at 4:30 P.M. P.S.T.
+ - HW3 due Friday at 4:30 P.M. P.S.T.
 ### Week 8
- - [Lecture 16](https://canvas.stanford.edu/files/4219131/download?download_frd=1) (2019-03-05)
+ - Lecture 16
    - Perfect forwarding, Metafunctions, compile-time programming. 
  - Lecture 17 (2019-03-07)
    - [Introduction to Parallel Computing](https://computing.llnl.gov/tutorials/parallel_comp/)
@@ -80,9 +73,9 @@ but we grant additional time so that you do not feel pressured.
    - [RAJA](https://raja.readthedocs.io/en/master/) and the future of parallel computing.
  - EX4 due Friday at 4:30 P.M. P.S.T.
 ### Week 9
- - Lecture 18 (2019-03-12)
-   - [Regular Expressions](https://canvas.stanford.edu/files/4263996/download?download_frd=1)
- - Lecture 19 (2019-03-14)
+ - Lecture 18
+   - Regular Expressions
+ - Lecture 19
    - Parallel reduction
    - More on [RAJA](https://raja.readthedocs.io/en/master/)
    - Review
