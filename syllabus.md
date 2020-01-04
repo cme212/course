@@ -1,4 +1,4 @@
-# CME 212 - Winter 2019
+# CME 212 - Winter 2020
 ### Advanced Software Development for Scientists and Engineers
 
 ---
@@ -33,26 +33,24 @@ their summer internships.
 This term we will be using Piazza for class discussion.  The [CME 212 Piazza page](https://piazza.com/stanford/winter2019/cme212/home) has been made available to all Stanford students.  We will also use Piazza for announcements, so please enroll yourself as a student to receive notifications.  
 - Please ask questions related to course material on Piazza, placing your question in the appropriate folder (e.g. 'hw0').
 - Questions should be posted to "Instructors" *only* when the question is personal in nature; else it should be visible to the "Entire Class" such that other students may benefit from the QA.  While we do have a staff mailing list (<cme212-staff-19@lists.stanford.edu>), I encourage you to post your questions on Piazza.
-- We will still use the [CME 212 Canvas page](https://canvas.stanford.edu/courses/94167) to share class-related files.
+- We will still use the [CME 212 Canvas page](https://canvas.stanford.edu/courses/111835) to share class-related files.
 
 ## Teaching Staff
 
-Lecturers:
- - [Slaven Peles](https://icme.stanford.edu/people/slaven-peles) (peles at stanford)
+Lecturer:
  - [Andreas Santucci](https://asantucci.github.io/) (santucci at stanford)
 
 Teaching Assistants:
- - Remmelt Ammerlaan (remmelt at stanford)
- - Brett Harvey (rbharvey at stanford)
- - Youkow Homma (youkow.homma at stanford)
- - Jessica Wetstone (wetstone at stanford)
+ - Kyle Shan (kyleshan at stanford)
+ - Lewis Warne (lwarne at stanford)
+ - Scott Jespersen (sjespers at stanford)
 
 ## Office Hours
 Office hours will be held in [Huang
 basement](https://campus-map.stanford.edu/) 
-outside of ICME (with exception to Slaven's).
+outside of ICME.
 The hours will be announced after the first week of instruction. 
-Andreas will hold office hours by appointment.
+Andreas will hold office hours by appointment and is always available at the end of *each* class to discuss lecture material.
 
 ## Learning Objectives
 
@@ -88,7 +86,7 @@ students should already "know how to code".
 
 In addition, we will be focused on Linux based tools, and to that 
 end expect that you already possess some computing systems knowledge, 
-e.g. basic underpinnings of the compilation and linking process of a C++ program.
+e.g. basic underpinnings of the *compilation and linking* process of a C++ program.
 This material is covered, for example, in
 [Lecture 14](https://github.com/CME211/notes#contents) of CME 211.
 
@@ -110,6 +108,7 @@ and encouraged to take the course if it fits their needs.
 
 ## Course Content
 
+### Exercise sets, Assignments, and Exam
 The class will be organized as a sequence of topic areas, each centered around a
 set of tools and a motivating project. Students will complete a series of 5
 programming assignments. On alternating weeks, students will tackle a series 
@@ -162,19 +161,23 @@ The course grade breakdown will be:
 
 ## Homework policies
 
-- Each student is allowed 2 homework late days over the quarter.
-  Homework assignments are typically due Friday at 4:30 P.M. P.S.T.
-  Students may use their late days on the subsequent
+### Late Days for homework assignments
+- Each student is allowed 2 homework late days over the quarter on *homework assignments* (note this policy does not apply to exercise sets).
+  Homework assignments are typically due Fridays at 4:30 P.M. P.S.T.,
+  and exercise sets will typically be due on Tuesdays at 4:30 P.M. P.S.T.
+  For homework assignments *only*, 
+  students may use their late days on the subsequent
   Saturday and Sunday. No late work will be accepted after 11:59pm on the Sunday
   following the due date. This rule does not apply to the exercise assignments
   (EX0, etc). Late exercises are not accepted. These policies are in place to ensure
   the TAs a chance to grade your homeworks in an efficient manner and to keep
   students from falling behind.
 
+### Regrade requests
 - Each student is granted 3 non-valid regrade requests. Unused regrade requests will be
-  translated to bonus points at the end of the quarter. A regrade request is only counted as used if the points were not awarded to the student. Regrade requests are
+  translated to a small amount of bonus points at the end of the quarter. A regrade request is only counted as used if the points were not awarded to the student. Regrade requests are
   made by submitting a GitHub issue in the homework submission repository and
-  assigning the TA who graded the homework.
+  tagging or assigning the TA who graded the homework.
 
 ## Final Exam
 We anticipate that the final exam will be take-home. Students will be able to access
@@ -201,11 +204,11 @@ The lecture notes themselves will be largely based off Bjarne Stroustrup's fanta
 There are a myriad of resources that will become (more) accessible to you as you progress
 through the course. Some additional references you may enjoy:
 - Algorithms: Cormen, Leiserson, Rivest, Stein. *Introduction to Algorithms*
+- Systems architecture: Bryant and O'Hallaron. *Computer Systems: A Programmer's Perspective*
 - Design: Gamma, et. al. *Design Patterns: Elements of Reusable Object-Oriented Software*
 - Pragmatic advice: Thomas Hunt. *The Pragmatic Programmer*
 - Software engineering advice: Parnas. *Software Fundamentals*
 - Human elements of software engineering: Broos. *The Mythical Man Month and The Design of Design.*
-- Systems architecture: Bryant and O'Hallaron. *Computer Systems: A Programmer's Perspective*
 - Systems design: Waldo. *On System Design.*, and Lampson. *Hints on System Design.*
 
 ## Honor Code
@@ -266,3 +269,10 @@ should contact the OAE as soon as possible since timely notice is needed to
 coordinate accommodations. Information about the OAE may be found
 at:
 [*http://studentaffairs.stanford.edu/oae*](http://studentaffairs.stanford.edu/oae).
+
+
+
+
+
+
+
