@@ -43,6 +43,7 @@ Lecturer:
 Teaching Assistants:
  - Kyle Shan (kyleshan at stanford)
  - Lewis Warne (lwarne at stanford)
+ - Priya Kasimbeg (kasimbeg at stanford)
  - Scott Jespersen (sjespers at stanford)
 
 ## Office Hours
