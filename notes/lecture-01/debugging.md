@@ -469,7 +469,7 @@ stop reason = breakpoint 1.1
 ```
 Now that we stopped the code execution at the place we wanted,
 we would like to inspect variable values there. 
-You can view the variables in the curret scope by typing
+You can view the variables in the current scope by typing
 ```
 (lldb) frame variable
 (Student *) this = 0x00007fff5fbffa58
@@ -744,3 +744,16 @@ where we accidentally set pointer to `Name` class to `nullptr` value.
 * [Glossary of LLDB and GDB commands](https://lldb.llvm.org/lldb-gdb.html)
 * [LLDB Tutorial](https://lldb.llvm.org/tutorial.html)
 * [Debugging with GDB](https://www.gnu.org/software/gdb/)
+
+
+
+
+
+
+
+
+
+
+
+
+
