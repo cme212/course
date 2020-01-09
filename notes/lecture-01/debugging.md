@@ -125,7 +125,7 @@ Let's look at a simple example in `src/debug_macro.hpp`:
 
 This code defines a "macro" called `BUGPRINT`. If the identifier `PRINT_DEBUG`
 is defined, the preprocessor will replace each instance of `BUGPRINT(x)` in
-the code with the do-loop in the macro. Otherwise, the preprocessor will
+the code with the do-loop in the macro; note that we use a do-while loop such that a call to `BUGPRINT` can be executed as part of `if-else` statements and other control flow [see StackOverflow](https://stackoverflow.com/a/1067238) Otherwise, the preprocessor will
 replace `BUGPRINT(x)` with nothing. See `src/debug_macro.cpp`:
 
 ```c++
