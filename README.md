@@ -67,17 +67,13 @@ If the there isn't a link for a lecture, you can find the lecture notes on Canva
 ### Week 8
  - Lecture 16
    - Perfect forwarding, Metafunctions, compile-time programming. 
- - Lecture 17 (2019-03-07)
-   - [Introduction to Parallel Computing](https://computing.llnl.gov/tutorials/parallel_comp/)
-   - [Thrust](https://docs.nvidia.com/cuda/thrust/index.html), [`thrust::transform_iterator`](https://docs.nvidia.com/cuda/thrust/index.html#transform-iterator)
-   - [RAJA](https://raja.readthedocs.io/en/master/) and the future of parallel computing.
+ - Lecture 17
+    Cancelled
 ### Week 9
  - EX4 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 18
    - Regular Expressions
  - Lecture 19
-   - Parallel reduction
-   - More on [RAJA](https://raja.readthedocs.io/en/master/)
    - Review
  - HW4 due Friday at 4:30 P.M. P.S.T.
 
