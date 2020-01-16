@@ -44,15 +44,15 @@ If the there isn't a link for a lecture, you can find the lecture notes on Canva
    - [Graph Remove_*](https://github.com/cme212/course/blob/master/notes/lecture-09/remove.md); inline functions and typedefs.
 ### Week 5
  - EX2 due Tuesday at 4:30 P.M. P.S.T.
- - Lecture 10 (2019-02-12) 
+ - Lecture 10
    - Defining copy and move semantics, delegating constructors, entanglement, slicing.
- - Lecture 11 (2019-02-14) 
+ - Lecture 11
    - [Floating point, Under/overflow, relative error, machine tolerance](https://github.com/cme212/course/blob/master/notes/lecture-11/float.md)
  - HW2 due Friday at 4:30 P.M. P.S.T.
 ### Week 6
  - Lecture 12 
    - Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)
- - Lecture 13 (2019-02-21)
+ - Lecture 13
    - [Software Testing](https://github.com/cme212/course/blob/master/notes/lecture-13/testing.md)
 ### Week 7
  - EX3 due Tuesday at 4:30 P.M. P.S.T.
