@@ -63,8 +63,8 @@ Let us apply this reasoning to some code for computing the greatest common divis
 ```
 We satisfy requirement (1) `@pre => LI` by the definition of the GCD. We can reason that
 requirement (2) `P + S => LI` is satisfied because if both `a` and `b` are divisible by GCD
-and `(a-b)>0`, then `(a-b)` must also be divisible by GCD, and similarly for
-`(b-a)>0`. Finally, for requirement (3), if `(LI && !P)` is true, then we know
+and `(a-b)>0`, then `(a-b)` must also be divisible by GCD; to put it differently, whatever the GCD of `a` and `b` is (possibly one), since it's a divisor of both numbers we must be able to count in increments of the GCD from lesser values `b` to greater valued `a`. A similar argument can be made for
+the case when `(b-a)>0`: the difference between the two values is divisible by the GCD of the pair. Finally, for requirement (3), if `(LI && !P)` is true, then we know
 that both `a` and `b` are divisible by the GCD and `(a==b)`, so `a` must be equal to the GCD.
 If the precondition and postcondition are satisfied, we know the loop will exit with the correct
 result, but we haven’t said anything about it actually exiting, yet. To reason about the loop
