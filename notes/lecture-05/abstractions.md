@@ -9,7 +9,7 @@ but have also been working with homework that involves writing more complicated 
 like `Graph`, `Node`, `Edge`, and a variety of iterators.
 
 When we define classes in C/C++, we are really defining a new type. What is a type?
-Earlier in this class, we argued that a type has the following properties:
+A type has the following properties:
 - **Abstract value** – what the type is attempting to represent to the user.
 - **Representation** – the implementation of the type. The “how” of the abstract value.
 - **Behavior** – the set of operations and functions that act on the value.
@@ -25,7 +25,7 @@ in order to use that type. It is “how to think about this type” and is often
 mathematical or pseudo-mathematical notation. If we define an abstract value and present
 it to the user, we can actually use abstract values in our specifications. Here are a few
 common type and how we might describe their abstract values:
-- _AV_(`int`): An integer in the range [2<sup>-31</sup> , 2<sup>31</sup> - 1].
+- _AV_(`int`): An integer in the range [-2<sup>31</sup> , 2<sup>31</sup> - 1].
 - _AV_(`float`): A floating point value in the range ±3.4 x 10<sup>±38</sup> with approximately 7
 digits of accuracy.
 - _AV_(`std::vector<int> a`): A sequence of `int`s [_v_<sub>0</sub>, _v_<sub>1</sub>, _v_<sub>2</sub>,..., _v_<sub>_n_-1</sub>], where _n_=`a.size()`
@@ -58,9 +58,7 @@ Abstraction functions go from representations to abstract values. For example:
 
 Again, there can be many abstraction functions for any given representation and abstract
 value. For example, the _AF_(`int`) above is completely valid, but is not actually the abstraction
-function for typical 32-bit `int`s. In fact, the abstraction function is wrong since there is no
-way to produce an abstract value of 2<sup>-31</sup>. Instead, modern architectures, for a variety of
-reasons, use the “twos compliment” abstraction function:
+function for typical 32-bit `int`s. Modern architectures, use the “twos compliment” abstraction function (most notably because fundamental arithmetic operations are identical to those for unsigned binary numbers):
 
 _AF_(`int`): -2 <sup>31</sup> + &sum;<sub>_i_=0</sub><sup>30</sup> _b<sub>i</sub>_ 2<sup>i</sup>
 
@@ -126,10 +124,10 @@ A data structure’s representation invariant (_RI_) is an invariant that should
 always be true about its representations. Functionally, it maps representations to booleans.
 Any valid representation _R_ has _RI_(_R_) = True. _RI_ is an implicit precondition for every
 public member function (except constructors), and an implicit postcondition for every public
-member function (except destructors). That is, constructors create valid representations;
+member function (except destructors). That is, <em>constructors create valid representations;
 destructors are only passed valid representations; and member functions preserve representation
 validity. Private member functions do not have to preserve _RI_, but public member functions
-must restore _RI_ before returning. Like precondition invariants and the behavior of functions,
+must restore _RI_ before returning</em>. Like precondition invariants and the behavior of functions,
 the abstraction function is only valid for valid representations. Abstraction functions always
 work on valid representations, so if _RI_(_x_) is false it’s OK for _AF_(_x_) to break
 or return weird garbage. The purpose of a class is to enforce and defend these invariants.
@@ -178,6 +176,8 @@ We’ve written this rather compactly and could write
 std::find(g->adj_[uid1_].begin(), g->adj_[uid1_].end(), uid2_) != g_->adj_[uid1_].end()
 ```
 instead of `uid1_` &isin; `g_->adj_[uid2_]`, but we find the latter smaller and easier to read.
+
+
 Additionally, note that the `Graph` uses `std::vector`s, but doesn’t mention anything about
 these objects themselves being valid. This is because `std::vector`s are already classes that
 defend and uphold their representation invariants – we can assume they do this correctly
