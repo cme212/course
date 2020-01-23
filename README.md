@@ -1,6 +1,21 @@
 # CME212
 [Syllabus](https://github.com/cme212/course/blob/master/syllabus.md)
 
+## Final Exam Date
+For Winter quarter 2020, the registrar has the 
+CME 212 final exam scheduled to take place from 3:30 P.M. to 6:30 P.M. 
+on Friday March 22nd. We will plan to make the exam accessible on Canvas
+on Tuesday March 19th at 6:30 P.M., giving you a 72 hour window in which you 
+can start the exam. However, the exam itself is timed, and once you 
+open it you will have three hours to complete it. There will be no office 
+hours scheduled during this week, and the final exam must be completed on your
+own. You may not collaborate on the exam or discuss the exam 
+with any Stanford affiliate or anyone outside the institution. The only
+resources you may access during the exam are the full set of course notes,
+and in addition reference documentation such as
+[cppreference.com](https://en.cppreference.com/w/); you are not allowed to use online search engines to query for information, nor are you allowed to use 
+sites such as StackOverflow.
+
 ## Schedule
 If the there isn't a link for a lecture, you can find the lecture notes on Canvas.
 ### Week 0
