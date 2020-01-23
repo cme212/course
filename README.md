@@ -3,12 +3,12 @@
 
 ## Final Exam Date
 For Winter quarter 2020, the registrar has the 
-CME 212 final exam scheduled to take place from 3:30 P.M. to 6:30 P.M. 
-on Friday March 22nd. We will plan to make the exam accessible on Canvas
-on Tuesday March 19th at 6:30 P.M., giving you a 72 hour window in which you 
+CME 212 final exam scheduled to take place from 7 P.M. to 10 P.M. 
+on Monday March 16th. We will plan to make the exam accessible on Canvas
+on Friday March 13th at 7 P.M., giving you a 72 hour window in which you 
 can start the exam. However, the exam itself is timed, and once you 
-open it you will have three hours to complete it. There will be no office 
-hours scheduled during this week, and the final exam must be completed on your
+open it you will have three hours to complete it. 
+The final exam must be completed on your
 own. You may not collaborate on the exam or discuss the exam 
 with any Stanford affiliate or anyone outside the institution. The only
 resources you may access during the exam are the full set of course notes,
