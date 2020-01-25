@@ -204,7 +204,7 @@ will be executed after the derived class destructor.
 ## Public, Protected or Private
 
 Each member of a class has an access specifier that dictates the who can access it. 
-you have seen 2 up to now `private` and `public`. When dealing with derived classes there is a third specifier `protected`. When a variable is `protected` it can be accessed other members *and by the derived classes* but anyone outside the derived class or the base class do not.
+you have seen 2 up to now `private` and `public`. When dealing with derived classes there is a third specifier `protected`. When a variable is `protected` it can be accessed other members of the same class *and by the derived classes*, but anyone outside the derived class or the base class cannot access protected attributes.
 
 ```c++
 class Base
@@ -265,9 +265,9 @@ class Derived: private Base // note: private inheritance
 public:
     Derived()
     {
-        m_public = 1; // okay: m_public is now private in Pri
+        m_public = 1; // okay: m_public is now privately accessible from a derived class
         m_private = 2; // not okay: derived classes can't access private members in the base class
-        m_protected = 3; // okay: m_protected is now private in Pri
+        m_protected = 3; // okay: m_protected is now private
     }
 };
  
@@ -280,10 +280,10 @@ int main()
     base.m_private = 2; // not okay: m_private is private in Base
     base.m_protected = 3; // not okay: m_protected is protected in Base
  
-    Pri pri;
-    pri.m_public = 1; // not okay: m_public is now private in Pri
-    pri.m_private = 2; // not okay: m_private is inaccessible in Pri
-    pri.m_protected = 3; // not okay: m_protected is now private in Pri
+    Derived der;
+    der.m_public = 1; // not okay: m_public is now private in Derived
+    der.m_private = 2; // not okay: m_private is inaccessible in Derived
+    der.m_protected = 3; // not okay: m_protected is now private in Derived
 ```
 
 
@@ -304,7 +304,7 @@ The `public` and `protected`attributes from the base class are `private` in the 
 
 ## Accessing the base class
 
-The `Base` constructor is called before anything else is done in the *Derived* constructor.
+The `Base` constructor is called before anything else is done in the `Derived` constructor.
 
 ```c++
 class Base
@@ -323,7 +323,9 @@ public:
     double m_cost;
     
     Derived(double cost=0.0, int value=0)
-        : m_cost(cost), value_(value){}
+        : m_cost(cost),
+          // Error here: we can't assign to members of the parent class.
+          value_(value){}
     double getCost() const { return m_cost; }
 ```
 
@@ -335,21 +337,23 @@ There are two alternatives
 2. Assign the variable in the body of the constructor.
 
 ```c++
+// Option 1: call the Base constructor in the initialization list.
 Derived(double cost=0.0, int value=0)
         : Base(value), // Call Base(int) constructor with value id!
             cost_(cost) {}
 
+// Option 2: assign the member attribute in the body of the constructor.
 Derived(double cost=0.0, int value=0)
         : cost_(cost)
         {
-            value_=value // Assign Base::id_ manually.
+            value_=value // Assign Base::value_ manually.
         }      
           
 ```
 
 In general it is better to use the first method as it is more efficient and ensures that variables are initialized in the right order.
 
- If you need a specific value for `value_` in your base constructor the second method would not work. The derived class has access to all the public and protected attributes of `Base`.
+The derived class has access to all the public and protected attributes of `Base`.
 
 ```c++
 class Derived: public Base
@@ -358,7 +362,11 @@ public:
     Derived(int value)
         :Base(value)
     {}
-    int getValue() { return value_; }
+    int getValue() {
+      // value_ is a protected attributed in Base, which means it's 
+      // OK to access it in a derived class.
+      return value_; 
+    }
 };
 ```
 
