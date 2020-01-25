@@ -42,7 +42,9 @@ class Circle
 {
 public:
   Circle(double x, double y, double radius)
-    : radius_(radius),
+    : x_(x),
+      y_(y),
+      radius_(radius),
       area_(radius_*radius_*M_PI)
   {
   }
@@ -56,6 +58,8 @@ public:
   }
 
 private:
+  double x_;
+  double y_;
   double radius_;
   double area_;  ///< Same member exists in Circle class
 };
@@ -108,7 +112,7 @@ protected: // protected instead of private
 };
 ```
 Note that we defined variable `area_` as a *protected* rather than
-*private* member. Now, we can create a class `Circle`, which
+*private* member, and by doing so only classes which inherit from `Shape` can access this attribute. Now, we can create a class `Circle`, which
 *is a* `Shape` by declaring it as
 ```c++
 Circle : public Shape
