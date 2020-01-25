@@ -1,6 +1,6 @@
 ///
 /// Public inheritance allows you to pull common code from different
-/// classes into a base class.
+/// base classes into a derived class.
 ///
 
 #include <iostream>
@@ -95,13 +95,13 @@ int main()
   std::cout << "Circle area = " << pc->getArea() << "\n";
   std::cout << "Another Circle area = " << pc2->getArea() << "\n";
   std::cout << "Circle radius = " << pc->getRadius() << "\n";
-  // std::cout << "Another Circle radius = " << pc2->getRadius() << "\n"; // Compiler error
+  // std::cout << "Another Circle radius = " << pc2->getRadius() << "\n"; // Compiler error, since shape's don't have getRadius method.
   std::cout << "Rectangle area = " << pr->getArea() << "\n";
   std::cout << "\n\n";
 
   delete ps;
   delete pc;
-  delete pc2; ///< Circle not destoryed, memory leak!
+  delete pc2; ///< Circle not completely destroyed, only enough storage for shape attributes is relinquished; memory leak!
   delete pr;
   
   return 0;
