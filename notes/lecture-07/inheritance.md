@@ -372,7 +372,8 @@ public:
 
 
 
-We can also directly call methods from the `Base` class. The 
+We can also directly call methods from the `Base` class. Suppose we have 
+defined a simple `identify` method in `Base` that prints a simple message to console, then this method would also be available to use in derived classes.
 
 ```c++
 int main()
@@ -425,7 +426,7 @@ Will result in an infinite loop as the program will first look for the `identify
 void identify() { Base::identify();}
 ```
 
-This will tell the program to look in the Base scope for the `identity()` function.
+This will tell the program to look in the Base scope for the `identify()` function.
 
 Scope also allows us to change the access specifier of our Base methods in the derived classes with the `using ` keyword.  This will move the method to the scope of the derived class and attach the access specifier it is declared with.
 
@@ -499,34 +500,23 @@ This prints:
 
 
 
-The `Base ` pointers only see the attributes that belong to the base class and are blind to everything else. This allows us to *mask* our derived class as a base class. This is called **Polymorphism**
+The `Base ` pointers and references only see the attributes that belong to the base class and are blind to everything else. This allows us to *mask* our derived class as a base class. This is called **Polymorphism**
 
 One useful application of this involves vectors. 
 
 ```c++
 #include <iostream>
-```
-
-```c++
-std::vector<Shapes*> shapes_;
-```
-
-```c++
+std::vector<Shape*> shapes_;
 shapes_.push_back(circle);
-```
-
-```c++
 shapes_.push_back(rectangle);
 ```
 
-The above runs without any errors! Since we have an array of pointers neither `circle` nor `rectangle` will lose any information. If we had assigned them directly they would have lost all attributes that are nor part of the `Shape` class.
+The above runs without any errors! Since we have an array of pointers neither `circle` nor `rectangle` will lose any information; to put it differently, had we created `vector<Shape>` we would have allocated *only just enough* storage
+for `Shape` objects to be held in each slot of the vector, which would mean
+there wouldn't be room left over to store additional attributes that `circle`
+and `rectangle` may have defined. I.e. if we had assigned them directly they would have lost all attributes that are nor part of the `Shape` class.
 
 Because we are dealing with references and pointers of the `Base` class we are confined to the scope of the `Base` class. This means that we cannot call any of the methods in the Derived classes and any overwritten method will revert back to the Base version. However if we assign the pointer to a reference of the Derived class we get all this functionality back.
-
-**Q: What if you want to mix and match?**
-
-
-
 
 ### Virtual Functions ###
 
@@ -541,10 +531,10 @@ int main()
 
   std::cout << "\n";
   std::cout << "Circle area = " << pc->getArea() << "\n";
-  //std::cout << "Circle radius = " << pc->getRadius() << "\n"; // Compiler error
+  //std::cout << "Circle radius = " << pc->getRadius() << "\n"; // Compiler error, since we only have a pointer to a Shape, which doesn't have a getRadius() method.
   std::cout << "\n";
 
-  delete pc; ///< Shape is destroyed, but Circle is not, memory leak!
+  delete pc; // Memory for a Shape is relinquished, but we allocated memory for a Circle which may hold additional attributes/methods; memory leak!
   
   return 0;
 }
@@ -628,7 +618,7 @@ int main()
 {
     C c;
     A &rBase = c;
-    std::cout << "rBase is a " << rBase.getName() << '\n';
+    std::cout << "rBase is a " << rBase.getName() << '\n'; // Prints that our reference is a 'C', since we look for the most derived implementation of getName() at run-time.
  
     return 0;
 }
@@ -645,7 +635,7 @@ For example, we may want every shape to provide method `getArea()`.
 One way to accomplish that is to define base class method `getArea()`
 as a pure virtual method. The declaration would look like this:
 ```c++
-virtual double getArea() = 0;
+virtual double getArea() = 0;  // By specifying = 0 along with virtual keyword we declare the function as _pure_ virtual.
 ```
 Assigning zero to the declaration of a virtual method is C++ way
 of saying this is a *pure virtual* method. We do not need to implement
@@ -654,7 +644,7 @@ do not implement pure virtual method in any of the derived classes,
 the compiler will return an error. An example of using a pure
 virtual method is given in [inheritance_pure_virtual.cpp](src/inheritance_pure_virtual.cpp).
 A class that has no data and only pure virtual methods is called
-an abstract class or an interface class. An example of abstract
+an **abstract** class or an **interface** class. An example of abstract
 `Shape` class and its use is provided in
 [inheritance_interface.cpp](src/inheritance_interface.cpp).
 
@@ -685,8 +675,9 @@ int main
     B* pb = &d;
     D* pd = &d;
 
-    pb->f(); //OK:B::f()is public,
-             // D::f() is invoked
+    pb->f(); //OK. Virtual specifies we should look for the most derived implementation. 
+             // There isn't one available in D, so we look for a base implementation 
+             // and see that B::f()is public, therefore D::f() is invoked
     pd->f(); //error: D::f()is private
 }
 ```
@@ -699,14 +690,8 @@ Composition is another type of relationship between objects.  Composition occurs
 
 Here is an example where we create a `Point2D` class to define point-specific methods, and then re-implement our `Circle` class to **have** a `Point2D` to represent its center.
 
-Note: We have already made use of the concept of composition in the `Student` examples, where our `Student_Course` member objects only existed in the context of a particular student, and the `Student_Course` objects didn't "know" about the `Student`.
-
 ```c++
 #include <iostream>
-```
-
-
-```c++
 class Point2D
 {
 private:
@@ -729,17 +714,13 @@ public:
 };
 ```
 
-
+We can construct instances of a point and print them out nicely.
 ```c++
 Point2D p = Point2D(4,5)
-```
-
-
-```c++
 std::cout << p << std::endl;
 ```
 
-
+We can now define a circle as "having a" `Point2D` as its `center` attribute.
 ```c++
 class Circle2: public Shape {
     Point2D center_;
@@ -762,28 +743,20 @@ class Circle2: public Shape {
 }
 ```
 
-
+We can still create new circles by specifying their `center_` along with a
+`radius_` 
 ```c++
 Circle2 circle = Circle2(4,3,2);
+circle.GetArea()                                 // Our GetArea method works as intended.
+std::cout << circle.GetLocation() << std::endl;  // Additionally, so does GetLocation.
 ```
 
-
-```c++
-circle.GetArea()
-```
-
-```c++
-std::cout << circle.GetLocation() << std::endl;
-```
-
+One interesting question to ask ourselves is, what is the behavior of the
+default constructor for a `Circle2`?
 
 ```c++
 Circle2 circle2 = Circle2();
-```
-
-
-```c++
-// What value will this return?
+// Preview of default constructors: what value will this return? To be demystified in upcoming lectures.
 std::cout << circle2.GetLocation() << std::endl;
 ```
 
