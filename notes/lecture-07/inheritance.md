@@ -241,7 +241,7 @@ int main()
 
 Besides access specifiers `public`, `private` and `protected ` are also used to describe the type of inheritance of a derived class and can **change the access specifiers in the base!**. 
 
-**Public** inheritance is the default and does not change the specifiers.
+**Public** inheritance does not change the specifiers.
 
 ```c++
 class Sphere: public Shape
@@ -253,7 +253,13 @@ class Sphere: public Shape
 | Private              | Inaccessible               |
 | Protected            | Protected                  |
 
-**Private** inheritance will change `public ` attributes of the Base class to `private` attributes of the derived class.
+**Private** inheritance is the default in C++, it will change `public ` attributes of the Base class to `private` attributes of the derived class.
+
+| Base class specifier | After *private* inheritance |
+| -------------------- | --------------------------- |
+| Public               | Private                     |
+| Private              | Inaccessible                |
+| Protected            | Private                     |
 
 ```c++
 class Derived: private Base // note: private inheritance
@@ -290,17 +296,7 @@ int main()
 
 The `public` and `protected`attributes from the base class are `private` in the derived class.  
 
-
-
-| Base class specifier | After *private* inheritance |
-| -------------------- | --------------------------- |
-| Public               | Private                     |
-| Private              | Inaccessible                |
-| Protected            | Private                     |
-
 **Q: Why is this useful?**
-
-
 
 ## Accessing the base class
 
