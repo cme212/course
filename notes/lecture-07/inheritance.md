@@ -107,7 +107,7 @@ public:
     return area_;
   }
 
-protected: // protected instead of private     
+protected: // protected instead of private, means derived classes can access this attribute.
   double area_;
 };
 ```
