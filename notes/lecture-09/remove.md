@@ -2,18 +2,17 @@
 
 ## Graph `remove*` ##
 
-In lecture, we addressed the case where no outstanding `Node`s or `Edge`s are invalidated by
-the `remove*` methods of `Graph`, though this is not technically required by Homework 2. In Homework 2,
-you are allowed to invalidate `Node`s and `Edge`s, but doing so might result in more complex
-invariants and more work to be performed within the `remove*` methods. We argued that in
+In Homework 2,
+you are allowed to invalidate `Node`s and `Edge`s, but doing so might result in more complex invariants and more work to be performed within the `remove*` methods. We argued that in
 order to accomplish this feat, the concepts of `Node` `uid` and `idx` needed to be separated. We
-expanded the data members of graph to include
+expanded the data members of graph to include an additional field
 ```c++
 struct nodeinfo
 {
-  size_type idx_;
+  Point p_
+  node_value_type v_;
+  size_type idx_;  // New member attribute!
   ...
-
 };
 
 std::vector<nodeinfo> nodes_; // Indexed by node uid
@@ -23,9 +22,8 @@ so that we can map back and forth between node indices and node unique identifie
 impact on our abstraction functions and representation invariants. Stating these explicitly
 can aid in our implementation.
 
-The additional `idx_` member in the `nodeinfo` data structure will clearly be useful when
-calling `node.index()`. The new, additional data structure `i2u_` will certainly be needed
-when looking nodes up by index via `graph.node(i)`.
+The additional `idx_` member in the `nodeinfo` data structure will certainly be useful when
+calling `node.index()`. The new, additional data structure `i2u_` will certainly be needed when looking nodes up by _index_ via `graph.node(i)`.
 
 
 ### Abstraction functions ###
@@ -38,7 +36,7 @@ The abstraction function, now looks like this:
     - _n<sub>i</sub>_ = (`nodes_[i2u[i]].p`, `nodes_[i2u[i]].v`, _i_)
 
 Note that the total number of nodes is now defined by the `i2u_` structure rather than the
-`nodes_` structure. We now convert abstract indices in the _AF_ to `uid`s where required and will
+`nodes_` structure. Further, we now convert abstract indices in the _AF_ to `uid`s where required and will
 have to do the same in the implementation.
 
 One key thing to note is that the particular values of `i2u_` do not occur in the abstract value
