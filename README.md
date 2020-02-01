@@ -56,7 +56,7 @@ If the there isn't a link for a lecture, you can find the lecture notes on Canva
    - Exception Handling part 2 (enforcing invariants); 
    - construction, cleanup, and copy initialization.
  - Lecture 9
-   - [Graph Remove_*](https://github.com/cme212/course/blob/master/notes/lecture-09/remove.md); inline functions and typedefs.
+   - [Graph Remove_*](https://github.com/cme212/course/blob/master/notes/lecture-09/remove.md); [inline functions](https://en.cppreference.com/w/c/language/inline) and [typedefs](https://en.cppreference.com/w/cpp/language/typedef).
 ### Week 5
  - EX2 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 10
