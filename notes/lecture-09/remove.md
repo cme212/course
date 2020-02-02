@@ -123,7 +123,7 @@ _RI_(`Node`) = `g_->i2u_[g_->nodes_[uid_].idx_] == uid_`.
 Again we can elide some implied requirements, such as that uid and `g_->nodes[uid_].idx_`
 are in range for their respective arrays, since if the node's index is out-of-range or `i2u_` and `uid_`
 don't match, this signifies the node has been deleted. This is very cool: we can add a complexity _O_(1) function `valid()`
-to the class `Node` that verifies a node is valid, and then use that function in assertions!
+to the class `Node` that verifies a node is valid, and then use that function in assertions! Since the function is _O_(1), we can use it almost anywhere without breaking requirements imposed on the work of our algorithms.
 
 ```c++
 class Node
