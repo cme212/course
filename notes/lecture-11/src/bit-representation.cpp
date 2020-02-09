@@ -13,6 +13,7 @@ void printBits(float f) {
 }
 
 int main() {
+        printBits(0);
         printBits(1);
         printBits(2);
         printBits(-2);
