@@ -62,7 +62,7 @@ actually use a bias term of $2^{k-1}-1$ (127 for single precision, 1023 for
 double precision), that is we take our exponent to be $E = exp - \texttt{Bias}$.
 Written slightly differently, we can represent a decimal number by 
 $(-1)^s 2^{e-127} \times 1.f$ where we remark that there is a "hidden 1" before
-    the mantissa.
+    the mantissa is for _normalized_ values; a value is _denormalized_ when the exponent field is all zeros, in this case we take $E = 1 - \texttt{Bias}$ and we do not take an implied leading one in front of the mantissa (this allows us to represent the zero value with the all zeros bit pattern).
 
 We can use some low level programming techniques to print out the bit
 representation of a floating point. This code is _not_ portable, as it assumes
