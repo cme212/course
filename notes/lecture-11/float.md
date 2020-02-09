@@ -218,6 +218,23 @@ rules how to set comparison tolerances. The truncation error may accumulate
 or cancel out depending on the computation, so the comparison tolerance will
 be very much computation dependent. 
 
+### Numerically stable softmax ###
+One more quick example. In machine learning we use a
+[softmax](https://en.wikipedia.org/wiki/Softmax_function) function when
+performing multi-class classification tasks. This is a function that takes as
+input a vector of real numbers and outputs a probability distribution by first
+pushing each component through an exponential term and then normalizing by their
+sum. However, a naive implementation is at risk of overflow in the exponentials,
+which renders the output useless. It can be easily shown that subtracting out
+the maximum value of the vector from each of the inputs to the softmax does not
+change the resulting output or probability distribution. What it buys us is that
+by subtracting out the max entry, the entries of the input vector are all
+nonpositive, which rules out numerical overflow. Further, there is at least one
+zero element (corresponding to the maximum(s)) which rule out a vanishing
+denominator. We include this trick just so you can see that different contexts
+require different types of care to handle or gaurd against numerical issues
+[Stack Overflow](https://stackoverflow.com/a/42606665/2233810).
+
 
 ### Numerical limits ###
 
