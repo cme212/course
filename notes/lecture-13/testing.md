@@ -2,44 +2,41 @@
 
 ## Software Testing
 
-* You know it's important!
+* You know it's important! Writing tests is awesome relative to spending time in the debugger.
 
 * How should / would / could you test your software?
 
 ### Some types of testing
 
-* **Unit**: Small, fundamental aspect of the software (e.g. one method of a class)
+* **Unit**: Small, fundamental aspect of the software, e.g. one method of a class. "Does this function give the right output when provided a certain input?"
 
-* **Integration**: Groups of functions, classes, etc. are tested
+* **Integration**: Groups of functions, classes, etc. are tested. "Does my entire pipeline produce a reasonable result?"
 
-* **Smoke**: Major functions of the application work (i.e. it doesn’t ""burn up" when
-  powered on)
+* **Regression**: Comprehensive testing of the application to make sure it has no defects. "After running an integration test and revising the program, does it still pass the unit tests?"
 
-* **Regression**: Comprehensive testing of the application to make sure it has no
-  defects (e.g. it gives the same results as previous versions, etc.)
+* **Smoke**: Major functions of the application work. I.e. it doesn’t ""burn up" when powered on.
 
 * **Performance**: Does the application have the required level of performance /
   scalability?
 
-* **Acceptance**: Making sure the software meets specified requirements (usually by
-  the customer)
+* **Acceptance**: Making sure the software meets specified requirements (usually by the customer). E.g. these can sometimes be Service Level Agreements that involve meeting a minimum level of performance, or having an application behave in a particular (subjective) way.
 
 ### Automation
 
 Tests are useless if you don’t actually run them and check the results
 
-* Automate, automate, automate the process
+* **Automate, automate, automate** the process!
 
 * It should be as easy as clicking a button or typing a simple command to run
-  all of your tests
+  all of your tests.
 
-* Obviously some things are harder to automate than others (e.g. testing a GUI
-  is more difficult to automate as compared to a command line interface)
+  * Obviously some things are harder to automate than others (e.g. testing a GUI
+is more difficult to automate as compared to a command line interface)
 
-* In many groups breaking the build (the code won’t compile or tests fail) is a
-  major faux pas
+* In _most_ teams breaking the build (the code won’t compile or tests fail) is a
+  major faux pas!
 
-* You can even automate the process of blaming the responsible party!
+  * You can even automate the process of blaming the responsible party.
 
 ### Test code
 
@@ -47,47 +44,47 @@ Tests are useless if you don’t actually run them and check the results
 
 * So you will have
 
-  * Implementation code: the code that actually does something useful
+  * **Implementation code**: the code that actually does something useful.
 
-  * Test code: the code that automates the tests of your implementation code
+  * **Test code**: the code that automates the tests of your implementation code.
 
 ### Writing test code
 
 * Writing good test code may be as, or even more important, than good
-  implementation code
+  implementation code.
 
 * There’s nothing more frustrating than trying to track down a phantom bug
   because there is a mistake in your test code!
 
 * And you may get a false sense of security if your test code doesn’t actually
-  test things properly
+  test things properly.
 
 * Remember that your test code need not be super efficient since it’s only for
-  testing, so try to avoid unnecessary complexity
+  testing, so try to avoid unnecessary complexity. In fact, when writing tests we sometimes _prefer_ repeating ourselves rather than appealing to using control-flow or abstractions, as this makes our tests easier to reason about.
 
 ### Test driven development (TDD)
 
 * This is a model of software development where you write all the test code
-  first
+  first! _Before_ writing any real code.
 
-* After you’ve written all the tests you start writing the implementation
+* After you’ve written all the tests you start writing the implementation.
 
-* When all of your tests pass you’re done with the implementation!
+* When all of your tests pass, you’re done with the implementation!
 
-* Works great in theory
+* Works great in theory, but many people find this approach to be too formal or onerous.
 
 ### What’s right for you?
 
-* Your approach to testing should definitely depend on the situation
+* Your approach to testing should definitely depend on the situation.
 
 * You may have no test code in very research oriented work when you are just
-  trying out new ideas
+  trying out new ideas (it's of course essential that you write tests before publishing on any work, however).
 
 * At the other extreme if you have a code that has gone through significant
   testing, verification / validation, etc. you may have more test code than
   implementation code!
 
-* Most situations fall somewhere in the middle
+* Most situations fall somewhere in the middle.
 
 ## Basic Example
 
@@ -99,9 +96,9 @@ From `bank/bank_account.h`:
 class BankAccount {
 
  private:
-  int32_t balance;
-  uint32_t ndeposits;
-  uint32_t nwithdrawals;
+  int32_t balance;        // Balance can be negative! Our clients tend to have <2B dollars.
+  uint32_t ndeposits;     // We don't anticipate more than...
+  uint32_t nwithdrawals;  // ...4B deposits or withdrawals.
 
  public:
 
@@ -127,7 +124,7 @@ class BankAccount {
 };
 ```
 
-### A simple test
+### A simple first test program
 
 From `bank/test1.cpp`:
 
@@ -153,6 +150,11 @@ int main() {
 }
 ```
 
+In this program, we perform a sequence of operations and at the _end_ of the
+program we check if the results make sense; this is an example of an
+_integration_ test. This program does perform its intended function but 
+we could be more specific when specifying a program failure.
+
 ### Use `assert`
 
 From `bank/test2.cpp`:
@@ -175,18 +177,26 @@ int main() {
 }
 ```
 
+This is still really an integration test, since we're performing a sequence of
+operations and checking that the end result makes sense. But now, we're just
+using `assert` statements to trigger checks at run-time (same as before) where
+critically we are informed _which_ of the `assert` statements failed (as opposed
+to our first test which only tells us _if_ if there _exists_ a failure).
+
 ## Structured approach
+It can be nice to have a formal testing framework.
 
-* There are many, many testing frameworks out there
+* There are many, many testing frameworks out there.
 
-* Most of them have similar concepts
+* Most of them have similar concepts, e.g. ways to check for expected failures, or expected equality of an output.
 
 * We’ll talk about one called **Google Test**: <https://github.com/google/googletest>
 
   * Used by LLVM, OpenCV, Chromium Projects Protocol Buffers. Default testing
     framework used in [CLion](https://www.jetbrains.com/clion/).
 
-* Concepts have also been ported to other languages so you can reuse your
+* The fundamental ideas
+  have also been ported to other languages so you can reuse your
   knowledge across Java, C, Python, etc.
   
   * <https://docs.python.org/3/library/unittest.html>
@@ -200,11 +210,11 @@ int main() {
 It is recommended that you download the Google Test source code and compile it
 with the same compiler and compiler flags as the rest of the project. This
 allows you to avoid any issues that may come up related to language version or
-ABI differences.
+ABI (application binary interface, i.e. an interface between two binary applications) differences.
 
 Process:
 
-* Clone or download Google Test from: <https://github.com/google/googletest>
+* Clone or download Google Test from: <https://github.com/google/googletest>.
 
 * Set up your build system to compile `gtest` and link your test cases against
   it. See `bank/Makefile` as an example. The `googletest` repo has examples for
@@ -239,7 +249,12 @@ TEST(BankAccountTest,NonEmptyAccount) {
 }
 ```
 
-Compilation:
+The first test is a _unit_ test in nature: we're testing if the default
+constructor works as expected. If we wanted to, we could write out many more
+unit tests for individual operations such as `DepositMoney` or `WriteCheck`.
+E.g. our API specifies `DepositMoney` as taking an `uint32_t` but perhaps we could have also designed an API that accepts a signed `int32_t` which also performs some range-checking to ensure the amount to be deposited is non-negative.
+
+Compilation (note that the `isystem` flag simply specifies that the following argument is a directory location containing relevant code, and `pthread` is required as GoogleTest uses threads to process tests, although it's not the case that your tests will be executed in parallel):
 
 ```sh
 $ make test3
@@ -255,7 +270,7 @@ a - gtest_main.o
 clang++ -isystem ./googletest/include -std=c++11 -g -Wall -Wextra -pthread test3.o gtest_main.a -o test3
 ```
 
-Running:
+Running `bank/test3.cpp`:
 
 ```sh
 $ ./test3
@@ -273,6 +288,8 @@ Running main() from gtest_main.cc
 [==========] 2 tests from 1 test case ran. (0 ms total)
 [  PASSED  ] 2 tests.
 ```
+
+We can invoke any one of our tests using the above syntax from the command line.
 
 ### Simulate a bug
 
@@ -316,6 +333,8 @@ To be equal to: 10000
 
  1 FAILED TEST
 ```
+In the next section, we explain what's happening with the environment set-up and
+tear-down.
 
 ## Fixtures
 
@@ -326,7 +345,7 @@ To be equal to: 10000
   unexpected changes to an object that becomes the input for another test, which
   then causes that test to fail, etc.
 
-* Fixture functions allow you to eliminate duplicating the code for this process
+* Fixture functions allow you to eliminate duplicating the code for this process.
 
 ### Example BankAccount Fixture
 
@@ -395,9 +414,9 @@ Running main() from gtest_main.cc
 ## Testing exceptions
 
 * In many cases we need to test not only the behavior of the code when it gets
-  the expected input, but also how it deals with unusual situations
+  the expected input, but also how it deals with unusual situations.
 
-* Often this means the code will throw an exception
+* Often in these cases this means the code will throw an exception.
 
 Check out `bank/test6.cpp`:
 
@@ -417,8 +436,8 @@ class Foo {
 TEST(FooTest,ExceptionTest) {
   Foo f;
   EXPECT_NO_THROW(f.bar(100));
-  EXPECT_THROW(f.bar(-20), std::runtime_error);
-  EXPECT_ANY_THROW(f.bar(-20));
+  EXPECT_THROW(f.bar(-20), std::runtime_error); // Specify type of throw to expect.
+  EXPECT_ANY_THROW(f.bar(-20));                 // Be agnostic to type of throw.
 }
 ```
 
@@ -444,7 +463,7 @@ Running main() from gtest_main.cc
 
 ## Testing floating point equivalence
 
-Floating point numbers should not be compared with `==`.  See `bank/test7.cpp`:
+Floating point numbers should not be compared with `==`, as we've learned already.  See `bank/test7.cpp` for an example of how we test for floating point equality:
 
 ```c++
 #include <cmath>
@@ -453,9 +472,9 @@ Floating point numbers should not be compared with `==`.  See `bank/test7.cpp`:
 TEST(FloatingPoint, FPTest1) {
   double x = 0.0;
   double y = std::sin(2*M_PI);
-  //EXPECT_EQ(x,y);
-  //EXPECT_DOUBLE_EQ(x,y);
-  EXPECT_NEAR(x,y,1e-8); // uses absolute error
+  //EXPECT_EQ(x,y);         // Not recommended ways...
+  //EXPECT_DOUBLE_EQ(x,y);  // ...since these use operator==.
+  EXPECT_NEAR(x,y,1e-8);    // Use absolute error instead.
   // note, use EXPECT_FLOAT_EQ for float (32-bit)
 }
 ```
@@ -485,10 +504,10 @@ Running main() from gtest_main.cc
   spread out across multiple directories, how should you organize it?
 
 * Some people like to have the implementation and test code in the same file so
-  it’s easy to see both of them at once
+  it’s easy to see both of them at once.
 
 * Others like to have a dedicated tests/ directory where all of your
-  non-implementation code goes
+  non-implementation code goes.
 
 ### A conventional directory layout
 
@@ -507,9 +526,9 @@ Running main() from gtest_main.cc
 Contents:
 
 * Top-level `makefile` to control build. Sometimes `makefile`s in
-  sub-directories is appropriate. However, it is a good idea to
+  sub-directories is appropriate. (However, it is a good idea to
   read
-  [Recursive Make Considered Harmful](http://aegis.sourceforge.net/auug97.pdf).
+  [Recursive Make Considered Harmful](http://aegis.sourceforge.net/auug97.pdf))
 
 * `tests/` directory to contain all tests.
 
@@ -518,7 +537,7 @@ Contents:
 * `src/` directory for a source files (`*.cpp`).
 
 * `exe/` directory for source files intended for compilation into executables.
-  (Note: this may not be widely used)
+  (Note: this is not widely used)
 
 Some examples in practice:
 
@@ -531,51 +550,45 @@ Some examples in practice:
 ## Terminology summary
 
 * **Test fixture**: optional setup and tear down functions that are called
-  before and after each test is run
+  before and after each test is run.
 
 * **Test case**: Single test of functionality (could be a unit test,
-  integration, regression, etc.)
+  integration, regression, etc.).
 
-* **Test suite**: Collection of test cases
+* **Test suite**: Collection of test cases.
 
-* **Test runner**: Collection of one or more test suites that are run together
+* **Test runner**: Collection of one or more test suites that are run together.
 
-## Commit, nightly, weekly tests
+## Running multiple tests at once
 
-* Some people feel like it is important to run a full set of tests every time a
-  commit is made to a source repository
+* It's important to run a full set of tests every time a
+  commit is made to a source repository.
 
-* Generally done in an automated way
-
-* Makes tracking down bugs very quick
+* This can (and should) be done in an automated way.
+  * Makes tracking down bugs very quick!
 
 * The reality for most science and engineering applications is that this becomes
   very computationally expensive
+  * May want to split your tests into short, small ones that can be run each time you make changes.
+  * And then longer ones that are run once a day, once a week, once a month, etc.
 
-* May want to split your tests into short, small ones that can be run each time
-  you make changes
-
-* And then longer ones that are run once a day, once a week, once a month, etc.
-
-* See the `check` target in `bank/Makefile`.
+* See the `check` target in `bank/Makefile` for an example of how to run multiple tests (across different executables) at once!
 
 ## Beyond unit testing
 
 * Code reviews
+  * In many rigorous 
+    environments every change you make to the code will have to be hand
+    reviewed by someone else on the team.
 
-  * In some environments every change you make to the code will have to be hand
-    reviewed by someone else on the team
-
-* Automate running tests like Valgrind Memcheck
-  
+* Automate running tests like Valgrind Memcheck.
   * It’s far easier to address memory leaks, out of bounds accesses, etc. on an
     ongoing basis rather than cleaning up a giant mess every few months when you
-    realize there is a problem
+    realize there is a problem.
 
 * Continuous Integration
-
-  * the practice of merging all developer working copies to a shared mainline
-    several times a day
+  * The practice of merging all developer working copies to a shared mainline
+    several times a day, and performing tests when code is committed.
     
   * Travis CI: <https://travis-ci.org/>
   
@@ -590,12 +603,12 @@ Some examples in practice:
 * Every software developer is at least partly a software tester
 
 * Writing tests may seem like it will just take extra time, but in many
-  situations it will actually save you lots of time
+  situations it will actually save you _lots_ of time later down the road.
 
 * Tailor your level of testing to the situation, e.g. academic research is
-  different than an always up 24 x 7 service used by millions of people
+  different than an always up 24 x 7 service used by millions of people.
 
 * Automate: make it so easy to run your tests that you aren’t tempted to skip
-  them
+  them!
 
-* Practice exercise: <https://github.com/rbharvs/testing-example>
+
