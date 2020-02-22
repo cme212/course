@@ -54,29 +54,29 @@ Column-wise sum time:   1.92557
 * In the above example `timer()` was used to measure run time. In general,
   measurement of run time is non-trivial.
 
-## Thought experiment with GPUs
+<!-- ## Thought experiment with GPUs -->
 
-* The Nvidia Tesla K40 has a max single precision floating point performance of
-  4.29 Tflops
+<!-- * The Nvidia Tesla K40 has a max single precision floating point performance of -->
+<!--   4.29 Tflops -->
 
-* Tesla K40 has max memory bandwidth of 288 GB/sec
+<!-- * Tesla K40 has max memory bandwidth of 288 GB/sec -->
 
-* Say we carry out 1 flop per float moved from and to GPU memory on Tesla K40
+<!-- * Say we carry out 1 flop per float moved from and to GPU memory on Tesla K40 -->
 
-* 1 float = 4 bytes, total memory traffic is 8 bytes for read 288 GB/sec x 1
-  flop / 8 bytes = 36 Gflops
+<!-- * 1 float = 4 bytes, total memory traffic is 8 bytes for read 288 GB/sec x 1 -->
+<!--   flop / 8 bytes = 36 Gflops -->
 
-* Max theoretical performance: 4.29 Tflops
+<!-- * Max theoretical performance: 4.29 Tflops -->
 
-* To achieve max flops:
-  * 4.29 Tflop/sec x 8 bytes/float / 288 GB/sec
-  * = ~120 flops per float moved over memory bus
+<!-- * To achieve max flops: -->
+<!--   * 4.29 Tflop/sec x 8 bytes/float / 288 GB/sec -->
+<!--   * = ~120 flops per float moved over memory bus -->
 
 ## Moore's Law
 
 Empirical observation made by Intel co-founder Gordon Moore in the 1960s that
 it was economically feasible to double the number of transistors on a single
-integrated circuit every 18 - 24 months
+integrated circuit every 18 - 24 months; this enables more floating point operations per unit of time.
 
 ![Moore's law](fig/moores-law.png)
 
@@ -96,16 +96,15 @@ Key's to reliable performance measurement:
 
 2. If you are trying to measure something fast (<< 1 second), you must record
    the time it takes for many repetitions. (`%timeit` in IPython and
-   `@benchmark` in Julia do this automatically)
+   `@benchmark` in Julia do this automatically). 
+   (However, beware that the first run of your computation will likely result in caching results in memory, whence subsequent iterations may complete faster than they otherwise normally would...) 
 
 3. Do as little else on the system as possible.
 
 4. Take many samples and average (use harmonic mean for rates)
 
 See the included slides for more info. Also see the *Timing and Profiling*
-chapter from **High Performance Computing** by Charles Severance and Kevin Dowd.
-
-Link: <http://cnx.org/contents/u4IVVH92@5.2:nnYUvM1W@3/Introduction>
+chapter from **High Performance Computing** by Charles Severance and Kevin Dowd. Link: <http://cnx.org/contents/u4IVVH92@5.2:nnYUvM1W@3/Introduction>
 
 ## Memory
 
@@ -127,7 +126,7 @@ From: Computer Architecture: A Quantitative Approach by Hennessy and Patterson
 * Original meaning was that random locations in memory could be accessed in
 approximately the same amount of time
 
-* As opposed to drum memory, tape drive, hard drive, etc.
+* As opposed to drum memory, tape drive, hard drive, etc., which requires sequential scanning through memory to find the "right location" where the data of interest resides.
 
 Tape drive
 
@@ -183,7 +182,7 @@ the interface
 * More memory channels and higher clock rates are better, but more expensive
 
 * Typical bandwidth for modern computers is 10 - 60 GB/sec (see for example
-STREAM benchmark: http://www.streambench.org) 18
+STREAM benchmark: http://www.streambench.org)
 
 ### DRAM latency
 
@@ -348,7 +347,7 @@ quickly fill up
 
 * All of the data in L1 is also in L2, and all of the data in L2 is also in L3
 
-* Or in other words, L2 contains a subset of L3, and L1 contains a subset of L1
+* Or in other words, L2 contains a subset of L3, and L1 contains a subset of L2.
 
 * Seems like a poor use of cache space, why would you want to do that?
 
@@ -446,8 +445,6 @@ and details about Cachegrind usage take a look at its
 
 ## Array sum cache demo
 
-See: `array-sum-cache-demo.pdf`
-
 Key idea -- caching systems typically optimize for:
 
 * **temporal locality**: accessing the same data close in time
@@ -457,8 +454,6 @@ Key idea -- caching systems typically optimize for:
 For performance: avoid large strides through memory and indirection.
 
 ## Why is vector fast?
-
-See `stl-container-summary.pdf`
 
 Key:
 
@@ -472,12 +467,16 @@ Key:
 
 ## Summary
 
-* Data access is expensive compared to computation
+* Data access is expensive compared to computation!
 
-* Consequently, the majority of the CPU chip area is devoted to data access
+* Consequently, the majority of the CPU chip area is devoted to data access.
 
-* For many applications, optimizing data access is the highest priority
+* For many applications, optimizing data access is the highest priority.
 
 * This is made more difficult by the complicated memory hierarchy of modern
   processors and the various programming abstractions like multidimensional
   arrays, objects, etc.
+
+
+
+
