@@ -3,38 +3,38 @@
 ## Code optimization
 
 The compiler is a fundamental tool:
-* performs several types of optimization
-* in general, produces far better assembly code than people
-* knows the hardware to some extent
+* It performs several types of optimization,
+* and in general, it produces far better assembly code than people!
+* It also knows the hardware to some extent.
 
 Modern hardware attempts to run code as fast as possible with:
-* pipelining
-* instruction level parallelism
-* out-of-order execution
-* caching in fast memory
+* pipelining,
+* instruction level parallelism,
+* out-of-order execution, and
+* caching in _fast_ memory.
 
 Programmer’s job:
-* first make the program work
-* write code in a way that does not block efforts of compiler and
-CPU
-* use profiler to identify bottlenecks and optimize the code
+* First order condition: make the program work _correctly_!
+* Write code in a way that does not block efforts of compiler and
+CPU.
+* Use profiler to identify bottlenecks and optimize the code.
 
 ## Best practices
 
-* Premature optimization is root of all evil! Do not optimize prematurely.
-Make the program work first, this is most important.
+* "Premature optimization is the root of all evil (or at least most of it) in programming" (Donald Knuth, '74). Do not optimize prematurely!
+Make the program work first, this is paramount.
 * Selecting a fast algorithm will do more than optimizing a slow algorithm.
 An algorithm that scales linearly with input data will do better than one
 that scales quadratically.
 * Code readability is extremely important. Avoid sacrificing code readability
-for performance. Developer time is still more expensive than computer time.
+for performance. 
+  * Developer time is still more expensive than computer time!
 * Most of the time we just try to avoid certain blockers that limit compiler
 optimization and hardware capabilities.
 
 ## The compilation process
 
-
-## Intermediate representation
+### Intermediate representation
 
 During compilation, the source code is first transformed into a sequence of
 "atomic" instructions. This *intermediate representation* helps compiler
@@ -141,6 +141,8 @@ X = Y;
 Z = 1.0 + Y;
 ```
 Now the two statements can be executed in any order or in parallel.
+This works so long as variable `X` is not being modified in-between
+the two assignment expressions.
 
 
 ### Constant folding
@@ -162,6 +164,15 @@ the addition operation at runtime. If `k` is modified before the
 definition of `j`, the compiler will replace only `i` with literal
 `100` in the initialization of `j`.
 
+To understand why this helps performance, we need to think back to assembler
+instructions. If the data are mutable, the instruction set will need to first
+fetch the data from RAM, transfer it across the memory bus into cache, and
+finally load it into registers in the ALU before processing an operation.
+If the data are `const`, we don't need to transfer data from RAM into the
+registers, instead we can bypass this step as the assembler code can simply
+hardcode the values into the appropriate places. Foregoing data transfer speeds
+up our code quite a bit.
+
 Using `const` keyword proactively in your code will help compiler
 perform more aggressive optimization. It will also lead to more
 readable, "self documenting" code.
@@ -180,9 +191,12 @@ main ()
   if ( 1==0 ) printf("I am not going to be printed\n");
 }
 ```
-Variable `k` is defined and modified, but never *used*. Therefore,
-it could be removed from the code. Next the `if` statement is
+
+* Variable `k` is defined and modified, but never *used*. Therefore,
+it could be removed from the code. 
+* Next the `if` statement is
 always false, so the second `printf` command will never be executed.
+
 The compiler will typically remove the dead code and give you a warning.
 It is a good coding practice to identify and remove dead code from
 your source and not let compiler do it for you. If the code is complex,
@@ -196,13 +210,17 @@ floating point numbers. For example:
 double x = 7.0;
 double x2 = pow(x, 2);
 ```
-To compute an arbitrary floating point power _x<sup>y</sup>_,
+* To compute an arbitrary floating point power _x<sup>y</sup>_,
 the compiler will execute something like this: `exp(y*log(x))`.
-Executing `pow` function takes order of 100 clock cycles, while
+
+* Executing `pow` function takes order of 100 clock cycles, while
 multiplication `x*x` takes 4-6 cycles, depending on the compiler.
+
+
 A good compiler will recognize integer literal as the argument for
 power, and replace `pow(x,2)` with `x*x`, thus reducing the
-computation "strength".
+computation "strength". Instead of computing _x<sup>y</sup>_ naively, we can
+use the expression `exp(y*log(x))` which only requires one multiplication and two function calls that are cheaper than executing `pow`. See efficient computation of `exp` and `log` [link](https://www.quinapalus.com/efunc.html); the general idea is that we make a sequence of approximations that are each cheap to compute.
 
 Again, it is recommended that developer performs strength reduction
 for as long as it will not significantly obscure the code.
@@ -248,8 +266,9 @@ temp = A + B;
 D = C * temp;
 E = temp/2.0;
 ```
-Note that changing order of floating point computations will
-result in different truncation error, the optimized code will not
+Note that if we change the order of floating point computations, this will
+result in different truncation error, and so it's possible that 
+the optimized code will not
 produce bit-exact results as the unoptimized code.
 
 
@@ -291,7 +310,7 @@ for(int i=0; i != n; ++i)
 ```
 The induction value `k` is computed in (at least) three
 steps -- multiplication of `i` by 4, addition to `m`, and
-assignemt of the result to `k`. A good compiler can "rewrite"
+assignment of the result to `k`. A good compiler can "rewrite"
 the loop to reduce the number of computations per loop iteration:
 ```c++
 k = m-4;
@@ -307,18 +326,18 @@ Here there is only one in-place addition per loop iteration.
 ### Loop unrolling
 
 Loop unrolling is an optimization which partially unrolls the loop
-in order to avoid loop's overhead. Consider a simple loop
+in order to avoid loop's overhead and reduce cache misses. 
+Consider a simple loop
 
 ```c++
-sum = 0;
-for(int i=0; i != n; ++i)
-{
+int sum = 0;
+for(int i=0; i != n; ++i) {
   sum += data[i];
 }
 ```
 By rewriting this loop as
 ```c++
-sum0 = 0; sum1 = 0; sum2 = 0; sum3 = 0;
+int sum0 = 0; sum1 = 0; sum2 = 0; sum3 = 0;
 for(int i = 0; i < n; i += 4)
 {
   sum0 += data[i];
@@ -331,7 +350,10 @@ sum = sum0 + sum1 + sum2 + sum3;
 we reduce number of loop iterations, and therefore the loop overhead,
 by 4 times. Also, the four summations inside the loop are independent
 of each other and can be executed in any order or in parallel. This
-allows the compiler to perform further, more aggressive optimization.
+allows the compiler to perform further, more aggressive optimization. Lastly,
+in each iteration of the loop we can hopefully transfer four integers
+across the memory bus at a time instead of one at a time, thereby
+potentially reducing cache misses.
 
 
 ### Vectorizing
@@ -354,6 +376,8 @@ for(int i=0; i < n; i += 4)
 ```
 Here we borrow Matlab notation to denote operations on data
 ranges.
+This is a little bit like loop-unrolling, and we can have the benefit of
+fewer cache misses. 
 
 Vectorization is done by compiler automatically. However, a developer
 can write code that is more or less likely to be vectorized by the compiler.
