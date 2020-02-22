@@ -18,8 +18,8 @@ public:
   ~Matrix()
   {
     for(int i=0; i < N_; ++i)
-      delete data_[i];
-    delete [] data_;
+      delete[] data_[i];
+    delete[] data_;
   }
 
   int size()
