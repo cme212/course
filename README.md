@@ -10,11 +10,9 @@ can start the exam. However, the exam itself is timed, and once you
 open it you will have three hours to complete it. 
 The final exam must be completed on your
 own. You may not collaborate on the exam or discuss the exam 
-with any Stanford affiliate or anyone outside the institution. The only
-resources you may access during the exam are the full set of course notes,
+with any Stanford affiliate or anyone outside the institution. The resources you are encouraged to access during the exam are the full set of course notes, Piazza,
 and in addition reference documentation such as
-[cppreference.com](https://en.cppreference.com/w/); you are not allowed to use online search engines to query for information, nor are you allowed to use 
-sites such as StackOverflow.
+[cppreference.com](https://en.cppreference.com/w/). Note that we cannot disallow students from using select online resources, but if you choose to use Google or Stack Overflow during the exam, you _must_ cite references that inspire your solution, and further direct copy-pasting of code is disallowed as per the CS honor code. The staff reserves the right to ask nuanced questions about a student's submission if we believe that one has copy-pasted code from an online resource.
 
 ## Schedule
 If the there isn't a link for a lecture, you can find the lecture notes on Canvas.
