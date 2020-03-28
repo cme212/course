@@ -160,6 +160,13 @@ The course grade breakdown will be:
 - 25% conceptual exercises (5 exercise sets throughout quarter)
 - 25% final exam
 
+Note that you must pass *each part* of the course in order to pass the course;
+i.e. failing the programming assignments (when considered in union), failing the
+conceptual
+exercises (when considered in union),
+or
+failing the final exam is grounds for not passing the course. 
+
 ## Homework policies
 
 ### Late Days for homework assignments
