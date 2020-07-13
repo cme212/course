@@ -17,7 +17,7 @@
  * @post ( low <= result <  high and  a[result] ==  v within tolerance eps) 
  *    or (result == -1 and there is no _i_ s.t. low <= i < high, and a[i] == v).
  *
- * The complexity of the serach algorithm is O(high - low)
+ * The complexity of the serach algorithm is O(log(high - low))
  */
 template <class T>
 int binary_search(const T* a, int low, int high, const T& v)
