@@ -61,18 +61,21 @@ int main()
   std::cout << "\n";
   
   Student classroom[3];
-  Student* idle   = new Student("Idle, Eric", 100100);
-  Student* jones  = new Student("Jones, Terry", 100200);
-  Student* palin  = new Student("Palin, Michael", 100300);
-  Student* cleese = new Student("Cleese, John", 100400);
+  Student idle   = Student("Idle, Eric", 100100);
+  Student jones  = Student("Jones, Terry", 100200);
+  Student palin  = Student("Palin, Michael", 100300);
+  Student cleese = Student("Cleese, John", 100400);
   // Create a classroom ordered alphabetically by student name
-  classroom[0] = *idle; classroom[1] = *jones; classroom[2] = *palin;
+  classroom[0] = idle; classroom[1] = jones; classroom[2] = palin;
   
   std::cout << "\n";
   
-  std::cout << binary_search(classroom, 0, 3, *palin)  << "\n"; // Palin ~> 2
-  std::cout << binary_search(classroom, 0, 3, *idle)   << "\n"; // Idle  ~> 0
-  std::cout << binary_search(classroom, 0, 3, *cleese) << "\n"; // Cleese X
+  std::cout << binary_search(classroom, 0, 3, palin)  << "\n"; // Palin ~> 2
+  std::cout << binary_search(classroom, 0, 3, idle)   << "\n"; // Idle  ~> 0
+  std::cout << binary_search(classroom, 0, 3, cleese) << "\n"; // Cleese X
   
   return 0;
 }
+
+
+
