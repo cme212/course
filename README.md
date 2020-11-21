@@ -55,7 +55,7 @@ Lectures are posted on Canvas.
  - Lecture 16
    - Floating point, Under/overflow, relative error, machine tolerance; bit-shifting
  - Lecture 17
-    Generic programming conclusion: algorithms and lifting
+   - Generic programming conclusion: algorithms and lifting
 ### Week 9
  - EX4 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 18
