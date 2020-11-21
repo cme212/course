@@ -1,93 +1,67 @@
 # CME212
 [Syllabus](https://github.com/cme212/course/blob/master/syllabus.md)
 
-## Final Exam Date
-For Winter quarter 2020, the registrar has the 
-CME 212 final exam scheduled to take place from 7 P.M. to 10 P.M. 
-on Monday March 16th. We will plan to make the exam accessible on Canvas
-on Friday March 13th at 7 P.M., giving you a 72 hour window in which you 
-can start the exam. However, the exam itself is timed, and once you 
-open it you will have three hours to complete it. 
-The final exam must be completed on your
-own. You may not collaborate on the exam or discuss the exam 
-with any Stanford affiliate or anyone outside the institution. The resources you are encouraged to access during the exam are the full set of course notes, Piazza,
-and in addition reference documentation such as
-[cppreference.com](https://en.cppreference.com/w/). Note that we cannot disallow students from using select online resources, but if you choose to use Google or Stack Overflow during the exam, you _must_ cite references that inspire your solution, and further direct copy-pasting of code is disallowed as per the CS honor code. The staff reserves the right to ask nuanced questions about a student's submission if we believe that one has copy-pasted code from an online resource.
-
 ## Schedule
-If the there isn't a link for a lecture, you can find the lecture notes on Canvas.
+Lectures are posted on Canvas.
 ### Week 0
   - Lecture 0
-    - Object size, alignment, declarations, scope, narrowing, lifetime of an object.
-    - Pointers, arrays, pointer arithmetic, and `const`.
+    - Pointers and references in C++; Class constructors; keyword const; Macros (and debugging)
   - Lecture 1
-    - [Debugging in C++](https://github.com/cme212/course/blob/master/notes/lecture-01/debugging.md).
-    - [Proxy design patterns](https://github.com/cme212/course/blob/master/notes/lecture-01/proxy.md). 
+    - Debugging, Proxy Design Patterns
 ### Week 1
-  - Exercise 0 due Tuesday at 4:30 P.M. P.S.T.
+ - Exercise 0 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 2
-   - Pointers and ownership, references, l/rvalue references, and
-     examples with templates. 
-   - Lambda expressions and function objects.
+   - Testing Software
  - Lecture 3
-   - [Pre/post conditions, consistent/minimal specifications,
-     templates](https://github.com/cme212/course/blob/master/notes/lecture-03/specifications.md). 
-   - Development tools ([Make](https://github.com/cme212/course/blob/master/notes/lecture-03/make.md) and possibly doxygen).
+   - Make, Pre/post conditions, consistent/minimal specifications, Invariants, introduction to templates.
  - HW0 due Friday at 4:30 P.M. P.S.T.
 ### Week 2
  - Lecture 4
-   - Iterators, Function adaptors
-   - Layout of structs, unions, examples of
-   operator overloading via `Array` class.
+   - Lambdas, Iterators, functors
  - Lecture 5
-   - [Abstraction functions and Representation Invariants](https://github.com/cme212/course/blob/master/notes/lecture-05/abstractions.md); 
-   - [Loop invariants](https://github.com/cme212/course/blob/master/notes/lecture-05/loop_invariants.md)
+   - Pointers and ownership, l/r-value references.
 ### Week 3
  - EX1  due Tuesday in class at 4:30 P.M. P.S.T.
  - Lecture 6 
-   - Free Store memory allocation, RAII, Allocators. 
-   - Exception Handling part 1 (exceptions as control flow, how to define exceptions).
- - Lecture 7: [Inheritance and Polymorphism](https://github.com/cme212/course/blob/master/notes/lecture-07/inheritance.md)
+   - Revisiting Structs and their layouts, unions.
+ - Lecture 7: 
+   - Abstraction functions and representation invariants; RAII; Free-store memory allocations (with a footnote on allocators)
  - HW1 due Friday at 4:30 P.M. P.S.T.
 ### Week 4
  - Lecture 8 
-   - Exception Handling part 2 (enforcing invariants); 
-   - construction, cleanup, and copy initialization.
+   - Exception Handling
  - Lecture 9
-   - [Graph Remove_*](https://github.com/cme212/course/blob/master/notes/lecture-09/remove.md); [inline functions](https://en.cppreference.com/w/c/language/inline) and [typedefs](https://en.cppreference.com/w/cpp/language/typedef).
+   - Graph remove_\*; inline functions; typedefs; inheritance and polymorphism
 ### Week 5
  - EX2 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 10
-   - Defining copy and move semantics, delegating constructors, entanglement, slicing.
+   - Construction, cleanup, and copy initialization
  - Lecture 11
-   - [Floating point, Under/overflow, relative error, machine tolerance](https://github.com/cme212/course/blob/master/notes/lecture-11/float.md)
+   - Defining copy and move semantics, delegating constructors, entanglement, slicing
  - HW2 due Friday at 4:30 P.M. P.S.T.
 ### Week 6
  - Lecture 12 
-   - Template programming part 1 (two phase translation, function and class templates, template paramaters as return types, parameter deduction)
+   - Template Programming part (i); std::find_if, and std::any_of
  - Lecture 13
-   - [Software Testing](https://github.com/cme212/course/blob/master/notes/lecture-13/testing.md)
+   - Template Programming part (ii); use of specializations in MTL
 ### Week 7
  - EX3 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 14
-   - Template Programming part 2
-     (non-type template parameters, variadic template parameters, template template parameters).
+   - Perfect forwarding, enable_if; concepts and metafunctions; compile time programming
  - Lecture 15
-   - [Compiler Optimizations](https://github.com/cme212/course/blob/master/notes/lecture-15/optimization.md)
-   - [Memory and Performance](https://github.com/cme212/course/blob/master/notes/lecture-15/memory.md)
-   - [Cachegrind](https://github.com/cme212/course/blob/master/notes/lecture-15/memory.md#cachegrind)
+   - Cachegrind, optimization, compiler optimizations
  - HW3 due Friday at 4:30 P.M. P.S.T.
 ### Week 8
  - Lecture 16
-   - Perfect forwarding, Metafunctions, compile-time programming. 
+   - Floating point, Under/overflow, relative error, machine tolerance; bit-shifting
  - Lecture 17
-    Cancelled
+    Generic programming conclusion: algorithms and lifting
 ### Week 9
  - EX4 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 18
-   - Regular Expressions
+   - Regex
  - Lecture 19
-   - Review
+   - Cancelled
  - HW4 due Friday at 4:30 P.M. P.S.T.
 
 
