@@ -1,4 +1,4 @@
-# CME 212 - Winter 2020
+# CME 212 - Winter 2021
 ### Advanced Software Development for Scientists and Engineers
 
 ---
@@ -21,8 +21,7 @@ analytical tools will evaluate the efficiency of design choices.
 ### Format
 The class has two lectures each week, in addition to weekly assignments.
 The assignments alternate between short-answer Q/A and more involved
-programming projects.  The lectures will be held in
-[420-041](http://campus-map.stanford.edu/?srch=420-041) on Tuesdays and Thursdays from 4:30 P.M. - 6:20 P.M.
+programming projects.  All lectures will be held virtually; please navigate through the Canvas course web page to access course lectures. Lectures will be held from 6:30 - 7:50 P.M. on Tuesdays and Thursdays.
 
 You can expect to work hard and be challenged by this
 course, but your effort can really pay off. Students anecdotally report
@@ -31,9 +30,9 @@ their summer internships.
 
 ## Communication
 
-This term we will be using Canvas for class discussion. We ask that you pose questions here such that other students may learn from the answers the TAs (or other students) post.
-- Questions should be posted to "Instructors" *only* when the question is personal in nature; else it should be visible to the "Entire Class" such that other students may benefit from the QA.  While we do have a staff mailing list (currently in the processing of being set-up as of this writing) (<cme212-staff-2020@lists.stanford.edu>), I encourage you to post your questions on Canvas.
-- We will use the [CME 212 Canvas page](https://canvas.stanford.edu/courses/111835) to share class-related files.
+This term we will be using Piazza for class discussion. We ask that you pose questions here such that other students may learn from the answers the TAs (or other students) post.
+- Questions should be posted to "Instructors" *only* when the question is personal in nature; else it should be visible to the "Entire Class" such that other students may benefit from the QA.  While we do have a staff mailing list (currently in the processing of being set-up as of this writing) (<cme212-staff-2020@lists.stanford.edu>), I encourage you to post your questions on Piazza so that they may be answered as quickly as possible.
+- We will use the [CME 212 Canvas page](https://canvas.stanford.edu/courses/130670) to share class-related files.
 
 ## Teaching Staff
 
@@ -41,17 +40,16 @@ Lecturer:
  - [Andreas Santucci](https://asantucci.github.io/) (santucci at stanford)
 
 Teaching Assistants:
- - Kyle Shan (kyleshan at stanford)
- - Lewis Warne (lwarne at stanford)
- - Priya Kasimbeg (kasimbeg at stanford)
- - Scott Jespersen (sjespers at stanford)
+ - Guillermo Bescos Alapont (gbescos at stanford)
+ - Maoguo Shi (smgyl at stanford)
 
 ## Office Hours
-Office hours will be held in [Huang
-basement](https://campus-map.stanford.edu/) 
-outside of ICME.
-The hours will be announced after the first week of instruction. 
-Andreas will hold office hours by appointment and is always available at the end of *each* class to discuss lecture material.
+Office hours will be held virtually.
+The hours will be announced after the first week of instruction.
+Andreas will hold office hours at the end of each lecture for 50 minutes.
+
+### How to utilize Office Hours effectively
+The TAs know the homework assignments and exercise sets inside out. If you have questions there, you should ask them. On the other hand, I (Andreas) crafted the lecture notes and selected the practice interview problems, so if you have questions about *that* material, please utilize my office hours.
 
 ## Learning Objectives
 
@@ -109,11 +107,11 @@ and encouraged to take the course if it fits their needs.
 
 ## Course Content
 
-### Exercise sets, Assignments, and Exam
+### Exercise sets and Assignments
 The class will be organized as a sequence of topic areas, each centered around a
 set of tools and a motivating project. Students will complete a series of 5
 programming assignments. On alternating weeks, students will tackle a series 
-of 5 short-answer assignments. There will be a final exam.
+of 5 short-answer assignments. There will *not* be a final exam this year, due to the modified academic calendar: I wish to be compassionate and understand that all students will have a lot going on during the end of quarter period (including finishing programming assignments for this class).
 
 ### C++
 
@@ -156,46 +154,35 @@ of 5 short-answer assignments. There will be a final exam.
 
 The course grade breakdown will be:
 
-- 50% programming assignments (5 homeworks on 2 week intervals)
-- 25% conceptual exercises (5 exercise sets throughout quarter)
-- 25% final exam
+- 65% programming assignments (5 homeworks on 2 week intervals)
+- 35% conceptual exercises (5 exercise sets throughout quarter)
 
 Note that you must pass *each part* of the course in order to pass the course;
-i.e. failing the programming assignments (when considered in union), failing the
-conceptual
-exercises (when considered in union),
-or
-failing the final exam is grounds for not passing the course. 
+i.e. failing the programming assignments (when considered in union), *or* failing the
+conceptual exercises (when considered in union) are considered grounds for not passing the course.
 
 ## Homework policies
 
 ### Late Days for homework assignments
-- Each student is allowed 2 homework late days over the quarter on *homework assignments* (note this policy does not apply to exercise sets).
+- Each student is allowed 3 homework late days over the quarter on *homework assignments* (note this policy does not apply to exercise sets).
   Homework assignments are typically due Fridays at 4:30 P.M. P.S.T.,
   and exercise sets will typically be due on Tuesdays at 4:30 P.M. P.S.T.
   For homework assignments *only*, 
   students may use their late days on the subsequent
-  Saturday and Sunday. No late work will be accepted after 11:59pm on the Sunday
-  following the due date. This rule does not apply to the exercise assignments
+  Saturday, Sunday, and Monday. No late work will be accepted after 11:59pm on the Monday
+  following the due date. Here's the way it works: if you submit your assignment anywhere between 4:31 P.M. P.S.T. on Friday and 11:59 P.M. P.S.T. on Saturday, that counts as 1 late day (yes you read that right, you get an extra couple hours leeway on your first late day); submitting anytime between 12:00 A.M. and 11:59 P.M. on Sunday counts as 2 late days used, and similarly for Monday. We emphasize that this rule does *not* apply to the exercise assignments
   (EX0, etc). Late exercises are not accepted. These policies are in place to ensure
   the TAs a chance to grade your homeworks in an efficient manner and to keep
   students from falling behind.
 
 ### Regrade requests
 - Each student is granted 3 non-valid regrade requests. Unused regrade requests will be
-  translated to a small amount of bonus points at the end of the quarter. A regrade request is only counted as used if the points were not awarded to the student. Regrade requests are
+  translated to a *small* amount of bonus points at the end of the quarter. A regrade request is only counted as used if the points were *not* awarded to the student. Regrade requests are
   made by submitting a GitHub issue in the homework submission repository and
-  tagging or assigning the TA who graded the homework.
-
-## Final Exam
-We anticipate that the final exam will be take-home. Students will be able to access
-the exam through the course-website on Canvas. We will provide a 72-hour window
-for students to take the exam, but we only anticipate the exam to take students
-approximately 3 hours.
-Students will be expected to use revision control (Git) for their project,
-and we will grade the latest commit which is pushed to the master branch
-of a student's repository no later than the final exam deadline set by the
-registrar.
+  tagging or assigning the TA who graded the homework (not to be confused with the TA who *pushed* the homework feedback); you can find the TA who graded your feedback at the bottom of your homework feedback file.
+  
+### What do I do if I have an Emergency that requires an Accommodation?
+If you have an emergency that requires both medical attention and a course accommodation, please get in touch with the [Office of Accessible Education](https://oae.stanford.edu/) as soon as possible to request a formal accommodation. If there is an emergency within your *family* that requires your attention and a course accommodation, please get in touch with the [Graduate Life Office](https://glo.stanford.edu/) as soon as possible to establish documentation. While pursuing these steps, please also get in touch with me (Andreas) as soon as possible; I aim to be compassionate and wish to work with you to facilitate a healthy learning experience. Although not all situations can be accommodated, many students have had success using these avenues in the past.
 
 ## Books
 
@@ -266,10 +253,10 @@ to get into murky waters.
  - Failing to cite code that you borrow outside the course notes.
  - Showing your code to a student who is struggling with theirs.
 
-## Students with Documented Disabilities
+## Students with Documented Different Learning Abilities
 
-Students who may need an academic accommodation based on the impact of a
-disability must initiate the request with the Office of Accessible Education
+Students who may need an academic accommodation based on the impact of a different learning ability
+must initiate the request with the Office of Accessible Education
 (OAE). Professional staff will evaluate the request with required documentation,
 recommend reasonable accommodations, and prepare an Accommodation Letter for
 faculty dated in the current quarter in which the request is made. Students
@@ -277,10 +264,3 @@ should contact the OAE as soon as possible since timely notice is needed to
 coordinate accommodations. Information about the OAE may be found
 at:
 [*http://studentaffairs.stanford.edu/oae*](http://studentaffairs.stanford.edu/oae).
-
-
-
-
-
-
-
