@@ -28,6 +28,15 @@ course, but your effort can really pay off. Students anecdotally report
 that CME 212 often greatly impacts what they are able to accomplish during 
 their summer internships.
 
+#### Subcomponents of the course
+There are three subcomponents to this course, that are each important in their
+own right.
+  - The core lecture materials will emphasize C++ language fundamentals.
+  - The homework assignments will instill upon you practical software
+development techniques.
+  - The interview questions we will go over are designed to prepare you for your
+journey beyond graduate school.
+
 ## Communication
 
 This term we will be using Piazza for class discussion. We ask that you pose questions here such that other students may learn from the answers the TAs (or other students) post.
