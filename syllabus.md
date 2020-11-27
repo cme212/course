@@ -169,6 +169,12 @@ Note that you must pass *each part* of the course in order to pass the course;
 i.e. failing the programming assignments (when considered in union), *or* failing the
 conceptual exercises (when considered in union) are considered grounds for not passing the course.
 
+In years with a full 10-week quarter plus a finals week, we would normally have
+a final. It would be natural to quiz students on their understanding of some of
+the interview questions covered. However, in acknolwedgement that the quarters
+are shorter this year, we will not have a final exam and instead place more
+weight on assignments and exercises accordingly.
+
 ## Homework policies
 
 ### Late Days for homework assignments
