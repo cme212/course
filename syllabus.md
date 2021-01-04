@@ -49,6 +49,7 @@ Lecturer:
 
 Teaching Assistants:
  - Guillermo Bescos Alapont (gbescos at stanford)
+ - Tom Morvan (tommrvn at stanford)
  - Maoguo Shi (smgyl at stanford)
 
 ## Office Hours
