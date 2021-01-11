@@ -2,7 +2,7 @@
 [Syllabus](https://github.com/cme212/course/blob/master/syllabus.md)
 
 ## Schedule
-Lectures are posted on Canvas.
+All lectures notes are posted on Canvas.
 ### Week 0
   - Lecture 0
     - Pointers and references in C++; Class constructors; keyword const; Macros (and debugging)
