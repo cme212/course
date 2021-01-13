@@ -242,7 +242,7 @@ be forwarded to the Stanford University Office of Community Standards.
 This computer science website has a good explanation of the honor code as it
 relates to courses involving significant amounts of computer programming:
 
-[*http://csmajor.stanford.edu/HonorCode.shtml*](http://csmajor.stanford.edu/HonorCode.shtml)
+[*https://cs.stanford.edu/degrees/ug/HonorCode.shtml*](https://cs.stanford.edu/degrees/ug/HonorCode.shtml)
 
 Note that we will use special computer software to assist us in detecting
 plagiarism:
