@@ -280,3 +280,6 @@ should contact the OAE as soon as possible since timely notice is needed to
 coordinate accommodations. Information about the OAE may be found
 at:
 [*http://studentaffairs.stanford.edu/oae*](http://studentaffairs.stanford.edu/oae).
+
+# Saving Code
+Note that at the end of each year, we must purge student repositories from the Github virtual classroom we use and to that end, if you wish to retain a copy of your codes you should make a private backup repository (outside of the Github 212 classroom, and within your own personal set of repositories) at the end of the quarter.
