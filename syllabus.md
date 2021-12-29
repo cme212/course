@@ -43,7 +43,7 @@ _journey beyond graduate school_.
 
 ## Communication
 
-This term we will be using Piazza for class discussion. We ask that you pose questions here such that other students may learn from the answers the TAs (or other students) post.
+This term we will be using Piazza for class discussion. We ask that you pose questions here such that other students may learn from the answers the TAs (or other students) post. In fact, we reserve the right to allocate a (very small, but strictly positive) *bonus* to student(s) who consistently answer questions in ways that are officially endorsed by the instructor!
 - We will use the [CME 212 Canvas page](https://canvas.stanford.edu/courses/146975) to share class-related files.
 
 ## Teaching Staff
