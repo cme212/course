@@ -1,2 +1,0 @@
-Directory to installed shared libraries.
-

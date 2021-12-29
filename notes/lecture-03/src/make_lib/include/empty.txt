@@ -1,2 +1,0 @@
-Directory to install library header files.
-
