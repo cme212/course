@@ -1,4 +1,4 @@
-# CME 212 - Winter 2021
+# CME 212 - Winter 2022
 ### Advanced Software Development for Scientists and Engineers
 
 ---
@@ -21,26 +21,30 @@ analytical tools will evaluate the efficiency of design choices.
 ### Format
 The class has two lectures each week, in addition to weekly assignments.
 The assignments alternate between short-answer Q/A and more involved
-programming projects.  All lectures will be held virtually; please navigate through the Canvas course web page to access course lectures. Lectures will be held from 6:30 - 7:50 P.M. on Tuesdays and Thursdays.
+programming projects. All lectures will be held between 7:15 P.M. - 8:45 P.M.
+on Tuesdays and Thursdays. As of this writing, the first two weeks of the course
+are planned to be taught remotely through
+[Canvas](https://canvas.stanford.edu/courses/146975) (with in person instruction
+tentatively resuming in week three).
 
 You can expect to work hard and be challenged by this
 course, but your effort can really pay off. Students anecdotally report
 that CME 212 often greatly impacts what they are able to accomplish during 
-their summer internships.
+their summer internships and upon graduation.
 
 #### Subcomponents of the course
 There are three subcomponents to this course, that are each important in their
 own right.
-  - The core lecture materials will emphasize C++ language fundamentals.
-  - The homework assignments will instill upon you practical software
-development techniques.
+  - The core lecture materials will emphasize _C++ language fundamentals_.
+  - The homework assignments will instill upon you _practical software
+development techniques_.
   - The interview questions we will go over are designed to prepare you for your
-journey beyond graduate school.
+_journey beyond graduate school_.
 
 ## Communication
 
 This term we will be using Piazza for class discussion. We ask that you pose questions here such that other students may learn from the answers the TAs (or other students) post.
-- We will use the [CME 212 Canvas page](https://canvas.stanford.edu/courses/130670) to share class-related files.
+- We will use the [CME 212 Canvas page](https://canvas.stanford.edu/courses/146975) to share class-related files.
 
 ## Teaching Staff
 
@@ -48,18 +52,18 @@ Lecturer:
  - [Andreas Santucci](https://asantucci.github.io/) (santucci at stanford)
 
 Teaching Assistants:
- - Guillermo Bescos Alapont (gbescos at stanford)
- - Tom Morvan (tommrvn at stanford)
- - Maoguo Shi (smgyl at stanford)
- - Chenzhuo Zhu (czhu95 at stanford)
+ - Frederic Ladouceur (ladouceu at stanford)
+ - Aasavari Kakne (adkakne at stanford)
+ - Matteo Santamaria (msantama at stanford)
+ - Axel Peytavin (peytavin at stanford)
 
 ## Office Hours
-Office hours will be held virtually.
+Office hours will be held virtually for the first two weeks of the course, after which we plan to resume in-person instruction in addition to office hours.
 The hours will be announced after the first week of instruction.
-Andreas will hold office hours at the end of each lecture for 50 minutes.
+Andreas will hold office hours at the end of Tuesday lectures for 50 minutes.
 
 ### How to utilize Office Hours effectively
-The TAs know the homework assignments and exercise sets inside out. If you have questions there, you should ask them. On the other hand, I (Andreas) crafted the lecture notes and selected the practice interview problems, so if you have questions about *that* material, please utilize my office hours.
+The TAs know the homework assignments and exercise sets inside out. If you have questions there, you should ask them. On the other hand, I (Andreas) crafted the lecture notes and selected the practice interview problems, so if you have questions about *that* material, please utilize my office hours. Choosing between asking TAs or the lecturer judiciously can help us utilize our limited resources more efficiently.
 
 ## Learning Objectives
 
@@ -121,7 +125,7 @@ and encouraged to take the course if it fits their needs.
 The class will be organized as a sequence of topic areas, each centered around a
 set of tools and a motivating project. Students will complete a series of 5
 programming assignments. On alternating weeks, students will tackle a series 
-of 5 short-answer assignments. There will *not* be a final exam this year, due to the modified academic calendar: I wish to be compassionate and understand that all students will have a lot going on during the end of quarter period (including finishing programming assignments for this class).
+of 5 short-answer assignments. There will *not* be a final exam this year, due to the added stress that we are all undergoing as a result of the global pandemic: I wish to be compassionate and understand that adding the stressor of a final exam is not necessarily conducive to learning.
 
 ### C++
 
@@ -171,16 +175,16 @@ Note that you must pass *each part* of the course in order to pass the course;
 i.e. failing the programming assignments (when considered in union), *or* failing the
 conceptual exercises (when considered in union) are considered grounds for not passing the course.
 
-In years with a full 10-week quarter plus a finals week, we would normally have
-a final. It would be natural to quiz students on their understanding of some of
-the interview questions covered. However, in acknolwedgement that the quarters
-are shorter this year, we will not have a final exam and instead place more
-weight on assignments and exercises accordingly.
+<!-- In years with a full 10-week quarter plus a finals week, we would normally have -->
+<!-- a final. It would be natural to quiz students on their understanding of some of -->
+<!-- the interview questions covered. However, in acknolwedgement that the quarters -->
+<!-- are shorter this year, we will not have a final exam and instead place more -->
+<!-- weight on assignments and exercises accordingly. -->
 
 ## Homework policies
 
 ### Late Days for homework assignments
-- Each student is allowed 3 homework late days over the quarter on *homework assignments* (note this policy does not apply to exercise sets).
+- Each student is allowed 3 homework late days over the quarter on *homework assignments* (note: this policy does _not apply_ to exercise sets).
   Homework assignments are typically due Fridays at 4:30 P.M. P.S.T.,
   and exercise sets will typically be due on Tuesdays at 4:30 P.M. P.S.T.
   For homework assignments *only*, 
@@ -200,20 +204,22 @@ weight on assignments and exercises accordingly.
 ### What do I do if I have an Emergency that requires an Accommodation?
 If you have an emergency that requires both medical attention and a course accommodation, please get in touch with the [Office of Accessible Education](https://oae.stanford.edu/) as soon as possible to request a formal accommodation. If there is an emergency within your *family* that requires your attention and a course accommodation, please get in touch with the [Graduate Life Office](https://glo.stanford.edu/) as soon as possible to establish documentation. While pursuing these steps, please also get in touch with me (Andreas) as soon as possible; I aim to be compassionate and wish to work with you to facilitate a healthy learning experience. Although not all situations can be accommodated, many students have had success using these avenues in the past.
 
-## Books
+## (Supplementary) Books
 
-A great primer on C++ is available on the Stanford e-library, and would serve as a great
+The lecture material will be hosted online on Canvas; if you're curious to read
+more details, you can check out some of the following resources:
+
+ - A great primer on C++ is available on the Stanford e-library, and would serve as a great
 complement to course lecture notes: Lippman, Lajoie, Moo. ["C++ Primer, 5th edition"](http://proquest.safaribooksonline.com/9780133053043)
 
-Another reference we will use in this course is an excellent book by Sutter and Alexandrescu
+ - Another reference we will use in this course is an excellent book by Sutter and Alexandrescu
 ["C++ Coding Standards: 101 Rules, Guidelines, and Best Practices"](https://proquest-safaribooksonline-com.stanford.idm.oclc.org/0321113586),
 also available on the Stanford e-library.
 
-The lecture notes themselves will be largely based off Bjarne Stroustrup's fantastic text, 
+ - The lecture notes themselves will be largely based off Bjarne Stroustrup's fantastic text, 
 ["The C++ Programming Language", 4th edition](https://www.amazon.com/C-Programming-Language-Bjarne-Stroustrup-ebook/dp/B00DUW4BMS/ref=sr_1_2?ie=UTF8&qid=1515211070&sr=8-2&keywords=c%2B%2B+programming).
 
-There are a myriad of resources that will become (more) accessible to you as you progress
-through the course. Some additional references you may enjoy:
+There are a myriad of resources that will become (more) accessible to you as you progress through the course. Some additional references you may enjoy:
 - Algorithms: Cormen, Leiserson, Rivest, Stein. *Introduction to Algorithms*
 - Systems architecture: Bryant and O'Hallaron. *Computer Systems: A Programmer's Perspective*
 - Design: Gamma, et. al. *Design Patterns: Elements of Reusable Object-Oriented Software*
@@ -283,3 +289,10 @@ at:
 
 # Saving Code
 Note that at the end of each year, we must purge student repositories from the Github virtual classroom we use and to that end, if you wish to retain a copy of your codes you should make a **private** backup repository (outside of the Github 212 classroom, and within your own personal set of repositories) at the end of the quarter. Note that the repo must be private else it will be a violation of the honor code.
+
+
+
+
+
+
+
