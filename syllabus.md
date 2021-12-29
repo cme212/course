@@ -3,6 +3,13 @@
 
 ---
 
+## Location and Timing of Lectures
+Location: [STLC 114](http://campus-map.stanford.edu/?srch=STLC114).
+
+Time: Tues, Thurs from 7:15 - 8:45 P.M.
+
+Note: the first two weeks of the quarter will be instructed entirely online.
+
 ## Description
 This course emphasizes the design of robust, performant, portable, 
 and extensible code.
