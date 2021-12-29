@@ -2,10 +2,10 @@
 [Syllabus](https://github.com/cme212/course/blob/master/syllabus.md)
 
 ## Schedule
-All lectures notes are posted on Canvas.
+All lectures notes are posted on [Canvas](https://canvas.stanford.edu/courses/146975).
 ### Week 0
   - Lecture 0
-    - Pointers and references in C++; Class constructors; keyword const; Macros (and debugging)
+    - [Notes](https://canvas.stanford.edu/files/8954213/download?download_frd=1): Pointers and references in C++; Class constructors; keyword const; Macros (and debugging). [Interview Questions](https://canvas.stanford.edu/files/8954214/download?download_frd=1)
   - Lecture 1
     - Debugging, Proxy Design Patterns
 ### Week 1
