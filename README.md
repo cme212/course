@@ -5,9 +5,11 @@
 All lectures notes are posted on [Canvas](https://canvas.stanford.edu/courses/146975).
 ### Week 0
   - Lecture 0
-    - [Notes](https://canvas.stanford.edu/files/8954213/download?download_frd=1): Pointers and references in C++; Class constructors; keyword const; Macros (and debugging). [Interview Questions](https://canvas.stanford.edu/files/8954214/download?download_frd=1)
+    - [Notes](https://canvas.stanford.edu/files/8954213/download?download_frd=1): Pointers and references in C++; Class constructors; keyword const; Macros (and debugging). [Interview Question](https://canvas.stanford.edu/files/8954214/download?download_frd=1)
   - Lecture 1
-    - Debugging, Proxy Design Patterns
+    - [Notes](https://canvas.stanford.edu/files/8997678/download?download_frd=1): Debugging, Proxy Design Patterns
+    - [Interview
+Question](https://canvas.stanford.edu/files/8997677/download?download_frd=1)
 ### Week 1
  - Exercise 0 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 2
