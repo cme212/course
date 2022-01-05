@@ -50,8 +50,9 @@ _journey beyond graduate school_.
 
 ## Communication
 
-This term we will be using Piazza for class discussion. We ask that you pose questions here such that other students may learn from the answers the TAs (or other students) post. In fact, we reserve the right to allocate a (very small, but strictly positive) *bonus* to student(s) who consistently answer questions in ways that are officially endorsed by the instructor!
+This term we will be using Ed for class discussion. We ask that you pose questions here such that other students may learn from the answers the TAs (or other students) post. In fact, we reserve the right to allocate a (very small, but strictly positive) *bonus* to student(s) who consistently answer questions in ways that are officially endorsed by the instructor!
 - We will use the [CME 212 Canvas page](https://canvas.stanford.edu/courses/146975) to share class-related files.
+- You can find our Ed discussion page [here] (https://edstem.org/us/courses/16712/discussion/).
 
 ## Teaching Staff
 
@@ -193,11 +194,11 @@ conceptual exercises (when considered in union) are considered grounds for not p
 ### Late Days for homework assignments
 - Each student is allowed 3 homework late days over the quarter on *homework assignments* (note: this policy does _not apply_ to exercise sets).
   Homework assignments are typically due Fridays at 4:30 P.M. P.S.T.,
-  and exercise sets will typically be due on Tuesdays at 4:30 P.M. P.S.T.
+  and exercise sets will typically be due on Tuesdays at 4:30 P.M. P.S.T. Students are allowed to use a maximum of 2 late days per homework assignment.
   For homework assignments *only*, 
   students may use their late days on the subsequent
-  Saturday, Sunday, and Monday. No late work will be accepted after 11:59pm on the Monday
-  following the due date. Here's the way it works: if you submit your assignment anywhere between 4:31 P.M. P.S.T. on Friday and 11:59 P.M. P.S.T. on Saturday, that counts as 1 late day (yes you read that right, you get an extra couple hours leeway on your first late day); submitting anytime between 12:00 A.M. and 11:59 P.M. on Sunday counts as 2 late days used, and similarly for Monday. We emphasize that this rule does *not* apply to the exercise assignments
+  Saturday and Sunday. No late work will be accepted after 11:59pm on the Sunday
+  following the due date. Here's the way it works: if you submit your assignment anywhere between 4:31 P.M. P.S.T. on Friday and 11:59 P.M. P.S.T. on Saturday, that counts as 1 late day (yes you read that right, you get an extra couple hours leeway on your first late day); submitting anytime between 12:00 A.M. and 11:59 P.M. on Sunday counts as 2 late days used. We emphasize that this rule does *not* apply to the exercise assignments
   (EX0, etc). Late exercises are not accepted. These policies are in place to ensure
   the TAs a chance to grade your homeworks in an efficient manner and to keep
   students from falling behind.
