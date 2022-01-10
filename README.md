@@ -13,7 +13,11 @@ Question](https://canvas.stanford.edu/files/8997677/download?download_frd=1)
 ### Week 1
  - Exercise 0 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 2
-   - Testing Software
+   - [Notes](https://canvas.stanford.edu/files/9028205/download?download_frd=1): Testing Software
+   - [Interview
+Question](https://canvas.stanford.edu/files/9028205/download?download_frd=1)
+   - [Interview
+Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1)
  - Lecture 3
    - Make, Pre/post conditions, consistent/minimal specifications, Invariants, introduction to templates.
  - HW0 due Friday at 4:30 P.M. P.S.T.
