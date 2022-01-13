@@ -20,7 +20,9 @@ Question](https://canvas.stanford.edu/files/9028205/download?download_frd=1)
    - [Interview
 Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1)
  - Lecture 3
-   - Make, Pre/post conditions, consistent/minimal specifications, Invariants, introduction to templates.
+   - [Notes](https://canvas.stanford.edu/files/9047447/download?download_frd=1): Make, Pre/post conditions, consistent/minimal specifications, Invariants, introduction to templates.
+   - [Interview Question](https://canvas.stanford.edu/files/9047444/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9047445/download?download_frd=1)
  - HW0 due Friday at 4:30 P.M. P.S.T.
 ### Week 2
  - Lecture 4
