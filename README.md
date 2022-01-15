@@ -14,21 +14,25 @@ Question](https://canvas.stanford.edu/files/8997677/download?download_frd=1)
 ### Week 1
  - Exercise 0 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 2
-   - [Notes](https://canvas.stanford.edu/files/9028205/download?download_frd=1): Testing Software
+   - [Notes](https://canvas.stanford.edu/files/9028205/download?download_frd=1): Testing Software.
    - [Interview
-Question](https://canvas.stanford.edu/files/9028205/download?download_frd=1)
+Question](https://canvas.stanford.edu/files/9028205/download?download_frd=1).
    - [Interview
-Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1)
+Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1).
  - Lecture 3
    - [Notes](https://canvas.stanford.edu/files/9047447/download?download_frd=1): Make, Pre/post conditions, consistent/minimal specifications, Invariants, introduction to templates.
-   - [Interview Question](https://canvas.stanford.edu/files/9047444/download?download_frd=1)
-   - [Interview Solution](https://canvas.stanford.edu/files/9047445/download?download_frd=1)
+   - [Interview Question](https://canvas.stanford.edu/files/9047444/download?download_frd=1).
+   - [Interview Solution](https://canvas.stanford.edu/files/9047445/download?download_frd=1).
  - HW0 due Friday at 4:30 P.M. P.S.T.
 ### Week 2
  - Lecture 4
-   - Lambdas, Iterators, functors
+   - [Notes](https://canvas.stanford.edu/files/9061293/download?download_frd=1): Lambdas, Iterators, functors.
+   - [Interview Question](https://canvas.stanford.edu/files/9061288/download?download_frd=1).
+   - [Interview Solution](https://canvas.stanford.edu/files/9061292/download?download_frd=1).
  - Lecture 5
-   - Pointers and ownership, l/r-value references.
+   - [Notes](https://canvas.stanford.edu/files/9061291/download?download_frd=1): Pointers and ownership, l/r-value references.
+   - [Interview Question](https://canvas.stanford.edu/files/9061289/download?download_frd=1).
+   - [Interview Solution](https://canvas.stanford.edu/files/9061290/download?download_frd=1).
 ### Week 3
  - EX1  due Tuesday in class at 4:30 P.M. P.S.T.
  - Lecture 6 
