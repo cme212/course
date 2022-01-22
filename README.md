@@ -36,9 +36,13 @@ Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1).
 ### Week 3
  - EX1  due Tuesday in class at 4:30 P.M. P.S.T.
  - Lecture 6 
-   - Revisiting Structs and their layouts, unions.
+   - [Notes](https://canvas.stanford.edu/files/9105215/download?download_frd=1): Revisiting Structs and their layouts, unions.
+   - [Interview Question](https://canvas.stanford.edu/files/9105213/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9105214/download?download_frd=1)
  - Lecture 7: 
-   - Abstraction functions and representation invariants; RAII; Free-store memory allocations (with a footnote on allocators)
+   - [Notes](https://canvas.stanford.edu/files/9105212/download?download_frd=1): Abstraction functions and representation invariants; RAII; Free-store memory allocations (with a footnote on allocators)
+   - [Interview Question](https://canvas.stanford.edu/files/9105210/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9105211/download?download_frd=1)
  - HW1 due Friday at 4:30 P.M. P.S.T.
 ### Week 4
  - Lecture 8 
