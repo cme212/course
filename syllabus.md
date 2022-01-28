@@ -68,7 +68,7 @@ Teaching Assistants:
 ## Office Hours
 Office hours will be held virtually for the first two weeks of the course, after which we plan to resume in-person instruction in addition to office hours.
 The hours will be announced after the first week of instruction.
-Andreas will hold office hours on Thursdays, virtually on Zoom, from 1 P.M. - 1:45 P.M.
+Andreas will hold office hours on Thursdays, virtually on Zoom (in his "personal" meeting room), from 12:05 P.M. - 12:50 P.M.
 
 ### How to utilize Office Hours effectively
 The TAs know the homework assignments and exercise sets inside out. If you have questions there, you should ask them. On the other hand, I (Andreas) crafted the lecture notes and selected the practice interview problems, so if you have questions about *that* material, please utilize my office hours. Choosing between asking TAs or the lecturer judiciously can help us utilize our limited resources more efficiently.
