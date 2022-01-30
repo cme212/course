@@ -46,9 +46,13 @@ Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1).
  - HW1 due Friday at 4:30 P.M. P.S.T.
 ### Week 4
  - Lecture 8 
-   - Exception Handling
+   - [Notes](https://canvas.stanford.edu/files/9174932/download?download_frd=1): Exception Handling
+   - [Interview Question](https://canvas.stanford.edu/files/9174927/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9174930/download?download_frd=1)
  - Lecture 9
-   - Graph remove_\*; inline functions; typedefs; inheritance and polymorphism
+   - [Notes](https://canvas.stanford.edu/files/9174931/download?download_frd=1): Graph remove_\*; inline functions; typedefs; inheritance and polymorphism
+   - [Interview Question](https://canvas.stanford.edu/files/9174928/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9174929/download?download_frd=1)
 ### Week 5
  - EX2 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 10
