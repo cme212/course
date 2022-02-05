@@ -56,9 +56,13 @@ Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1).
 ### Week 5
  - EX2 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 10
-   - Construction, cleanup, and copy initialization
+   - [Notes](https://canvas.stanford.edu/files/9234925/download?download_frd=1): Construction, cleanup, and copy initialization
+   - [Interview Question](https://canvas.stanford.edu/files/9234922/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9234923/download?download_frd=1)
  - Lecture 11
-   - Defining copy and move semantics, delegating constructors, entanglement, slicing
+   - [Notes](https://canvas.stanford.edu/files/9234924/download?download_frd=1): Defining copy and move semantics, delegating constructors, entanglement, slicing
+   - [Interview Question](https://canvas.stanford.edu/files/9234920/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9234921/download?download_frd=1)
  - HW2 due Friday at 4:30 P.M. P.S.T.
 ### Week 6
  - Lecture 12 
