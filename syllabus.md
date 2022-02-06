@@ -212,6 +212,9 @@ conceptual exercises (when considered in union) are considered grounds for not p
 ### What do I do if I have an Emergency that requires an Accommodation?
 If you have an emergency that requires both medical attention and a course accommodation, please get in touch with the [Office of Accessible Education](https://oae.stanford.edu/) as soon as possible to request a formal accommodation. If there is an emergency within your *family* that requires your attention and a course accommodation, please get in touch with the [Graduate Life Office](https://glo.stanford.edu/) as soon as possible to establish documentation. While pursuing these steps, please also get in touch with me (Andreas) as soon as possible; I aim to be compassionate and wish to work with you to facilitate a healthy learning experience. Although not all situations can be accommodated, many students have had success using these avenues in the past.
 
+### Peercode
+For each homework assignment (except hw0), students will be given access to a Peercode repository which contains the pseudonymized code of their classmates. The intent is that students learn from each others; the Peercode repository is not intended to be used as a convinient tool for plagiarism. It is acceptble for students to replicate the design found in other students' code through the Peercode repository (e.g. one student could re-use the same data structures as another student to store node and edge data). It is not acceptable for students to literally copy code from the Peercode repository and paste it in their own. See the Honor Code section below.
+
 ## (Supplementary) Books
 
 The lecture material will be hosted online on Canvas; if you're curious to read
