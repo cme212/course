@@ -66,9 +66,13 @@ Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1).
  - HW2 due Friday at 4:30 P.M. P.S.T.
 ### Week 6
  - Lecture 12 
-   - Template Programming part (i); std::find_if, and std::any_of
+   - [Notes](https://canvas.stanford.edu/files/9299719/download?download_frd=1): Template Programming part (i); std::find_if, and std::any_of
+   - [Interview Question](https://canvas.stanford.edu/files/9299717/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9299718/download?download_frd=1)
  - Lecture 13
-   - Template Programming part (ii); use of specializations in MTL
+   - [Notes](https://canvas.stanford.edu/files/9299720/download?download_frd=1): Template Programming part (ii); use of specializations in MTL
+   - [Interview Question](https://canvas.stanford.edu/files/9299715/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9299716/download?download_frd=1)
 ### Week 7
  - EX3 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 14
