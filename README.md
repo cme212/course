@@ -76,9 +76,13 @@ Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1).
 ### Week 7
  - EX3 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 14
-   - Perfect forwarding, enable_if; concepts and metafunctions; compile time programming
+   - [Notes](https://canvas.stanford.edu/files/9333040/download?download_frd=1): Perfect forwarding, enable_if; concepts and metafunctions; compile time programming
+   - [Interview Question](https://canvas.stanford.edu/files/9333038/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9333039/download?download_frd=1)
  - Lecture 15
-   - Cachegrind, optimization, compiler optimizations
+   - [Notes](https://canvas.stanford.edu/files/9333041/download?download_frd=1): Cachegrind, optimization, compiler optimizations
+   - [Interview Question](https://canvas.stanford.edu/files/9333036/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9333037/download?download_frd=1)
  - HW3 due Friday at 4:30 P.M. P.S.T.
 ### Week 8
  - Lecture 16
