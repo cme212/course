@@ -86,9 +86,13 @@ Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1).
  - HW3 due Friday at 4:30 P.M. P.S.T.
 ### Week 8
  - Lecture 16
-   - Floating point, Under/overflow, relative error, machine tolerance; bit-shifting
+   - [Notes](https://canvas.stanford.edu/files/9395962/download?download_frd=1): Floating point, Under/overflow, relative error, machine tolerance; bit-shifting
+   - [Interview Question](https://canvas.stanford.edu/files/9395959/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9395960/download?download_frd=1)
  - Lecture 17
-   - Generic programming conclusion: algorithms and lifting
+   - [Notes](https://canvas.stanford.edu/files/9395961/download?download_frd=1): Generic programming conclusion: algorithms and lifting
+   - [Interview Question](https://canvas.stanford.edu/files/9395956/download?download_frd=1)
+   - [Interview Solution](https://canvas.stanford.edu/files/9395957/download?download_frd=1)
 ### Week 9
  - EX4 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 18
