@@ -96,7 +96,7 @@ Solution](https://canvas.stanford.edu/files/9028202/download?download_frd=1).
 ### Week 9
  - EX4 due Tuesday at 4:30 P.M. P.S.T.
  - Lecture 18
-   - Regex
+   - [Notes](https://canvas.stanford.edu/files/9448760/download?download_frd=1): Regular Expressions
  - Lecture 19
    - Cancelled
  - HW4 due Friday at 4:30 P.M. P.S.T.
