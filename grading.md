@@ -26,7 +26,7 @@ we will map categories to scalar values, e.g.
 
 `{"++" : 1.05, "+" : 1", "ok" : 0.85, "-" : 0.75, "--" : 0.6}`.
 
-E.g. your feedback from an assignment might be something like, `"Functionality" : "+", "code-quality" : "ok", "documentation" : "-"}` then if you were really eager to squash this multidimensional, rich feedback into a single scalar value you could compute `0.65 * 1.0 + 0.25 * 0.85 + 0.10 * 0.75 = 0.9375`.
+E.g. your feedback from an assignment might be something like, `"Functionality" : "+", "code-quality" : "ok", "documentation" : "-"}` then if you were really eager to squash this multidimensional, rich feedback into a single scalar value you could compute `0.65 * 1.0 + 0.30 * 0.85 + 0.05 * 0.75 = 0.9425`.
 
 ### Functionality
 
